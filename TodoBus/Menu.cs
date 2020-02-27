@@ -16,5 +16,28 @@ namespace TodoBus
         {
             InitializeComponent();
         }
+
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+            if (Options.Width == 50)
+            {
+                Options.Visible = false;
+                Options.Width = 215;
+                PanelTransition.ShowSync(Options);
+                LogoTransition.ShowSync(logo);
+            }
+            else
+            {
+                LogoTransition.Hide(logo);
+                Options.Visible = false;
+                Options.Width = 50;
+                PanelTransition.ShowSync(Options);
+            }
+        }
     }
 }
