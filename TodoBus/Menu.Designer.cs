@@ -29,18 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation4 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation3 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.header = new System.Windows.Forms.Panel();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.Options = new System.Windows.Forms.Panel();
-            this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnUserConfig = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnUsers = new Bunifu.Framework.UI.BunifuFlatButton();
             this.logo = new System.Windows.Forms.PictureBox();
-            this.btn6 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnSpareTypes = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnBrands = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnClients = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnSpare = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -50,8 +49,10 @@
             this.lblProyectName = new System.Windows.Forms.Label();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.PanelTransition = new BunifuAnimatorNS.BunifuTransition(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.body = new System.Windows.Forms.Panel();
             this.LogoTransition = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.btnAssociateSpare = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnLogOut = new Bunifu.Framework.UI.BunifuFlatButton();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             this.Options.SuspendLayout();
@@ -95,11 +96,12 @@
             // Options
             // 
             this.Options.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.Options.Controls.Add(this.bunifuFlatButton3);
-            this.Options.Controls.Add(this.bunifuFlatButton2);
-            this.Options.Controls.Add(this.bunifuFlatButton1);
+            this.Options.Controls.Add(this.btnLogOut);
+            this.Options.Controls.Add(this.btnAssociateSpare);
+            this.Options.Controls.Add(this.btnUserConfig);
+            this.Options.Controls.Add(this.btnUsers);
             this.Options.Controls.Add(this.logo);
-            this.Options.Controls.Add(this.btn6);
+            this.Options.Controls.Add(this.btnSpareTypes);
             this.Options.Controls.Add(this.btnBrands);
             this.Options.Controls.Add(this.btnClients);
             this.Options.Controls.Add(this.btnSpare);
@@ -116,113 +118,77 @@
             this.Options.Size = new System.Drawing.Size(200, 646);
             this.Options.TabIndex = 1;
             // 
-            // bunifuFlatButton3
+            // btnUserConfig
             // 
-            this.bunifuFlatButton3.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuFlatButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.bunifuFlatButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton3.BorderRadius = 0;
-            this.bunifuFlatButton3.ButtonText = "   Cerrar sesión";
-            this.bunifuFlatButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LogoTransition.SetDecoration(this.bunifuFlatButton3, BunifuAnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.bunifuFlatButton3, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuFlatButton3.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton3.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton3.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton3.Iconimage")));
-            this.bunifuFlatButton3.Iconimage_right = null;
-            this.bunifuFlatButton3.Iconimage_right_Selected = null;
-            this.bunifuFlatButton3.Iconimage_Selected = null;
-            this.bunifuFlatButton3.IconMarginLeft = 0;
-            this.bunifuFlatButton3.IconMarginRight = 0;
-            this.bunifuFlatButton3.IconRightVisible = true;
-            this.bunifuFlatButton3.IconRightZoom = 0D;
-            this.bunifuFlatButton3.IconVisible = true;
-            this.bunifuFlatButton3.IconZoom = 60D;
-            this.bunifuFlatButton3.IsTab = false;
-            this.bunifuFlatButton3.Location = new System.Drawing.Point(3, 537);
-            this.bunifuFlatButton3.Name = "bunifuFlatButton3";
-            this.bunifuFlatButton3.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.bunifuFlatButton3.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.bunifuFlatButton3.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButton3.selected = false;
-            this.bunifuFlatButton3.Size = new System.Drawing.Size(198, 48);
-            this.bunifuFlatButton3.TabIndex = 11;
-            this.bunifuFlatButton3.Text = "   Cerrar sesión";
-            this.bunifuFlatButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton3.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButton3.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUserConfig.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnUserConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnUserConfig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnUserConfig.BorderRadius = 0;
+            this.btnUserConfig.ButtonText = "   Configuración";
+            this.btnUserConfig.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LogoTransition.SetDecoration(this.btnUserConfig, BunifuAnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.btnUserConfig, BunifuAnimatorNS.DecorationType.None);
+            this.btnUserConfig.DisabledColor = System.Drawing.Color.Gray;
+            this.btnUserConfig.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnUserConfig.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnUserConfig.Iconimage")));
+            this.btnUserConfig.Iconimage_right = null;
+            this.btnUserConfig.Iconimage_right_Selected = null;
+            this.btnUserConfig.Iconimage_Selected = null;
+            this.btnUserConfig.IconMarginLeft = 0;
+            this.btnUserConfig.IconMarginRight = 0;
+            this.btnUserConfig.IconRightVisible = true;
+            this.btnUserConfig.IconRightZoom = 0D;
+            this.btnUserConfig.IconVisible = true;
+            this.btnUserConfig.IconZoom = 60D;
+            this.btnUserConfig.IsTab = false;
+            this.btnUserConfig.Location = new System.Drawing.Point(3, 454);
+            this.btnUserConfig.Name = "btnUserConfig";
+            this.btnUserConfig.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnUserConfig.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnUserConfig.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnUserConfig.selected = false;
+            this.btnUserConfig.Size = new System.Drawing.Size(198, 48);
+            this.btnUserConfig.TabIndex = 10;
+            this.btnUserConfig.Text = "   Configuración";
+            this.btnUserConfig.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUserConfig.Textcolor = System.Drawing.Color.White;
+            this.btnUserConfig.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
-            // bunifuFlatButton2
+            // btnUsers
             // 
-            this.bunifuFlatButton2.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuFlatButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.bunifuFlatButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton2.BorderRadius = 0;
-            this.bunifuFlatButton2.ButtonText = "   Configuración";
-            this.bunifuFlatButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LogoTransition.SetDecoration(this.bunifuFlatButton2, BunifuAnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.bunifuFlatButton2, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuFlatButton2.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton2.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton2.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton2.Iconimage")));
-            this.bunifuFlatButton2.Iconimage_right = null;
-            this.bunifuFlatButton2.Iconimage_right_Selected = null;
-            this.bunifuFlatButton2.Iconimage_Selected = null;
-            this.bunifuFlatButton2.IconMarginLeft = 0;
-            this.bunifuFlatButton2.IconMarginRight = 0;
-            this.bunifuFlatButton2.IconRightVisible = true;
-            this.bunifuFlatButton2.IconRightZoom = 0D;
-            this.bunifuFlatButton2.IconVisible = true;
-            this.bunifuFlatButton2.IconZoom = 60D;
-            this.bunifuFlatButton2.IsTab = false;
-            this.bunifuFlatButton2.Location = new System.Drawing.Point(3, 487);
-            this.bunifuFlatButton2.Name = "bunifuFlatButton2";
-            this.bunifuFlatButton2.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.bunifuFlatButton2.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.bunifuFlatButton2.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButton2.selected = false;
-            this.bunifuFlatButton2.Size = new System.Drawing.Size(198, 48);
-            this.bunifuFlatButton2.TabIndex = 10;
-            this.bunifuFlatButton2.Text = "   Configuración";
-            this.bunifuFlatButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton2.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButton2.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // bunifuFlatButton1
-            // 
-            this.bunifuFlatButton1.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuFlatButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton1.BorderRadius = 0;
-            this.bunifuFlatButton1.ButtonText = "   Usuarios";
-            this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LogoTransition.SetDecoration(this.bunifuFlatButton1, BunifuAnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.bunifuFlatButton1, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton1.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton1.Iconimage")));
-            this.bunifuFlatButton1.Iconimage_right = null;
-            this.bunifuFlatButton1.Iconimage_right_Selected = null;
-            this.bunifuFlatButton1.Iconimage_Selected = null;
-            this.bunifuFlatButton1.IconMarginLeft = 0;
-            this.bunifuFlatButton1.IconMarginRight = 0;
-            this.bunifuFlatButton1.IconRightVisible = true;
-            this.bunifuFlatButton1.IconRightZoom = 0D;
-            this.bunifuFlatButton1.IconVisible = true;
-            this.bunifuFlatButton1.IconZoom = 60D;
-            this.bunifuFlatButton1.IsTab = false;
-            this.bunifuFlatButton1.Location = new System.Drawing.Point(1, 433);
-            this.bunifuFlatButton1.Name = "bunifuFlatButton1";
-            this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButton1.selected = false;
-            this.bunifuFlatButton1.Size = new System.Drawing.Size(199, 48);
-            this.bunifuFlatButton1.TabIndex = 9;
-            this.bunifuFlatButton1.Text = "   Usuarios";
-            this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton1.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsers.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnUsers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnUsers.BorderRadius = 0;
+            this.btnUsers.ButtonText = "   Usuarios";
+            this.btnUsers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LogoTransition.SetDecoration(this.btnUsers, BunifuAnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.btnUsers, BunifuAnimatorNS.DecorationType.None);
+            this.btnUsers.DisabledColor = System.Drawing.Color.Gray;
+            this.btnUsers.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnUsers.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnUsers.Iconimage")));
+            this.btnUsers.Iconimage_right = null;
+            this.btnUsers.Iconimage_right_Selected = null;
+            this.btnUsers.Iconimage_Selected = null;
+            this.btnUsers.IconMarginLeft = 0;
+            this.btnUsers.IconMarginRight = 0;
+            this.btnUsers.IconRightVisible = true;
+            this.btnUsers.IconRightZoom = 0D;
+            this.btnUsers.IconVisible = true;
+            this.btnUsers.IconZoom = 60D;
+            this.btnUsers.IsTab = false;
+            this.btnUsers.Location = new System.Drawing.Point(1, 400);
+            this.btnUsers.Name = "btnUsers";
+            this.btnUsers.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnUsers.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnUsers.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnUsers.selected = false;
+            this.btnUsers.Size = new System.Drawing.Size(199, 48);
+            this.btnUsers.TabIndex = 9;
+            this.btnUsers.Text = "   Usuarios";
+            this.btnUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsers.Textcolor = System.Drawing.Color.White;
+            this.btnUsers.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // logo
             // 
@@ -236,41 +202,41 @@
             this.logo.TabIndex = 8;
             this.logo.TabStop = false;
             // 
-            // btn6
+            // btnSpareTypes
             // 
-            this.btn6.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btn6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn6.BorderRadius = 0;
-            this.btn6.ButtonText = "   Tipos de repuesto";
-            this.btn6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LogoTransition.SetDecoration(this.btn6, BunifuAnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.btn6, BunifuAnimatorNS.DecorationType.None);
-            this.btn6.DisabledColor = System.Drawing.Color.Gray;
-            this.btn6.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn6.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn6.Iconimage")));
-            this.btn6.Iconimage_right = null;
-            this.btn6.Iconimage_right_Selected = null;
-            this.btn6.Iconimage_Selected = null;
-            this.btn6.IconMarginLeft = 0;
-            this.btn6.IconMarginRight = 0;
-            this.btn6.IconRightVisible = true;
-            this.btn6.IconRightZoom = 0D;
-            this.btn6.IconVisible = true;
-            this.btn6.IconZoom = 60D;
-            this.btn6.IsTab = false;
-            this.btn6.Location = new System.Drawing.Point(1, 380);
-            this.btn6.Name = "btn6";
-            this.btn6.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btn6.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btn6.OnHoverTextColor = System.Drawing.Color.White;
-            this.btn6.selected = false;
-            this.btn6.Size = new System.Drawing.Size(199, 48);
-            this.btn6.TabIndex = 7;
-            this.btn6.Text = "   Tipos de repuesto";
-            this.btn6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn6.Textcolor = System.Drawing.Color.White;
-            this.btn6.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSpareTypes.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnSpareTypes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnSpareTypes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSpareTypes.BorderRadius = 0;
+            this.btnSpareTypes.ButtonText = "   Tipos de repuesto";
+            this.btnSpareTypes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LogoTransition.SetDecoration(this.btnSpareTypes, BunifuAnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.btnSpareTypes, BunifuAnimatorNS.DecorationType.None);
+            this.btnSpareTypes.DisabledColor = System.Drawing.Color.Gray;
+            this.btnSpareTypes.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnSpareTypes.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnSpareTypes.Iconimage")));
+            this.btnSpareTypes.Iconimage_right = null;
+            this.btnSpareTypes.Iconimage_right_Selected = null;
+            this.btnSpareTypes.Iconimage_Selected = null;
+            this.btnSpareTypes.IconMarginLeft = 0;
+            this.btnSpareTypes.IconMarginRight = 0;
+            this.btnSpareTypes.IconRightVisible = true;
+            this.btnSpareTypes.IconRightZoom = 0D;
+            this.btnSpareTypes.IconVisible = true;
+            this.btnSpareTypes.IconZoom = 60D;
+            this.btnSpareTypes.IsTab = false;
+            this.btnSpareTypes.Location = new System.Drawing.Point(1, 347);
+            this.btnSpareTypes.Name = "btnSpareTypes";
+            this.btnSpareTypes.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnSpareTypes.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnSpareTypes.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnSpareTypes.selected = false;
+            this.btnSpareTypes.Size = new System.Drawing.Size(199, 48);
+            this.btnSpareTypes.TabIndex = 7;
+            this.btnSpareTypes.Text = "   Tipos de repuesto";
+            this.btnSpareTypes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSpareTypes.Textcolor = System.Drawing.Color.White;
+            this.btnSpareTypes.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // btnBrands
             // 
@@ -295,7 +261,7 @@
             this.btnBrands.IconVisible = true;
             this.btnBrands.IconZoom = 60D;
             this.btnBrands.IsTab = false;
-            this.btnBrands.Location = new System.Drawing.Point(1, 333);
+            this.btnBrands.Location = new System.Drawing.Point(1, 300);
             this.btnBrands.Name = "btnBrands";
             this.btnBrands.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnBrands.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -331,7 +297,7 @@
             this.btnClients.IconVisible = true;
             this.btnClients.IconZoom = 60D;
             this.btnClients.IsTab = false;
-            this.btnClients.Location = new System.Drawing.Point(1, 239);
+            this.btnClients.Location = new System.Drawing.Point(1, 206);
             this.btnClients.Name = "btnClients";
             this.btnClients.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnClients.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -367,7 +333,7 @@
             this.btnSpare.IconVisible = true;
             this.btnSpare.IconZoom = 60D;
             this.btnSpare.IsTab = false;
-            this.btnSpare.Location = new System.Drawing.Point(1, 286);
+            this.btnSpare.Location = new System.Drawing.Point(1, 253);
             this.btnSpare.Name = "btnSpare";
             this.btnSpare.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnSpare.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -403,7 +369,7 @@
             this.btnUnits.IconVisible = true;
             this.btnUnits.IconZoom = 60D;
             this.btnUnits.IsTab = false;
-            this.btnUnits.Location = new System.Drawing.Point(1, 192);
+            this.btnUnits.Location = new System.Drawing.Point(1, 159);
             this.btnUnits.Name = "btnUnits";
             this.btnUnits.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnUnits.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -439,7 +405,7 @@
             this.btnHome.IconVisible = true;
             this.btnHome.IconZoom = 60D;
             this.btnHome.IsTab = false;
-            this.btnHome.Location = new System.Drawing.Point(1, 145);
+            this.btnHome.Location = new System.Drawing.Point(1, 112);
             this.btnHome.Name = "btnHome";
             this.btnHome.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnHome.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -460,7 +426,7 @@
             this.PanelTransition.SetDecoration(this.btnMenu, BunifuAnimatorNS.DecorationType.None);
             this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
             this.btnMenu.ImageActive = null;
-            this.btnMenu.Location = new System.Drawing.Point(154, 32);
+            this.btnMenu.Location = new System.Drawing.Point(155, 32);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(40, 35);
             this.btnMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -493,62 +459,134 @@
             // 
             this.PanelTransition.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
             this.PanelTransition.Cursor = null;
-            animation4.AnimateOnlyDifferences = true;
-            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
-            animation4.LeafCoeff = 0F;
-            animation4.MaxTime = 1F;
-            animation4.MinTime = 0F;
-            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
-            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
-            animation4.MosaicSize = 1;
-            animation4.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
-            animation4.RotateCoeff = 0F;
-            animation4.RotateLimit = 0F;
-            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
-            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
-            animation4.TimeCoeff = 2F;
-            animation4.TransparencyCoeff = 0F;
-            this.PanelTransition.DefaultAnimation = animation4;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 1;
+            animation2.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 2F;
+            animation2.TransparencyCoeff = 0F;
+            this.PanelTransition.DefaultAnimation = animation2;
             // 
-            // panel1
+            // body
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.LogoTransition.SetDecoration(this.panel1, BunifuAnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.panel1, BunifuAnimatorNS.DecorationType.None);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(200, 34);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(932, 646);
-            this.panel1.TabIndex = 2;
+            this.body.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.LogoTransition.SetDecoration(this.body, BunifuAnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.body, BunifuAnimatorNS.DecorationType.None);
+            this.body.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.body.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.body.Location = new System.Drawing.Point(200, 34);
+            this.body.Name = "body";
+            this.body.Size = new System.Drawing.Size(932, 646);
+            this.body.TabIndex = 2;
             // 
             // LogoTransition
             // 
             this.LogoTransition.AnimationType = BunifuAnimatorNS.AnimationType.ScaleAndRotate;
             this.LogoTransition.Cursor = null;
-            animation3.AnimateOnlyDifferences = true;
-            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
-            animation3.LeafCoeff = 0F;
-            animation3.MaxTime = 1F;
-            animation3.MinTime = 0F;
-            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
-            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
-            animation3.MosaicSize = 0;
-            animation3.Padding = new System.Windows.Forms.Padding(30);
-            animation3.RotateCoeff = 0.5F;
-            animation3.RotateLimit = 0.2F;
-            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
-            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
-            animation3.TimeCoeff = 0F;
-            animation3.TransparencyCoeff = 0F;
-            this.LogoTransition.DefaultAnimation = animation3;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 0;
+            animation1.Padding = new System.Windows.Forms.Padding(30);
+            animation1.RotateCoeff = 0.5F;
+            animation1.RotateLimit = 0.2F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 0F;
+            this.LogoTransition.DefaultAnimation = animation1;
+            // 
+            // btnAssociateSpare
+            // 
+            this.btnAssociateSpare.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnAssociateSpare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnAssociateSpare.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAssociateSpare.BorderRadius = 0;
+            this.btnAssociateSpare.ButtonText = "   Asociar Repuesto";
+            this.btnAssociateSpare.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LogoTransition.SetDecoration(this.btnAssociateSpare, BunifuAnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.btnAssociateSpare, BunifuAnimatorNS.DecorationType.None);
+            this.btnAssociateSpare.DisabledColor = System.Drawing.Color.Gray;
+            this.btnAssociateSpare.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnAssociateSpare.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnAssociateSpare.Iconimage")));
+            this.btnAssociateSpare.Iconimage_right = null;
+            this.btnAssociateSpare.Iconimage_right_Selected = null;
+            this.btnAssociateSpare.Iconimage_Selected = null;
+            this.btnAssociateSpare.IconMarginLeft = 0;
+            this.btnAssociateSpare.IconMarginRight = 0;
+            this.btnAssociateSpare.IconRightVisible = true;
+            this.btnAssociateSpare.IconRightZoom = 0D;
+            this.btnAssociateSpare.IconVisible = true;
+            this.btnAssociateSpare.IconZoom = 60D;
+            this.btnAssociateSpare.IsTab = false;
+            this.btnAssociateSpare.Location = new System.Drawing.Point(3, 506);
+            this.btnAssociateSpare.Name = "btnAssociateSpare";
+            this.btnAssociateSpare.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnAssociateSpare.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnAssociateSpare.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnAssociateSpare.selected = false;
+            this.btnAssociateSpare.Size = new System.Drawing.Size(194, 48);
+            this.btnAssociateSpare.TabIndex = 12;
+            this.btnAssociateSpare.Text = "   Asociar Repuesto";
+            this.btnAssociateSpare.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAssociateSpare.Textcolor = System.Drawing.Color.White;
+            this.btnAssociateSpare.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnLogOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLogOut.BorderRadius = 0;
+            this.btnLogOut.ButtonText = "   Cerrar Sesión";
+            this.btnLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LogoTransition.SetDecoration(this.btnLogOut, BunifuAnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.btnLogOut, BunifuAnimatorNS.DecorationType.None);
+            this.btnLogOut.DisabledColor = System.Drawing.Color.Gray;
+            this.btnLogOut.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnLogOut.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnLogOut.Iconimage")));
+            this.btnLogOut.Iconimage_right = null;
+            this.btnLogOut.Iconimage_right_Selected = null;
+            this.btnLogOut.Iconimage_Selected = null;
+            this.btnLogOut.IconMarginLeft = 0;
+            this.btnLogOut.IconMarginRight = 0;
+            this.btnLogOut.IconRightVisible = true;
+            this.btnLogOut.IconRightZoom = 0D;
+            this.btnLogOut.IconVisible = true;
+            this.btnLogOut.IconZoom = 60D;
+            this.btnLogOut.IsTab = false;
+            this.btnLogOut.Location = new System.Drawing.Point(3, 553);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnLogOut.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnLogOut.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnLogOut.selected = false;
+            this.btnLogOut.Size = new System.Drawing.Size(194, 48);
+            this.btnLogOut.TabIndex = 13;
+            this.btnLogOut.Text = "   Cerrar Sesión";
+            this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.Textcolor = System.Drawing.Color.White;
+            this.btnLogOut.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1132, 680);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.body);
             this.Controls.Add(this.Options);
             this.Controls.Add(this.header);
             this.PanelTransition.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
@@ -574,7 +612,7 @@
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
         private System.Windows.Forms.Label lblProyectName;
-        private Bunifu.Framework.UI.BunifuFlatButton btn6;
+        private Bunifu.Framework.UI.BunifuFlatButton btnSpareTypes;
         private Bunifu.Framework.UI.BunifuFlatButton btnBrands;
         private Bunifu.Framework.UI.BunifuFlatButton btnClients;
         private Bunifu.Framework.UI.BunifuFlatButton btnSpare;
@@ -584,10 +622,11 @@
         private BunifuAnimatorNS.BunifuTransition LogoTransition;
         private BunifuAnimatorNS.BunifuTransition PanelTransition;
         private System.Windows.Forms.PictureBox logo;
-        private System.Windows.Forms.Panel panel1;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
+        private System.Windows.Forms.Panel body;
+        private Bunifu.Framework.UI.BunifuFlatButton btnUsers;
+        private Bunifu.Framework.UI.BunifuFlatButton btnUserConfig;
+        private Bunifu.Framework.UI.BunifuFlatButton btnLogOut;
+        private Bunifu.Framework.UI.BunifuFlatButton btnAssociateSpare;
     }
 }
 
