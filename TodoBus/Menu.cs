@@ -39,5 +39,12 @@ namespace TodoBus
                 PanelTransition.ShowSync(Options);
             }
         }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login frmLogin = new Login();
+            frmLogin.Show();
+        }
     }
 }
