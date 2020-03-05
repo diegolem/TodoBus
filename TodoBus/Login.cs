@@ -33,5 +33,12 @@ namespace TodoBus
         {
 
         }
+
+        private void ReContra_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            ReestablecerContra contra = new ReestablecerContra();
+            contra.Show();
+        }
     }
 }

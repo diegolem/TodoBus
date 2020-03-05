@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
+            System.Windows.Forms.LinkLabel ReContra;
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.header = new System.Windows.Forms.Panel();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
@@ -43,6 +44,7 @@
             this.txtEmail = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.logo = new System.Windows.Forms.PictureBox();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            ReContra = new System.Windows.Forms.LinkLabel();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             this.Body.SuspendLayout();
@@ -106,6 +108,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(55)))));
+            this.panel1.Controls.Add(ReContra);
             this.panel1.Controls.Add(this.bunifuCustomLabel1);
             this.panel1.Controls.Add(this.btnLogIn);
             this.panel1.Controls.Add(this.label2);
@@ -189,7 +192,7 @@
             this.txtPassword.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.txtPassword.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.txtPassword.LineThickness = 3;
-            this.txtPassword.Location = new System.Drawing.Point(44, 153);
+            this.txtPassword.Location = new System.Drawing.Point(44, 144);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(293, 33);
@@ -233,6 +236,19 @@
             this.bunifuDragControl1.Horizontal = true;
             this.bunifuDragControl1.TargetControl = this.header;
             this.bunifuDragControl1.Vertical = true;
+            // 
+            // ReContra
+            // 
+            ReContra.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            ReContra.AutoSize = true;
+            ReContra.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(197)))));
+            ReContra.Location = new System.Drawing.Point(41, 181);
+            ReContra.Name = "ReContra";
+            ReContra.Size = new System.Drawing.Size(127, 13);
+            ReContra.TabIndex = 31;
+            ReContra.TabStop = true;
+            ReContra.Text = "Reestableer contraseña";
+            ReContra.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ReContra_LinkClicked);
             // 
             // Login
             // 
