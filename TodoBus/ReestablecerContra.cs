@@ -23,5 +23,10 @@ namespace TodoBus
             Login frmlogin = new Login();
             frmlogin.Show();
         }
+
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
