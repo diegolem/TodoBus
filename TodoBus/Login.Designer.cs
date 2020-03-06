@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             System.Windows.Forms.LinkLabel ReContra;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.header = new System.Windows.Forms.Panel();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
@@ -52,6 +52,19 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
+            // 
+            // ReContra
+            // 
+            ReContra.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            ReContra.AutoSize = true;
+            ReContra.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(197)))));
+            ReContra.Location = new System.Drawing.Point(41, 181);
+            ReContra.Name = "ReContra";
+            ReContra.Size = new System.Drawing.Size(127, 13);
+            ReContra.TabIndex = 31;
+            ReContra.TabStop = true;
+            ReContra.Text = "Reestableer contraseña";
+            ReContra.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ReContra_LinkClicked);
             // 
             // bunifuElipse1
             // 
@@ -236,19 +249,6 @@
             this.bunifuDragControl1.Horizontal = true;
             this.bunifuDragControl1.TargetControl = this.header;
             this.bunifuDragControl1.Vertical = true;
-            // 
-            // ReContra
-            // 
-            ReContra.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
-            ReContra.AutoSize = true;
-            ReContra.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(197)))));
-            ReContra.Location = new System.Drawing.Point(41, 181);
-            ReContra.Name = "ReContra";
-            ReContra.Size = new System.Drawing.Size(127, 13);
-            ReContra.TabIndex = 31;
-            ReContra.TabStop = true;
-            ReContra.Text = "Reestableer contraseña";
-            ReContra.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ReContra_LinkClicked);
             // 
             // Login
             // 

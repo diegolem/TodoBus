@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes.Designer.cs">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,15 @@
     <Compile Include="ReestablecerContra.Designer.cs">
       <DependentUpon>ReestablecerContra.cs</DependentUpon>
     </Compile>
+    <Compile Include="RegCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegCliente.Designer.cs">
+      <DependentUpon>RegCliente.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Clientes.resx">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -89,6 +104,9 @@
     </Compile>
     <EmbeddedResource Include="ReestablecerContra.resx">
       <DependentUpon>ReestablecerContra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegCliente.resx">
+      <DependentUpon>RegCliente.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
