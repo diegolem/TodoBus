@@ -60,10 +60,10 @@
             ReContra.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(197)))));
             ReContra.Location = new System.Drawing.Point(41, 181);
             ReContra.Name = "ReContra";
-            ReContra.Size = new System.Drawing.Size(127, 13);
+            ReContra.Size = new System.Drawing.Size(132, 13);
             ReContra.TabIndex = 31;
             ReContra.TabStop = true;
-            ReContra.Text = "Reestableer contraseña";
+            ReContra.Text = "Reestablecer contraseña";
             ReContra.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ReContra_LinkClicked);
             // 
             // bunifuElipse1

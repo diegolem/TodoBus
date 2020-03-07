@@ -1,83 +1,220 @@
 --BDD para el proyecto de Analisis y Dise�o de Sistemas
+use master;
+DROP DATABASE IF EXISTS TodoBus;
 CREATE DATABASE TodoBus;
-
 use TodoBus;
 
-CREATE TABLE Users(
-	UserId int NOT NULL,
-	FirstName varchar(50) NOT NULL,
-	LastName varchar(50) NOT NULL,
-	Email varchar(50) NOT NULL,
-	Age int,
-	Password varchar(max),
-	PRIMARY KEY(UserId)
+DROP TABLE IF EXISTS users;
+CREATE TABLE users(
+	id int NOT NULL IDENTITY,
+	name varchar(50) NOT NULL,
+	last_name varchar(50) NOT NULL,
+	email varchar(50) NOT NULL UNIQUE,
+	age int CHECK(age IN(15, 100)),
+	password varchar(50),
+	PRIMARY KEY(id)
 );
 
-CREATE TABLE Clients(
-	ClientId int NOT NULL,
-	ClientName varchar(50) NOT NULL,
-	ContactName varchar(50) NOT NULL,
-	Phone varchar(50) NOT NULL,
-	AlternativePhone varchar(50),
-	Adress varchar(255),
-	Email varchar(50) NOT NULL,
-	AlternativeEmail varchar(50),
-	UnitsTotal int NOT NULL,
-	UserId int NOT NULL,
-	PRIMARY KEY(ClientId),
-	FOREIGN KEY(UserId) REFERENCES Users(UserId)
+DROP TABLE IF EXISTS clients;
+CREATE TABLE clients(
+	id int NOT NULL identity,
+	client_name varchar(50) NOT NULL,
+	contact_name varchar(50) NOT NULL,
+	phone varchar(15) NOT NULL,
+	alternative_phone varchar(15),
+	client_type TINYINT NULL DEFAULT 0,
+	address varchar(255) NULL,
+	email varchar(50) NOT NULL,
+	alternative_email varchar(50),
+	units_total int NOT NULL,
+	user_id int NOT NULL,
+	PRIMARY KEY(id),
+	FOREIGN KEY(user_id) REFERENCES users(id)
 );
 
-CREATE TABLE Brands(
-	BrandId int NOT NULL,
-	Name varchar(50) NOT NULL,
-	Description varchar(max),
+DROP TABLE IF EXISTS brands;
+CREATE TABLE brands(
+	id int NOT NULL identity,
+	name varchar(50) NOT NULL UNIQUE,
+	description varchar(100) NULL,
 
-	PRIMARY KEY(BrandId)
+	PRIMARY KEY(id)
 );
 
-CREATE TABLE SpareTypes(
-	SparePartsTypesID int NOT NULL,
-	Name varchar(150) NOT NULL,
-	Code varchar(25) NOT NULL,
-	Description varchar(255),
+DROP TABLE IF EXISTS spare_categories;
+CREATE TABLE spare_categories(
+	id int NOT NULL IDENTITY,
+	code varchar(25) NOT NULL UNIQUE,
+	name varchar(150) NOT NULL
 
-	PRIMARY KEY(SparePartsTypesID)
+	PRIMARY KEY(id)
 );
 
+INSERT INTO spare_categories VALUES('10', 'ARTÍCULOS VARIOS');
+INSERT INTO spare_categories VALUES('11', 'ARTÍCULOS Y SERVICIOS NO INGRESADOS');
+INSERT INTO spare_categories VALUES('12', 'PARTES DE CARROCERÍA');
+INSERT INTO spare_categories VALUES('13', 'PARTES PARA AIRE ACONDICIONADO');
+INSERT INTO spare_categories VALUES('14', 'PARTES DE REPUESTO CHASIS');
+INSERT INTO spare_categories VALUES('BR', 'REPUESTOS PARA UNIDADES BRASILEÑAS');
+INSERT INTO spare_categories VALUES('RX', 'REPUESTOS CON VARIAS UTILIDADES');
+INSERT INTO spare_categories VALUES('IR', 'INVERSIÓN RETORNABLE INMEDIATA');
 
-CREATE TABLE Spare(
-	SparePartsId varchar(50) NOT NULL,
-	Name varchar(255) NOT NULL,
-	SpareImage varchar(255) NOT NULL,
-	SpareTypeId int NOT NULL,
+DROP TABLE IF EXISTS spare_subcategories;
+CREATE TABLE spare_subcategories(
+	id int NOT NULL IDENTITY,
+	code varchar(20) NOT NULL,
+	name varchar(100) NOT NULL,
+	category_id varchar(25) NOT NULL,
 
-	PRIMARY KEY(SparePartsId),
-	FOREIGN KEY(SpareTypeId) REFERENCES SpareTypes(SparePartsTypesID),
+	PRIMARY KEY(id),
+	FOREIGN KEY(category_id) REFERENCES spare_categories(code)
 );
 
-CREATE TABLE Units(
-	UnitId int NOT NULL,
-	BrandId int NOT NULL,
-	ClientId int NOT NULL,
-	UnitsDescription varchar(255),
-	MeasureDescription varchar(255),
-	Total int NOT NULL,
-	PRIMARY KEY(UnitId),
-	FOREIGN KEY (BrandId) REFERENCES Brands(BrandId),
-	FOREIGN KEY (ClientId) REFERENCES Clients(ClientId)
+--Para Articulos varios
+INSERT INTO spare_subcategories VALUES('1', 'HERRAMIENTAS', '10');
+INSERT INTO spare_subcategories VALUES('2', 'MATERIALES', '10');
+--Para partes de carroceria
+INSERT INTO spare_subcategories VALUES('0', 'LIQUIDACION', '12');
+INSERT INTO spare_subcategories VALUES('1', 'CARROCERIA EXTERNA', '12');
+INSERT INTO spare_subcategories VALUES('2', 'CARROCERIA INTERNA', '12');
+INSERT INTO spare_subcategories VALUES('3', 'SISTEMAS DE FUNCIONAMIENTO', '12');
+INSERT INTO spare_subcategories VALUES('4', 'VIDRIOS', '12');
+INSERT INTO spare_subcategories VALUES('5', 'ACABAMIENTOS', '12');
+--Para aire acondicionado
+INSERT INTO spare_subcategories VALUES('1', 'VALVULAS', '13');
+INSERT INTO spare_subcategories VALUES('2', 'FILTROS', '13');
+INSERT INTO spare_subcategories VALUES('3', 'COMPRESORES', '13');
+INSERT INTO spare_subcategories VALUES('4', 'KIT REPAROS', '13');
+INSERT INTO spare_subcategories VALUES('5', 'VENTILADORES', '13');
+INSERT INTO spare_subcategories VALUES('6', 'VARIOS', '13');
+--Para partes de repuesto chasis
+INSERT INTO spare_subcategories VALUES('1', 'CHASIS', '14');
+INSERT INTO spare_subcategories VALUES('2', 'MOTOR', '14');
+INSERT INTO spare_subcategories VALUES('3', 'CAJA VELOCIDADES', '14');
+INSERT INTO spare_subcategories VALUES('4', 'TRANSMISIÓN', '14');
+--Para repuestos para unidades brasileñas
+INSERT INTO spare_subcategories VALUES('10', 'ARTICULOS AIRE ACONDICIONADO', 'BR');
+INSERT INTO spare_subcategories VALUES('11', 'DELANTERO EXTERIOR', 'BR');
+INSERT INTO spare_subcategories VALUES('12', 'TRASERO EXTERIOR', 'BR');
+INSERT INTO spare_subcategories VALUES('13', 'LATERAL EXTERIOR', 'BR');
+INSERT INTO spare_subcategories VALUES('14', 'SUPERIOR - TECHO', 'BR');
+INSERT INTO spare_subcategories VALUES('21', 'CABINA INTERIOR', 'BR');
+INSERT INTO spare_subcategories VALUES('22', 'SALON INTERIOR', 'BR');
+INSERT INTO spare_subcategories VALUES('23', 'OTROS COMPONENTES', 'BR');
+INSERT INTO spare_subcategories VALUES('31', 'ELÉCTRICO', 'BR');
+INSERT INTO spare_subcategories VALUES('32', 'NEUMÁTICO', 'BR');
+INSERT INTO spare_subcategories VALUES('33', 'MECÁNICO', 'BR');
+INSERT INTO spare_subcategories VALUES('34', 'HIDRÁULICO', 'BR');
+INSERT INTO spare_subcategories VALUES('41', 'PARABRISAS', 'BR');
+INSERT INTO spare_subcategories VALUES('42', 'VIDRIOS DE VENTANA', 'BR');
+INSERT INTO spare_subcategories VALUES('43', 'VIDRIOS DE PUERTA', 'BR');
+INSERT INTO spare_subcategories VALUES('44', 'OTROS VIDRIOS', 'BR');
+INSERT INTO spare_subcategories VALUES('45', 'ESPEJOS', 'BR');
+INSERT INTO spare_subcategories VALUES('51', 'PERFILES ALUMNIO', 'BR');
+INSERT INTO spare_subcategories VALUES('52', 'EMPAQUES', 'BR');
+INSERT INTO spare_subcategories VALUES('53', 'TELAS', 'BR');
+INSERT INTO spare_subcategories VALUES('54', 'ASIENTOS', 'BR');
+INSERT INTO spare_subcategories VALUES('55', 'SOPORTES/TOPES', 'BR');
+INSERT INTO spare_subcategories VALUES('56', 'ADHESIVOS', 'BR');
+INSERT INTO spare_subcategories VALUES('57', 'PERFILES PLÁSTICOS', 'BR');
+INSERT INTO spare_subcategories VALUES('58', 'LAMINAS', 'BR');
+
+DROP TABLE IF EXISTS spare_subclasses;
+CREATE TABLE spare_subclasses(
+	id int NOT NULL IDENTITY,
+	code varchar(20) NOT NULL,
+	name varchar(100) NOT NULL,
+	subcategory_id int NOT NULL,
+
+	PRIMARY KEY(id),
+	FOREIGN KEY(subcategory_id) REFERENCES spare_subcategories(id)
 );
 
-CREATE TABLE Units_Spare(
-	UnitsSpareId int NOT NULL,
-	UnitId int NOT NULL,
-	SpareId varchar(50) NOT NULL
+--Para HERRAMIENTAS
+INSERT INTO spare_subclasses VALUES('1', 'MANUALES', 1);
+INSERT INTO spare_subclasses VALUES('2', 'ELECTRICAS', 1);
+--Para MATERIALES
+INSERT INTO spare_subclasses VALUES('1', 'ADHESIVOS', 2);
+INSERT INTO spare_subclasses VALUES('2', 'QUIMICOS', 2);
+--Para CARROCERIA EXTERNA
+INSERT INTO spare_subclasses VALUES('1', 'FIBRA DE VIDRIO DELANTERO', 4);
+INSERT INTO spare_subclasses VALUES('2', 'FIBRA DE VIDRIO TRASERO', 4);
+INSERT INTO spare_subclasses VALUES('3', 'LATERAL', 4);
+INSERT INTO spare_subclasses VALUES('4', 'SUPERIOR - TECHO', 4);
+--Para CARROCERIA INTERNA
+INSERT INTO spare_subclasses VALUES('1', 'CABINA', 5);
+INSERT INTO spare_subclasses VALUES('2', 'SALON', 5);
+--Para SISTEMAS DE FUNCIONAMIENTO
+INSERT INTO spare_subclasses VALUES('1', 'ELÉCTRICO', 6);
+INSERT INTO spare_subclasses VALUES('2', 'NEUMÁTICO', 6);
+INSERT INTO spare_subclasses VALUES('3', 'MECÁNICO', 6);
+INSERT INTO spare_subclasses VALUES('4', 'HIDRÁULICO', 6);
+--Para VIDRIOS
+INSERT INTO spare_subclasses VALUES('1', 'PARABRISAS', 7);
+INSERT INTO spare_subclasses VALUES('2', 'VIDRIOS DE VENTANA', 7);
+INSERT INTO spare_subclasses VALUES('3', 'VIDRIOS DE PUERTA', 7);
+INSERT INTO spare_subclasses VALUES('4', 'OTROS VIDRIOS', 7);
+INSERT INTO spare_subclasses VALUES('5', 'ESPEJOS', 7);
+--Para ACABAMIENTOS
+INSERT INTO spare_subclasses VALUES('1', 'PERFILES ALUMINIO', 8);
+INSERT INTO spare_subclasses VALUES('2', 'EMPAQUES', 8);
+INSERT INTO spare_subclasses VALUES('3', 'TELAS', 8);
+INSERT INTO spare_subclasses VALUES('4', 'ASIENTOS', 8);
+INSERT INTO spare_subclasses VALUES('5', 'SOPORTES/TOPES', 8);
+INSERT INTO spare_subclasses VALUES('6', 'ADHESIVOS', 8);
+INSERT INTO spare_subclasses VALUES('7', 'PERFILES PLÁSTICOS/PVC/VYNIL/NYLON', 8);
+INSERT INTO spare_subclasses VALUES('8', 'LAMINAS', 8);
+--Para VALVULAS
+INSERT INTO spare_subclasses VALUES('1', 'EXPANSIÓN', 9);
+--Para FILTROS
+INSERT INTO spare_subclasses VALUES('1', 'SECADORES', 10);
+INSERT INTO spare_subclasses VALUES('2', 'PARA POLVO', 10);
+--Para COMPRESORES
+INSERT INTO spare_subclasses VALUES('1', 'AUTOBUS', 11);
+INSERT INTO spare_subclasses VALUES('2', 'MICROBUS', 11);
+--Para KIT REPAROS
+INSERT INTO spare_subclasses VALUES('1', 'COMPRESOR', 12);
+--Para VENTILADORES
+INSERT INTO spare_subclasses VALUES('1', 'EVAPORADOR BLOWER', 13);
+INSERT INTO spare_subclasses VALUES('2', 'CONDENSADOR', 13);
+--Para VARIOS
+INSERT INTO spare_subclasses VALUES('1', 'VISORES DE INSPECCIÓN', 14);
+--Para CHASIS
+INSERT INTO spare_subclasses VALUES('1', 'LLANTAS', 15);
 
-	PRIMARY KEY(UnitsSpareId),
-	FOREIGN KEY(UnitId) REFERENCES Units(UnitId),
-	FOREIGN KEY(SpareId) REFERENCES Spare(SparePartsId)
+DROP TABLE IF EXISTS spare;
+CREATE TABLE spare(
+	id varchar(50) NOT NULL,
+	name varchar(255) NOT NULL,
+	image varchar(255) NOT NULL,
+	code varchar(25) NOT NULL,
+	brand_id int NULL,
+	spare_type_id varchar(25) NOT NULL,
+
+	PRIMARY KEY(id),
+	FOREIGN KEY(spare_type_id) REFERENCES spare_categories(code),
+	FOREIGN KEY (brand_id) REFERENCES brands(id),
 );
 
-ALTER TABLE SpareTypes
-ADD CONSTRAINT unique_code
-UNIQUE(Code)
+DROP TABLE IF EXISTS units;
+CREATE TABLE units(
+	id int NOT NULL IDENTITY,
+	measure_description varchar(255) null,
+	total int NOT NULL CHECK(total > 0),
+	brand_id int NOT NULL,
+	client_id int NOT NULL,
+	PRIMARY KEY(id),
+	FOREIGN KEY (brand_id) REFERENCES brands(id),
+	FOREIGN KEY (client_id) REFERENCES clients(id)
+);
+
+DROP TABLE IF EXISTS units_spare;
+CREATE TABLE units_spare(
+	id int NOT NULL IDENTITY,
+	unit_id int NOT NULL,
+	spare_id varchar(50) NOT NULL
+
+	PRIMARY KEY(id),
+	FOREIGN KEY(unit_id) REFERENCES units(id),
+	FOREIGN KEY(spare_id) REFERENCES spare(id)
+);

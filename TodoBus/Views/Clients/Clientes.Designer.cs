@@ -39,6 +39,8 @@
             this.header = new System.Windows.Forms.Panel();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.Options = new System.Windows.Forms.Panel();
+            this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnLogOut = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnAssociateSpare = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnUserConfig = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -49,7 +51,6 @@
             this.btnClients = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnSpare = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnUnits = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnHome = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnMenu = new Bunifu.Framework.UI.BunifuImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.header.SuspendLayout();
@@ -80,10 +81,10 @@
             this.dgvClientes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(197)))));
             this.dgvClientes.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
             this.dgvClientes.HeaderForeColor = System.Drawing.Color.Black;
-            this.dgvClientes.Location = new System.Drawing.Point(246, 191);
+            this.dgvClientes.Location = new System.Drawing.Point(246, 227);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvClientes.Size = new System.Drawing.Size(626, 361);
+            this.dgvClientes.Size = new System.Drawing.Size(646, 452);
             this.dgvClientes.TabIndex = 0;
             // 
             // bunifuCustomLabel1
@@ -91,7 +92,7 @@
             this.bunifuCustomLabel1.AutoSize = true;
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(502, 51);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(512, 53);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(87, 30);
             this.bunifuCustomLabel1.TabIndex = 1;
@@ -119,7 +120,7 @@
             this.btnRegCliente.IconVisible = false;
             this.btnRegCliente.IconZoom = 60D;
             this.btnRegCliente.IsTab = false;
-            this.btnRegCliente.Location = new System.Drawing.Point(496, 571);
+            this.btnRegCliente.Location = new System.Drawing.Point(246, 176);
             this.btnRegCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRegCliente.Name = "btnRegCliente";
             this.btnRegCliente.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
@@ -140,7 +141,7 @@
             this.txtBuscador.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtBuscador.BackgroundImage")));
             this.txtBuscador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.txtBuscador.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.txtBuscador.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(87)))), ((int)(((byte)(85)))));
+            this.txtBuscador.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.txtBuscador.Icon = ((System.Drawing.Image)(resources.GetObject("txtBuscador.Icon")));
             this.txtBuscador.Location = new System.Drawing.Point(246, 122);
             this.txtBuscador.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -171,7 +172,7 @@
             this.bunifuFlatButton1.IconVisible = false;
             this.bunifuFlatButton1.IconZoom = 60D;
             this.bunifuFlatButton1.IsTab = false;
-            this.bunifuFlatButton1.Location = new System.Drawing.Point(783, 122);
+            this.bunifuFlatButton1.Location = new System.Drawing.Point(803, 122);
             this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bunifuFlatButton1.Name = "bunifuFlatButton1";
             this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
@@ -192,7 +193,7 @@
             this.header.Dock = System.Windows.Forms.DockStyle.Top;
             this.header.Location = new System.Drawing.Point(0, 0);
             this.header.Name = "header";
-            this.header.Size = new System.Drawing.Size(932, 32);
+            this.header.Size = new System.Drawing.Size(936, 32);
             this.header.TabIndex = 34;
             // 
             // bunifuImageButton1
@@ -211,6 +212,8 @@
             // Options
             // 
             this.Options.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
+            this.Options.Controls.Add(this.bunifuFlatButton2);
+            this.Options.Controls.Add(this.bunifuFlatButton3);
             this.Options.Controls.Add(this.btnLogOut);
             this.Options.Controls.Add(this.btnAssociateSpare);
             this.Options.Controls.Add(this.btnUserConfig);
@@ -221,14 +224,81 @@
             this.Options.Controls.Add(this.btnClients);
             this.Options.Controls.Add(this.btnSpare);
             this.Options.Controls.Add(this.btnUnits);
-            this.Options.Controls.Add(this.btnHome);
             this.Options.Controls.Add(this.btnMenu);
             this.Options.Dock = System.Windows.Forms.DockStyle.Left;
             this.Options.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Options.Location = new System.Drawing.Point(0, 32);
             this.Options.Name = "Options";
-            this.Options.Size = new System.Drawing.Size(200, 614);
+            this.Options.Size = new System.Drawing.Size(200, 688);
             this.Options.TabIndex = 35;
+            // 
+            // bunifuFlatButton2
+            // 
+            this.bunifuFlatButton2.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.bunifuFlatButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
+            this.bunifuFlatButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton2.BorderRadius = 0;
+            this.bunifuFlatButton2.ButtonText = "   Subclases";
+            this.bunifuFlatButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton2.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton2.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton2.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton2.Iconimage")));
+            this.bunifuFlatButton2.Iconimage_right = null;
+            this.bunifuFlatButton2.Iconimage_right_Selected = null;
+            this.bunifuFlatButton2.Iconimage_Selected = null;
+            this.bunifuFlatButton2.IconMarginLeft = 0;
+            this.bunifuFlatButton2.IconMarginRight = 0;
+            this.bunifuFlatButton2.IconRightVisible = true;
+            this.bunifuFlatButton2.IconRightZoom = 0D;
+            this.bunifuFlatButton2.IconVisible = true;
+            this.bunifuFlatButton2.IconZoom = 60D;
+            this.bunifuFlatButton2.IsTab = false;
+            this.bunifuFlatButton2.Location = new System.Drawing.Point(1, 411);
+            this.bunifuFlatButton2.Name = "bunifuFlatButton2";
+            this.bunifuFlatButton2.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
+            this.bunifuFlatButton2.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.bunifuFlatButton2.OnHoverTextColor = System.Drawing.Color.White;
+            this.bunifuFlatButton2.selected = false;
+            this.bunifuFlatButton2.Size = new System.Drawing.Size(199, 48);
+            this.bunifuFlatButton2.TabIndex = 8;
+            this.bunifuFlatButton2.Text = "   Subclases";
+            this.bunifuFlatButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuFlatButton2.Textcolor = System.Drawing.Color.White;
+            this.bunifuFlatButton2.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // bunifuFlatButton3
+            // 
+            this.bunifuFlatButton3.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.bunifuFlatButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
+            this.bunifuFlatButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton3.BorderRadius = 0;
+            this.bunifuFlatButton3.ButtonText = "   Subcategorías";
+            this.bunifuFlatButton3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton3.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton3.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton3.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton3.Iconimage")));
+            this.bunifuFlatButton3.Iconimage_right = null;
+            this.bunifuFlatButton3.Iconimage_right_Selected = null;
+            this.bunifuFlatButton3.Iconimage_Selected = null;
+            this.bunifuFlatButton3.IconMarginLeft = 0;
+            this.bunifuFlatButton3.IconMarginRight = 0;
+            this.bunifuFlatButton3.IconRightVisible = true;
+            this.bunifuFlatButton3.IconRightZoom = 0D;
+            this.bunifuFlatButton3.IconVisible = true;
+            this.bunifuFlatButton3.IconZoom = 60D;
+            this.bunifuFlatButton3.IsTab = false;
+            this.bunifuFlatButton3.Location = new System.Drawing.Point(1, 364);
+            this.bunifuFlatButton3.Name = "bunifuFlatButton3";
+            this.bunifuFlatButton3.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
+            this.bunifuFlatButton3.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.bunifuFlatButton3.OnHoverTextColor = System.Drawing.Color.White;
+            this.bunifuFlatButton3.selected = false;
+            this.bunifuFlatButton3.Size = new System.Drawing.Size(199, 48);
+            this.bunifuFlatButton3.TabIndex = 14;
+            this.bunifuFlatButton3.Text = "   Subcategorías";
+            this.bunifuFlatButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuFlatButton3.Textcolor = System.Drawing.Color.White;
+            this.bunifuFlatButton3.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // btnLogOut
             // 
@@ -251,13 +321,13 @@
             this.btnLogOut.IconVisible = true;
             this.btnLogOut.IconZoom = 60D;
             this.btnLogOut.IsTab = false;
-            this.btnLogOut.Location = new System.Drawing.Point(4, 539);
+            this.btnLogOut.Location = new System.Drawing.Point(1, 599);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.btnLogOut.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnLogOut.OnHoverTextColor = System.Drawing.Color.White;
             this.btnLogOut.selected = false;
-            this.btnLogOut.Size = new System.Drawing.Size(194, 48);
+            this.btnLogOut.Size = new System.Drawing.Size(199, 48);
             this.btnLogOut.TabIndex = 13;
             this.btnLogOut.Text = "   Cerrar Sesión";
             this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -285,13 +355,13 @@
             this.btnAssociateSpare.IconVisible = true;
             this.btnAssociateSpare.IconZoom = 60D;
             this.btnAssociateSpare.IsTab = false;
-            this.btnAssociateSpare.Location = new System.Drawing.Point(4, 491);
+            this.btnAssociateSpare.Location = new System.Drawing.Point(1, 552);
             this.btnAssociateSpare.Name = "btnAssociateSpare";
             this.btnAssociateSpare.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.btnAssociateSpare.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnAssociateSpare.OnHoverTextColor = System.Drawing.Color.White;
             this.btnAssociateSpare.selected = false;
-            this.btnAssociateSpare.Size = new System.Drawing.Size(194, 48);
+            this.btnAssociateSpare.Size = new System.Drawing.Size(199, 48);
             this.btnAssociateSpare.TabIndex = 12;
             this.btnAssociateSpare.Text = "   Asociar Repuesto";
             this.btnAssociateSpare.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -319,13 +389,13 @@
             this.btnUserConfig.IconVisible = true;
             this.btnUserConfig.IconZoom = 60D;
             this.btnUserConfig.IsTab = false;
-            this.btnUserConfig.Location = new System.Drawing.Point(3, 443);
+            this.btnUserConfig.Location = new System.Drawing.Point(1, 505);
             this.btnUserConfig.Name = "btnUserConfig";
             this.btnUserConfig.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.btnUserConfig.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnUserConfig.OnHoverTextColor = System.Drawing.Color.White;
             this.btnUserConfig.selected = false;
-            this.btnUserConfig.Size = new System.Drawing.Size(198, 48);
+            this.btnUserConfig.Size = new System.Drawing.Size(199, 48);
             this.btnUserConfig.TabIndex = 10;
             this.btnUserConfig.Text = "   Configuración";
             this.btnUserConfig.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -353,7 +423,7 @@
             this.btnUsers.IconVisible = true;
             this.btnUsers.IconZoom = 60D;
             this.btnUsers.IsTab = false;
-            this.btnUsers.Location = new System.Drawing.Point(1, 395);
+            this.btnUsers.Location = new System.Drawing.Point(1, 458);
             this.btnUsers.Name = "btnUsers";
             this.btnUsers.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.btnUsers.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -382,7 +452,7 @@
             this.btnSpareTypes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.btnSpareTypes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSpareTypes.BorderRadius = 0;
-            this.btnSpareTypes.ButtonText = "   Tipos de repuesto";
+            this.btnSpareTypes.ButtonText = "   Categorias";
             this.btnSpareTypes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSpareTypes.DisabledColor = System.Drawing.Color.Gray;
             this.btnSpareTypes.Iconcolor = System.Drawing.Color.Transparent;
@@ -397,7 +467,7 @@
             this.btnSpareTypes.IconVisible = true;
             this.btnSpareTypes.IconZoom = 60D;
             this.btnSpareTypes.IsTab = false;
-            this.btnSpareTypes.Location = new System.Drawing.Point(1, 347);
+            this.btnSpareTypes.Location = new System.Drawing.Point(1, 317);
             this.btnSpareTypes.Name = "btnSpareTypes";
             this.btnSpareTypes.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.btnSpareTypes.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -405,7 +475,7 @@
             this.btnSpareTypes.selected = false;
             this.btnSpareTypes.Size = new System.Drawing.Size(199, 48);
             this.btnSpareTypes.TabIndex = 7;
-            this.btnSpareTypes.Text = "   Tipos de repuesto";
+            this.btnSpareTypes.Text = "   Categorias";
             this.btnSpareTypes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSpareTypes.Textcolor = System.Drawing.Color.White;
             this.btnSpareTypes.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -431,13 +501,13 @@
             this.btnBrands.IconVisible = true;
             this.btnBrands.IconZoom = 60D;
             this.btnBrands.IsTab = false;
-            this.btnBrands.Location = new System.Drawing.Point(1, 300);
+            this.btnBrands.Location = new System.Drawing.Point(1, 270);
             this.btnBrands.Name = "btnBrands";
             this.btnBrands.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.btnBrands.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnBrands.OnHoverTextColor = System.Drawing.Color.White;
             this.btnBrands.selected = false;
-            this.btnBrands.Size = new System.Drawing.Size(200, 48);
+            this.btnBrands.Size = new System.Drawing.Size(199, 48);
             this.btnBrands.TabIndex = 6;
             this.btnBrands.Text = "   Marcas";
             this.btnBrands.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -465,7 +535,7 @@
             this.btnClients.IconVisible = true;
             this.btnClients.IconZoom = 60D;
             this.btnClients.IsTab = false;
-            this.btnClients.Location = new System.Drawing.Point(1, 206);
+            this.btnClients.Location = new System.Drawing.Point(1, 176);
             this.btnClients.Name = "btnClients";
             this.btnClients.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.btnClients.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -499,7 +569,7 @@
             this.btnSpare.IconVisible = true;
             this.btnSpare.IconZoom = 60D;
             this.btnSpare.IsTab = false;
-            this.btnSpare.Location = new System.Drawing.Point(1, 253);
+            this.btnSpare.Location = new System.Drawing.Point(1, 223);
             this.btnSpare.Name = "btnSpare";
             this.btnSpare.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.btnSpare.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -533,7 +603,7 @@
             this.btnUnits.IconVisible = true;
             this.btnUnits.IconZoom = 60D;
             this.btnUnits.IsTab = false;
-            this.btnUnits.Location = new System.Drawing.Point(1, 159);
+            this.btnUnits.Location = new System.Drawing.Point(1, 129);
             this.btnUnits.Name = "btnUnits";
             this.btnUnits.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.btnUnits.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -545,40 +615,6 @@
             this.btnUnits.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUnits.Textcolor = System.Drawing.Color.White;
             this.btnUnits.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // btnHome
-            // 
-            this.btnHome.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
-            this.btnHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnHome.BorderRadius = 0;
-            this.btnHome.ButtonText = "   Inicio";
-            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHome.DisabledColor = System.Drawing.Color.Gray;
-            this.btnHome.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnHome.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnHome.Iconimage")));
-            this.btnHome.Iconimage_right = null;
-            this.btnHome.Iconimage_right_Selected = null;
-            this.btnHome.Iconimage_Selected = null;
-            this.btnHome.IconMarginLeft = 0;
-            this.btnHome.IconMarginRight = 0;
-            this.btnHome.IconRightVisible = true;
-            this.btnHome.IconRightZoom = 0D;
-            this.btnHome.IconVisible = true;
-            this.btnHome.IconZoom = 60D;
-            this.btnHome.IsTab = false;
-            this.btnHome.Location = new System.Drawing.Point(1, 112);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
-            this.btnHome.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnHome.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnHome.selected = false;
-            this.btnHome.Size = new System.Drawing.Size(200, 48);
-            this.btnHome.TabIndex = 2;
-            this.btnHome.Text = "   Inicio";
-            this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.Textcolor = System.Drawing.Color.White;
-            this.btnHome.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // btnMenu
             // 
@@ -599,7 +635,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.ClientSize = new System.Drawing.Size(932, 646);
+            this.ClientSize = new System.Drawing.Size(936, 720);
             this.Controls.Add(this.Options);
             this.Controls.Add(this.header);
             this.Controls.Add(this.bunifuFlatButton1);
@@ -631,6 +667,8 @@
         private System.Windows.Forms.Panel header;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
         private System.Windows.Forms.Panel Options;
+        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
+        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;
         private Bunifu.Framework.UI.BunifuFlatButton btnLogOut;
         private Bunifu.Framework.UI.BunifuFlatButton btnAssociateSpare;
         private Bunifu.Framework.UI.BunifuFlatButton btnUserConfig;
@@ -641,7 +679,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnClients;
         private Bunifu.Framework.UI.BunifuFlatButton btnSpare;
         private Bunifu.Framework.UI.BunifuFlatButton btnUnits;
-        private Bunifu.Framework.UI.BunifuFlatButton btnHome;
         private Bunifu.Framework.UI.BunifuImageButton btnMenu;
     }
 }
