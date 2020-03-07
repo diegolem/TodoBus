@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+    
 namespace TodoBus
 {
     public partial class Menu : Form
@@ -45,6 +45,13 @@ namespace TodoBus
             this.Hide();
             Login frmLogin = new Login();
             frmLogin.Show();
+        }
+
+        private void btnClients_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Clientes frmClientes = new Clientes();
+            frmClientes.Show();
         }
     }
 }

@@ -51,10 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clientes.cs">
+    <Compile Include="Views\Clients\Clientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Clientes.Designer.cs">
+    <Compile Include="Views\Clients\Clientes.Designer.cs">
       <DependentUpon>Clientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
@@ -77,13 +77,13 @@
     <Compile Include="ReestablecerContra.Designer.cs">
       <DependentUpon>ReestablecerContra.cs</DependentUpon>
     </Compile>
-    <Compile Include="RegCliente.cs">
+    <Compile Include="Views\Clients\RegCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegCliente.Designer.cs">
+    <Compile Include="Views\Clients\RegCliente.Designer.cs">
       <DependentUpon>RegCliente.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Clientes.resx">
+    <EmbeddedResource Include="Views\Clients\Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
@@ -105,7 +105,7 @@
     <EmbeddedResource Include="ReestablecerContra.resx">
       <DependentUpon>ReestablecerContra.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RegCliente.resx">
+    <EmbeddedResource Include="Views\Clients\RegCliente.resx">
       <DependentUpon>RegCliente.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -126,6 +126,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logopng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Brands\" />
+    <Folder Include="Views\Customers\" />
+    <Folder Include="Views\SpareTypes\" />
+    <Folder Include="Views\Spare\" />
+    <Folder Include="Views\SubCategories\" />
+    <Folder Include="Views\Units\" />
+    <Folder Include="Views\Users\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
