@@ -137,7 +137,7 @@
     <Compile Include="Views\SpareSubCategories\SubCategories.Designer.cs">
       <DependentUpon>SubCategories.cs</DependentUpon>
     </Compile>
-<Compile Include="Views\Spare\RegRepuest.cs">
+    <Compile Include="Views\Spare\RegRepuest.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Spare\RegRepuest.Designer.cs">
@@ -160,6 +160,30 @@
     </Compile>
     <Compile Include="Views\Users\Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IngresarMarcas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IngresarMarcas.Designer.cs">
+      <DependentUpon>IngresarMarcas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VerMarcas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerMarcas.Designer.cs">
+      <DependentUpon>VerMarcas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IngresarTRepuestos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IngresarTRepuestos.Designer.cs">
+      <DependentUpon>IngresarTRepuestos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VerTRepuestos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerTRepuestos.Designer.cs">
+      <DependentUpon>VerTRepuestos.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Views\Clients\Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
@@ -213,18 +237,30 @@
     <EmbeddedResource Include="Views\SpareSubCategories\SubCategories.resx">
       <DependentUpon>SubCategories.cs</DependentUpon>
     </EmbeddedResource>
-<EmbeddedResource Include="Views\Spare\RegRepuest.resx">
+    <EmbeddedResource Include="Views\Spare\RegRepuest.resx">
       <DependentUpon>RegRepuest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Spare\Repuestos.resx">
       <DependentUpon>Repuestos.cs</DependentUpon>
-</EmbeddedResource>
-<EmbeddedResource Include="Views\Users\RegUsuario.resx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Users\RegUsuario.resx">
       <DependentUpon>RegUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Users\Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
-</EmbeddedResource>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IngresarMarcas.resx">
+      <DependentUpon>IngresarMarcas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerMarcas.resx">
+      <DependentUpon>VerMarcas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IngresarTRepuestos.resx">
+      <DependentUpon>IngresarTRepuestos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerTRepuestos.resx">
+      <DependentUpon>VerTRepuestos.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -248,7 +284,6 @@
     <Folder Include="Views\Brands\" />
     <Folder Include="Views\Customers\" />
     <Folder Include="Views\SpareTypes\" />
-    <Folder Include="Views\Spare\" />
     <Folder Include="Views\SubCategories\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
