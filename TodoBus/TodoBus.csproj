@@ -137,6 +137,30 @@
     <Compile Include="Views\SpareSubCategories\SubCategories.Designer.cs">
       <DependentUpon>SubCategories.cs</DependentUpon>
     </Compile>
+<Compile Include="Views\Spare\RegRepuest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Spare\RegRepuest.Designer.cs">
+      <DependentUpon>RegRepuest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Users\RegUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Users\RegUsuario.Designer.cs">
+      <DependentUpon>RegUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Spare\Repuestos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Spare\Repuestos.Designer.cs">
+      <DependentUpon>Repuestos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Users\Usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Users\Usuarios.Designer.cs">
+      <DependentUpon>Usuarios.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\Clients\Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +213,18 @@
     <EmbeddedResource Include="Views\SpareSubCategories\SubCategories.resx">
       <DependentUpon>SubCategories.cs</DependentUpon>
     </EmbeddedResource>
+<EmbeddedResource Include="Views\Spare\RegRepuest.resx">
+      <DependentUpon>RegRepuest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Spare\Repuestos.resx">
+      <DependentUpon>Repuestos.cs</DependentUpon>
+</EmbeddedResource>
+<EmbeddedResource Include="Views\Users\RegUsuario.resx">
+      <DependentUpon>RegUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Users\Usuarios.resx">
+      <DependentUpon>Usuarios.cs</DependentUpon>
+</EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

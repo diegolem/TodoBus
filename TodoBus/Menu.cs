@@ -89,5 +89,19 @@ namespace TodoBus
             frmSub.Show();
             this.Hide();
         }
+
+        private void btnSpare_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Repuestos frmSpare = new Repuestos();
+            frmSpare.Show();
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Usuarios frmUsers = new Usuarios();
+            frmUsers.Show();
+        }
     }
 }
