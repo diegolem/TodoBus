@@ -51,6 +51,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Views\Brands\Marca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Brands\Marca.Designer.cs">
+      <DependentUpon>Marca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Brands\ModMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Brands\ModMarca.Designer.cs">
+      <DependentUpon>ModMarca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Brands\RegistroMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Brands\RegistroMarca.Designer.cs">
+      <DependentUpon>RegistroMarca.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Clients\Clientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +118,24 @@
     </Compile>
     <Compile Include="Views\SpareCategoriesSubClasses\SubClasses.Designer.cs">
       <DependentUpon>SubClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpareCategory\Category.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SpareCategory\Category.Designer.cs">
+      <DependentUpon>Category.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpareCategory\ModCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SpareCategory\ModCategory.Designer.cs">
+      <DependentUpon>ModCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpareCategory\RegCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SpareCategory\RegCategory.Designer.cs">
+      <DependentUpon>RegCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Units\RegistroUnidad.cs">
       <SubType>Form</SubType>
@@ -161,30 +197,15 @@
     <Compile Include="Views\Users\Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="IngresarMarcas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IngresarMarcas.Designer.cs">
-      <DependentUpon>IngresarMarcas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="VerMarcas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VerMarcas.Designer.cs">
-      <DependentUpon>VerMarcas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IngresarTRepuestos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IngresarTRepuestos.Designer.cs">
-      <DependentUpon>IngresarTRepuestos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="VerTRepuestos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VerTRepuestos.Designer.cs">
-      <DependentUpon>VerTRepuestos.cs</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="Views\Brands\Marca.resx">
+      <DependentUpon>Marca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Brands\ModMarca.resx">
+      <DependentUpon>ModMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Brands\RegistroMarca.resx">
+      <DependentUpon>RegistroMarca.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Clients\Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -219,6 +240,15 @@
     <EmbeddedResource Include="Views\SpareCategoriesSubClasses\SubClasses.resx">
       <DependentUpon>SubClasses.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\SpareCategory\Category.resx">
+      <DependentUpon>Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SpareCategory\ModCategory.resx">
+      <DependentUpon>ModCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SpareCategory\RegCategory.resx">
+      <DependentUpon>RegCategory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Units\RegistroUnidad.resx">
       <DependentUpon>RegistroUnidad.cs</DependentUpon>
     </EmbeddedResource>
@@ -249,18 +279,6 @@
     <EmbeddedResource Include="Views\Users\Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IngresarMarcas.resx">
-      <DependentUpon>IngresarMarcas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VerMarcas.resx">
-      <DependentUpon>VerMarcas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IngresarTRepuestos.resx">
-      <DependentUpon>IngresarTRepuestos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VerTRepuestos.resx">
-      <DependentUpon>VerTRepuestos.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -280,11 +298,6 @@
   <ItemGroup>
     <None Include="Resources\logopng.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Brands\" />
-    <Folder Include="Views\Customers\" />
-    <Folder Include="Views\SpareTypes\" />
-    <Folder Include="Views\SubCategories\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TodoBus.Views.Brands;
 using TodoBus.Views.SpareCategoriesSubClasses;
+using TodoBus.Views.SpareCategory;
 using TodoBus.Views.Users;
 
 namespace TodoBus.Views.Units
@@ -50,9 +52,9 @@ namespace TodoBus.Views.Units
 
         private void btnNuevaUnidad_Click(object sender, EventArgs e)
         {
+            this.Hide();
             RegistroUnidad RU = new RegistroUnidad();
             RU.Show();
-            this.Hide();
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)
@@ -100,9 +102,42 @@ namespace TodoBus.Views.Units
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
+            this.Hide();
             SubClasses frmSub = new SubClasses();
             frmSub.Show();
+        }
+
+        private void btnBrands_Click(object sender, EventArgs e)
+        {
             this.Hide();
+            Marca frmM = new Marca();
+            frmM.Show(); 
+        }
+
+        private void btnSpare_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Repuestos frmR = new Repuestos();
+            frmR.Show();
+        }
+
+        private void btnSpareTypes_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Category ct = new Category();
+            ct.Show();
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Usuarios frmU = new Usuarios();
+            frmU.Show();
+        }
+
+        private void btnAssociateSpare_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

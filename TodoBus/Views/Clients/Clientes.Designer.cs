@@ -494,6 +494,7 @@
             this.btnUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUsers.Textcolor = System.Drawing.Color.White;
             this.btnUsers.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
             // logo
             // 
@@ -542,6 +543,7 @@
             this.btnSpareTypes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSpareTypes.Textcolor = System.Drawing.Color.White;
             this.btnSpareTypes.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSpareTypes.Click += new System.EventHandler(this.btnSpareTypes_Click);
             // 
             // btnBrands
             // 
@@ -578,6 +580,7 @@
             this.btnBrands.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBrands.Textcolor = System.Drawing.Color.White;
             this.btnBrands.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBrands.Click += new System.EventHandler(this.btnBrands_Click);
             // 
             // btnClients
             // 
@@ -651,6 +654,7 @@
             this.btnSpare.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSpare.Textcolor = System.Drawing.Color.White;
             this.btnSpare.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSpare.Click += new System.EventHandler(this.btnSpare_Click);
             // 
             // btnUnits
             // 
@@ -715,7 +719,7 @@
             // 
             // PanelTransition
             // 
-            this.PanelTransition.AnimationType = BunifuAnimatorNS.AnimationType.VertSlide;
+            this.PanelTransition.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
             this.PanelTransition.Cursor = null;
             animation1.AnimateOnlyDifferences = true;
             animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
@@ -724,19 +728,19 @@
             animation1.MinTime = 0F;
             animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
             animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0);
+            animation1.MosaicSize = 1;
+            animation1.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
             animation1.RotateCoeff = 0F;
             animation1.RotateLimit = 0F;
             animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
             animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
+            animation1.TimeCoeff = 2F;
             animation1.TransparencyCoeff = 0F;
             this.PanelTransition.DefaultAnimation = animation1;
             // 
             // LogoTransition
             // 
-            this.LogoTransition.AnimationType = BunifuAnimatorNS.AnimationType.VertSlide;
+            this.LogoTransition.AnimationType = BunifuAnimatorNS.AnimationType.ScaleAndRotate;
             this.LogoTransition.Cursor = null;
             animation2.AnimateOnlyDifferences = true;
             animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
@@ -746,9 +750,9 @@
             animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
             animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
             animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
+            animation2.Padding = new System.Windows.Forms.Padding(30);
+            animation2.RotateCoeff = 0.5F;
+            animation2.RotateLimit = 0.2F;
             animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
             animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
             animation2.TimeCoeff = 0F;

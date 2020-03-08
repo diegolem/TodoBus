@@ -29,9 +29,9 @@ namespace TodoBus
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Usuarios frmUsuario = new Usuarios();
             frmUsuario.Show();
+            this.Hide();
         }
 
         private void bunifuCustomLabel5_Click(object sender, EventArgs e)
@@ -42,6 +42,11 @@ namespace TodoBus
         private void bunifuCheckbox1_OnChange(object sender, EventArgs e)
         {
            PasswordtextBox.UseSystemPasswordChar = !Checkbox1.Checked;
+        }
+
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

@@ -24,14 +24,19 @@ namespace TodoBus
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Repuestos frmSpare = new Repuestos();
             frmSpare.Show();
+            this.Hide();
+        }
+
+        private void bunifuImageButton3_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

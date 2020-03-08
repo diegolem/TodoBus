@@ -8,25 +8,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TodoBus
+namespace TodoBus.Views.Brands
 {
-    public partial class RegCliente : Form
+    public partial class RegistroMarca : Form
     {
-        public RegCliente()
+        public RegistroMarca()
         {
             InitializeComponent();
+        }
+
+        private void body_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            Marca ma = new Marca();
+            ma.Show();
+            this.Hide();
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void bunifuFlatButton1_Click(object sender, EventArgs e)
-        {
-            Clientes C = new Clientes();
-            C.Show();
-            this.Hide();
         }
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)

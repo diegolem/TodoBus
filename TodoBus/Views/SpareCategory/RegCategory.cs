@@ -8,13 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TodoBus.Views.SpareCategoriesSubClasses
+namespace TodoBus.Views.SpareCategory
 {
-    public partial class RegSubClase : Form
+    public partial class RegCategory : Form
     {
-        public RegSubClase()
+        public RegCategory()
         {
             InitializeComponent();
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            Category ct = new Category();
+            ct.Show();
+            this.Hide();
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)
@@ -25,18 +32,6 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void btnReturn_Click(object sender, EventArgs e)
-        {
-            SubClasses frmC = new SubClasses();
-            frmC.Show();
-            this.Hide();
-        }
-
-        private void header_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

@@ -8,24 +8,38 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TodoBus.Views.SpareCategoriesSubClasses;
+using TodoBus.Views.SpareCategory;
 using TodoBus.Views.Units;
 using TodoBus.Views.Users;
 
-namespace TodoBus
+namespace TodoBus.Views.Brands
 {
-    public partial class VerMarcas : Form
+    public partial class Marca : Form
     {
-        public VerMarcas()
+        public Marca()
         {
             InitializeComponent();
+            btnBrands.Enabled = false;
+        }
+
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
-        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        private void btnNuevaUnidad_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RegistroMarca frmM = new RegistroMarca();
+            frmM.Show();
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
         {
             if (Options.Width == 50)
             {
@@ -43,11 +57,11 @@ namespace TodoBus
             }
         }
 
-        private void btnLogOut_Click(object sender, EventArgs e)
+        private void btnUnits_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Login frmLogin = new Login();
-            frmLogin.Show();
+            Unidades frmUnits = new Unidades();
+            frmUnits.Show();
         }
 
         private void btnClients_Click(object sender, EventArgs e)
@@ -64,9 +78,11 @@ namespace TodoBus
             frmSub.Show();
         }
 
-        private void bunifuImageButton2_Click_1(object sender, EventArgs e)
+        private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            this.Hide();
+            SubClasses frmSub = new SubClasses();
+            frmSub.Show();
         }
 
         private void btnUserConfig_Click(object sender, EventArgs e)
@@ -76,18 +92,37 @@ namespace TodoBus
             frmConfig.Show();
         }
 
-        private void btnUnits_Click(object sender, EventArgs e)
+        private void btnSpare_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Unidades frmUnits = new Unidades();
-            frmUnits.Show();
+            Repuestos frmR = new Repuestos();
+            frmR.Show();
         }
 
-        private void btnSubClase_Click(object sender, EventArgs e)
+        private void btnBrands_Click(object sender, EventArgs e)
         {
-            SubClasses frmSub = new SubClasses();
-            frmSub.Show();
+
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
             this.Hide();
+            Usuarios frmU = new Usuarios();
+            frmU.Show();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login log = new Login();
+            log.Show();
+        }
+
+        private void btnSpareTypes_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Category ct = new Category();
+            ct.Show();
         }
     }
 }

@@ -50,6 +50,14 @@
             this.btnUnits = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnMenu = new Bunifu.Framework.UI.BunifuImageButton();
             this.body = new System.Windows.Forms.Panel();
+            this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txtNewPassword = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
+            this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.Age = new System.Windows.Forms.DomainUpDown();
+            this.txtMail = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
+            this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txtName = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
+            this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnRegCliente = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtPassword = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
@@ -60,15 +68,6 @@
             this.PanelTransition = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.LogoTransition = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.txtName = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
-            this.txtMail = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
-            this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.Age = new System.Windows.Forms.DomainUpDown();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txtNewPassword = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
@@ -369,6 +368,7 @@
             this.btnUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUsers.Textcolor = System.Drawing.Color.White;
             this.btnUsers.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
             // logo
             // 
@@ -417,6 +417,7 @@
             this.btnSpareTypes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSpareTypes.Textcolor = System.Drawing.Color.White;
             this.btnSpareTypes.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSpareTypes.Click += new System.EventHandler(this.btnSpareTypes_Click);
             // 
             // btnBrands
             // 
@@ -453,6 +454,7 @@
             this.btnBrands.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBrands.Textcolor = System.Drawing.Color.White;
             this.btnBrands.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBrands.Click += new System.EventHandler(this.btnBrands_Click);
             // 
             // btnClients
             // 
@@ -526,6 +528,7 @@
             this.btnSpare.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSpare.Textcolor = System.Drawing.Color.White;
             this.btnSpare.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSpare.Click += new System.EventHandler(this.btnSpare_Click);
             // 
             // btnUnits
             // 
@@ -579,6 +582,7 @@
             this.btnMenu.TabIndex = 1;
             this.btnMenu.TabStop = false;
             this.btnMenu.Zoom = 10;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // body
             // 
@@ -586,7 +590,6 @@
             this.body.Controls.Add(this.bunifuCustomLabel7);
             this.body.Controls.Add(this.txtNewPassword);
             this.body.Controls.Add(this.bunifuCustomLabel4);
-            this.body.Controls.Add(this.radioButton1);
             this.body.Controls.Add(this.Age);
             this.body.Controls.Add(this.txtMail);
             this.body.Controls.Add(this.bunifuCustomLabel5);
@@ -606,6 +609,102 @@
             this.body.Name = "body";
             this.body.Size = new System.Drawing.Size(736, 673);
             this.body.TabIndex = 3;
+            // 
+            // bunifuCustomLabel7
+            // 
+            this.bunifuCustomLabel7.AutoSize = true;
+            this.PanelTransition.SetDecoration(this.bunifuCustomLabel7, BunifuAnimatorNS.DecorationType.None);
+            this.LogoTransition.SetDecoration(this.bunifuCustomLabel7, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuCustomLabel7.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.bunifuCustomLabel7.ForeColor = System.Drawing.Color.White;
+            this.bunifuCustomLabel7.Location = new System.Drawing.Point(69, 380);
+            this.bunifuCustomLabel7.Name = "bunifuCustomLabel7";
+            this.bunifuCustomLabel7.Size = new System.Drawing.Size(118, 17);
+            this.bunifuCustomLabel7.TabIndex = 41;
+            this.bunifuCustomLabel7.Text = "Nueva Contraseña:";
+            // 
+            // txtNewPassword
+            // 
+            this.txtNewPassword.BorderColor = System.Drawing.Color.SeaGreen;
+            this.PanelTransition.SetDecoration(this.txtNewPassword, BunifuAnimatorNS.DecorationType.None);
+            this.LogoTransition.SetDecoration(this.txtNewPassword, BunifuAnimatorNS.DecorationType.None);
+            this.txtNewPassword.Location = new System.Drawing.Point(241, 380);
+            this.txtNewPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtNewPassword.Name = "txtNewPassword";
+            this.txtNewPassword.PasswordChar = '*';
+            this.txtNewPassword.Size = new System.Drawing.Size(319, 22);
+            this.txtNewPassword.TabIndex = 40;
+            // 
+            // bunifuCustomLabel4
+            // 
+            this.bunifuCustomLabel4.AutoSize = true;
+            this.PanelTransition.SetDecoration(this.bunifuCustomLabel4, BunifuAnimatorNS.DecorationType.None);
+            this.LogoTransition.SetDecoration(this.bunifuCustomLabel4, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.White;
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(69, 323);
+            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
+            this.bunifuCustomLabel4.Size = new System.Drawing.Size(116, 17);
+            this.bunifuCustomLabel4.TabIndex = 39;
+            this.bunifuCustomLabel4.Text = "Contraseña Actual:";
+            // 
+            // Age
+            // 
+            this.LogoTransition.SetDecoration(this.Age, BunifuAnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.Age, BunifuAnimatorNS.DecorationType.None);
+            this.Age.Location = new System.Drawing.Point(487, 244);
+            this.Age.Name = "Age";
+            this.Age.Size = new System.Drawing.Size(95, 22);
+            this.Age.TabIndex = 37;
+            // 
+            // txtMail
+            // 
+            this.txtMail.BorderColor = System.Drawing.Color.SeaGreen;
+            this.PanelTransition.SetDecoration(this.txtMail, BunifuAnimatorNS.DecorationType.None);
+            this.LogoTransition.SetDecoration(this.txtMail, BunifuAnimatorNS.DecorationType.None);
+            this.txtMail.Location = new System.Drawing.Point(144, 249);
+            this.txtMail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtMail.Name = "txtMail";
+            this.txtMail.Size = new System.Drawing.Size(200, 22);
+            this.txtMail.TabIndex = 36;
+            // 
+            // bunifuCustomLabel5
+            // 
+            this.bunifuCustomLabel5.AutoSize = true;
+            this.PanelTransition.SetDecoration(this.bunifuCustomLabel5, BunifuAnimatorNS.DecorationType.None);
+            this.LogoTransition.SetDecoration(this.bunifuCustomLabel5, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.White;
+            this.bunifuCustomLabel5.Location = new System.Drawing.Point(89, 249);
+            this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
+            this.bunifuCustomLabel5.Size = new System.Drawing.Size(52, 17);
+            this.bunifuCustomLabel5.TabIndex = 35;
+            this.bunifuCustomLabel5.Text = "Correo:";
+            // 
+            // txtName
+            // 
+            this.txtName.BorderColor = System.Drawing.Color.SeaGreen;
+            this.PanelTransition.SetDecoration(this.txtName, BunifuAnimatorNS.DecorationType.None);
+            this.LogoTransition.SetDecoration(this.txtName, BunifuAnimatorNS.DecorationType.None);
+            this.txtName.Location = new System.Drawing.Point(144, 177);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(200, 22);
+            this.txtName.TabIndex = 34;
+            this.txtName.TextChanged += new System.EventHandler(this.bunifuCustomTextbox3_TextChanged);
+            // 
+            // bunifuCustomLabel6
+            // 
+            this.bunifuCustomLabel6.AutoSize = true;
+            this.PanelTransition.SetDecoration(this.bunifuCustomLabel6, BunifuAnimatorNS.DecorationType.None);
+            this.LogoTransition.SetDecoration(this.bunifuCustomLabel6, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuCustomLabel6.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.bunifuCustomLabel6.ForeColor = System.Drawing.Color.White;
+            this.bunifuCustomLabel6.Location = new System.Drawing.Point(75, 182);
+            this.bunifuCustomLabel6.Name = "bunifuCustomLabel6";
+            this.bunifuCustomLabel6.Size = new System.Drawing.Size(66, 17);
+            this.bunifuCustomLabel6.TabIndex = 33;
+            this.bunifuCustomLabel6.Text = "Nombres:";
             // 
             // btnRegCliente
             // 
@@ -652,7 +751,7 @@
             this.LogoTransition.SetDecoration(this.bunifuCustomLabel3, BunifuAnimatorNS.DecorationType.None);
             this.bunifuCustomLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel3.Location = new System.Drawing.Point(292, 32);
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(295, 59);
             this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
             this.bunifuCustomLabel3.Size = new System.Drawing.Size(175, 30);
             this.bunifuCustomLabel3.TabIndex = 19;
@@ -663,7 +762,7 @@
             this.txtPassword.BorderColor = System.Drawing.Color.SeaGreen;
             this.PanelTransition.SetDecoration(this.txtPassword, BunifuAnimatorNS.DecorationType.None);
             this.LogoTransition.SetDecoration(this.txtPassword, BunifuAnimatorNS.DecorationType.None);
-            this.txtPassword.Location = new System.Drawing.Point(183, 333);
+            this.txtPassword.Location = new System.Drawing.Point(241, 323);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
@@ -678,7 +777,7 @@
             this.LogoTransition.SetDecoration(this.bunifuCustomLabel1, BunifuAnimatorNS.DecorationType.None);
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(426, 196);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(440, 249);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(41, 17);
             this.bunifuCustomLabel1.TabIndex = 17;
@@ -690,7 +789,7 @@
             this.txtLastName.BorderColor = System.Drawing.Color.SeaGreen;
             this.PanelTransition.SetDecoration(this.txtLastName, BunifuAnimatorNS.DecorationType.None);
             this.LogoTransition.SetDecoration(this.txtLastName, BunifuAnimatorNS.DecorationType.None);
-            this.txtLastName.Location = new System.Drawing.Point(473, 124);
+            this.txtLastName.Location = new System.Drawing.Point(487, 177);
             this.txtLastName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(200, 22);
@@ -704,7 +803,7 @@
             this.LogoTransition.SetDecoration(this.bunifuCustomLabel2, BunifuAnimatorNS.DecorationType.None);
             this.bunifuCustomLabel2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(402, 129);
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(416, 182);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
             this.bunifuCustomLabel2.Size = new System.Drawing.Size(65, 17);
             this.bunifuCustomLabel2.TabIndex = 15;
@@ -717,7 +816,7 @@
             // 
             // PanelTransition
             // 
-            this.PanelTransition.AnimationType = BunifuAnimatorNS.AnimationType.VertSlide;
+            this.PanelTransition.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
             this.PanelTransition.Cursor = null;
             animation2.AnimateOnlyDifferences = true;
             animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
@@ -726,19 +825,19 @@
             animation2.MinTime = 0F;
             animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
             animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0);
+            animation2.MosaicSize = 1;
+            animation2.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
             animation2.RotateCoeff = 0F;
             animation2.RotateLimit = 0F;
             animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
             animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
+            animation2.TimeCoeff = 2F;
             animation2.TransparencyCoeff = 0F;
             this.PanelTransition.DefaultAnimation = animation2;
             // 
             // LogoTransition
             // 
-            this.LogoTransition.AnimationType = BunifuAnimatorNS.AnimationType.VertSlide;
+            this.LogoTransition.AnimationType = BunifuAnimatorNS.AnimationType.ScaleAndRotate;
             this.LogoTransition.Cursor = null;
             animation1.AnimateOnlyDifferences = true;
             animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
@@ -748,9 +847,9 @@
             animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
             animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
             animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
+            animation1.Padding = new System.Windows.Forms.Padding(30);
+            animation1.RotateCoeff = 0.5F;
+            animation1.RotateLimit = 0.2F;
             animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
             animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
             animation1.TimeCoeff = 0F;
@@ -763,117 +862,6 @@
             this.bunifuDragControl1.Horizontal = true;
             this.bunifuDragControl1.TargetControl = this.header;
             this.bunifuDragControl1.Vertical = true;
-            // 
-            // txtName
-            // 
-            this.txtName.BorderColor = System.Drawing.Color.SeaGreen;
-            this.PanelTransition.SetDecoration(this.txtName, BunifuAnimatorNS.DecorationType.None);
-            this.LogoTransition.SetDecoration(this.txtName, BunifuAnimatorNS.DecorationType.None);
-            this.txtName.Location = new System.Drawing.Point(130, 124);
-            this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(200, 22);
-            this.txtName.TabIndex = 34;
-            this.txtName.TextChanged += new System.EventHandler(this.bunifuCustomTextbox3_TextChanged);
-            // 
-            // txtMail
-            // 
-            this.txtMail.BorderColor = System.Drawing.Color.SeaGreen;
-            this.PanelTransition.SetDecoration(this.txtMail, BunifuAnimatorNS.DecorationType.None);
-            this.LogoTransition.SetDecoration(this.txtMail, BunifuAnimatorNS.DecorationType.None);
-            this.txtMail.Location = new System.Drawing.Point(130, 196);
-            this.txtMail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(200, 22);
-            this.txtMail.TabIndex = 36;
-            // 
-            // bunifuCustomLabel5
-            // 
-            this.bunifuCustomLabel5.AutoSize = true;
-            this.PanelTransition.SetDecoration(this.bunifuCustomLabel5, BunifuAnimatorNS.DecorationType.None);
-            this.LogoTransition.SetDecoration(this.bunifuCustomLabel5, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel5.Location = new System.Drawing.Point(75, 196);
-            this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
-            this.bunifuCustomLabel5.Size = new System.Drawing.Size(52, 17);
-            this.bunifuCustomLabel5.TabIndex = 35;
-            this.bunifuCustomLabel5.Text = "Correo:";
-            // 
-            // bunifuCustomLabel6
-            // 
-            this.bunifuCustomLabel6.AutoSize = true;
-            this.PanelTransition.SetDecoration(this.bunifuCustomLabel6, BunifuAnimatorNS.DecorationType.None);
-            this.LogoTransition.SetDecoration(this.bunifuCustomLabel6, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuCustomLabel6.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.bunifuCustomLabel6.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel6.Location = new System.Drawing.Point(61, 129);
-            this.bunifuCustomLabel6.Name = "bunifuCustomLabel6";
-            this.bunifuCustomLabel6.Size = new System.Drawing.Size(66, 17);
-            this.bunifuCustomLabel6.TabIndex = 33;
-            this.bunifuCustomLabel6.Text = "Nombres:";
-            // 
-            // Age
-            // 
-            this.LogoTransition.SetDecoration(this.Age, BunifuAnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.Age, BunifuAnimatorNS.DecorationType.None);
-            this.Age.Location = new System.Drawing.Point(473, 191);
-            this.Age.Name = "Age";
-            this.Age.Size = new System.Drawing.Size(95, 22);
-            this.Age.TabIndex = 37;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.PanelTransition.SetDecoration(this.radioButton1, BunifuAnimatorNS.DecorationType.None);
-            this.LogoTransition.SetDecoration(this.radioButton1, BunifuAnimatorNS.DecorationType.None);
-            this.radioButton1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.radioButton1.ForeColor = System.Drawing.Color.White;
-            this.radioButton1.Location = new System.Drawing.Point(64, 270);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(145, 21);
-            this.radioButton1.TabIndex = 38;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Cambiar Contraseña";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // bunifuCustomLabel4
-            // 
-            this.bunifuCustomLabel4.AutoSize = true;
-            this.PanelTransition.SetDecoration(this.bunifuCustomLabel4, BunifuAnimatorNS.DecorationType.None);
-            this.LogoTransition.SetDecoration(this.bunifuCustomLabel4, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel4.Location = new System.Drawing.Point(61, 333);
-            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
-            this.bunifuCustomLabel4.Size = new System.Drawing.Size(116, 17);
-            this.bunifuCustomLabel4.TabIndex = 39;
-            this.bunifuCustomLabel4.Text = "Contraseña Actual:";
-            // 
-            // bunifuCustomLabel7
-            // 
-            this.bunifuCustomLabel7.AutoSize = true;
-            this.PanelTransition.SetDecoration(this.bunifuCustomLabel7, BunifuAnimatorNS.DecorationType.None);
-            this.LogoTransition.SetDecoration(this.bunifuCustomLabel7, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuCustomLabel7.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.bunifuCustomLabel7.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel7.Location = new System.Drawing.Point(61, 390);
-            this.bunifuCustomLabel7.Name = "bunifuCustomLabel7";
-            this.bunifuCustomLabel7.Size = new System.Drawing.Size(118, 17);
-            this.bunifuCustomLabel7.TabIndex = 41;
-            this.bunifuCustomLabel7.Text = "Nueva Contraseña:";
-            // 
-            // txtNewPassword
-            // 
-            this.txtNewPassword.BorderColor = System.Drawing.Color.SeaGreen;
-            this.PanelTransition.SetDecoration(this.txtNewPassword, BunifuAnimatorNS.DecorationType.None);
-            this.LogoTransition.SetDecoration(this.txtNewPassword, BunifuAnimatorNS.DecorationType.None);
-            this.txtNewPassword.Location = new System.Drawing.Point(183, 390);
-            this.txtNewPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtNewPassword.Name = "txtNewPassword";
-            this.txtNewPassword.PasswordChar = '*';
-            this.txtNewPassword.Size = new System.Drawing.Size(319, 22);
-            this.txtNewPassword.TabIndex = 40;
             // 
             // DatosUsuario
             // 
@@ -937,7 +925,6 @@
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txtName;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel6;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel4;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.DomainUpDown Age;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel7;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txtNewPassword;
