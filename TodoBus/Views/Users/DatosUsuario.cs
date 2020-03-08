@@ -81,5 +81,20 @@ namespace TodoBus.Views.Users
             frmSub.Show();
             this.Hide();
         }
+
+        private void bunifuCustomLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuCustomTextbox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuCustomTextbox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
