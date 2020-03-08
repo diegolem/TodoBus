@@ -8,20 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TodoBus
+namespace TodoBus.Views.SpareCategoriesSubClasses
 {
-    public partial class ReestablecerContra : Form
+    public partial class RegSubClase : Form
     {
-        public ReestablecerContra()
+        public RegSubClase()
         {
             InitializeComponent();
         }
 
-        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Login frmlogin = new Login();
-            frmlogin.Show();
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
@@ -29,9 +27,11 @@ namespace TodoBus
             Application.Exit();
         }
 
-        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        private void btnReturn_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            SubClasses frmC = new SubClasses();
+            frmC.Show();
+            this.Hide();
         }
     }
 }

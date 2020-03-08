@@ -8,35 +8,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TodoBus.Views.Units
+namespace TodoBus.Views.SpareCategoriesSubClasses
 {
-    public partial class RegistroUnidad : Form
+    public partial class ModSubClasses : Form
     {
-        public RegistroUnidad()
+        public ModSubClasses()
         {
             InitializeComponent();
         }
 
-        private void body_Paint(object sender, PaintEventArgs e)
+        private void btnReturn_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            Unidades U = new Unidades();
-            U.Show();
+            SubClasses frmC = new SubClasses();
+            frmC.Show();
             this.Hide();
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -83,6 +83,24 @@
     <Compile Include="Views\Clients\RegCliente.Designer.cs">
       <DependentUpon>RegCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\SpareCategoriesSubClasses\ModSubClasses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SpareCategoriesSubClasses\ModSubClasses.Designer.cs">
+      <DependentUpon>ModSubClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpareCategoriesSubClasses\RegSubClase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SpareCategoriesSubClasses\RegSubClase.Designer.cs">
+      <DependentUpon>RegSubClase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpareCategoriesSubClasses\SubClasses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SpareCategoriesSubClasses\SubClasses.Designer.cs">
+      <DependentUpon>SubClasses.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Units\RegistroUnidad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +118,24 @@
     </Compile>
     <Compile Include="Views\Users\DatosUsuario.Designer.cs">
       <DependentUpon>DatosUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpareSubCategories\ModSubCategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SpareSubCategories\ModSubCategories.Designer.cs">
+      <DependentUpon>ModSubCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpareSubCategories\RegSubCategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SpareSubCategories\RegSubCategories.Designer.cs">
+      <DependentUpon>RegSubCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpareSubCategories\SubCategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SpareSubCategories\SubCategories.Designer.cs">
+      <DependentUpon>SubCategories.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Views\Clients\Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
@@ -126,6 +162,15 @@
     <EmbeddedResource Include="Views\Clients\RegCliente.resx">
       <DependentUpon>RegCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\SpareCategoriesSubClasses\ModSubClasses.resx">
+      <DependentUpon>ModSubClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SpareCategoriesSubClasses\RegSubClase.resx">
+      <DependentUpon>RegSubClase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SpareCategoriesSubClasses\SubClasses.resx">
+      <DependentUpon>SubClasses.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Units\RegistroUnidad.resx">
       <DependentUpon>RegistroUnidad.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,6 +179,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Users\DatosUsuario.resx">
       <DependentUpon>DatosUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SpareSubCategories\ModSubCategories.resx">
+      <DependentUpon>ModSubCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SpareSubCategories\RegSubCategories.resx">
+      <DependentUpon>RegSubCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SpareSubCategories\SubCategories.resx">
+      <DependentUpon>SubCategories.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

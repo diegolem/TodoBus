@@ -7,7 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-    
+using TodoBus.Views.SpareCategoriesSubClasses;
+using TodoBus.Views.Units;
+using TodoBus.Views.Users;
+
 namespace TodoBus
 {
     public partial class Menu : Form
@@ -52,6 +55,39 @@ namespace TodoBus
             this.Hide();
             Clientes frmClientes = new Clientes();
             frmClientes.Show();
+        }
+
+        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SubCategories frmSub = new SubCategories();
+            frmSub.Show();
+        }
+
+        private void bunifuImageButton2_Click_1(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnUserConfig_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DatosUsuario frmConfig = new DatosUsuario();
+            frmConfig.Show();
+        }
+
+        private void btnUnits_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Unidades frmUnits = new Unidades();
+            frmUnits.Show();
+        }
+
+        private void btnSubClase_Click(object sender, EventArgs e)
+        {
+            SubClasses frmSub = new SubClasses();
+            frmSub.Show();
+            this.Hide();
         }
     }
 }

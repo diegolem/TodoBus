@@ -41,5 +41,16 @@ namespace TodoBus
             contra.Show();
         }
 
+        private void btnLogIn_Click_1(object sender, EventArgs e)
+        {
+            Menu menu = new Menu();
+            menu.Show();
+            this.Hide();
+        }
+
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

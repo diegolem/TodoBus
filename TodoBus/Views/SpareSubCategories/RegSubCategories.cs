@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TodoBus.Views.Units
+namespace TodoBus.Views.SpareCategoriesSubClasses
 {
-    public partial class RegistroUnidad : Form
+    public partial class RegSubCategories : Form
     {
-        public RegistroUnidad()
+        public RegSubCategories()
         {
             InitializeComponent();
         }
@@ -22,16 +22,16 @@ namespace TodoBus.Views.Units
 
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void btnReturn_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            SubCategories frmSub = new SubCategories();
+            frmSub.Show();
+            this.Hide();
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            Unidades U = new Unidades();
-            U.Show();
-            this.Hide();
+            Application.Exit();
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)
