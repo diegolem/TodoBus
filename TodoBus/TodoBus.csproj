@@ -83,6 +83,24 @@
     <Compile Include="Views\Clients\RegCliente.Designer.cs">
       <DependentUpon>RegCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Units\RegistroUnidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Units\RegistroUnidad.Designer.cs">
+      <DependentUpon>RegistroUnidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Units\Unidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Units\Unidades.Designer.cs">
+      <DependentUpon>Unidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Users\DatosUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Users\DatosUsuario.Designer.cs">
+      <DependentUpon>DatosUsuario.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\Clients\Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -107,6 +125,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Clients\RegCliente.resx">
       <DependentUpon>RegCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Units\RegistroUnidad.resx">
+      <DependentUpon>RegistroUnidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Units\Unidades.resx">
+      <DependentUpon>Unidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Users\DatosUsuario.resx">
+      <DependentUpon>DatosUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -133,8 +160,6 @@
     <Folder Include="Views\SpareTypes\" />
     <Folder Include="Views\Spare\" />
     <Folder Include="Views\SubCategories\" />
-    <Folder Include="Views\Units\" />
-    <Folder Include="Views\Users\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
