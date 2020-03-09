@@ -33,5 +33,26 @@ namespace TodoBus
         {
             Application.Exit();
         }
+
+        private void RegCliente_Load(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("¿Registrará un cliente ligado a una empresa?", "Empresa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dialogResult== DialogResult.Yes)
+            {
+
+            }
+            else if (dialogResult==DialogResult.No)
+            {
+                bunifuCustomLabel2.Visible = false;
+                txtEmpresa.Visible = false;
+                bunifuCustomLabel3.Location = new Point(64, 146);
+                txtContacto.Location = new Point(207, 146);
+                bunifuCustomLabel7.Location = new Point(127, 198);
+                txtCorreo.Location = new Point(207, 198);
+                bunifuCustomLabel8.Location = new Point(64, 251);
+                txtCorrAlternativo.Location = new Point(207, 251);
+            }
+        }
     }
 }
