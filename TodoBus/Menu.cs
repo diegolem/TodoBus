@@ -22,7 +22,7 @@ namespace TodoBus
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)
