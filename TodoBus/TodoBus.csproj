@@ -36,10 +36,19 @@
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>..\..\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,6 +60,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\brands.cs">
+      <DependentUpon>TodoBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\clients.cs">
+      <DependentUpon>TodoBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spare.cs">
+      <DependentUpon>TodoBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spare_categories.cs">
+      <DependentUpon>TodoBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spare_subcategories.cs">
+      <DependentUpon>TodoBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spare_subclasses.cs">
+      <DependentUpon>TodoBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TodoBus.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TodoBus.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TodoBus.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TodoBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TodoBus.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TodoBus.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\units.cs">
+      <DependentUpon>TodoBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\units_spare.cs">
+      <DependentUpon>TodoBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\users.cs">
+      <DependentUpon>TodoBus.tt</DependentUpon>
+    </Compile>
     <Compile Include="Views\Brands\Marca.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,6 +330,14 @@
     <EmbeddedResource Include="Views\Users\Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="Models\TodoBus.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TodoBus.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\TodoBus.edmx.diagram">
+      <DependentUpon>TodoBus.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -298,6 +357,20 @@
   <ItemGroup>
     <None Include="Resources\logopng.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Models\TodoBus.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TodoBus.Context.cs</LastGenOutput>
+      <DependentUpon>TodoBus.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\TodoBus.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TodoBus.edmx</DependentUpon>
+      <LastGenOutput>TodoBus.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

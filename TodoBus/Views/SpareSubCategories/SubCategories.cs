@@ -11,6 +11,7 @@ using TodoBus.Views.Brands;
 using TodoBus.Views.SpareCategory;
 using TodoBus.Views.Units;
 using TodoBus.Views.Users;
+using TodoBus.Models;
 
 namespace TodoBus.Views.SpareCategoriesSubClasses
 {
@@ -123,6 +124,84 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
             this.Hide();
             Usuarios frmU = new Usuarios();
             frmU.Show();
+        }
+
+        private void SubCategories_Load(object sender, EventArgs e)
+        {
+            Refresh();
+        }
+
+        #region  helper
+            private void Refresh()
+            {
+                using (TodoBusEntities db = new TodoBusEntities())
+                {
+                    //Obtengo todos los registros de mi tabla en la variable lst
+                    var lst = from d in db.spare_categories
+                              select d;
+                    //Luego colocamos los registros que generamos de la base en el DataGridView y lo pasamos a lista para que
+                    //sea compatible con el DGV
+                    dgvSubCategory.DataSource = lst.ToList();
+                    //Eliminamos las columnas de relaciones, para evitar excepciones
+                    dgvSubCategory.Columns.Remove("spare");
+                    dgvSubCategory.Columns.Remove("spare_subcategories");
+                    //Y ahora añadimos el boton modificar a la tabla
+                    DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
+                    btnEdit.Name = "Editar";
+                    btnEdit.Text = "Modificar";
+                    btnEdit.UseColumnTextForButtonValue = true;
+                    btnEdit.HeaderText = "Modificar";
+                    dgvSubCategory.Columns.Add(btnEdit);
+                    //ahora el boton eliminar
+                    DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+                    btnDelete.Name = "Eliminar";
+                    btnDelete.Text = "Eliminar";
+                    btnDelete.UseColumnTextForButtonValue = true;
+                    btnDelete.HeaderText = "Eliminar";
+                    dgvSubCategory.Columns.Add(btnDelete);
+
+                    //Renombro las columnas del dgv como quiera
+                    dgvSubCategory.Columns[0].HeaderText = "Id";
+                    dgvSubCategory.Columns[1].HeaderText = "Código";
+                    dgvSubCategory.Columns[2].HeaderText = "Nombre de Subcategoría";
+                
+                }
+            }
+
+        private int? getId()
+        {
+            //Metodo para obtener el id de la columna seleccionada
+            try
+            {
+                //Y le decimos que obtenga de mi dgv el valor de la celda 0(que es id) de la fila que se encuentre seleccionada
+                return int.Parse(dgvSubCategory.Rows[dgvSubCategory.CurrentRow.Index].Cells[0].Value.ToString());
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        private void dgvSubCategory_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Los index empiezan desde 0, asi que verificamos en que columna estan los botones modificar y eliminar, para obtener correctamente el id
+            int? id = getId();
+
+            if (e.ColumnIndex == 3)
+            {
+                
+                if (id != null)
+                {
+                    MessageBox.Show("Presionaste modificar " + id);
+                }
+            }else if (e.ColumnIndex == 4)
+            {
+                if (id != null)
+                {
+                    MessageBox.Show("Presionaste eliminar " + id);
+                }
+            }
         }
     }
 }

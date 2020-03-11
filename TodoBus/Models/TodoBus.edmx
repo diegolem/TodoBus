@@ -1,0 +1,649 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TodoBusModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="brands">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="clients">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="client_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="contact_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="phone" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="alternative_phone" Type="varchar" MaxLength="15" />
+          <Property Name="client_type" Type="tinyint" />
+          <Property Name="address" Type="varchar" MaxLength="255" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="alternative_email" Type="varchar" MaxLength="50" />
+          <Property Name="units_total" Type="int" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="spare">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="brand_id" Type="int" />
+          <Property Name="spare_type_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="spare_categories">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="spare_subcategories">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="category_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="spare_subclasses">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="subcategory_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="units">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="measure_description" Type="varchar" MaxLength="255" />
+          <Property Name="total" Type="int" Nullable="false" />
+          <Property Name="brand_id" Type="int" Nullable="false" />
+          <Property Name="client_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="units_spare">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="unit_id" Type="int" Nullable="false" />
+          <Property Name="spare_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="last_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="age" Type="int" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__clients__user_id__3C69FB99">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="clients" Type="Self.clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="clients">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__spare__brand_id__4BAC3F29">
+          <End Role="brands" Type="Self.brands" Multiplicity="0..1" />
+          <End Role="spare" Type="Self.spare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="brands">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="spare">
+              <PropertyRef Name="brand_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__spare__spare_typ__4AB81AF0">
+          <End Role="spare_categories" Type="Self.spare_categories" Multiplicity="1" />
+          <End Role="spare" Type="Self.spare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="spare_categories">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="spare">
+              <PropertyRef Name="spare_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__spare_sub__categ__44FF419A">
+          <End Role="spare_categories" Type="Self.spare_categories" Multiplicity="1" />
+          <End Role="spare_subcategories" Type="Self.spare_subcategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="spare_categories">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="spare_subcategories">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__spare_sub__subca__47DBAE45">
+          <End Role="spare_subcategories" Type="Self.spare_subcategories" Multiplicity="1" />
+          <End Role="spare_subclasses" Type="Self.spare_subclasses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="spare_subcategories">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="spare_subclasses">
+              <PropertyRef Name="subcategory_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__units__brand_id__4F7CD00D">
+          <End Role="brands" Type="Self.brands" Multiplicity="1" />
+          <End Role="units" Type="Self.units" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="brands">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="units">
+              <PropertyRef Name="brand_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__units__client_id__5070F446">
+          <End Role="clients" Type="Self.clients" Multiplicity="1" />
+          <End Role="units" Type="Self.units" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clients">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="units">
+              <PropertyRef Name="client_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__units_spa__spare__5441852A">
+          <End Role="spare" Type="Self.spare" Multiplicity="1" />
+          <End Role="units_spare" Type="Self.units_spare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="spare">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="units_spare">
+              <PropertyRef Name="spare_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__units_spa__unit___534D60F1">
+          <End Role="units" Type="Self.units" Multiplicity="1" />
+          <End Role="units_spare" Type="Self.units_spare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="units">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="units_spare">
+              <PropertyRef Name="unit_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TodoBusModelStoreContainer">
+          <EntitySet Name="brands" EntityType="Self.brands" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="clients" EntityType="Self.clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="spare" EntityType="Self.spare" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="spare_categories" EntityType="Self.spare_categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="spare_subcategories" EntityType="Self.spare_subcategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="spare_subclasses" EntityType="Self.spare_subclasses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="units" EntityType="Self.units" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="units_spare" EntityType="Self.units_spare" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__clients__user_id__3C69FB99" Association="Self.FK__clients__user_id__3C69FB99">
+            <End Role="users" EntitySet="users" />
+            <End Role="clients" EntitySet="clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__spare__brand_id__4BAC3F29" Association="Self.FK__spare__brand_id__4BAC3F29">
+            <End Role="brands" EntitySet="brands" />
+            <End Role="spare" EntitySet="spare" />
+          </AssociationSet>
+          <AssociationSet Name="FK__spare__spare_typ__4AB81AF0" Association="Self.FK__spare__spare_typ__4AB81AF0">
+            <End Role="spare_categories" EntitySet="spare_categories" />
+            <End Role="spare" EntitySet="spare" />
+          </AssociationSet>
+          <AssociationSet Name="FK__spare_sub__categ__44FF419A" Association="Self.FK__spare_sub__categ__44FF419A">
+            <End Role="spare_categories" EntitySet="spare_categories" />
+            <End Role="spare_subcategories" EntitySet="spare_subcategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__spare_sub__subca__47DBAE45" Association="Self.FK__spare_sub__subca__47DBAE45">
+            <End Role="spare_subcategories" EntitySet="spare_subcategories" />
+            <End Role="spare_subclasses" EntitySet="spare_subclasses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__units__brand_id__4F7CD00D" Association="Self.FK__units__brand_id__4F7CD00D">
+            <End Role="brands" EntitySet="brands" />
+            <End Role="units" EntitySet="units" />
+          </AssociationSet>
+          <AssociationSet Name="FK__units__client_id__5070F446" Association="Self.FK__units__client_id__5070F446">
+            <End Role="clients" EntitySet="clients" />
+            <End Role="units" EntitySet="units" />
+          </AssociationSet>
+          <AssociationSet Name="FK__units_spa__spare__5441852A" Association="Self.FK__units_spa__spare__5441852A">
+            <End Role="spare" EntitySet="spare" />
+            <End Role="units_spare" EntitySet="units_spare" />
+          </AssociationSet>
+          <AssociationSet Name="FK__units_spa__unit___534D60F1" Association="Self.FK__units_spa__unit___534D60F1">
+            <End Role="units" EntitySet="units" />
+            <End Role="units_spare" EntitySet="units_spare" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TodoBusModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="brands">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="spare" Relationship="Self.FK__spare__brand_id__4BAC3F29" FromRole="brands" ToRole="spare" />
+          <NavigationProperty Name="units" Relationship="Self.FK__units__brand_id__4F7CD00D" FromRole="brands" ToRole="units" />
+        </EntityType>
+        <EntityType Name="clients">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="client_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contact_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="alternative_phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="client_type" Type="Byte" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="alternative_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="units_total" Type="Int32" Nullable="false" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="users" Relationship="Self.FK__clients__user_id__3C69FB99" FromRole="clients" ToRole="users" />
+          <NavigationProperty Name="units" Relationship="Self.FK__units__client_id__5070F446" FromRole="clients" ToRole="units" />
+        </EntityType>
+        <EntityType Name="spare">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="code" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="brand_id" Type="Int32" />
+          <Property Name="spare_type_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="brands" Relationship="Self.FK__spare__brand_id__4BAC3F29" FromRole="spare" ToRole="brands" />
+          <NavigationProperty Name="spare_categories" Relationship="Self.FK__spare__spare_typ__4AB81AF0" FromRole="spare" ToRole="spare_categories" />
+          <NavigationProperty Name="units_spare" Relationship="Self.FK__units_spa__spare__5441852A" FromRole="spare" ToRole="units_spare" />
+        </EntityType>
+        <EntityType Name="spare_categories">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="spare" Relationship="Self.FK__spare__spare_typ__4AB81AF0" FromRole="spare_categories" ToRole="spare" />
+          <NavigationProperty Name="spare_subcategories" Relationship="Self.FK__spare_sub__categ__44FF419A" FromRole="spare_categories" ToRole="spare_subcategories" />
+        </EntityType>
+        <EntityType Name="spare_subcategories">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="category_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="spare_categories" Relationship="Self.FK__spare_sub__categ__44FF419A" FromRole="spare_subcategories" ToRole="spare_categories" />
+          <NavigationProperty Name="spare_subclasses" Relationship="Self.FK__spare_sub__subca__47DBAE45" FromRole="spare_subcategories" ToRole="spare_subclasses" />
+        </EntityType>
+        <EntityType Name="spare_subclasses">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="subcategory_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="spare_subcategories" Relationship="Self.FK__spare_sub__subca__47DBAE45" FromRole="spare_subclasses" ToRole="spare_subcategories" />
+        </EntityType>
+        <EntityType Name="units">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="measure_description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="total" Type="Int32" Nullable="false" />
+          <Property Name="brand_id" Type="Int32" Nullable="false" />
+          <Property Name="client_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="brands" Relationship="Self.FK__units__brand_id__4F7CD00D" FromRole="units" ToRole="brands" />
+          <NavigationProperty Name="clients" Relationship="Self.FK__units__client_id__5070F446" FromRole="units" ToRole="clients" />
+          <NavigationProperty Name="units_spare" Relationship="Self.FK__units_spa__unit___534D60F1" FromRole="units" ToRole="units_spare" />
+        </EntityType>
+        <EntityType Name="units_spare">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="unit_id" Type="Int32" Nullable="false" />
+          <Property Name="spare_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="spare" Relationship="Self.FK__units_spa__spare__5441852A" FromRole="units_spare" ToRole="spare" />
+          <NavigationProperty Name="units" Relationship="Self.FK__units_spa__unit___534D60F1" FromRole="units_spare" ToRole="units" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="age" Type="Int32" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="clients" Relationship="Self.FK__clients__user_id__3C69FB99" FromRole="users" ToRole="clients" />
+        </EntityType>
+        <Association Name="FK__spare__brand_id__4BAC3F29">
+          <End Role="brands" Type="Self.brands" Multiplicity="0..1" />
+          <End Role="spare" Type="Self.spare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="brands">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="spare">
+              <PropertyRef Name="brand_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__units__brand_id__4F7CD00D">
+          <End Role="brands" Type="Self.brands" Multiplicity="1" />
+          <End Role="units" Type="Self.units" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="brands">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="units">
+              <PropertyRef Name="brand_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__clients__user_id__3C69FB99">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="clients" Type="Self.clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="clients">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__units__client_id__5070F446">
+          <End Role="clients" Type="Self.clients" Multiplicity="1" />
+          <End Role="units" Type="Self.units" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clients">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="units">
+              <PropertyRef Name="client_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__spare__spare_typ__4AB81AF0">
+          <End Role="spare_categories" Type="Self.spare_categories" Multiplicity="1" />
+          <End Role="spare" Type="Self.spare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="spare_categories">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="spare">
+              <PropertyRef Name="spare_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__units_spa__spare__5441852A">
+          <End Role="spare" Type="Self.spare" Multiplicity="1" />
+          <End Role="units_spare" Type="Self.units_spare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="spare">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="units_spare">
+              <PropertyRef Name="spare_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__spare_sub__categ__44FF419A">
+          <End Role="spare_categories" Type="Self.spare_categories" Multiplicity="1" />
+          <End Role="spare_subcategories" Type="Self.spare_subcategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="spare_categories">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="spare_subcategories">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__spare_sub__subca__47DBAE45">
+          <End Role="spare_subcategories" Type="Self.spare_subcategories" Multiplicity="1" />
+          <End Role="spare_subclasses" Type="Self.spare_subclasses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="spare_subcategories">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="spare_subclasses">
+              <PropertyRef Name="subcategory_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__units_spa__unit___534D60F1">
+          <End Role="units" Type="Self.units" Multiplicity="1" />
+          <End Role="units_spare" Type="Self.units_spare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="units">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="units_spare">
+              <PropertyRef Name="unit_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TodoBusEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="brands" EntityType="Self.brands" />
+          <EntitySet Name="clients" EntityType="Self.clients" />
+          <EntitySet Name="spare" EntityType="Self.spare" />
+          <EntitySet Name="spare_categories" EntityType="Self.spare_categories" />
+          <EntitySet Name="spare_subcategories" EntityType="Self.spare_subcategories" />
+          <EntitySet Name="spare_subclasses" EntityType="Self.spare_subclasses" />
+          <EntitySet Name="units" EntityType="Self.units" />
+          <EntitySet Name="units_spare" EntityType="Self.units_spare" />
+          <EntitySet Name="users" EntityType="Self.users" />
+          <AssociationSet Name="FK__spare__brand_id__4BAC3F29" Association="Self.FK__spare__brand_id__4BAC3F29">
+            <End Role="brands" EntitySet="brands" />
+            <End Role="spare" EntitySet="spare" />
+          </AssociationSet>
+          <AssociationSet Name="FK__units__brand_id__4F7CD00D" Association="Self.FK__units__brand_id__4F7CD00D">
+            <End Role="brands" EntitySet="brands" />
+            <End Role="units" EntitySet="units" />
+          </AssociationSet>
+          <AssociationSet Name="FK__clients__user_id__3C69FB99" Association="Self.FK__clients__user_id__3C69FB99">
+            <End Role="users" EntitySet="users" />
+            <End Role="clients" EntitySet="clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__units__client_id__5070F446" Association="Self.FK__units__client_id__5070F446">
+            <End Role="clients" EntitySet="clients" />
+            <End Role="units" EntitySet="units" />
+          </AssociationSet>
+          <AssociationSet Name="FK__spare__spare_typ__4AB81AF0" Association="Self.FK__spare__spare_typ__4AB81AF0">
+            <End Role="spare_categories" EntitySet="spare_categories" />
+            <End Role="spare" EntitySet="spare" />
+          </AssociationSet>
+          <AssociationSet Name="FK__units_spa__spare__5441852A" Association="Self.FK__units_spa__spare__5441852A">
+            <End Role="spare" EntitySet="spare" />
+            <End Role="units_spare" EntitySet="units_spare" />
+          </AssociationSet>
+          <AssociationSet Name="FK__spare_sub__categ__44FF419A" Association="Self.FK__spare_sub__categ__44FF419A">
+            <End Role="spare_categories" EntitySet="spare_categories" />
+            <End Role="spare_subcategories" EntitySet="spare_subcategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__spare_sub__subca__47DBAE45" Association="Self.FK__spare_sub__subca__47DBAE45">
+            <End Role="spare_subcategories" EntitySet="spare_subcategories" />
+            <End Role="spare_subclasses" EntitySet="spare_subclasses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__units_spa__unit___534D60F1" Association="Self.FK__units_spa__unit___534D60F1">
+            <End Role="units" EntitySet="units" />
+            <End Role="units_spare" EntitySet="units_spare" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TodoBusModelStoreContainer" CdmEntityContainer="TodoBusEntities">
+          <EntitySetMapping Name="brands">
+            <EntityTypeMapping TypeName="TodoBusModel.brands">
+              <MappingFragment StoreEntitySet="brands">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clients">
+            <EntityTypeMapping TypeName="TodoBusModel.clients">
+              <MappingFragment StoreEntitySet="clients">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="client_name" ColumnName="client_name" />
+                <ScalarProperty Name="contact_name" ColumnName="contact_name" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="alternative_phone" ColumnName="alternative_phone" />
+                <ScalarProperty Name="client_type" ColumnName="client_type" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="alternative_email" ColumnName="alternative_email" />
+                <ScalarProperty Name="units_total" ColumnName="units_total" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="spare">
+            <EntityTypeMapping TypeName="TodoBusModel.spare">
+              <MappingFragment StoreEntitySet="spare">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="brand_id" ColumnName="brand_id" />
+                <ScalarProperty Name="spare_type_id" ColumnName="spare_type_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="spare_categories">
+            <EntityTypeMapping TypeName="TodoBusModel.spare_categories">
+              <MappingFragment StoreEntitySet="spare_categories">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="spare_subcategories">
+            <EntityTypeMapping TypeName="TodoBusModel.spare_subcategories">
+              <MappingFragment StoreEntitySet="spare_subcategories">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="spare_subclasses">
+            <EntityTypeMapping TypeName="TodoBusModel.spare_subclasses">
+              <MappingFragment StoreEntitySet="spare_subclasses">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="subcategory_id" ColumnName="subcategory_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="units">
+            <EntityTypeMapping TypeName="TodoBusModel.units">
+              <MappingFragment StoreEntitySet="units">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="measure_description" ColumnName="measure_description" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="brand_id" ColumnName="brand_id" />
+                <ScalarProperty Name="client_id" ColumnName="client_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="units_spare">
+            <EntityTypeMapping TypeName="TodoBusModel.units_spare">
+              <MappingFragment StoreEntitySet="units_spare">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="unit_id" ColumnName="unit_id" />
+                <ScalarProperty Name="spare_id" ColumnName="spare_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="TodoBusModel.users">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -64,60 +64,60 @@ CREATE TABLE spare_subcategories(
 	id int NOT NULL IDENTITY,
 	code varchar(20) NOT NULL,
 	name varchar(100) NOT NULL,
-	category_id varchar(25) NOT NULL,
+	category_id int NOT NULL,
 
 	PRIMARY KEY(id),
-	FOREIGN KEY(category_id) REFERENCES spare_categories(code)
+	FOREIGN KEY(category_id) REFERENCES spare_categories(id)
 );
 
 --Para Articulos varios
-INSERT INTO spare_subcategories VALUES('1', 'HERRAMIENTAS', '10');
-INSERT INTO spare_subcategories VALUES('2', 'MATERIALES', '10');
+INSERT INTO spare_subcategories VALUES('1', 'HERRAMIENTAS', 1);
+INSERT INTO spare_subcategories VALUES('2', 'MATERIALES', 1);
 --Para partes de carroceria
-INSERT INTO spare_subcategories VALUES('0', 'LIQUIDACION', '12');
-INSERT INTO spare_subcategories VALUES('1', 'CARROCERIA EXTERNA', '12');
-INSERT INTO spare_subcategories VALUES('2', 'CARROCERIA INTERNA', '12');
-INSERT INTO spare_subcategories VALUES('3', 'SISTEMAS DE FUNCIONAMIENTO', '12');
-INSERT INTO spare_subcategories VALUES('4', 'VIDRIOS', '12');
-INSERT INTO spare_subcategories VALUES('5', 'ACABAMIENTOS', '12');
+INSERT INTO spare_subcategories VALUES('0', 'LIQUIDACION', 3);
+INSERT INTO spare_subcategories VALUES('1', 'CARROCERIA EXTERNA', 3);
+INSERT INTO spare_subcategories VALUES('2', 'CARROCERIA INTERNA', 3);
+INSERT INTO spare_subcategories VALUES('3', 'SISTEMAS DE FUNCIONAMIENTO', 3);
+INSERT INTO spare_subcategories VALUES('4', 'VIDRIOS', 3);
+INSERT INTO spare_subcategories VALUES('5', 'ACABAMIENTOS', 3);
 --Para aire acondicionado
-INSERT INTO spare_subcategories VALUES('1', 'VALVULAS', '13');
-INSERT INTO spare_subcategories VALUES('2', 'FILTROS', '13');
-INSERT INTO spare_subcategories VALUES('3', 'COMPRESORES', '13');
-INSERT INTO spare_subcategories VALUES('4', 'KIT REPAROS', '13');
-INSERT INTO spare_subcategories VALUES('5', 'VENTILADORES', '13');
-INSERT INTO spare_subcategories VALUES('6', 'VARIOS', '13');
+INSERT INTO spare_subcategories VALUES('1', 'VALVULAS', 4);
+INSERT INTO spare_subcategories VALUES('2', 'FILTROS', 4);
+INSERT INTO spare_subcategories VALUES('3', 'COMPRESORES', 4);
+INSERT INTO spare_subcategories VALUES('4', 'KIT REPAROS', 4);
+INSERT INTO spare_subcategories VALUES('5', 'VENTILADORES', 4);
+INSERT INTO spare_subcategories VALUES('6', 'VARIOS', 4);
 --Para partes de repuesto chasis
-INSERT INTO spare_subcategories VALUES('1', 'CHASIS', '14');
-INSERT INTO spare_subcategories VALUES('2', 'MOTOR', '14');
-INSERT INTO spare_subcategories VALUES('3', 'CAJA VELOCIDADES', '14');
-INSERT INTO spare_subcategories VALUES('4', 'TRANSMISIÓN', '14');
+INSERT INTO spare_subcategories VALUES('1', 'CHASIS', 5);
+INSERT INTO spare_subcategories VALUES('2', 'MOTOR', 5);
+INSERT INTO spare_subcategories VALUES('3', 'CAJA VELOCIDADES', 5);
+INSERT INTO spare_subcategories VALUES('4', 'TRANSMISIÓN', 5);
 --Para repuestos para unidades brasileñas
-INSERT INTO spare_subcategories VALUES('10', 'ARTICULOS AIRE ACONDICIONADO', 'BR');
-INSERT INTO spare_subcategories VALUES('11', 'DELANTERO EXTERIOR', 'BR');
-INSERT INTO spare_subcategories VALUES('12', 'TRASERO EXTERIOR', 'BR');
-INSERT INTO spare_subcategories VALUES('13', 'LATERAL EXTERIOR', 'BR');
-INSERT INTO spare_subcategories VALUES('14', 'SUPERIOR - TECHO', 'BR');
-INSERT INTO spare_subcategories VALUES('21', 'CABINA INTERIOR', 'BR');
-INSERT INTO spare_subcategories VALUES('22', 'SALON INTERIOR', 'BR');
-INSERT INTO spare_subcategories VALUES('23', 'OTROS COMPONENTES', 'BR');
-INSERT INTO spare_subcategories VALUES('31', 'ELÉCTRICO', 'BR');
-INSERT INTO spare_subcategories VALUES('32', 'NEUMÁTICO', 'BR');
-INSERT INTO spare_subcategories VALUES('33', 'MECÁNICO', 'BR');
-INSERT INTO spare_subcategories VALUES('34', 'HIDRÁULICO', 'BR');
-INSERT INTO spare_subcategories VALUES('41', 'PARABRISAS', 'BR');
-INSERT INTO spare_subcategories VALUES('42', 'VIDRIOS DE VENTANA', 'BR');
-INSERT INTO spare_subcategories VALUES('43', 'VIDRIOS DE PUERTA', 'BR');
-INSERT INTO spare_subcategories VALUES('44', 'OTROS VIDRIOS', 'BR');
-INSERT INTO spare_subcategories VALUES('45', 'ESPEJOS', 'BR');
-INSERT INTO spare_subcategories VALUES('51', 'PERFILES ALUMNIO', 'BR');
-INSERT INTO spare_subcategories VALUES('52', 'EMPAQUES', 'BR');
-INSERT INTO spare_subcategories VALUES('53', 'TELAS', 'BR');
-INSERT INTO spare_subcategories VALUES('54', 'ASIENTOS', 'BR');
-INSERT INTO spare_subcategories VALUES('55', 'SOPORTES/TOPES', 'BR');
-INSERT INTO spare_subcategories VALUES('56', 'ADHESIVOS', 'BR');
-INSERT INTO spare_subcategories VALUES('57', 'PERFILES PLÁSTICOS', 'BR');
-INSERT INTO spare_subcategories VALUES('58', 'LAMINAS', 'BR');
+INSERT INTO spare_subcategories VALUES('10', 'ARTICULOS AIRE ACONDICIONADO', 6);
+INSERT INTO spare_subcategories VALUES('11', 'DELANTERO EXTERIOR', 6);
+INSERT INTO spare_subcategories VALUES('12', 'TRASERO EXTERIOR', 6);
+INSERT INTO spare_subcategories VALUES('13', 'LATERAL EXTERIOR', 6);
+INSERT INTO spare_subcategories VALUES('14', 'SUPERIOR - TECHO', 6);
+INSERT INTO spare_subcategories VALUES('21', 'CABINA INTERIOR', 6);
+INSERT INTO spare_subcategories VALUES('22', 'SALON INTERIOR', 6);
+INSERT INTO spare_subcategories VALUES('23', 'OTROS COMPONENTES', 6);
+INSERT INTO spare_subcategories VALUES('31', 'ELÉCTRICO', 6);
+INSERT INTO spare_subcategories VALUES('32', 'NEUMÁTICO', 6);
+INSERT INTO spare_subcategories VALUES('33', 'MECÁNICO', 6);
+INSERT INTO spare_subcategories VALUES('34', 'HIDRÁULICO', 6);
+INSERT INTO spare_subcategories VALUES('41', 'PARABRISAS', 6);
+INSERT INTO spare_subcategories VALUES('42', 'VIDRIOS DE VENTANA', 6);
+INSERT INTO spare_subcategories VALUES('43', 'VIDRIOS DE PUERTA', 6);
+INSERT INTO spare_subcategories VALUES('44', 'OTROS VIDRIOS', 6);
+INSERT INTO spare_subcategories VALUES('45', 'ESPEJOS', 6);
+INSERT INTO spare_subcategories VALUES('51', 'PERFILES ALUMNIO', 6);
+INSERT INTO spare_subcategories VALUES('52', 'EMPAQUES', 6);
+INSERT INTO spare_subcategories VALUES('53', 'TELAS', 6);
+INSERT INTO spare_subcategories VALUES('54', 'ASIENTOS', 6);
+INSERT INTO spare_subcategories VALUES('55', 'SOPORTES/TOPES', 6);
+INSERT INTO spare_subcategories VALUES('56', 'ADHESIVOS', 6);
+INSERT INTO spare_subcategories VALUES('57', 'PERFILES PLÁSTICOS', 6);
+INSERT INTO spare_subcategories VALUES('58', 'LAMINAS', 6);
 
 DROP TABLE IF EXISTS spare_subclasses;
 CREATE TABLE spare_subclasses(
@@ -184,15 +184,15 @@ INSERT INTO spare_subclasses VALUES('1', 'LLANTAS', 15);
 
 DROP TABLE IF EXISTS spare;
 CREATE TABLE spare(
-	id varchar(50) NOT NULL,
+	id int NOT NULL IDENTITY,
 	name varchar(255) NOT NULL,
 	image varchar(255) NOT NULL,
 	code varchar(25) NOT NULL,
 	brand_id int NULL,
-	spare_type_id varchar(25) NOT NULL,
+	spare_type_id int NOT NULL,
 
 	PRIMARY KEY(id),
-	FOREIGN KEY(spare_type_id) REFERENCES spare_categories(code),
+	FOREIGN KEY(spare_type_id) REFERENCES spare_categories(id),
 	FOREIGN KEY (brand_id) REFERENCES brands(id),
 );
 
@@ -212,7 +212,7 @@ DROP TABLE IF EXISTS units_spare;
 CREATE TABLE units_spare(
 	id int NOT NULL IDENTITY,
 	unit_id int NOT NULL,
-	spare_id varchar(50) NOT NULL
+	spare_id int NOT NULL
 
 	PRIMARY KEY(id),
 	FOREIGN KEY(unit_id) REFERENCES units(id),

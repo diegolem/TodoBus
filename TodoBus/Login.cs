@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TodoBus.Views.Units;
 
 namespace TodoBus
 {
@@ -20,13 +21,6 @@ namespace TodoBus
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void btnLogIn_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Menu frmMenu = new Menu();
-            frmMenu.Show();
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -43,9 +37,9 @@ namespace TodoBus
 
         private void btnLogIn_Click_1(object sender, EventArgs e)
         {
-            Menu menu = new Menu();
-            menu.Show();
             this.Hide();
+            Unidades frmMenu = new Unidades();
+            frmMenu.Show();
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)

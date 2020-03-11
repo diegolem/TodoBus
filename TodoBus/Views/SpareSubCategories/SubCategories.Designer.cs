@@ -730,9 +730,12 @@
             this.dgvSubCategory.HeaderForeColor = System.Drawing.Color.Black;
             this.dgvSubCategory.Location = new System.Drawing.Point(45, 176);
             this.dgvSubCategory.Name = "dgvSubCategory";
+            this.dgvSubCategory.ReadOnly = true;
             this.dgvSubCategory.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvSubCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSubCategory.Size = new System.Drawing.Size(646, 452);
             this.dgvSubCategory.TabIndex = 44;
+            this.dgvSubCategory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSubCategory_CellClick);
             // 
             // bunifuDragControl1
             // 
@@ -796,6 +799,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SubCategories";
             this.Text = "SubCategories";
+            this.Load += new System.EventHandler(this.SubCategories_Load);
             this.header.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
