@@ -10,8 +10,8 @@ CREATE TABLE users(
 	name varchar(50) NOT NULL,
 	last_name varchar(50) NOT NULL,
 	email varchar(50) NOT NULL UNIQUE,
-	age int CHECK(age IN(15, 100)),
-	password varchar(50),
+	age int CHECK(age >= 18),
+	password varchar(64),
 	PRIMARY KEY(id)
 );
 

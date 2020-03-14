@@ -131,8 +131,8 @@ namespace TodoBus
 
         private void Clientes_Load(object sender, EventArgs e)
         {
-            formatTable();
             Refresh();
+            formatTable();
         }
 
         private void formatTable()
@@ -142,6 +142,8 @@ namespace TodoBus
                 //Eliminamos las columnas de relaciones, para evitar excepciones
                 dgvClientes.Columns.Remove("client_type");
                 dgvClientes.Columns.Remove("user_id");
+                dgvClientes.Columns.Remove("users");
+                dgvClientes.Columns.Remove("units");
                 //Y ahora añadimos el boton modificar a la tabla
                 DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
                 btnEdit.Name = "Editar";
