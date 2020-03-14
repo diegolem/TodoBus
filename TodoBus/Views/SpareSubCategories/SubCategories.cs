@@ -12,11 +12,13 @@ using TodoBus.Views.SpareCategory;
 using TodoBus.Views.Units;
 using TodoBus.Views.Users;
 using TodoBus.Models;
+using TodoBus.Controllers;
 
 namespace TodoBus.Views.SpareCategoriesSubClasses
 {
     public partial class SubCategories : Form
     {
+        SubCategoryController subController = new SubCategoryController();
         public SubCategories()
         {
             InitializeComponent();
@@ -36,8 +38,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
         private void btnRegSubCategoria_Click(object sender, EventArgs e)
         {
             RegSubCategories frmR = new RegSubCategories();
-            frmR.Show();
-            this.Hide();
+            frmR.ShowDialog();
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)
@@ -128,45 +129,64 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
 
         private void SubCategories_Load(object sender, EventArgs e)
         {
+            //Llamo al metodo para llenar la tabla
             Refresh();
+            formatTable();
+        }
+
+        private void formatTable()
+        {
+            if (dgvSubCategory.DataSource != null)
+            {
+                //Eliminamos las columnas de relaciones, para evitar excepciones
+                dgvSubCategory.Columns.Remove("category_id");
+                dgvSubCategory.Columns.Remove("spare_categories");
+                dgvSubCategory.Columns.Remove("spare_subclasses");
+                //Y ahora añadimos el boton modificar a la tabla
+                DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
+                btnEdit.Name = "Editar";
+                btnEdit.Text = "Modificar";
+                btnEdit.UseColumnTextForButtonValue = true;
+                btnEdit.HeaderText = "Modificar";
+                dgvSubCategory.Columns.Add(btnEdit);
+                //ahora el boton eliminar
+                DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+                btnDelete.Name = "Eliminar";
+                btnDelete.Text = "Eliminar";
+                btnDelete.UseColumnTextForButtonValue = true;
+                btnDelete.HeaderText = "Eliminar";
+                dgvSubCategory.Columns.Add(btnDelete);
+
+                //Renombro las columnas del dgv como quiera
+                dgvSubCategory.Columns[0].HeaderText = "Id";
+                dgvSubCategory.Columns[1].HeaderText = "Código";
+                dgvSubCategory.Columns[2].HeaderText = "Nombre de Subcategoría";
+                dgvSubCategory.Columns[2].Width = 185;
+            }
         }
 
         #region  helper
             private void Refresh()
             {
-                using (TodoBusEntities db = new TodoBusEntities())
+                if(dgvSubCategory.DataSource != null)
                 {
-                    //Obtengo todos los registros de mi tabla en la variable lst
-                    var lst = from d in db.spare_categories
-                              select d;
-                    //Luego colocamos los registros que generamos de la base en el DataGridView y lo pasamos a lista para que
-                    //sea compatible con el DGV
-                    dgvSubCategory.DataSource = lst.ToList();
-                    //Eliminamos las columnas de relaciones, para evitar excepciones
-                    dgvSubCategory.Columns.Remove("spare");
-                    dgvSubCategory.Columns.Remove("spare_subcategories");
-                    //Y ahora añadimos el boton modificar a la tabla
-                    DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
-                    btnEdit.Name = "Editar";
-                    btnEdit.Text = "Modificar";
-                    btnEdit.UseColumnTextForButtonValue = true;
-                    btnEdit.HeaderText = "Modificar";
-                    dgvSubCategory.Columns.Add(btnEdit);
-                    //ahora el boton eliminar
-                    DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
-                    btnDelete.Name = "Eliminar";
-                    btnDelete.Text = "Eliminar";
-                    btnDelete.UseColumnTextForButtonValue = true;
-                    btnDelete.HeaderText = "Eliminar";
-                    dgvSubCategory.Columns.Add(btnDelete);
-
-                    //Renombro las columnas del dgv como quiera
-                    dgvSubCategory.Columns[0].HeaderText = "Id";
-                    dgvSubCategory.Columns[1].HeaderText = "Código";
-                    dgvSubCategory.Columns[2].HeaderText = "Nombre de Subcategoría";
-                
+                    //Si esto no estaba vacio limpio todas las columas del Grid
+                    dgvSubCategory.Columns.Clear();
                 }
-            }
+                dgvSubCategory.DataSource = null;
+
+                List<spare_subcategories> subCategories = new List<spare_subcategories>();
+                subCategories = subController.getAllSubCategories();
+
+                if(subCategories.Count() > 0)
+                {
+                    dgvSubCategory.DataSource = subCategories;
+                }
+                else
+                {
+                    dgvSubCategory.DataSource = null;
+                }
+        }
 
         private int? getId()
         {
@@ -190,7 +210,6 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
 
             if (e.ColumnIndex == 3)
             {
-                
                 if (id != null)
                 {
                     MessageBox.Show("Presionaste modificar " + id);
@@ -199,9 +218,30 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
             {
                 if (id != null)
                 {
-                    MessageBox.Show("Presionaste eliminar " + id);
+                    DialogResult result = MessageBox.Show("¿Estas seguro que deseas eliminar esta subcategoría?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        if (subController.delete(id))
+                        {
+                            MessageBox.Show("La Subcategoria se ha eliminado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ocurrio un error al eliminar la categoria", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                        Refresh();
+                        formatTable();
+                    }
                 }
             }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            Refresh();
+            formatTable();
         }
     }
 }
