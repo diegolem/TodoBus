@@ -222,6 +222,7 @@
             this.btnRegCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRegCliente.Textcolor = System.Drawing.Color.White;
             this.btnRegCliente.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegCliente.Click += new System.EventHandler(this.btnRegCliente_Click);
             // 
             // header
             // 

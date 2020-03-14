@@ -12,12 +12,14 @@ using TodoBus.Views.SpareCategoriesSubClasses;
 using TodoBus.Views.SpareCategory;
 using TodoBus.Views.Units;
 using TodoBus.Views.Users;
+using TodoBus.Models;
+using TodoBus.Controllers;
 
 namespace TodoBus
 {
     public partial class Clientes : Form
     {
-
+        ClientController clientController = new ClientController();
         public Clientes()
         {
             InitializeComponent();
@@ -125,6 +127,85 @@ namespace TodoBus
             this.Hide();
             Usuarios frmU = new Usuarios();
             frmU.Show();
+        }
+
+        private void Clientes_Load(object sender, EventArgs e)
+        {
+            formatTable();
+            Refresh();
+        }
+
+        private void formatTable()
+        {
+            if (dgvClientes.DataSource != null)
+            {
+                //Eliminamos las columnas de relaciones, para evitar excepciones
+                dgvClientes.Columns.Remove("client_type");
+                dgvClientes.Columns.Remove("user_id");
+                //Y ahora añadimos el boton modificar a la tabla
+                DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
+                btnEdit.Name = "Editar";
+                btnEdit.Text = "Modificar";
+                btnEdit.UseColumnTextForButtonValue = true;
+                btnEdit.HeaderText = "Modificar";
+                dgvClientes.Columns.Add(btnEdit);
+                //ahora el boton eliminar
+                DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+                btnDelete.Name = "Eliminar";
+                btnDelete.Text = "Eliminar";
+                btnDelete.UseColumnTextForButtonValue = true;
+                btnDelete.HeaderText = "Eliminar";
+                dgvClientes.Columns.Add(btnDelete);
+
+                //Renombro las columnas del dgv como quiera
+                dgvClientes.Columns[0].HeaderText = "Id";
+                dgvClientes.Columns[1].HeaderText = "Nombre Empresa";
+                dgvClientes.Columns[2].HeaderText = "Nombre Contacto";
+                dgvClientes.Columns[2].Width = 185;
+                dgvClientes.Columns[3].HeaderText = "Teléfono";
+                dgvClientes.Columns[4].HeaderText = "Teléfono Alternativo";
+                dgvClientes.Columns[4].Width = 185;
+                dgvClientes.Columns[5].HeaderText = "Dirección";
+                dgvClientes.Columns[6].HeaderText = "Correo";
+                dgvClientes.Columns[7].HeaderText = "Correo Alternativo";
+                dgvClientes.Columns[7].Width = 185;
+                dgvClientes.Columns[8].HeaderText = "Unidades Totales";
+                dgvClientes.Columns[8].Width = 185;
+            }
+        }
+        private void Refresh()
+        {
+            if (dgvClientes.DataSource != null)
+            {
+                //Si esto no estaba vacio limpio todas las columas del Grid
+                dgvClientes.Columns.Clear();
+            }
+            dgvClientes.DataSource = null;
+
+            List<clients> clients= new List<clients>();
+            clients = clientController.getAllClients();
+
+            if (clients.Count() > 0)
+            {
+                dgvClientes.DataSource = clients;
+            }
+            else
+            {
+                dgvClientes.DataSource = null;
+            }
+        }
+        private int? getId()
+        {
+            //Metodo para obtener el id de la columna seleccionada
+            try
+            {
+                //Y le decimos que obtenga de mi dgv el valor de la celda 0(que es id) de la fila que se encuentre seleccionada
+                return int.Parse(dgvClientes.Rows[dgvClientes.CurrentRow.Index].Cells[0].Value.ToString());
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }

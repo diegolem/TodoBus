@@ -186,7 +186,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
                 {
                     dgvSubCategory.DataSource = null;
                 }
-        }
+            }
 
         private int? getId()
         {
