@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TodoBus.Controllers;
+using TodoBus.Models;
 using TodoBus.Views.Brands;
 using TodoBus.Views.SpareCategoriesSubClasses;
 using TodoBus.Views.SpareCategory;
@@ -16,6 +18,9 @@ namespace TodoBus.Views.Units
 {
     public partial class Unidades : Form
     {
+        UnitController unitController = new UnitController();
+        ClientController clientController = new ClientController();
+        List<clients> lsClient = new List<clients>();
         public Unidades()
         {
             InitializeComponent();
@@ -52,9 +57,9 @@ namespace TodoBus.Views.Units
 
         private void btnNuevaUnidad_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            
             RegistroUnidad RU = new RegistroUnidad();
-            RU.Show();
+            RU.ShowDialog();
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)
@@ -139,5 +144,88 @@ namespace TodoBus.Views.Units
         {
 
         }
+
+        private void Unidades_Load(object sender, EventArgs e)
+        {
+            Refresh();
+            formatTable();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            Refresh();
+            formatTable();
+        }
+
+        #region  helper
+        private void Refresh()
+        {
+            if (dgvUnidad.DataSource != null)
+            {
+                //Si esto no estaba vacio limpio todas las columas del Grid
+                dgvUnidad.Columns.Clear();
+            }
+            dgvUnidad.DataSource = null;
+
+            List<units> units = new List<units>();
+            List<clients> clients = new List<clients>();
+            units = unitController.getAllUnits();
+            clients = clientController.getAllClients();
+            if (units.Count() > 0)
+            {
+                dgvUnidad.DataSource = units;
+            }
+            else
+            {
+                dgvUnidad.DataSource = null;
+            }
+        }
+
+        private void formatTable()
+        {
+            if (dgvUnidad.DataSource != null)
+            {
+                //Eliminamos las columnas de relaciones, para evitar excepciones
+                dgvUnidad.Columns.Remove("brand_id");
+                dgvUnidad.Columns.Remove("client_id");
+                dgvUnidad.Columns.Remove("brands");
+                dgvUnidad.Columns.Remove("clients");
+                dgvUnidad.Columns.Remove("units_spare");
+                //Y ahora añadimos el boton modificar a la tabla
+                DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
+                btnEdit.Name = "Editar";
+                btnEdit.Text = "Modificar";
+                btnEdit.UseColumnTextForButtonValue = true;
+                btnEdit.HeaderText = "Modificar";
+                dgvUnidad.Columns.Add(btnEdit);
+                //ahora el boton eliminar
+                DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+                btnDelete.Name = "Eliminar";
+                btnDelete.Text = "Eliminar";
+                btnDelete.UseColumnTextForButtonValue = true;
+                btnDelete.HeaderText = "Eliminar";
+                dgvUnidad.Columns.Add(btnDelete);
+
+                //Renombro las columnas del dgv como quiera
+                dgvUnidad.Columns[0].HeaderText = "Id";
+                dgvUnidad.Columns[1].HeaderText = "Medidas";
+                dgvUnidad.Columns[2].HeaderText = "Total de unidades";
+            }
+        }
+
+        private int? getId()
+        {
+            //Metodo para obtener el id de la columna seleccionada
+            try
+            {
+                //Y le decimos que obtenga de mi dgv el valor de la celda 0(que es id) de la fila que se encuentre seleccionada
+                return int.Parse(dgvUnidad.Rows[dgvUnidad.CurrentRow.Index].Cells[0].Value.ToString());
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        #endregion
     }
 }
