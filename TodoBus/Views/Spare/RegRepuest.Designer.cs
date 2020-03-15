@@ -31,25 +31,28 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegRepuest));
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnVolver = new Bunifu.Framework.UI.BunifuFlatButton();
             this.header = new System.Windows.Forms.Panel();
+            this.bunifuImageButton3 = new Bunifu.Framework.UI.BunifuImageButton();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnRegCliente = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bunifuCustomTextbox2 = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
-            this.bunifuCustomTextbox1 = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
+            this.txtNombre = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
+            this.txtCodigo = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
-            this.bunifuDropdown1 = new Bunifu.Framework.UI.BunifuDropdown();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomTextbox3 = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.bunifuImageButton3 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.cmbType = new System.Windows.Forms.ComboBox();
+            this.cmbBrand = new System.Windows.Forms.ComboBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.header.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuCustomLabel7
@@ -63,42 +66,42 @@
             this.bunifuCustomLabel7.TabIndex = 74;
             this.bunifuCustomLabel7.Text = "Tipo de Repuesto:";
             // 
-            // bunifuFlatButton1
+            // btnVolver
             // 
-            this.bunifuFlatButton1.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
-            this.bunifuFlatButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
-            this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton1.BorderRadius = 5;
-            this.bunifuFlatButton1.ButtonText = "              Volver";
-            this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton1.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton1.Iconimage")));
-            this.bunifuFlatButton1.Iconimage_right = null;
-            this.bunifuFlatButton1.Iconimage_right_Selected = null;
-            this.bunifuFlatButton1.Iconimage_Selected = null;
-            this.bunifuFlatButton1.IconMarginLeft = 25;
-            this.bunifuFlatButton1.IconMarginRight = 0;
-            this.bunifuFlatButton1.IconRightVisible = false;
-            this.bunifuFlatButton1.IconRightZoom = 0D;
-            this.bunifuFlatButton1.IconVisible = false;
-            this.bunifuFlatButton1.IconZoom = 60D;
-            this.bunifuFlatButton1.IsTab = false;
-            this.bunifuFlatButton1.Location = new System.Drawing.Point(56, 434);
-            this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.bunifuFlatButton1.Name = "bunifuFlatButton1";
-            this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
-            this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(130)))), ((int)(((byte)(184)))));
-            this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
-            this.bunifuFlatButton1.selected = false;
-            this.bunifuFlatButton1.Size = new System.Drawing.Size(128, 36);
-            this.bunifuFlatButton1.TabIndex = 73;
-            this.bunifuFlatButton1.Text = "              Volver";
-            this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton1.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButton1.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
+            this.btnVolver.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            this.btnVolver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            this.btnVolver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnVolver.BorderRadius = 5;
+            this.btnVolver.ButtonText = "              Volver";
+            this.btnVolver.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVolver.DisabledColor = System.Drawing.Color.Gray;
+            this.btnVolver.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnVolver.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnVolver.Iconimage")));
+            this.btnVolver.Iconimage_right = null;
+            this.btnVolver.Iconimage_right_Selected = null;
+            this.btnVolver.Iconimage_Selected = null;
+            this.btnVolver.IconMarginLeft = 25;
+            this.btnVolver.IconMarginRight = 0;
+            this.btnVolver.IconRightVisible = false;
+            this.btnVolver.IconRightZoom = 0D;
+            this.btnVolver.IconVisible = false;
+            this.btnVolver.IconZoom = 60D;
+            this.btnVolver.IsTab = false;
+            this.btnVolver.Location = new System.Drawing.Point(56, 434);
+            this.btnVolver.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            this.btnVolver.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(130)))), ((int)(((byte)(184)))));
+            this.btnVolver.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
+            this.btnVolver.selected = false;
+            this.btnVolver.Size = new System.Drawing.Size(128, 36);
+            this.btnVolver.TabIndex = 73;
+            this.btnVolver.Text = "              Volver";
+            this.btnVolver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVolver.Textcolor = System.Drawing.Color.White;
+            this.btnVolver.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
             // 
             // header
             // 
@@ -110,6 +113,21 @@
             this.header.Name = "header";
             this.header.Size = new System.Drawing.Size(932, 32);
             this.header.TabIndex = 72;
+            // 
+            // bunifuImageButton3
+            // 
+            this.bunifuImageButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.bunifuImageButton3.ErrorImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton3.ErrorImage")));
+            this.bunifuImageButton3.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton3.Image")));
+            this.bunifuImageButton3.ImageActive = null;
+            this.bunifuImageButton3.Location = new System.Drawing.Point(841, 2);
+            this.bunifuImageButton3.Name = "bunifuImageButton3";
+            this.bunifuImageButton3.Size = new System.Drawing.Size(37, 28);
+            this.bunifuImageButton3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bunifuImageButton3.TabIndex = 5;
+            this.bunifuImageButton3.TabStop = false;
+            this.bunifuImageButton3.Zoom = 10;
+            this.bunifuImageButton3.Click += new System.EventHandler(this.bunifuImageButton3_Click);
             // 
             // bunifuImageButton1
             // 
@@ -160,24 +178,25 @@
             this.btnRegCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRegCliente.Textcolor = System.Drawing.Color.White;
             this.btnRegCliente.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegCliente.Click += new System.EventHandler(this.btnRegCliente_Click);
             // 
-            // bunifuCustomTextbox2
+            // txtNombre
             // 
-            this.bunifuCustomTextbox2.BorderColor = System.Drawing.Color.SeaGreen;
-            this.bunifuCustomTextbox2.Location = new System.Drawing.Point(210, 189);
-            this.bunifuCustomTextbox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.bunifuCustomTextbox2.Name = "bunifuCustomTextbox2";
-            this.bunifuCustomTextbox2.Size = new System.Drawing.Size(319, 20);
-            this.bunifuCustomTextbox2.TabIndex = 64;
+            this.txtNombre.BorderColor = System.Drawing.Color.SeaGreen;
+            this.txtNombre.Location = new System.Drawing.Point(210, 189);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(319, 20);
+            this.txtNombre.TabIndex = 64;
             // 
-            // bunifuCustomTextbox1
+            // txtCodigo
             // 
-            this.bunifuCustomTextbox1.BorderColor = System.Drawing.Color.SeaGreen;
-            this.bunifuCustomTextbox1.Location = new System.Drawing.Point(210, 137);
-            this.bunifuCustomTextbox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.bunifuCustomTextbox1.Name = "bunifuCustomTextbox1";
-            this.bunifuCustomTextbox1.Size = new System.Drawing.Size(319, 20);
-            this.bunifuCustomTextbox1.TabIndex = 63;
+            this.txtCodigo.BorderColor = System.Drawing.Color.SeaGreen;
+            this.txtCodigo.Location = new System.Drawing.Point(210, 137);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(319, 20);
+            this.txtCodigo.TabIndex = 63;
             // 
             // bunifuCustomLabel3
             // 
@@ -224,21 +243,8 @@
             this.bunifuImageButton2.TabIndex = 76;
             this.bunifuImageButton2.TabStop = false;
             this.bunifuImageButton2.Zoom = 10;
-            // 
-            // bunifuDropdown1
-            // 
-            this.bunifuDropdown1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuDropdown1.BorderRadius = 3;
-            this.bunifuDropdown1.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuDropdown1.ForeColor = System.Drawing.Color.Black;
-            this.bunifuDropdown1.Items = new string[0];
-            this.bunifuDropdown1.Location = new System.Drawing.Point(210, 238);
-            this.bunifuDropdown1.Name = "bunifuDropdown1";
-            this.bunifuDropdown1.NomalColor = System.Drawing.SystemColors.Window;
-            this.bunifuDropdown1.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.bunifuDropdown1.selectedIndex = -1;
-            this.bunifuDropdown1.Size = new System.Drawing.Size(319, 20);
-            this.bunifuDropdown1.TabIndex = 77;
+            this.bunifuImageButton2.Click += new System.EventHandler(this.bunifuImageButton2_Click);
+            this.bunifuImageButton2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.bunifuImageButton2_MouseClick);
             // 
             // bunifuCustomLabel4
             // 
@@ -247,18 +253,9 @@
             this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.White;
             this.bunifuCustomLabel4.Location = new System.Drawing.Point(81, 286);
             this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
-            this.bunifuCustomLabel4.Size = new System.Drawing.Size(79, 17);
+            this.bunifuCustomLabel4.Size = new System.Drawing.Size(48, 17);
             this.bunifuCustomLabel4.TabIndex = 79;
-            this.bunifuCustomLabel4.Text = "Descripción:";
-            // 
-            // bunifuCustomTextbox3
-            // 
-            this.bunifuCustomTextbox3.BorderColor = System.Drawing.Color.SeaGreen;
-            this.bunifuCustomTextbox3.Location = new System.Drawing.Point(210, 286);
-            this.bunifuCustomTextbox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.bunifuCustomTextbox3.Name = "bunifuCustomTextbox3";
-            this.bunifuCustomTextbox3.Size = new System.Drawing.Size(319, 20);
-            this.bunifuCustomTextbox3.TabIndex = 80;
+            this.bunifuCustomLabel4.Text = "Marca:";
             // 
             // bunifuDragControl1
             // 
@@ -267,20 +264,31 @@
             this.bunifuDragControl1.TargetControl = this.header;
             this.bunifuDragControl1.Vertical = true;
             // 
-            // bunifuImageButton3
+            // openFileDialog1
             // 
-            this.bunifuImageButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.bunifuImageButton3.ErrorImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton3.ErrorImage")));
-            this.bunifuImageButton3.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton3.Image")));
-            this.bunifuImageButton3.ImageActive = null;
-            this.bunifuImageButton3.Location = new System.Drawing.Point(841, 2);
-            this.bunifuImageButton3.Name = "bunifuImageButton3";
-            this.bunifuImageButton3.Size = new System.Drawing.Size(37, 28);
-            this.bunifuImageButton3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton3.TabIndex = 5;
-            this.bunifuImageButton3.TabStop = false;
-            this.bunifuImageButton3.Zoom = 10;
-            this.bunifuImageButton3.Click += new System.EventHandler(this.bunifuImageButton3_Click);
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // cmbType
+            // 
+            this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbType.FormattingEnabled = true;
+            this.cmbType.Location = new System.Drawing.Point(210, 238);
+            this.cmbType.Name = "cmbType";
+            this.cmbType.Size = new System.Drawing.Size(319, 21);
+            this.cmbType.TabIndex = 80;
+            // 
+            // cmbBrand
+            // 
+            this.cmbBrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBrand.FormattingEnabled = true;
+            this.cmbBrand.Location = new System.Drawing.Point(210, 282);
+            this.cmbBrand.Name = "cmbBrand";
+            this.cmbBrand.Size = new System.Drawing.Size(319, 21);
+            this.cmbBrand.TabIndex = 81;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // RegRepuest
             // 
@@ -288,26 +296,28 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.ClientSize = new System.Drawing.Size(932, 556);
-            this.Controls.Add(this.bunifuCustomTextbox3);
+            this.Controls.Add(this.cmbBrand);
+            this.Controls.Add(this.cmbType);
             this.Controls.Add(this.bunifuCustomLabel4);
-            this.Controls.Add(this.bunifuDropdown1);
             this.Controls.Add(this.bunifuImageButton2);
             this.Controls.Add(this.bunifuCustomLabel7);
-            this.Controls.Add(this.bunifuFlatButton1);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.header);
             this.Controls.Add(this.btnRegCliente);
-            this.Controls.Add(this.bunifuCustomTextbox2);
-            this.Controls.Add(this.bunifuCustomTextbox1);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.bunifuCustomLabel3);
             this.Controls.Add(this.bunifuCustomLabel2);
             this.Controls.Add(this.bunifuCustomLabel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegRepuest";
             this.Text = "RegRepuest";
+            this.Load += new System.EventHandler(this.RegRepuest_Load);
             this.header.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,20 +325,22 @@
 
         #endregion
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel7;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
+        private Bunifu.Framework.UI.BunifuFlatButton btnVolver;
         private System.Windows.Forms.Panel header;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
         private Bunifu.Framework.UI.BunifuFlatButton btnRegCliente;
-        private WindowsFormsControlLibrary1.BunifuCustomTextbox bunifuCustomTextbox2;
-        private WindowsFormsControlLibrary1.BunifuCustomTextbox bunifuCustomTextbox1;
+        private WindowsFormsControlLibrary1.BunifuCustomTextbox txtNombre;
+        private WindowsFormsControlLibrary1.BunifuCustomTextbox txtCodigo;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton2;
-        private Bunifu.Framework.UI.BunifuDropdown bunifuDropdown1;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel4;
-        private WindowsFormsControlLibrary1.BunifuCustomTextbox bunifuCustomTextbox3;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton3;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ComboBox cmbType;
+        private System.Windows.Forms.ComboBox cmbBrand;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

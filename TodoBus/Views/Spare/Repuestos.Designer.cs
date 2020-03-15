@@ -56,7 +56,7 @@
             this.txtBuscador = new Bunifu.Framework.UI.BunifuTextbox();
             this.btnRegCliente = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.dgvClientes = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.dgvRepuestos = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.PanelTransition = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.LogoTransition = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
@@ -66,7 +66,7 @@
             this.Options.SuspendLayout();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRepuestos)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -692,13 +692,15 @@
             this.bunifuCustomLabel1.Text = "Repuestos";
             this.bunifuCustomLabel1.Click += new System.EventHandler(this.bunifuCustomLabel1_Click);
             // 
-            // dgvClientes
+            // dgvRepuestos
             // 
+            this.dgvRepuestos.AllowUserToAddRows = false;
+            this.dgvRepuestos.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvClientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvClientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.dgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvRepuestos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvRepuestos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.dgvRepuestos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvRepuestos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -706,21 +708,23 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PanelTransition.SetDecoration(this.dgvClientes, BunifuAnimatorNS.DecorationType.None);
-            this.LogoTransition.SetDecoration(this.dgvClientes, BunifuAnimatorNS.DecorationType.None);
-            this.dgvClientes.DoubleBuffered = true;
-            this.dgvClientes.EnableHeadersVisualStyles = false;
-            this.dgvClientes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(197)))));
-            this.dgvClientes.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
-            this.dgvClientes.HeaderForeColor = System.Drawing.Color.Black;
-            this.dgvClientes.Location = new System.Drawing.Point(246, 227);
-            this.dgvClientes.Name = "dgvClientes";
-            this.dgvClientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvClientes.Size = new System.Drawing.Size(646, 452);
-            this.dgvClientes.TabIndex = 36;
-            this.dgvClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellContentClick);
+            this.dgvRepuestos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvRepuestos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PanelTransition.SetDecoration(this.dgvRepuestos, BunifuAnimatorNS.DecorationType.None);
+            this.LogoTransition.SetDecoration(this.dgvRepuestos, BunifuAnimatorNS.DecorationType.None);
+            this.dgvRepuestos.DoubleBuffered = true;
+            this.dgvRepuestos.EnableHeadersVisualStyles = false;
+            this.dgvRepuestos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(197)))));
+            this.dgvRepuestos.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            this.dgvRepuestos.HeaderForeColor = System.Drawing.Color.Black;
+            this.dgvRepuestos.Location = new System.Drawing.Point(246, 227);
+            this.dgvRepuestos.Name = "dgvRepuestos";
+            this.dgvRepuestos.ReadOnly = true;
+            this.dgvRepuestos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvRepuestos.Size = new System.Drawing.Size(646, 452);
+            this.dgvRepuestos.TabIndex = 36;
+            this.dgvRepuestos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRepuestos_CellClick);
+            this.dgvRepuestos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellContentClick);
             // 
             // PanelTransition
             // 
@@ -778,12 +782,12 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.ClientSize = new System.Drawing.Size(936, 720);
             this.Controls.Add(this.Options);
-            this.Controls.Add(this.header);
             this.Controls.Add(this.bunifuFlatButton1);
             this.Controls.Add(this.txtBuscador);
             this.Controls.Add(this.btnRegCliente);
             this.Controls.Add(this.bunifuCustomLabel1);
-            this.Controls.Add(this.dgvClientes);
+            this.Controls.Add(this.dgvRepuestos);
+            this.Controls.Add(this.header);
             this.PanelTransition.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.LogoTransition.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -796,7 +800,7 @@
             this.Options.ResumeLayout(false);
             this.header.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRepuestos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -825,7 +829,7 @@
         private Bunifu.Framework.UI.BunifuTextbox txtBuscador;
         private Bunifu.Framework.UI.BunifuFlatButton btnRegCliente;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
-        private Bunifu.Framework.UI.BunifuCustomDataGrid dgvClientes;
+        private Bunifu.Framework.UI.BunifuCustomDataGrid dgvRepuestos;
         private BunifuAnimatorNS.BunifuTransition LogoTransition;
         private BunifuAnimatorNS.BunifuTransition PanelTransition;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;

@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="TodoBusModel.brands" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TodoBusModel.clients" Width="1.5" PointX="3.75" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TodoBusModel.spare" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TodoBusModel.spare_categories" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TodoBusModel.spare_categories" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="TodoBusModel.spare_subcategories" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TodoBusModel.spare_subclasses" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="TodoBusModel.units" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />

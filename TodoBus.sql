@@ -1,5 +1,5 @@
 --BDD para el proyecto de Analisis y Dise�o de Sistemas
-use master;
+use master; 
 DROP DATABASE IF EXISTS TodoBus;
 CREATE DATABASE TodoBus;
 use TodoBus;

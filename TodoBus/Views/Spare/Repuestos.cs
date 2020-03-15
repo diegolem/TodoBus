@@ -12,11 +12,14 @@ using TodoBus.Views.SpareCategoriesSubClasses;
 using TodoBus.Views.SpareCategory;
 using TodoBus.Views.Units;
 using TodoBus.Views.Users;
+using TodoBus.Models;
+using TodoBus.Controllers;
 
 namespace TodoBus
 {
     public partial class Repuestos : Form
     {
+        SpareController control = new SpareController();
         public Repuestos()
         {
             InitializeComponent();
@@ -60,9 +63,46 @@ namespace TodoBus
 
         }
 
+        #region Helper
+        private void Refresh()
+        {
+            if (dgvRepuestos.DataSource != null)
+            {
+                
+                dgvRepuestos.Columns.Clear();
+            }
+            dgvRepuestos.DataSource = null;
+
+            List<spare> spares = new List<spare>();
+            spares = control.getAllSpare();
+
+            if (spares.Count() > 0)
+            {
+                dgvRepuestos.DataSource = spares;
+            }
+            else
+            {
+                dgvRepuestos.DataSource = null;
+            }
+        }
+        private int? getId()
+        {
+            
+            try
+            {
+                
+                return int.Parse(dgvRepuestos.Rows[dgvRepuestos.CurrentRow.Index].Cells[0].Value.ToString());
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        #endregion
         private void Repuestos_Load(object sender, EventArgs e)
         {
-
+            Refresh();
+            formatTable();
         }
 
         private void btnClients_Click(object sender, EventArgs e)
@@ -158,6 +198,74 @@ namespace TodoBus
         private void bunifuImageButton2_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+        private void formatTable()
+        {
+            if (dgvRepuestos.DataSource != null)
+            {
+                
+                dgvRepuestos.Columns.Remove("brands");
+                dgvRepuestos.Columns.Remove("spare_categories");
+                dgvRepuestos.Columns.Remove("units_spare");
+                
+                DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
+                btnEdit.Name = "Editar";
+                btnEdit.Text = "Modificar";
+                btnEdit.UseColumnTextForButtonValue = true;
+                btnEdit.HeaderText = "Modificar";
+                dgvRepuestos.Columns.Add(btnEdit);
+                
+                DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+                btnDelete.Name = "Eliminar";
+                btnDelete.Text = "Eliminar";
+                btnDelete.UseColumnTextForButtonValue = true;
+                btnDelete.HeaderText = "Eliminar";
+                dgvRepuestos.Columns.Add(btnDelete);
+
+                //Renombro las columnas del dgv como quiera
+                dgvRepuestos.Columns[0].HeaderText = "Id";
+                dgvRepuestos.Columns[1].HeaderText = "Nombre";
+                dgvRepuestos.Columns[2].HeaderText = "Imagen";
+                dgvRepuestos.Columns[3].HeaderText = "Código";
+                dgvRepuestos.Columns[4].HeaderText = "Marca";
+                dgvRepuestos.Columns[5].HeaderText = "Categoría";
+                dgvRepuestos.Columns[2].Width = 185;
+            }
+        }
+
+        private void dgvRepuestos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int? id = getId();
+
+            if (e.ColumnIndex == 6)
+            {
+                if (id != null)
+                {
+                    MessageBox.Show("Presionaste modificar " + id);
+                }
+            }
+            else if (e.ColumnIndex == 7)
+            {
+                if (id != null)
+                {
+                    DialogResult result = MessageBox.Show("¿Estas seguro que deseas eliminar esta subcategoría?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        if (control.delete(id))
+                        {
+                            MessageBox.Show("La Subcategoria se ha eliminado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ocurrio un error al eliminar la categoria", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                        Refresh();
+                        formatTable();
+                    }
+                }
+            }
         }
     }
 }
