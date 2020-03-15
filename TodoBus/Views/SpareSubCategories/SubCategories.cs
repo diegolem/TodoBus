@@ -212,7 +212,8 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
             {
                 if (id != null)
                 {
-                    MessageBox.Show("Presionaste modificar " + id);
+                    ModSubCategories mod = new ModSubCategories(id);
+                    mod.ShowDialog();
                 }
             }else if (e.ColumnIndex == 4)
             {

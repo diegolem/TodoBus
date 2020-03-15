@@ -39,6 +39,30 @@ namespace TodoBus.Controllers
             }
         }
 
+        public bool edit(string name, string code, int category_id, spare_subcategories subCategory)
+        {
+            //Abro conexion solamente cuando ejecute la accion
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                try
+                {
+                    subCategory.name = name;
+                    subCategory.code = code;
+                    subCategory.category_id = category_id;
+
+                    db.Entry(subCategory).State = System.Data.Entity.EntityState.Modified;
+                    //Guardo los cambios para confirmar
+                    db.SaveChanges();
+                    //Si todo bien regreso true
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+
         public List<spare_subcategories> getAllSubCategories()
         {
             using (TodoBusEntities db = new TodoBusEntities())
@@ -82,7 +106,41 @@ namespace TodoBus.Controllers
             }
         }
 
-        public void getCategories(ref List<int> categoriesId, ref List<string> fillcmb)
+        public spare_subcategories getSubCategory(int? id)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                try
+                {
+                    spare_subcategories sc = db.spare_subcategories.Find(id);
+                    return sc;
+                }
+                catch
+                {
+                    return null;
+                }
+
+            }
+        }
+
+        public spare_categories getCategory(int? id)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                try
+                {
+                    spare_categories sc = db.spare_categories.Find(id);
+                    return sc;
+                }
+                catch
+                {
+                    return null;
+                }
+
+            }
+        }
+
+        public void getSubCategories(ref List<int> categoriesId, ref List<string> fillcmb)
         {
             using (TodoBusEntities db = new TodoBusEntities())
             {

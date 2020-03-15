@@ -36,7 +36,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
             try
             {
                 //Mando a llamar el metodo de guardar del controller y paso los parametros
-                bool save = catec.save(txtName.Text, txtCode.Text, categoriesId[cmbCategory.SelectedIndex - 1]);
+                bool save = catec.save(txtName.Text, txtCode.Text, categoriesId[cmbCategory.SelectedIndex]);
                 if (save)
                 {
                     //Limpio los controles
@@ -85,7 +85,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
             categoriesId.Clear();
             fillcmb.Clear();
             //Paso por referencia las listas de aca para que se llenen en el controlador y separar vistas de procesos de la BDD
-            catec.getCategories(ref categoriesId, ref fillcmb);
+            catec.getSubCategories(ref categoriesId, ref fillcmb);
             //Lleno el comboBox
             cmbCategory.DataSource = fillcmb;
         }
