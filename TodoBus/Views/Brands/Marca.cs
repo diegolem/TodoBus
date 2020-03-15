@@ -11,15 +11,11 @@ using TodoBus.Views.SpareCategoriesSubClasses;
 using TodoBus.Views.SpareCategory;
 using TodoBus.Views.Units;
 using TodoBus.Views.Users;
-using TodoBus.Controllers;
-using TodoBus.Models;
-
 
 namespace TodoBus.Views.Brands
 {
     public partial class Marca : Form
     {
-        BrandController brandController = new BrandController(); 
         public Marca()
         {
             InitializeComponent();
@@ -127,84 +123,6 @@ namespace TodoBus.Views.Brands
             this.Hide();
             Category ct = new Category();
             ct.Show();
-        }
-
-        private void Marcas_Load(object sender, EventArgs e)
-        {
-            //Llamo al metodo para llenar la tabla
-            Refresh();
-            formatTable();
-        }
-
-        private void formatTable()
-        {
-            if (dgvMarca.DataSource != null)
-            {
-                //Eliminamos las columnas de relaciones, para evitar excepciones
-                dgvMarca.Columns.Remove("spare");
-                dgvMarca.Columns.Remove("units");
-                //Y ahora añadimos el boton modificar a la tabla
-                DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
-                btnEdit.Name = "Editar";
-                btnEdit.Text = "Modificar";
-                btnEdit.UseColumnTextForButtonValue = true;
-                btnEdit.HeaderText = "Modificar";
-                dgvMarca.Columns.Add(btnEdit);
-                //ahora el boton eliminar
-                DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
-                btnDelete.Name = "Eliminar";
-                btnDelete.Text = "Eliminar";
-                btnDelete.UseColumnTextForButtonValue = true;
-                btnDelete.HeaderText = "Eliminar";
-                dgvMarca.Columns.Add(btnDelete);
-
-                //Renombro las columnas del dgv como quiera
-                dgvMarca.Columns[0].HeaderText = "Id";
-                dgvMarca.Columns[1].HeaderText = "Nombre";
-                dgvMarca.Columns[2].HeaderText = "Descripción";
-                dgvMarca.Columns[2].Width = 185;
-                
-            }
-        }
-        private void Refresh()
-        {
-            if (dgvMarca.DataSource != null)
-            {
-                //Si esto no estaba vacio limpio todas las columas del Grid
-                dgvMarca.Columns.Clear();
-            }
-            dgvMarca.DataSource = null;
-
-            List<brands> brnd = new List<brands>();
-            brnd = brandController.getAllBrands();
-
-            if (brnd.Count() > 0)
-            {
-                dgvMarca.DataSource = brnd;
-            }
-            else
-            {
-                dgvMarca.DataSource = null;
-            }
-        }
-        private int? getId()
-        {
-            //Metodo para obtener el id de la columna seleccionada
-            try
-            {
-                //Y le decimos que obtenga de mi dgv el valor de la celda 0(que es id) de la fila que se encuentre seleccionada
-                return int.Parse(dgvMarca.Rows[dgvMarca.CurrentRow.Index].Cells[0].Value.ToString());
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            Refresh();
-            formatTable();
         }
     }
 }
