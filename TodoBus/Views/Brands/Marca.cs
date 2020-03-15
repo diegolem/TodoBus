@@ -178,9 +178,9 @@ namespace TodoBus.Views.Brands
             List<brands> brnd = new List<brands>();
             brnd = brandController.getAllBrands();
 
-            if (clients.Count() > 0)
+            if (brnd.Count() > 0)
             {
-                dgvMarca.DataSource = clients;
+                dgvMarca.DataSource = brnd;
             }
             else
             {
