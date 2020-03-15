@@ -11,6 +11,8 @@ using TodoBus.Views.Brands;
 using TodoBus.Views.SpareCategoriesSubClasses;
 using TodoBus.Views.Units;
 using TodoBus.Views.Users;
+using TodoBus.Models;
+using TodoBus.Controllers;
 
 namespace TodoBus.Views.SpareCategory
 {
@@ -123,6 +125,36 @@ namespace TodoBus.Views.SpareCategory
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+        private void Categories_Load(object sender, EventArgs e)
+        {
+            //Llamo al metodo para llenar la tabla
+            Refresh();
+            formatTable();
+        }
+        private void formatTable()
+        {
+            if (dgvCategoria.DataSource != null)
+            {
+                //Eliminamos las columnas de relaciones, para evitar excepciones
+                dgvCategoria.Columns.Remove("category_id");
+                dgvCategoria.Columns.Remove("spare_categories");
+                dgvCategoria.Columns.Remove("spare_type_id");
+                //Y ahora añadimos el boton modificar a la tabla
+                DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
+                btnEdit.Name = "Editar";
+                btnEdit.Text = "Modificar";
+                btnEdit.UseColumnTextForButtonValue = true;
+                btnEdit.HeaderText = "Modificar";
+                dgvCategoria.Columns.Add(btnEdit);
+                //ahora el boton eliminar
+                DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+                btnDelete.Name = "Eliminar";
+                btnDelete.Text = "Eliminar";
+                btnDelete.UseColumnTextForButtonValue = true;
+                btnDelete.HeaderText = "Eliminar";
+                dgvCategoria.Columns.Add(btnDelete);
+            }
         }
     }
 }

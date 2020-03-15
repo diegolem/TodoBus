@@ -795,6 +795,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Category";
             this.Text = "Category";
+            this.Load += new System.EventHandler(this.Categories_Load);
             this.body.ResumeLayout(false);
             this.body.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).EndInit();
