@@ -11,11 +11,14 @@ using TodoBus.Views.Brands;
 using TodoBus.Views.SpareCategory;
 using TodoBus.Views.Units;
 using TodoBus.Views.Users;
+using TodoBus.Controllers;
+using TodoBus.Models;
 
 namespace TodoBus.Views.SpareCategoriesSubClasses
 {
     public partial class SubClasses : Form
     {
+        SubClassController subClController = new SubClassController();
         public SubClasses()
         {
             InitializeComponent();
@@ -118,6 +121,124 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
             this.Hide();
             Usuarios frmU = new Usuarios();
             frmU.Show();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            Refresh();
+            formatTable();
+        }
+
+        private void SubClasses_Load(object sender, EventArgs e)
+        {
+            //Llamo al metodo para llenar la tabla
+            Refresh();
+            formatTable();
+        }
+
+        private void formatTable()
+        {
+            if (dgvSubClase.DataSource != null)
+            {
+                //Eliminamos las columnas de relaciones, para evitar excepciones
+                dgvSubClase.Columns.Remove("subcategory_id");
+                dgvSubClase.Columns.Remove("spare_subcategories");
+                //Y ahora añadimos el boton modificar a la tabla
+                DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
+                btnEdit.Name = "Editar";
+                btnEdit.Text = "Modificar";
+                btnEdit.UseColumnTextForButtonValue = true;
+                btnEdit.HeaderText = "Modificar";
+                dgvSubClase.Columns.Add(btnEdit);
+                //ahora el boton eliminar
+                DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+                btnDelete.Name = "Eliminar";
+                btnDelete.Text = "Eliminar";
+                btnDelete.UseColumnTextForButtonValue = true;
+                btnDelete.HeaderText = "Eliminar";
+                dgvSubClase.Columns.Add(btnDelete);
+
+                //Renombro las columnas del dgv como quiera
+                dgvSubClase.Columns[0].HeaderText = "Id";
+                dgvSubClase.Columns[1].HeaderText = "Código";
+                dgvSubClase.Columns[2].HeaderText = "Nombre de Subcategoría";
+                dgvSubClase.Columns[2].Width = 185;
+            }
+        }
+
+        #region  helper
+        private void Refresh()
+        {
+            if (dgvSubClase.DataSource != null)
+            {
+                //Si esto no estaba vacio limpio todas las columas del Grid
+                dgvSubClase.Columns.Clear();
+            }
+            dgvSubClase.DataSource = null;
+
+            List<spare_subclasses> subClasses = new List<spare_subclasses>();
+            subClasses = subClController.getAllSubclasses();
+
+            if (subClasses.Count() > 0)
+            {
+                dgvSubClase.DataSource = subClasses;
+            }
+            else
+            {
+                dgvSubClase.DataSource = null;
+            }
+        }
+
+        private int? getId()
+        {
+            //Metodo para obtener el id de la columna seleccionada
+            try
+            {
+                //Y le decimos que obtenga de mi dgv el valor de la celda 0(que es id) de la fila que se encuentre seleccionada
+                return int.Parse(dgvSubClase.Rows[dgvSubClase.CurrentRow.Index].Cells[0].Value.ToString());
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        private void dgvSubClase_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Los index empiezan desde 0, asi que verificamos en que columna estan los botones modificar y eliminar, para obtener correctamente el id
+            int? id = getId();
+
+            if (e.ColumnIndex == 3)
+            {
+                if (id != null)
+                {
+                    ModSubCategories mod = new ModSubCategories(id);
+                    mod.ShowDialog();
+                }
+            }
+            else if (e.ColumnIndex == 4)
+            {
+                if (id != null)
+                {
+                    DialogResult result = MessageBox.Show("¿Estas seguro que deseas eliminar esta subcategoría?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        if (subClController.delete(id))
+                        {
+                            MessageBox.Show("La Subcategoria se ha eliminado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ocurrio un error al eliminar la categoria", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                        Refresh();
+                        formatTable();
+                    }
+                }
+            }
         }
     }
 }
