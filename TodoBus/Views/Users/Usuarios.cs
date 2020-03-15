@@ -19,6 +19,7 @@ namespace TodoBus
 {
     public partial class Usuarios : Form
     {
+        UserController userController = new UserController();
         public Usuarios()
         {
             InitializeComponent();
@@ -126,19 +127,12 @@ namespace TodoBus
         {
             this.WindowState = FormWindowState.Minimized;
         }
-        private void Categories_Load(object sender, EventArgs e)
-        {
-            //Llamo al metodo para llenar la tabla
-            Refresh();
-            formatTable();
-        }
+
         private void formatTable()
         {
             if (dgvUsuarios.DataSource != null)
             {
                 //Eliminamos las columnas de relaciones, para evitar excepciones
-                dgvUsuarios.Columns.Remove("users_id");
-                dgvUsuarios.Columns.Remove("users");
                 //Y ahora añadimos el boton modificar a la tabla
                 DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
                 btnEdit.Name = "Editar";
@@ -155,5 +149,43 @@ namespace TodoBus
                 dgvUsuarios.Columns.Add(btnDelete);
             }
         }
+        #region  helper
+            private void Refresh()
+            {
+                if(dgvUsuarios.DataSource != null)
+                {
+                    //Si esto no estaba vacio limpio todas las columas del Grid
+                    dgvUsuarios.Columns.Clear();
+                }
+                dgvUsuarios.DataSource = null;
+
+                List<users> Usuario = new List<users>();
+                Usuario = userController.getAllUsers();
+
+                if(Usuario.Count() > 0)
+                {
+                    dgvUsuarios.DataSource = Usuario;
+                }
+                else
+                {
+                    dgvUsuarios.DataSource = null;
+                }
+            }
+
+        private int? getId()
+        {
+            //Metodo para obtener el id de la columna seleccionada
+            try
+            {
+                //Y le decimos que obtenga de mi dgv el valor de la celda 0(que es id) de la fila que se encuentre seleccionada
+                return int.Parse(dgvUsuarios.Rows[dgvUsuarios.CurrentRow.Index].Cells[0].Value.ToString());
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        #endregion
+
     }
 }

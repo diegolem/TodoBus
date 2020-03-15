@@ -18,6 +18,7 @@ namespace TodoBus.Views.SpareCategory
 {
     public partial class Category : Form
     {
+        CategoryController categoryController = new CategoryController();
         public Category()
         {
             InitializeComponent();
@@ -137,9 +138,8 @@ namespace TodoBus.Views.SpareCategory
             if (dgvCategoria.DataSource != null)
             {
                 //Eliminamos las columnas de relaciones, para evitar excepciones
-                dgvCategoria.Columns.Remove("category_id");
-                dgvCategoria.Columns.Remove("spare_categories");
-                dgvCategoria.Columns.Remove("spare_type_id");
+                dgvCategoria.Columns.Remove("spare_subcategories");
+                dgvCategoria.Columns.Remove("spare");
                 //Y ahora añadimos el boton modificar a la tabla
                 DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
                 btnEdit.Name = "Editar";
@@ -154,7 +154,50 @@ namespace TodoBus.Views.SpareCategory
                 btnDelete.UseColumnTextForButtonValue = true;
                 btnDelete.HeaderText = "Eliminar";
                 dgvCategoria.Columns.Add(btnDelete);
+                //Renombro las columnas del dgv como quiera
+                dgvCategoria.Columns[0].HeaderText = "Id";
+                dgvCategoria.Columns[1].HeaderText = "Codigo";
+                dgvCategoria.Columns[2].HeaderText = "Nombre de Categoria";
+                dgvCategoria.Columns[2].Width = 205;
             }
         }
+        #region  helper
+        private void Refresh()
+        {
+            if (dgvCategoria.DataSource != null)
+            {
+                //Si esto no estaba vacio limpio todas las columas del Grid
+                dgvCategoria.Columns.Clear();
+            }
+            dgvCategoria.DataSource = null;
+
+            List<spare_categories> Categories = new List<spare_categories>();
+            Categories = categoryController.getAllCategories();
+
+            if (Categories.Count() > 0)
+            {
+                dgvCategoria.DataSource = Categories;
+            }
+            else
+            {
+                dgvCategoria.DataSource = null;
+            }
+        }
+
+        private int? getId()
+        {
+            //Metodo para obtener el id de la columna seleccionada
+            try
+            {
+                //Y le decimos que obtenga de mi dgv el valor de la celda 0(que es id) de la fila que se encuentre seleccionada
+                return int.Parse(dgvCategoria.Rows[dgvCategoria.CurrentRow.Index].Cells[0].Value.ToString());
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        #endregion
+
     }
 }

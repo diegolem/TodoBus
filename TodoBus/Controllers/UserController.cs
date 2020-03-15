@@ -96,9 +96,9 @@ namespace TodoBus.Controllers
                 try
                 {
                     //Se obtiene el objeto a borrar
-                    users us = db.users.Find(id);
+                    users usu = db.users.Find(id);
                     //Se borra el objeto que se obtuvo de la tabla
-                    db.users.Remove(us);
+                    db.users.Remove(usu);
                     //Guardamos cambios
                     db.SaveChanges();
                     //Si todo bien regreso true
