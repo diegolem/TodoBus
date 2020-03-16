@@ -49,7 +49,7 @@ namespace TodoBus
         private void btnRegCliente_Click(object sender, EventArgs e)
         {
             this.Hide();
-            RegRepuest frmRegSpare = new RegRepuest();
+            RegRepuest frmRegSpare = new RegRepuest(null);
             frmRegSpare.Show();
         }
 
@@ -242,6 +242,10 @@ namespace TodoBus
                 if (id != null)
                 {
                     MessageBox.Show("Presionaste modificar " + id);
+                    RegRepuest r = new RegRepuest(id);
+                    this.Hide();
+                    r.Show();
+                    
                 }
             }
             else if (e.ColumnIndex == 7)

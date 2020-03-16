@@ -19,9 +19,19 @@ namespace TodoBus
         List<int> brandid = new List<int>();
         List<string> fillcmb1 = new List<string>();
         List<string> fillcmb2 = new List<string>();
-        public RegRepuest()
+        public RegRepuest(int? id)
         {
             InitializeComponent();
+            if(id!=null)
+            {
+               bool fd=sc.find(id, txtCodigo, txtNombre, cmbType, cmbBrand, bunifuImageButton2);
+                if(fd)
+                {
+                    btnRegCliente.Text = "Modificar";
+                    btnRegCliente.TextAlign = ContentAlignment.MiddleCenter;
+                }
+                
+            }
         }
 
         private void bunifuCards1_Paint(object sender, PaintEventArgs e)
@@ -48,7 +58,7 @@ namespace TodoBus
 
         private void btnRegCliente_Click(object sender, EventArgs e)
         {
-            if(txtNombre.Text==""|| txtCodigo.Text==""|| bunifuImageButton2.ImageActive==null)
+            if(txtNombre.Text==""|| txtCodigo.Text==""|| bunifuImageButton2.Image==null)
             {
                 errorProvider1.SetError(btnRegCliente, "No puede dejar campos ni imagen vacía");
             }
@@ -63,7 +73,7 @@ namespace TodoBus
                 if (Directory.Exists(Carpeta))
                 {
 
-
+                    
                     try
                     {
                         bunifuImageButton2.Image.Save(url);
