@@ -26,14 +26,12 @@ namespace TodoBus
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            Clientes C = new Clientes();
-            C.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void RegCliente_Load(object sender, EventArgs e)

@@ -28,8 +28,7 @@ namespace TodoBus.Views.SpareCategory
         private void btnCategory_Click(object sender, EventArgs e)
         {
             RegCategory frmR = new RegCategory();
-            frmR.Show();
-            this.Hide();
+            frmR.ShowDialog();
         }
 
         private void btnUnits_Click(object sender, EventArgs e)
@@ -199,5 +198,10 @@ namespace TodoBus.Views.SpareCategory
         }
         #endregion
 
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            Refresh();
+            formatTable();
+        }
     }
 }

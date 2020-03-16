@@ -57,21 +57,35 @@ namespace TodoBus.Controllers
                 }
             }
         }
-        public List<spare> getAllSpare()
+        public List<FakeSpare> getAllSpare()
         {
             using (TodoBusEntities db = new TodoBusEntities())
             {
                 
                 var lst = from d in db.spare
+                          join m in db.brands on d.brand_id equals m.id
+                          join c in db.spare_categories on d.spare_type_id equals c.id
                           select d;
                 
                 if (lst.Count() > 0)
                 {
-                    return lst.ToList();
+                    List<FakeSpare> customL = new List<FakeSpare>();
+                    foreach (var spare in lst)
+                    {
+                        FakeSpare spareF = new FakeSpare();
+                        spareF.Id = spare.id;
+                        spareF.Codigo = spare.code;
+                        spareF.Nombre = spare.name;
+                        spareF.UrlImagen = spare.image;
+                        spareF.NombreMarca = spare.brands.name;
+                        spareF.NombreCategoria = spare.spare_categories.name;
+                        customL.Add(spareF);
+                    }
+                    return customL;
                 }
                 else
                 {
-                    List<spare> newSC = new List<spare>();
+                    List<FakeSpare> newSC = new List<FakeSpare>();
                     return newSC;
                 }
             }

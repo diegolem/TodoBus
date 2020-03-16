@@ -24,14 +24,12 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            SubClasses frmC = new SubClasses();
-            frmC.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void header_Paint(object sender, PaintEventArgs e)

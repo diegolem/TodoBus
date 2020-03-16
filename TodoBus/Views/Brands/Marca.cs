@@ -37,9 +37,8 @@ namespace TodoBus.Views.Brands
 
         private void btnNuevaUnidad_Click(object sender, EventArgs e)
         {
-            this.Hide();
             RegistroMarca frmM = new RegistroMarca();
-            frmM.Show();
+            frmM.ShowDialog();
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -128,20 +127,10 @@ namespace TodoBus.Views.Brands
             ct.Show();
         }
 
-        private void Marcas_Load(object sender, EventArgs e)
-        {
-            //Llamo al metodo para llenar la tabla
-            Refresh();
-            formatTable();
-        }
-
         private void formatTable()
         {
             if (dgvMarca.DataSource != null)
             {
-                //Eliminamos las columnas de relaciones, para evitar excepciones
-                dgvMarca.Columns.Remove("spare");
-                dgvMarca.Columns.Remove("units");
                 //Y ahora añadimos el boton modificar a la tabla
                 DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
                 btnEdit.Name = "Editar";
@@ -174,7 +163,7 @@ namespace TodoBus.Views.Brands
             }
             dgvMarca.DataSource = null;
 
-            List<brands> brnd = new List<brands>();
+            List<FakeBrands> brnd = new List<FakeBrands>();
             brnd = brandController.getAllBrands();
 
             if (brnd.Count() > 0)
@@ -202,6 +191,13 @@ namespace TodoBus.Views.Brands
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            Refresh();
+            formatTable();
+        }
+
+        private void Marca_Load(object sender, EventArgs e)
+        {
+            //Llamo al metodo para llenar la tabla
             Refresh();
             formatTable();
         }

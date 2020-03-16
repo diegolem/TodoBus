@@ -270,7 +270,7 @@
             this.btnVolver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
             this.btnVolver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnVolver.BorderRadius = 5;
-            this.btnVolver.ButtonText = "              Volver";
+            this.btnVolver.ButtonText = "              Cerrar";
             this.btnVolver.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVolver.DisabledColor = System.Drawing.Color.Gray;
             this.btnVolver.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -295,7 +295,7 @@
             this.btnVolver.selected = false;
             this.btnVolver.Size = new System.Drawing.Size(128, 36);
             this.btnVolver.TabIndex = 33;
-            this.btnVolver.Text = "              Volver";
+            this.btnVolver.Text = "              Cerrar";
             this.btnVolver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVolver.Textcolor = System.Drawing.Color.White;
             this.btnVolver.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

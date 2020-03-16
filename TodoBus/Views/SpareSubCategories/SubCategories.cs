@@ -138,10 +138,6 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
         {
             if (dgvSubCategory.DataSource != null)
             {
-                //Eliminamos las columnas de relaciones, para evitar excepciones
-                dgvSubCategory.Columns.Remove("category_id");
-                dgvSubCategory.Columns.Remove("spare_categories");
-                dgvSubCategory.Columns.Remove("spare_subclasses");
                 //Y ahora añadimos el boton modificar a la tabla
                 DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
                 btnEdit.Name = "Editar";
@@ -159,9 +155,13 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
 
                 //Renombro las columnas del dgv como quiera
                 dgvSubCategory.Columns[0].HeaderText = "Id";
+                dgvSubCategory.Columns[0].Width = 50;
                 dgvSubCategory.Columns[1].HeaderText = "Código";
-                dgvSubCategory.Columns[2].HeaderText = "Nombre de Subcategoría";
-                dgvSubCategory.Columns[2].Width = 185;
+                dgvSubCategory.Columns[1].Width = 50;
+                dgvSubCategory.Columns[2].HeaderText = "Nombre Subcategoría";
+                dgvSubCategory.Columns[2].Width = 200;
+                dgvSubCategory.Columns[3].HeaderText = "Categoría";
+                dgvSubCategory.Columns[3].Width = 225;
             }
         }
 
@@ -175,7 +175,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
                 }
                 dgvSubCategory.DataSource = null;
 
-                List<spare_subcategories> subCategories = new List<spare_subcategories>();
+                List<FakeSubCategories> subCategories = new List<FakeSubCategories>();
                 subCategories = subController.getAllSubCategories();
 
                 if(subCategories.Count() > 0)
@@ -208,14 +208,14 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
             //Los index empiezan desde 0, asi que verificamos en que columna estan los botones modificar y eliminar, para obtener correctamente el id
             int? id = getId();
 
-            if (e.ColumnIndex == 3)
+            if (e.ColumnIndex == 4)
             {
                 if (id != null)
                 {
                     ModSubCategories mod = new ModSubCategories(id);
                     mod.ShowDialog();
                 }
-            }else if (e.ColumnIndex == 4)
+            }else if (e.ColumnIndex == 5)
             {
                 if (id != null)
                 {

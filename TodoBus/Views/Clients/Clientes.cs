@@ -29,8 +29,7 @@ namespace TodoBus
         private void btnRegCliente_Click(object sender, EventArgs e)
         {
             RegCliente reg = new RegCliente();
-            reg.Show();
-            this.Hide();
+            reg.ShowDialog();
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)
@@ -139,11 +138,6 @@ namespace TodoBus
         {
             if (dgvClientes.DataSource != null)
             {
-                //Eliminamos las columnas de relaciones, para evitar excepciones
-                dgvClientes.Columns.Remove("client_type");
-                dgvClientes.Columns.Remove("user_id");
-                dgvClientes.Columns.Remove("users");
-                dgvClientes.Columns.Remove("units");
                 //Y ahora añadimos el boton modificar a la tabla
                 DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
                 btnEdit.Name = "Editar";
@@ -173,6 +167,8 @@ namespace TodoBus
                 dgvClientes.Columns[7].Width = 185;
                 dgvClientes.Columns[8].HeaderText = "Unidades Totales";
                 dgvClientes.Columns[8].Width = 185;
+                dgvClientes.Columns[9].HeaderText = "Tipo de usuario";
+                dgvClientes.Columns[10].HeaderText = "Registrado por";
             }
         }
         private void Refresh()
@@ -184,7 +180,7 @@ namespace TodoBus
             }
             dgvClientes.DataSource = null;
 
-            List<clients> clients= new List<clients>();
+            List<FakeClients> clients= new List<FakeClients>();
             clients = clientController.getAllClients();
 
             if (clients.Count() > 0)
@@ -208,6 +204,12 @@ namespace TodoBus
             {
                 return null;
             }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            Refresh();
+            formatTable();
         }
     }
 }

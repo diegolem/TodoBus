@@ -28,9 +28,8 @@ namespace TodoBus
 
         private void btnRegUsuario_Click(object sender, EventArgs e)
         {
-            this.Hide();
             RegUsuario frmRegUsers = new RegUsuario();
-            frmRegUsers.Show();
+            frmRegUsers.ShowDialog();
         }
 
         private void btnUnits_Click(object sender, EventArgs e)
@@ -132,7 +131,7 @@ namespace TodoBus
         {
             if (dgvUsuarios.DataSource != null)
             {
-                //Eliminamos las columnas de relaciones, para evitar excepciones
+                
                 //Y ahora añadimos el boton modificar a la tabla
                 DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
                 btnEdit.Name = "Editar";
@@ -147,45 +146,44 @@ namespace TodoBus
                 btnDelete.UseColumnTextForButtonValue = true;
                 btnDelete.HeaderText = "Eliminar";
                 dgvUsuarios.Columns.Add(btnDelete);
+
+                dgvUsuarios.Columns[0].HeaderText = "Id";
+                dgvUsuarios.Columns[1].HeaderText = "Nombre";
+                dgvUsuarios.Columns[2].HeaderText = "Apellido";
+                dgvUsuarios.Columns[3].HeaderText = "Edad";
             }
         }
-        #region  helper
-            private void Refresh()
-            {
-                if(dgvUsuarios.DataSource != null)
-                {
-                    //Si esto no estaba vacio limpio todas las columas del Grid
-                    dgvUsuarios.Columns.Clear();
-                }
-                dgvUsuarios.DataSource = null;
-
-                List<users> Usuario = new List<users>();
-                Usuario = userController.getAllUsers();
-
-                if(Usuario.Count() > 0)
-                {
-                    dgvUsuarios.DataSource = Usuario;
-                }
-                else
-                {
-                    dgvUsuarios.DataSource = null;
-                }
-            }
-
-        private int? getId()
+        private void Refresh()
         {
-            //Metodo para obtener el id de la columna seleccionada
-            try
+            if (dgvUsuarios.DataSource != null)
             {
-                //Y le decimos que obtenga de mi dgv el valor de la celda 0(que es id) de la fila que se encuentre seleccionada
-                return int.Parse(dgvUsuarios.Rows[dgvUsuarios.CurrentRow.Index].Cells[0].Value.ToString());
+                //Si esto no estaba vacio limpio todas las columas del Grid
+                dgvUsuarios.Columns.Clear();
             }
-            catch
+            dgvUsuarios.DataSource = null;
+
+            List<FakeUsers> users = new List<FakeUsers>();
+            users = userController.getAllUsers();
+            if (users.Count() > 0)
             {
-                return null;
+                dgvUsuarios.DataSource = users;
+            }
+            else
+            {
+                dgvUsuarios.DataSource = null;
             }
         }
-        #endregion
 
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            Refresh();
+            formatTable();
+        }
+
+        private void Usuarios_Load(object sender, EventArgs e)
+        {
+            Refresh();
+            formatTable();
+        }
     }
 }

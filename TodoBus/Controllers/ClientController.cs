@@ -42,22 +42,40 @@ namespace TodoBus.Controllers
             }
         }
 
-        public List<clients> getAllClients()
+        public List<FakeClients> getAllClients()
         {
             using (TodoBusEntities db = new TodoBusEntities())
             {
                 //Obtengo todos los registros de mi tabla en la variable lst
                 var lst = from d in db.clients
+                          join u in db.users on d.user_id equals u.id
                           select d;
                 //Luego colocamos los registros que generamos de la base en el DataGridView y lo pasamos a lista para que
                 //sea compatible con el DGV
                 if (lst.Count() > 0)
                 {
-                    return lst.ToList();
+                    List<FakeClients> customL = new List<FakeClients>();
+                    foreach (var client in lst)
+                    {
+                        FakeClients clientF = new FakeClients();
+                        clientF.Id = client.id;
+                        clientF.NombreContacto = client.contact_name;
+                        clientF.NombreEmpresa = client.client_name;
+                        clientF.Telefono = client.phone;
+                        clientF.TelefonoAlternativo = client.alternative_phone;
+                        clientF.Direccion = client.address;
+                        clientF.Email = client.email;
+                        clientF.EmailAlternativo = client.alternative_email;
+                        clientF.TotalUnidades = client.units_total;
+                        clientF.TipoCliente = (client.client_type == 0 ? "Independiente": "Empresa");
+                        clientF.User = client.users.name + " " + client.users.last_name;
+                        customL.Add(clientF);
+                    }
+                    return customL;
                 }
                 else
                 {
-                    List<clients> newCl = new List<clients>();
+                    List<FakeClients> newCl = new List<FakeClients>();
                     return newCl;
                 }
             }

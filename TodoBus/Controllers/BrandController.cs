@@ -36,7 +36,7 @@ namespace TodoBus.Controllers
             }
         }
 
-        public List<brands> getAllBrands()
+        public List<FakeBrands> getAllBrands()
         {
             using (TodoBusEntities db = new TodoBusEntities())
             {
@@ -47,11 +47,20 @@ namespace TodoBus.Controllers
                 //sea compatible con el DGV
                 if (lst.Count() > 0)
                 {
-                    return lst.ToList();
+                    List<FakeBrands> customL = new List<FakeBrands>();
+                    foreach (var brand in lst)
+                    {
+                        FakeBrands brandF = new FakeBrands();
+                        brandF.Id = brand.id;
+                        brandF.Nombre = brand.name;
+                        brandF.Descripcion = (brand.description != "" ? brand.description : "No hay descripción");
+                        customL.Add(brandF);
+                    }
+                    return customL;
                 }
                 else
                 {
-                    List<brands> newBR = new List<brands>();
+                    List<FakeBrands> newBR = new List<FakeBrands>();
                     return newBR;
                 }
             }

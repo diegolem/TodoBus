@@ -41,14 +41,12 @@ namespace TodoBus
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            Repuestos frmSpare = new Repuestos();
-            frmSpare.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void bunifuImageButton3_Click(object sender, EventArgs e)

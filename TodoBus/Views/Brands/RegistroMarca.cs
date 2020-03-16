@@ -24,9 +24,7 @@ namespace TodoBus.Views.Brands
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            Marca ma = new Marca();
-            ma.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)
@@ -36,7 +34,7 @@ namespace TodoBus.Views.Brands
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
     }
 }

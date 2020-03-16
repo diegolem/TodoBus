@@ -74,6 +74,14 @@
     <Compile Include="Models\clients.cs">
       <DependentUpon>TodoBus.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FakeBrands.cs" />
+    <Compile Include="Models\FakeCategories.cs" />
+    <Compile Include="Models\FakeClients.cs" />
+    <Compile Include="Models\FakeSpare.cs" />
+    <Compile Include="Models\FakeSubCategories.cs" />
+    <Compile Include="Models\FakeSubClasses.cs" />
+    <Compile Include="Models\FakeUnits.cs" />
+    <Compile Include="Models\FakeUsers.cs" />
     <Compile Include="Models\spare.cs">
       <DependentUpon>TodoBus.tt</DependentUpon>
     </Compile>

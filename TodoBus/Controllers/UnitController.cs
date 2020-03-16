@@ -9,7 +9,7 @@ namespace TodoBus.Controllers
 {
     class UnitController
     {
-        public List<units> getAllUnits()
+        public List<FakeUnits> getAllUnits()
         {
             using (TodoBusEntities db = new TodoBusEntities())
             {
@@ -21,11 +21,22 @@ namespace TodoBus.Controllers
                 //sea compatible con el DGV
                 if (lst.Count() > 0)
                 {
-                    return lst.ToList();
+                    List<FakeUnits> customL = new List<FakeUnits>();
+                    foreach (var unit in lst)
+                    {
+                        FakeUnits unitF = new FakeUnits();
+                        unitF.Id = unit.id;
+                        unitF.Medidas = unit.measure_description;
+                        unitF.Totalunidades = unit.total;
+                        unitF.Brandname = unit.brands.name;
+                        unitF.Clientname = unit.clients.client_name;
+                        customL.Add(unitF);
+                    }
+                    return customL;
                 }
                 else
                 {
-                    List<units> newU = new List<units>();
+                    List<FakeUnits> newU = new List<FakeUnits>();
                     return newU;
                 }
             }

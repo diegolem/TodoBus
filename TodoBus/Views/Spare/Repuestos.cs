@@ -48,9 +48,8 @@ namespace TodoBus
 
         private void btnRegCliente_Click(object sender, EventArgs e)
         {
-            this.Hide();
             RegRepuest frmRegSpare = new RegRepuest(null);
-            frmRegSpare.Show();
+            frmRegSpare.ShowDialog();
         }
 
         private void Options_Paint(object sender, PaintEventArgs e)
@@ -73,7 +72,7 @@ namespace TodoBus
             }
             dgvRepuestos.DataSource = null;
 
-            List<spare> spares = new List<spare>();
+            List<FakeSpare> spares = new List<FakeSpare>();
             spares = control.getAllSpare();
 
             if (spares.Count() > 0)
@@ -202,12 +201,7 @@ namespace TodoBus
         private void formatTable()
         {
             if (dgvRepuestos.DataSource != null)
-            {
-                
-                dgvRepuestos.Columns.Remove("brands");
-                dgvRepuestos.Columns.Remove("spare_categories");
-                dgvRepuestos.Columns.Remove("units_spare");
-                
+            {                
                 DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
                 btnEdit.Name = "Editar";
                 btnEdit.Text = "Modificar";
@@ -224,12 +218,13 @@ namespace TodoBus
 
                 //Renombro las columnas del dgv como quiera
                 dgvRepuestos.Columns[0].HeaderText = "Id";
-                dgvRepuestos.Columns[1].HeaderText = "Nombre";
-                dgvRepuestos.Columns[2].HeaderText = "Imagen";
-                dgvRepuestos.Columns[3].HeaderText = "Código";
+                dgvRepuestos.Columns[1].HeaderText = "Código";
+                dgvRepuestos.Columns[2].HeaderText = "Nombre";
+                dgvRepuestos.Columns[3].HeaderText = "Imagen";
+                dgvRepuestos.Columns[3].Width = 185;
                 dgvRepuestos.Columns[4].HeaderText = "Marca";
                 dgvRepuestos.Columns[5].HeaderText = "Categoría";
-                dgvRepuestos.Columns[2].Width = 185;
+                dgvRepuestos.Columns[5].Width = 200;
             }
         }
 
@@ -241,10 +236,8 @@ namespace TodoBus
             {
                 if (id != null)
                 {
-                    MessageBox.Show("Presionaste modificar " + id);
                     RegRepuest r = new RegRepuest(id);
-                    this.Hide();
-                    r.Show();
+                    r.ShowDialog();
                     
                 }
             }
@@ -252,17 +245,17 @@ namespace TodoBus
             {
                 if (id != null)
                 {
-                    DialogResult result = MessageBox.Show("¿Estas seguro que deseas eliminar esta subcategoría?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    DialogResult result = MessageBox.Show("¿Estas seguro que deseas eliminar este repuesto?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
                     if (result == DialogResult.Yes)
                     {
                         if (control.delete(id))
                         {
-                            MessageBox.Show("La Subcategoria se ha eliminado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("El repuesto se ha eliminado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
-                            MessageBox.Show("Ocurrio un error al eliminar la categoria", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Ocurrio un error al eliminar el repuesto", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                         Refresh();

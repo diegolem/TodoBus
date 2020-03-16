@@ -167,10 +167,8 @@ namespace TodoBus.Views.Units
             }
             dgvUnidad.DataSource = null;
 
-            List<units> units = new List<units>();
-            List<clients> clients = new List<clients>();
+            List<FakeUnits> units = new List<FakeUnits>();
             units = unitController.getAllUnits();
-            clients = clientController.getAllClients();
             if (units.Count() > 0)
             {
                 dgvUnidad.DataSource = units;
@@ -185,12 +183,6 @@ namespace TodoBus.Views.Units
         {
             if (dgvUnidad.DataSource != null)
             {
-                //Eliminamos las columnas de relaciones, para evitar excepciones
-                dgvUnidad.Columns.Remove("brand_id");
-                dgvUnidad.Columns.Remove("client_id");
-                dgvUnidad.Columns.Remove("brands");
-                dgvUnidad.Columns.Remove("clients");
-                dgvUnidad.Columns.Remove("units_spare");
                 //Y ahora añadimos el boton modificar a la tabla
                 DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
                 btnEdit.Name = "Editar";
@@ -210,9 +202,10 @@ namespace TodoBus.Views.Units
                 dgvUnidad.Columns[0].HeaderText = "Id";
                 dgvUnidad.Columns[1].HeaderText = "Medidas";
                 dgvUnidad.Columns[2].HeaderText = "Total de unidades";
+                dgvUnidad.Columns[3].HeaderText = "Marca";
+                dgvUnidad.Columns[4].HeaderText = "Cliente";
             }
         }
-
         private int? getId()
         {
             //Metodo para obtener el id de la columna seleccionada

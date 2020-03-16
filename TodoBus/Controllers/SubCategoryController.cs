@@ -63,22 +63,33 @@ namespace TodoBus.Controllers
             }
         }
 
-        public List<spare_subcategories> getAllSubCategories()
+        public List<FakeSubCategories> getAllSubCategories()
         {
             using (TodoBusEntities db = new TodoBusEntities())
             {
                 //Obtengo todos los registros de mi tabla en la variable lst
                 var lst = from d in db.spare_subcategories
+                          join c in db.spare_categories on d.category_id equals c.id
                           select d;
                 //Luego colocamos los registros que generamos de la base en el DataGridView y lo pasamos a lista para que
                 //sea compatible con el DGV
                 if (lst.Count() > 0)
                 {
-                    return lst.ToList();
+                    List<FakeSubCategories> customL = new List<FakeSubCategories>();
+                    foreach (var sub in lst)
+                    {
+                        FakeSubCategories subF = new FakeSubCategories();
+                        subF.Id = sub.id;
+                        subF.Codigo = sub.code;
+                        subF.Nombre = sub.name;
+                        subF.NombreCategoria = sub.spare_categories.name;
+                        customL.Add(subF);
+                    }
+                    return customL;
                 }
                 else
                 {
-                    List<spare_subcategories> newSC = new List<spare_subcategories>();
+                    List<FakeSubCategories> newSC = new List<FakeSubCategories>();
                     return newSC;
                 }
             }

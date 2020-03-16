@@ -24,14 +24,12 @@ namespace TodoBus.Views.Units
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            Unidades U = new Unidades();
-            U.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)

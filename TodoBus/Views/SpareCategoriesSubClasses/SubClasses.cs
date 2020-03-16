@@ -55,9 +55,8 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
 
         private void btnRegSubCategoria_Click(object sender, EventArgs e)
         {
-            this.Hide();
             RegSubClase frmR = new RegSubClase();
-            frmR.Show();
+            frmR.ShowDialog();
         }
 
         private void btnUnits_Click(object sender, EventArgs e)
@@ -129,20 +128,10 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
             formatTable();
         }
 
-        private void SubClasses_Load(object sender, EventArgs e)
-        {
-            //Llamo al metodo para llenar la tabla
-            Refresh();
-            formatTable();
-        }
-
         private void formatTable()
         {
             if (dgvSubClase.DataSource != null)
             {
-                //Eliminamos las columnas de relaciones, para evitar excepciones
-                dgvSubClase.Columns.Remove("subcategory_id");
-                dgvSubClase.Columns.Remove("spare_subcategories");
                 //Y ahora añadimos el boton modificar a la tabla
                 DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
                 btnEdit.Name = "Editar";
@@ -160,9 +149,13 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
 
                 //Renombro las columnas del dgv como quiera
                 dgvSubClase.Columns[0].HeaderText = "Id";
+                dgvSubClase.Columns[0].Width = 50;
                 dgvSubClase.Columns[1].HeaderText = "Código";
-                dgvSubClase.Columns[2].HeaderText = "Nombre de Subcategoría";
+                dgvSubClase.Columns[1].Width = 50;
+                dgvSubClase.Columns[2].HeaderText = "Nombre Subclase";
                 dgvSubClase.Columns[2].Width = 185;
+                dgvSubClase.Columns[3].HeaderText = "Nombre Subcategoría";
+                dgvSubClase.Columns[3].Width = 185;
             }
         }
 
@@ -176,7 +169,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
             }
             dgvSubClase.DataSource = null;
 
-            List<spare_subclasses> subClasses = new List<spare_subclasses>();
+            List<FakeSubClasses> subClasses = new List<FakeSubClasses>();
             subClasses = subClController.getAllSubclasses();
 
             if (subClasses.Count() > 0)
@@ -239,6 +232,12 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
                     }
                 }
             }
+        }
+
+        private void SubClasses_Load_1(object sender, EventArgs e)
+        {
+            Refresh();
+            formatTable();
         }
     }
 }

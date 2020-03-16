@@ -69,22 +69,33 @@ namespace TodoBus.Controllers
                 }
             }
         }
-        public List<users> getAllUsers()
+        public List<FakeUsers> getAllUsers()
         {
             using (TodoBusEntities db = new TodoBusEntities())
             {
                 //Obtengo todos los registros de mi tabla en la variable lst
                 var lst = from d in db.users
+                          where d.id != 1
                           select d;
                 //Luego colocamos los registros que generamos de la base en el DataGridView y lo pasamos a lista para que
                 //sea compatible con el DGV
                 if (lst.Count() > 0)
                 {
-                    return lst.ToList();
+                    List<FakeUsers> customL = new List<FakeUsers>();
+                    foreach (var user in lst)
+                    {
+                        FakeUsers userF = new FakeUsers();
+                        userF.Id = user.id;
+                        userF.Nombre = user.name;
+                        userF.Apellido = user.last_name;
+                        userF.Edad = user.age;
+                        customL.Add(userF);
+                    }
+                    return customL;
                 }
                 else
                 {
-                    List<users> newUser = new List<users>();
+                    List<FakeUsers> newUser = new List<FakeUsers>();
                     return newUser;
                 }
             }

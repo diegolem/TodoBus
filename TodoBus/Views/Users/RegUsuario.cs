@@ -29,9 +29,7 @@ namespace TodoBus
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            Usuarios frmUsuario = new Usuarios();
-            frmUsuario.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void bunifuCustomLabel5_Click(object sender, EventArgs e)

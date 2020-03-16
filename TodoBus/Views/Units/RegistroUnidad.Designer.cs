@@ -120,7 +120,7 @@
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
             this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnBack.BorderRadius = 5;
-            this.btnBack.ButtonText = "Volver";
+            this.btnBack.ButtonText = "Cerrar";
             this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBack.DisabledColor = System.Drawing.Color.Gray;
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -145,7 +145,7 @@
             this.btnBack.selected = false;
             this.btnBack.Size = new System.Drawing.Size(128, 36);
             this.btnBack.TabIndex = 48;
-            this.btnBack.Text = "Volver";
+            this.btnBack.Text = "Cerrar";
             this.btnBack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnBack.Textcolor = System.Drawing.Color.White;
             this.btnBack.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
