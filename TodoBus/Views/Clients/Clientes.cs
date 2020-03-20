@@ -211,5 +211,17 @@ namespace TodoBus
             Refresh();
             formatTable();
         }
+
+        private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int? id = getId();
+            if (e.ColumnIndex == 11)
+            {
+                if (id != null)
+                {
+
+                }
+            }
+        }
     }
 }

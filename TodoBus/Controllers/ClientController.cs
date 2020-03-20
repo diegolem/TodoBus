@@ -102,5 +102,50 @@ namespace TodoBus.Controllers
                 }
             }
         }
+
+        public clients getClient(int? id)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                try
+                {
+                    clients c = db.clients.Find(id);
+                    return c;
+                }
+                catch
+                {
+                    return null;
+                }
+
+            }
+        }
+
+        public bool edit(string nameE, string nameC, string correo, string correoA, string dir, string tel, string telA, int uni, clients cliente)
+        {
+            //Abro conexion solamente cuando ejecute la accion
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                try
+                {
+                    cliente.client_name = nameE;
+                    cliente.contact_name = nameC;
+                    cliente.email = correo;
+                    cliente.alternative_email = correoA;
+                    cliente.address = dir;
+                    cliente.phone = tel;
+                    cliente.alternative_phone = telA;
+                    cliente.units_total = uni;
+                    db.Entry(cliente).State = System.Data.Entity.EntityState.Modified;
+                    //Guardo los cambios para confirmar
+                    db.SaveChanges();
+                    //Si todo bien regreso true
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
     }
 }

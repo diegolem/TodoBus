@@ -60,7 +60,7 @@ namespace TodoBus
             try
             {
                 //Mando a llamar el metodo de guardar del controller y paso los parametros
-                bool save = clientController.save(txtEmpresa.Text, txtContacto.Text, txtCorreo.Text, txtCorrAlternativo.Text, txtDireccion.Text, mtxtTelefono.Text, mtxtTelAlternativo.Text,int.Parse(udUnidades.Text));
+                bool save = clientController.save(txtEmpresa.Text, txtContacto.Text, txtCorreo.Text, txtCorrAlternativo.Text, txtDireccion.Text, mtxtTelefono.Text, mtxtTelAlternativo.Text,int.Parse(nudUnidades.Text));
                 if (save)
                 {
                     //Limpio los controles
@@ -87,7 +87,7 @@ namespace TodoBus
             txtContacto.Text = "";
             mtxtTelefono.Text = "";
             mtxtTelAlternativo.Text = "";
-            udUnidades.Text = "";
+            nudUnidades.Text = "";
         }
     }
 }

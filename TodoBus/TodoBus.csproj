@@ -162,6 +162,12 @@
     <Compile Include="ReestablecerContra.Designer.cs">
       <DependentUpon>ReestablecerContra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Clients\ModClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Clients\ModClientes.Designer.cs">
+      <DependentUpon>ModClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Clients\RegCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,6 +300,9 @@
     </Compile>
     <EmbeddedResource Include="ReestablecerContra.resx">
       <DependentUpon>ReestablecerContra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Clients\ModClientes.resx">
+      <DependentUpon>ModClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Clients\RegCliente.resx">
       <DependentUpon>RegCliente.cs</DependentUpon>
