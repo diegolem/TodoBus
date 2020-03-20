@@ -9,7 +9,7 @@ namespace TodoBus.Controllers
 {
     class ClientController
     {
-        public bool save(string nameE, string nameC, string correo, string correoA, string dir,string tel, string telA, int uni)
+        public bool save(string nameE, string nameC, string correo, string correoA, string dir,string tel, string telA, int uni, byte? tipo)
         {
             //Abro conexion solamente cuando ejecute la accion
             using (TodoBusEntities db = new TodoBusEntities())
@@ -27,6 +27,7 @@ namespace TodoBus.Controllers
                     cliente.phone = tel;
                     cliente.alternative_phone = telA;
                     cliente.units_total = uni;
+                    cliente.client_type = tipo;
 
                     //Añado a mi tabla la subcategoria(objeto)
                     db.clients.Add(cliente);
@@ -67,7 +68,7 @@ namespace TodoBus.Controllers
                         clientF.Email = client.email;
                         clientF.EmailAlternativo = client.alternative_email;
                         clientF.TotalUnidades = client.units_total;
-                        clientF.TipoCliente = (client.client_type == 0 ? "Independiente": "Empresa");
+                        clientF.TipoCliente = (client.client_type == 0 ? "Empresa": "Independiente");
                         clientF.User = client.users.name + " " + client.users.last_name;
                         customL.Add(clientF);
                     }

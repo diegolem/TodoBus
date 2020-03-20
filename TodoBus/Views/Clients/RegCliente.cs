@@ -14,11 +14,40 @@ namespace TodoBus
     public partial class RegCliente : Form
     {
         ClientController clientController = new ClientController();
+        byte? tipoC;
         public RegCliente()
         {
             InitializeComponent();
         }
-
+        private bool validarCampos()
+        {
+            //variable que verifica si algo ha sido validado
+            bool validado = true;
+            if (txtEmpresa.Visible== true)
+            {
+                if (txtEmpresa.Text == "") //vefica que no quede vacío el campo
+                {
+                    validado = false; //si está vacío validado es falso
+                    errorProvider.SetError(txtEmpresa, "Ingresar nombre de Empresa");
+                }
+            }          
+            if (txtContacto.Text == "")
+            {
+                validado = false;
+                errorProvider.SetError(txtContacto, "Ingrese nombre de Contacto");
+            }
+            if (txtCorreo.Text == "")
+            {
+                validado = false;
+                errorProvider.SetError(txtCorreo, "Ingrese un correo eléctronico");
+            }
+            if (mtxtTelefono.Text == "")
+            {
+                validado = false;
+                errorProvider.SetError(mtxtTelefono, "Ingrese un número de télefono");
+            }
+            return validado;
+        }
         private void bunifuImageButton2_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -40,10 +69,11 @@ namespace TodoBus
 
             if (dialogResult== DialogResult.Yes)
             {
-
+                tipoC = 0;
             }
             else if (dialogResult==DialogResult.No)
             {
+                tipoC = 1;
                 bunifuCustomLabel2.Visible = false;
                 txtEmpresa.Visible = false;
                 bunifuCustomLabel3.Location = new Point(64, 146);
@@ -57,24 +87,29 @@ namespace TodoBus
 
         private void btnRegCliente_Click(object sender, EventArgs e)
         {
-            try
+            LimpiarError();
+            if (validarCampos())
             {
-                //Mando a llamar el metodo de guardar del controller y paso los parametros
-                bool save = clientController.save(txtEmpresa.Text, txtContacto.Text, txtCorreo.Text, txtCorrAlternativo.Text, txtDireccion.Text, mtxtTelefono.Text, mtxtTelAlternativo.Text,int.Parse(nudUnidades.Text));
-                if (save)
+                try
                 {
-                    //Limpio los controles
-                    clearFields();
-                    MessageBox.Show("El cliente se ha ingresado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //Mando a llamar el metodo de guardar del controller y paso los parametros
+                    bool save = clientController.save(txtEmpresa.Text, txtContacto.Text, txtCorreo.Text, txtCorrAlternativo.Text, txtDireccion.Text, mtxtTelefono.Text, mtxtTelAlternativo.Text, int.Parse(nudUnidades.Text), tipoC);
+                    if (save)
+                    {
+                        //Limpio los controles
+                        clearFields();
+                        MessageBox.Show("El cliente se ha ingresado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
+                catch
                 {
-                    MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ya existe un cliente con estas mismas caracteristicas", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            catch
-            {
-                MessageBox.Show("Ya existe un cliente con estas mismas caracteristicas", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -88,6 +123,14 @@ namespace TodoBus
             mtxtTelefono.Text = "";
             mtxtTelAlternativo.Text = "";
             nudUnidades.Text = "";
+        }
+
+        private void LimpiarError()
+        {
+            errorProvider.SetError(txtEmpresa, "");
+            errorProvider.SetError(txtContacto, "");
+            errorProvider.SetError(txtCorreo, "");
+            errorProvider.SetError(mtxtTelefono, "");
         }
     }
 }

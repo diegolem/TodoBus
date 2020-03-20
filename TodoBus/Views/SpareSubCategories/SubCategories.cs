@@ -215,7 +215,8 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
                     ModSubCategories mod = new ModSubCategories(id);
                     mod.ShowDialog();
                 }
-            }else if (e.ColumnIndex == 5)
+            }
+            else if (e.ColumnIndex == 5)
             {
                 if (id != null)
                 {

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TodoBus.Views.Clients;
 using TodoBus.Views.Brands;
 using TodoBus.Views.SpareCategoriesSubClasses;
 using TodoBus.Views.SpareCategory;
@@ -219,7 +220,31 @@ namespace TodoBus
             {
                 if (id != null)
                 {
+                    ModClientes mod = new ModClientes(id);
+                    mod.ShowDialog();
+                }
+            }
 
+            else if (e.ColumnIndex == 12)
+            {
+                if (id != null)
+                {
+                    DialogResult result = MessageBox.Show("¿Estas seguro que desea eliminar esta cliente?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        if (clientController.delete(id))
+                        {
+                            MessageBox.Show("El cliente se ha eliminado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ocurrio un error al eliminar el cliente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                        Refresh();
+                        formatTable();
+                    }
                 }
             }
         }
