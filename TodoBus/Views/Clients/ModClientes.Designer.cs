@@ -52,6 +52,7 @@
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnVolver = new Bunifu.Framework.UI.BunifuFlatButton();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
@@ -314,12 +315,50 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // btnVolver
+            // 
+            this.btnVolver.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            this.btnVolver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            this.btnVolver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnVolver.BorderRadius = 5;
+            this.btnVolver.ButtonText = "              Cerrar";
+            this.btnVolver.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVolver.DisabledColor = System.Drawing.Color.Gray;
+            this.btnVolver.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnVolver.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnVolver.Iconimage")));
+            this.btnVolver.Iconimage_right = null;
+            this.btnVolver.Iconimage_right_Selected = null;
+            this.btnVolver.Iconimage_Selected = null;
+            this.btnVolver.IconMarginLeft = 25;
+            this.btnVolver.IconMarginRight = 0;
+            this.btnVolver.IconRightVisible = false;
+            this.btnVolver.IconRightZoom = 0D;
+            this.btnVolver.IconVisible = false;
+            this.btnVolver.IconZoom = 60D;
+            this.btnVolver.IsTab = false;
+            this.btnVolver.Location = new System.Drawing.Point(42, 388);
+            this.btnVolver.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            this.btnVolver.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(130)))), ((int)(((byte)(184)))));
+            this.btnVolver.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
+            this.btnVolver.selected = false;
+            this.btnVolver.Size = new System.Drawing.Size(128, 36);
+            this.btnVolver.TabIndex = 66;
+            this.btnVolver.Text = "              Cerrar";
+            this.btnVolver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVolver.Textcolor = System.Drawing.Color.White;
+            this.btnVolver.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // ModClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.bunifuCustomLabel1);
             this.Controls.Add(this.nudUnidades);
             this.Controls.Add(this.txtCorrAlternativo);
@@ -377,5 +416,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private Bunifu.Framework.UI.BunifuFlatButton btnVolver;
     }
 }

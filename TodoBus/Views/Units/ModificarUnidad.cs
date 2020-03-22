@@ -8,13 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TodoBus.Controllers;
+using TodoBus.Models;
 
 namespace TodoBus.Views.Units
 {
-    public partial class RegistroUnidad : Form
+    public partial class ModificarUnidad : Form
     {
+        public int? id;
         ValidationController valid = new ValidationController();
         UnitController units = new UnitController();
+
+        units loadU = new units();
 
         List<int> clientsId = new List<int>();
         List<string> fillClients = new List<string>();
@@ -22,19 +26,10 @@ namespace TodoBus.Views.Units
         List<int> brandsId = new List<int>();
         List<string> fillBrands = new List<string>();
 
-        public RegistroUnidad()
+        public ModificarUnidad(int? id)
         {
+            this.id = id;
             InitializeComponent();
-        }
-
-        private void body_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -45,6 +40,34 @@ namespace TodoBus.Views.Units
         private void bunifuImageButton2_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnRegUnit_Click(object sender, EventArgs e)
+        {
+            if (validateFields())
+            {
+                try
+                {
+                    bool edit = units.edit(brandsId[cmbBrand.SelectedIndex], clientsId[cmbpOwner.SelectedIndex], txtUnitDescription.Text, int.Parse(txtTotal.Text), loadU);
+                    if (edit)
+                    {
+                        MessageBox.Show("La Unidad se ha modificado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("La unidad no se pudo modificar", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void loadClients()
@@ -63,30 +86,6 @@ namespace TodoBus.Views.Units
 
             units.getBrands(ref brandsId, ref fillBrands);
             cmbBrand.DataSource = fillBrands;
-        }
-
-        private void btnRegUnit_Click(object sender, EventArgs e)
-        {
-            if (validateFields())
-            {
-                try
-                {
-                    bool save = units.save(brandsId[cmbBrand.SelectedIndex], clientsId[cmbpOwner.SelectedIndex], txtUnitDescription.Text, int.Parse(txtTotal.Text));
-                    if (save)
-                    {
-                        clearFields();
-                        MessageBox.Show("La Unidad se ha ingresado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                catch
-                {
-                    MessageBox.Show("La unidad no se pudo registrar", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
         }
 
         private void clearFields()
@@ -111,10 +110,20 @@ namespace TodoBus.Views.Units
             return true;
         }
 
-        private void RegistroUnidad_Load(object sender, EventArgs e)
+        private void ModificarUnidad_Load(object sender, EventArgs e)
         {
-            loadClients();
-            loadBrands();
+            loadU = units.getUnit(id);
+            if (loadU != null)
+            {
+                loadClients();
+                loadBrands();
+
+                txtTotal.Text = loadU.total.ToString();
+                txtUnitDescription.Text = loadU.measure_description;
+
+                cmbBrand.SelectedItem = units.getBrand(loadU.brand_id).name;
+                cmbpOwner.SelectedItem = units.getClient(loadU.client_id).client_name;
+            }
         }
     }
 }

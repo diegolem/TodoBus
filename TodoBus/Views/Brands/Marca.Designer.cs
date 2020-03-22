@@ -704,6 +704,7 @@
             this.dgvMarca.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvMarca.Size = new System.Drawing.Size(646, 452);
             this.dgvMarca.TabIndex = 34;
+            this.dgvMarca.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMarca_CellClick);
             // 
             // txtBuscador
             // 

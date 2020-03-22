@@ -16,6 +16,7 @@ namespace TodoBus.Views.Clients
     {
         public int? id;
         ClientController clientController = new ClientController();
+        ValidationController valid = new ValidationController();
         clients loadC = new clients();
         public ModClientes(int? id)
         {
@@ -43,6 +44,19 @@ namespace TodoBus.Views.Clients
             {
                 validado = false;
                 errorProvider.SetError(txtCorreo, "Ingrese un correo eléctronico");
+            }
+            if (!(valid.isEmail(txtCorreo.Text)))
+            {
+                validado = false;
+                errorProvider.SetError(txtCorreo, "Ingrese un correo válido");
+            }
+            if (txtCorrAlternativo.Text.Trim().Length > 0)
+            {
+                if (!(valid.isEmail(txtCorrAlternativo.Text)))
+                {
+                    validado = false;
+                    errorProvider.SetError(txtCorrAlternativo, "Ingrese un correo válido");
+                }
             }
             if (mtxtTelefono.Text == "")
             {
@@ -124,10 +138,12 @@ namespace TodoBus.Views.Clients
 
         private void LimpiarError()
         {
-            errorProvider.SetError(txtEmpresa, "");
-            errorProvider.SetError(txtContacto, "");
-            errorProvider.SetError(txtCorreo, "");
-            errorProvider.SetError(mtxtTelefono, "");
+            errorProvider.Clear();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

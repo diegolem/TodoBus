@@ -201,5 +201,41 @@ namespace TodoBus.Views.Brands
             Refresh();
             formatTable();
         }
+
+        private void dgvMarca_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int? id = getId();
+
+            if (e.ColumnIndex == 3)
+            {
+                if (id != null)
+                {
+                    ModMarca mod = new ModMarca(id);
+                    mod.ShowDialog();
+                }
+            }
+            else if (e.ColumnIndex == 4)
+            {
+                if (id != null)
+                {
+                    DialogResult result = MessageBox.Show("¿Estas seguro que deseas eliminar esta marca?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        if (brandController.delete(id))
+                        {
+                            MessageBox.Show("La Marca se ha eliminado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ocurrio un error al eliminar la marca", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                        Refresh();
+                        formatTable();
+                    }
+                }
+            }
+        }
     }
 }

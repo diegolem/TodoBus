@@ -9,6 +9,152 @@ namespace TodoBus.Controllers
 {
     class UnitController
     {
+        public bool save(int brand_id, int client_id, string description, int total)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                try
+                {
+
+                    units unidad = new units();
+
+                    unidad.brand_id = brand_id;
+                    unidad.client_id = client_id;
+                    unidad.total = total;
+                    unidad.measure_description = description;
+
+                    db.units.Add(unidad);
+                    db.SaveChanges();
+
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool edit(int brand_id, int client_id, string description, int total, units unidad)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                try
+                {
+                    unidad.brand_id = brand_id;
+                    unidad.client_id = client_id;
+                    unidad.total = total;
+                    unidad.measure_description = description;
+
+                    db.Entry(unidad).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool delete(int? id)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                try
+                {
+                    
+                    units unit = db.units.Find(id);
+                    db.units.Remove(unit);
+                    db.SaveChanges();
+                    
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+
+        public units getUnit(int? id)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                try
+                {
+                    units un = db.units.Find(id);
+                    return un;
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+        }
+
+        public void getBrands(ref List<int> brandsId, ref List<string> fillcmb)
+        {
+            using(TodoBusEntities db = new TodoBusEntities())
+            {
+                var lst = from d in db.brands
+                          select d;
+                foreach (var brand in lst)
+                {
+                    fillcmb.Add(brand.name);
+                    brandsId.Add(brand.id);
+                }
+            }
+        }
+
+        public void getClients(ref List<int> clientsId, ref List<string> fillcmb)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                var lst = from d in db.clients
+                          select d;
+                foreach (var client in lst)
+                {
+                    fillcmb.Add(client.client_name);
+                    clientsId.Add(client.id);
+                }
+            }
+        }
+
+        public brands getBrand(int? id)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                try
+                {
+                    brands br = db.brands.Find(id);
+                    return br;
+                }
+                catch
+                {
+                    return null;
+                }
+
+            }
+        }
+
+        public clients getClient(int? id)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                try
+                {
+                    clients cl = db.clients.Find(id);
+                    return cl;
+                }
+                catch
+                {
+                    return null;
+                }
+
+            }
+        }
+
         public List<FakeUnits> getAllUnits()
         {
             using (TodoBusEntities db = new TodoBusEntities())
@@ -41,5 +187,7 @@ namespace TodoBus.Controllers
                 }
             }
         }
+
+
     }
 }

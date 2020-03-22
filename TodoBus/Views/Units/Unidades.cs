@@ -220,5 +220,41 @@ namespace TodoBus.Views.Units
             }
         }
         #endregion
+
+        private void dgvUnidad_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int? id = getId();
+
+            if (e.ColumnIndex == 5)
+            {
+                if (id != null)
+                {
+                    ModificarUnidad mo = new ModificarUnidad(id);
+                    mo.ShowDialog();
+                }
+            }
+            else if (e.ColumnIndex == 6)
+            {
+                if (id != null)
+                {
+                    DialogResult result = MessageBox.Show("¿Estas seguro que deseas eliminar esta unidad?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        if (unitController.delete(id))
+                        {
+                            MessageBox.Show("La Unidad se ha eliminado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ocurrio un error al eliminar la unidad", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                        Refresh();
+                        formatTable();
+                    }
+                }
+            }
+        }
     }
 }

@@ -33,8 +33,8 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.body = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txtUnitDescription = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
-            this.txtDescription = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txtDescription = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
+            this.lblDescription = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnReturn = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnRegSub = new Bunifu.Framework.UI.BunifuFlatButton();
             this.txtName = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
@@ -43,10 +43,12 @@
             this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.Ep1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.body.SuspendLayout();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ep1)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -58,8 +60,8 @@
             // 
             this.body.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.body.Controls.Add(this.bunifuCustomLabel1);
-            this.body.Controls.Add(this.txtUnitDescription);
             this.body.Controls.Add(this.txtDescription);
+            this.body.Controls.Add(this.lblDescription);
             this.body.Controls.Add(this.btnReturn);
             this.body.Controls.Add(this.btnRegSub);
             this.body.Controls.Add(this.txtName);
@@ -81,26 +83,26 @@
             this.bunifuCustomLabel1.TabIndex = 72;
             this.bunifuCustomLabel1.Text = "Modificar Marca";
             // 
-            // txtUnitDescription
-            // 
-            this.txtUnitDescription.BorderColor = System.Drawing.Color.SeaGreen;
-            this.txtUnitDescription.Location = new System.Drawing.Point(123, 140);
-            this.txtUnitDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtUnitDescription.Multiline = true;
-            this.txtUnitDescription.Name = "txtUnitDescription";
-            this.txtUnitDescription.Size = new System.Drawing.Size(202, 103);
-            this.txtUnitDescription.TabIndex = 71;
-            // 
             // txtDescription
             // 
-            this.txtDescription.AutoSize = true;
-            this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.txtDescription.ForeColor = System.Drawing.Color.White;
-            this.txtDescription.Location = new System.Drawing.Point(28, 140);
+            this.txtDescription.BorderColor = System.Drawing.Color.SeaGreen;
+            this.txtDescription.Location = new System.Drawing.Point(123, 140);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(79, 17);
-            this.txtDescription.TabIndex = 70;
-            this.txtDescription.Text = "Descripción:";
+            this.txtDescription.Size = new System.Drawing.Size(202, 103);
+            this.txtDescription.TabIndex = 71;
+            // 
+            // lblDescription
+            // 
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.lblDescription.ForeColor = System.Drawing.Color.White;
+            this.lblDescription.Location = new System.Drawing.Point(28, 140);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(79, 17);
+            this.lblDescription.TabIndex = 70;
+            this.lblDescription.Text = "Descripción:";
             // 
             // btnReturn
             // 
@@ -174,6 +176,7 @@
             this.btnRegSub.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRegSub.Textcolor = System.Drawing.Color.White;
             this.btnRegSub.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegSub.Click += new System.EventHandler(this.btnRegSub_Click);
             // 
             // txtName
             // 
@@ -242,6 +245,10 @@
             this.bunifuDragControl1.TargetControl = this.header;
             this.bunifuDragControl1.Vertical = true;
             // 
+            // Ep1
+            // 
+            this.Ep1.ContainerControl = this;
+            // 
             // ModMarca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,11 +259,13 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ModMarca";
             this.Text = "ModMarca";
+            this.Load += new System.EventHandler(this.ModMarca_Load);
             this.body.ResumeLayout(false);
             this.body.PerformLayout();
             this.header.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ep1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -265,8 +274,8 @@
 
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private System.Windows.Forms.Panel body;
-        private WindowsFormsControlLibrary1.BunifuCustomTextbox txtUnitDescription;
-        private Bunifu.Framework.UI.BunifuCustomLabel txtDescription;
+        private WindowsFormsControlLibrary1.BunifuCustomTextbox txtDescription;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblDescription;
         private Bunifu.Framework.UI.BunifuFlatButton btnReturn;
         private Bunifu.Framework.UI.BunifuFlatButton btnRegSub;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txtName;
@@ -276,5 +285,6 @@
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
+        private System.Windows.Forms.ErrorProvider Ep1;
     }
 }

@@ -14,6 +14,7 @@ namespace TodoBus
     public partial class RegCliente : Form
     {
         ClientController clientController = new ClientController();
+        ValidationController valid = new ValidationController();
         byte? tipoC;
         public RegCliente()
         {
@@ -30,7 +31,7 @@ namespace TodoBus
                     validado = false; //si está vacío validado es falso
                     errorProvider.SetError(txtEmpresa, "Ingresar nombre de Empresa");
                 }
-            }          
+            }
             if (txtContacto.Text == "")
             {
                 validado = false;
@@ -40,6 +41,19 @@ namespace TodoBus
             {
                 validado = false;
                 errorProvider.SetError(txtCorreo, "Ingrese un correo eléctronico");
+            }
+            if (!(valid.isEmail(txtCorreo.Text)))
+            {
+                validado = false;
+                errorProvider.SetError(txtCorreo, "Ingrese un correo válido");
+            }
+            if(txtCorrAlternativo.Text.Trim().Length > 0)
+            {
+                if (!(valid.isEmail(txtCorrAlternativo.Text)))
+                {
+                    validado = false;
+                    errorProvider.SetError(txtCorrAlternativo, "Ingrese un correo válido");
+                }
             }
             if (mtxtTelefono.Text == "")
             {
@@ -127,10 +141,7 @@ namespace TodoBus
 
         private void LimpiarError()
         {
-            errorProvider.SetError(txtEmpresa, "");
-            errorProvider.SetError(txtContacto, "");
-            errorProvider.SetError(txtCorreo, "");
-            errorProvider.SetError(mtxtTelefono, "");
+            errorProvider.Clear();
         }
     }
 }

@@ -36,6 +36,27 @@ namespace TodoBus.Controllers
             }
         }
 
+        public bool edit(string name, string descript, brands brand)
+        {
+            //Abro conexion solamente cuando ejecute la accion
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                try
+                {
+                    brand.name = name;
+                    brand.description = descript;
+
+                    db.Entry(brand).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+
         public List<FakeBrands> getAllBrands()
         {
             using (TodoBusEntities db = new TodoBusEntities())
@@ -62,6 +83,22 @@ namespace TodoBus.Controllers
                 {
                     List<FakeBrands> newBR = new List<FakeBrands>();
                     return newBR;
+                }
+            }
+        }
+
+        public brands getBrand(int? id)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                try
+                {
+                    brands br = db.brands.Find(id);
+                    return br;
+                }
+                catch
+                {
+                    return null;
                 }
             }
         }

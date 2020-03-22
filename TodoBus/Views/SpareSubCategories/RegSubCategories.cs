@@ -15,6 +15,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
     public partial class RegSubCategories : Form
     {
         SubCategoryController catec = new SubCategoryController();
+        ValidationController valid = new ValidationController();
 
         List<int> categoriesId = new List<int>();
         List<string> fillcmb = new List<string>();
@@ -22,11 +23,6 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
         public RegSubCategories()
         {
             InitializeComponent();
-        }
-
-        private void body_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
@@ -46,24 +42,27 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
 
         private void btnRegSub_Click(object sender, EventArgs e)
         {
-            try
+            if (validateFields())
             {
-                //Mando a llamar el metodo de guardar del controller y paso los parametros
-                bool save = catec.save(txtName.Text, txtCode.Text, categoriesId[cmbCategory.SelectedIndex]);
-                if (save)
+                try
                 {
-                    //Limpio los controles
-                    clearFields();
-                    MessageBox.Show("La Subcategoria se ha ingresado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //Mando a llamar el metodo de guardar del controller y paso los parametros
+                    bool save = catec.save(txtName.Text, txtCode.Text, categoriesId[cmbCategory.SelectedIndex]);
+                    if (save)
+                    {
+                        //Limpio los controles
+                        clearFields();
+                        MessageBox.Show("La Subcategoria se ha ingresado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
+                catch
                 {
-                    MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ya existe una subcategoria con estas mismas caracteristicas", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            catch
-            {
-                MessageBox.Show("Ya existe una subcategoria con estas mismas caracteristicas", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -90,5 +89,21 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
             cmbCategory.DataSource = fillcmb;
         }
         #endregion
+
+        private bool validateFields()
+        {
+            Ep1.Clear();
+            if (!(valid.isString(txtCode.Text)))
+            {
+                Ep1.SetError(txtCode, "El código no puede quedar vacío");
+                return false;
+            }
+            if (!(valid.isString(txtName.Text)))
+            {
+                Ep1.SetError(txtName, "El nombre no puede quedar vacío");
+                return false;
+            }
+            return true;
+        }
     }
 }

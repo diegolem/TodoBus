@@ -16,6 +16,8 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
     {
         public int? id;
         SubCategoryController subController = new SubCategoryController();
+        ValidationController valid = new ValidationController();
+
         spare_subcategories loadSC = new spare_subcategories();
 
         List<int> categoriesId = new List<int>();
@@ -71,23 +73,42 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
 
         private void btnRegSub_Click(object sender, EventArgs e)
         {
-            try
+            if (validateFields())
             {
-                //Mando a llamar el metodo de guardar del controller y paso los parametros
-                bool edit = subController.edit(txtName.Text, txtCode.Text, categoriesId[cmbCategory.SelectedIndex], loadSC);
-                if (edit)
+                try
                 {
-                    MessageBox.Show("La Subcategoria se ha modificado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //Mando a llamar el metodo de guardar del controller y paso los parametros
+                    bool edit = subController.edit(txtName.Text, txtCode.Text, categoriesId[cmbCategory.SelectedIndex], loadSC);
+                    if (edit)
+                    {
+                        MessageBox.Show("La Subcategoria se ha modificado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
+                catch
                 {
                     MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch
+        }
+
+        private bool validateFields()
+        {
+            Ep1.Clear();
+            if (!(valid.isString(txtCode.Text)))
             {
-                MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Ep1.SetError(txtCode, "El código no puede quedar vacío");
+                return false;
             }
+            if (!(valid.isString(txtName.Text)))
+            {
+                Ep1.SetError(txtName, "El nombre no puede quedar vacío");
+                return false;
+            }
+            return true;
         }
     }
 }
