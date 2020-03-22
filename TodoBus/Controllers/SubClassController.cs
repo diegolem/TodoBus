@@ -123,5 +123,34 @@ namespace TodoBus.Controllers
                 }
             }
         }
+        public void getSubClass(ref List<int> brandsId, ref List<string> fillcmb)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                var lst = from d in db.brands
+                          select d;
+                foreach (var brand in lst)
+                {
+                    fillcmb.Add(brand.name);
+                    brandsId.Add(brand.id);
+                }
+            }
+        }
+        public spare_subcategories getSubCategory(int? id)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                try
+                {
+                    spare_subcategories sbc = db.spare_subcategories.Find(id);
+                    return sbc;
+                }
+                catch
+                {
+                    return null;
+                }
+
+            }
+        }
     }
 }
