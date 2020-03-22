@@ -36,7 +36,25 @@ namespace TodoBus.Controllers
                 }
             }
         }
+        public bool edit(string code, string name, int subcategory_id, spare_subclasses Subclase)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                try
+                {
+                    Subclase.code = code;
+                    Subclase.name = name;
+                    Subclase.subcategory_id = subcategory_id;
+                    db.Entry(Subclase).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    return true;
+                }
+                catch
+                { return false; 
+                }
+            }
 
+        }
         public List<FakeSubClasses> getAllSubclasses()
         {
             using (TodoBusEntities db = new TodoBusEntities())
@@ -87,6 +105,21 @@ namespace TodoBus.Controllers
                 catch
                 {
                     return false;
+                }
+            }
+        }
+        public spare_subclasses getSubclass(int? id)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                try
+                {
+                    spare_subclasses ssc = db.spare_subclasses.Find(id);
+                    return ssc;
+                }
+                catch
+                {
+                    return null;
                 }
             }
         }

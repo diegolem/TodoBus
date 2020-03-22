@@ -121,5 +121,20 @@ namespace TodoBus.Controllers
                 }
             }
         }
+        public users getUser(int? id)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                try
+                {
+                    users usr = db.users.Find(id);
+                    return usr;
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+        }
     }
 }
