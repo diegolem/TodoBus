@@ -39,16 +39,15 @@ namespace TodoBus.Controllers
             }
         }
 
-        public bool edit(string name, string code, int id, spare_categories Category)
+        public bool edit(string code, string name, spare_categories Category)
         {
             //Abro conexion solamente cuando ejecute la accion
             using (TodoBusEntities db = new TodoBusEntities())
             {
                 try
                 {
-                    Category.name = name;
                     Category.code = code;
-                    Category.id = id;
+                    Category.name = name;
 
                     db.Entry(Category).State = System.Data.Entity.EntityState.Modified;
                     //Guardo los cambios para confirmar
@@ -62,7 +61,7 @@ namespace TodoBus.Controllers
                 }
             }
         }
-        public List<spare_categories> getAllCategories()
+        public List<FakeCategories> getAllCategories()
         {
             using (TodoBusEntities db = new TodoBusEntities())
             {
@@ -73,28 +72,52 @@ namespace TodoBus.Controllers
                 //sea compatible con el DGV
                 if (lst.Count() > 0)
                 {
-                    return lst.ToList();
+                    List<FakeCategories> customL = new List<FakeCategories>();
+                    foreach (var Category in lst)
+                    {
+                        FakeCategories categoryF = new FakeCategories();
+                        categoryF.Id = Category.id;
+                        categoryF.Codigo = Category.code;
+                        categoryF.Nombre = Category.name;
+                        customL.Add(categoryF);
+                    }
+                    return customL;
                 }
                 else
                 {
-                    List<spare_categories> newC = new List<spare_categories>();
+                    List<FakeCategories> newC = new List<FakeCategories>();
                     return newC;
                 }
             }
         }
+
+        public spare_categories getCategory(int? id)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                try
+                {
+                    spare_categories scat = db.spare_categories.Find(id);
+                    return scat;
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+        }
+
         public bool delete(int? id)
         {
             using (TodoBusEntities db = new TodoBusEntities())
             {
                 try
                 {
-                    //Se obtiene el objeto a borrar
+
                     spare_categories categor = db.spare_categories.Find(id);
-                    //Se borra el objeto que se obtuvo de la tabla
                     db.spare_categories.Remove(categor);
-                    //Guardamos cambios
                     db.SaveChanges();
-                    //Si todo bien regreso true
+
                     return true;
                 }
                 catch

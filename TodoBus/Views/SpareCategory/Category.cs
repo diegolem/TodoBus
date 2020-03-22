@@ -136,9 +136,6 @@ namespace TodoBus.Views.SpareCategory
         {
             if (dgvCategoria.DataSource != null)
             {
-                //Eliminamos las columnas de relaciones, para evitar excepciones
-                dgvCategoria.Columns.Remove("spare_subcategories");
-                dgvCategoria.Columns.Remove("spare");
                 //Y ahora añadimos el boton modificar a la tabla
                 DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
                 btnEdit.Name = "Editar";
@@ -170,12 +167,12 @@ namespace TodoBus.Views.SpareCategory
             }
             dgvCategoria.DataSource = null;
 
-            List<spare_categories> Categories = new List<spare_categories>();
-            Categories = categoryController.getAllCategories();
+            List<FakeCategories> Categorie = new List<FakeCategories>();
+            Categorie = categoryController.getAllCategories();
 
-            if (Categories.Count() > 0)
+            if (Categorie.Count() > 0)
             {
-                dgvCategoria.DataSource = Categories;
+                dgvCategoria.DataSource = Categorie;
             }
             else
             {
@@ -202,6 +199,42 @@ namespace TodoBus.Views.SpareCategory
         {
             Refresh();
             formatTable();
+        }
+
+        private void dgvCategorias_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int? id = getId();
+            if (e.ColumnIndex == 3)
+            {
+                if (id != null)
+                {
+                    ModCategory mC = new ModCategory(id);
+                    mC.ShowDialog();
+                }
+            }
+
+            else if (e.ColumnIndex == 4)
+            {
+                if (id != null)
+                {
+                    DialogResult result = MessageBox.Show("¿Estas seguro que desea eliminar esta categoria?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        if (categoryController.delete(id))
+                        {
+                            MessageBox.Show("El cliente se ha eliminado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ocurrio un error al eliminar el cliente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                        Refresh();
+                        formatTable();
+                    }
+                }
+            }
         }
     }
 }
