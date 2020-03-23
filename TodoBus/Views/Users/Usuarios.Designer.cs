@@ -707,6 +707,7 @@
             this.PanelTransition.SetDecoration(this.dgvUsuarios, BunifuAnimatorNS.DecorationType.None);
             this.LogoTransition.SetDecoration(this.dgvUsuarios, BunifuAnimatorNS.DecorationType.None);
             this.dgvUsuarios.DoubleBuffered = true;
+            this.dgvUsuarios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvUsuarios.EnableHeadersVisualStyles = false;
             this.dgvUsuarios.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(197)))));
             this.dgvUsuarios.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
@@ -716,6 +717,7 @@
             this.dgvUsuarios.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvUsuarios.Size = new System.Drawing.Size(646, 452);
             this.dgvUsuarios.TabIndex = 36;
+            this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellClick);
             // 
             // bunifuDragControl1
             // 

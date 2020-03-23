@@ -206,7 +206,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
             {
                 if (id != null)
                 {
-                    ModSubCategories mod = new ModSubCategories(id);
+                    ModSubClasses mod = new ModSubClasses(id);
                     mod.ShowDialog();
                 }
             }
@@ -214,17 +214,17 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
             {
                 if (id != null)
                 {
-                    DialogResult result = MessageBox.Show("¿Estas seguro que deseas eliminar esta subcategoría?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    DialogResult result = MessageBox.Show("¿Estas seguro que deseas eliminar esta subclase?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
                     if (result == DialogResult.Yes)
                     {
                         if (subClController.delete(id))
                         {
-                            MessageBox.Show("La Subcategoria se ha eliminado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("La Subclase se ha eliminado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
-                            MessageBox.Show("Ocurrio un error al eliminar la categoria", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Ocurrio un error al eliminar la subclase", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                         Refresh();

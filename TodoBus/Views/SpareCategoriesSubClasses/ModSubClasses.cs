@@ -7,12 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TodoBus.Controllers;
+using TodoBus.Models;
 
 namespace TodoBus.Views.SpareCategoriesSubClasses
 {
     public partial class ModSubClasses : Form
     {
-        public ModSubClasses()
+        public int? id;
+        ValidationController valid = new ValidationController();
+        SubClassController subclasscontroller = new SubClassController();
+        SubClasses loadB = new SubClasses();
+        public ModSubClasses(int? id)
         {
             InitializeComponent();
         }

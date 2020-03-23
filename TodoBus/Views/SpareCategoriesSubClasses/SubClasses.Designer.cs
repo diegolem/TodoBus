@@ -801,6 +801,7 @@
             this.dgvSubClase.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvSubClase.Size = new System.Drawing.Size(646, 452);
             this.dgvSubClase.TabIndex = 44;
+            this.dgvSubClase.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSubClase_CellClick);
             // 
             // LogoTransition
             // 
