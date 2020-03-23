@@ -123,16 +123,16 @@ namespace TodoBus.Controllers
                 }
             }
         }
-        public void getSubClass(ref List<int> brandsId, ref List<string> fillcmb)
+        public void getSubCategory(ref List<int> SubcategoryId, ref List<string> fillcmb)
         {
             using (TodoBusEntities db = new TodoBusEntities())
             {
-                var lst = from d in db.brands
+                var lst = from d in db.spare_subcategories
                           select d;
-                foreach (var brand in lst)
+                foreach (var Subcategory in lst)
                 {
-                    fillcmb.Add(brand.name);
-                    brandsId.Add(brand.id);
+                    fillcmb.Add(Subcategory.name);
+                    SubcategoryId.Add(Subcategory.id);
                 }
             }
         }
