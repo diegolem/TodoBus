@@ -185,5 +185,10 @@ namespace TodoBus
             Refresh();
             formatTable();
         }
+
+        private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
