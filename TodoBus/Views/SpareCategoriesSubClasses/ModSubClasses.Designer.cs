@@ -36,11 +36,11 @@
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.body = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbSC = new System.Windows.Forms.ComboBox();
             this.btnReturn = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnRegSub = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bunifuCustomTextbox2 = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
-            this.bunifuCustomTextbox1 = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
+            this.txtcode = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
+            this.txtName = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -100,11 +100,11 @@
             // 
             this.body.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.body.Controls.Add(this.bunifuCustomLabel7);
-            this.body.Controls.Add(this.comboBox1);
+            this.body.Controls.Add(this.cmbSC);
             this.body.Controls.Add(this.btnReturn);
             this.body.Controls.Add(this.btnRegSub);
-            this.body.Controls.Add(this.bunifuCustomTextbox2);
-            this.body.Controls.Add(this.bunifuCustomTextbox1);
+            this.body.Controls.Add(this.txtcode);
+            this.body.Controls.Add(this.txtName);
             this.body.Controls.Add(this.bunifuCustomLabel3);
             this.body.Controls.Add(this.bunifuCustomLabel2);
             this.body.Controls.Add(this.bunifuCustomLabel1);
@@ -125,13 +125,13 @@
             this.bunifuCustomLabel7.TabIndex = 72;
             this.bunifuCustomLabel7.Text = "Subcategoría:";
             // 
-            // comboBox1
+            // cmbSC
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(131, 222);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(202, 21);
-            this.comboBox1.TabIndex = 71;
+            this.cmbSC.FormattingEnabled = true;
+            this.cmbSC.Location = new System.Drawing.Point(131, 222);
+            this.cmbSC.Name = "cmbSC";
+            this.cmbSC.Size = new System.Drawing.Size(202, 21);
+            this.cmbSC.TabIndex = 71;
             // 
             // btnReturn
             // 
@@ -205,24 +205,25 @@
             this.btnRegSub.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRegSub.Textcolor = System.Drawing.Color.White;
             this.btnRegSub.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegSub.Click += new System.EventHandler(this.btnRegSub_Click);
             // 
-            // bunifuCustomTextbox2
+            // txtcode
             // 
-            this.bunifuCustomTextbox2.BorderColor = System.Drawing.Color.SeaGreen;
-            this.bunifuCustomTextbox2.Location = new System.Drawing.Point(131, 114);
-            this.bunifuCustomTextbox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.bunifuCustomTextbox2.Name = "bunifuCustomTextbox2";
-            this.bunifuCustomTextbox2.Size = new System.Drawing.Size(202, 20);
-            this.bunifuCustomTextbox2.TabIndex = 67;
+            this.txtcode.BorderColor = System.Drawing.Color.SeaGreen;
+            this.txtcode.Location = new System.Drawing.Point(131, 114);
+            this.txtcode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtcode.Name = "txtcode";
+            this.txtcode.Size = new System.Drawing.Size(202, 20);
+            this.txtcode.TabIndex = 67;
             // 
-            // bunifuCustomTextbox1
+            // txtName
             // 
-            this.bunifuCustomTextbox1.BorderColor = System.Drawing.Color.SeaGreen;
-            this.bunifuCustomTextbox1.Location = new System.Drawing.Point(131, 167);
-            this.bunifuCustomTextbox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.bunifuCustomTextbox1.Name = "bunifuCustomTextbox1";
-            this.bunifuCustomTextbox1.Size = new System.Drawing.Size(202, 20);
-            this.bunifuCustomTextbox1.TabIndex = 66;
+            this.txtName.BorderColor = System.Drawing.Color.SeaGreen;
+            this.txtName.Location = new System.Drawing.Point(131, 167);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(202, 20);
+            this.txtName.TabIndex = 66;
             // 
             // bunifuCustomLabel3
             // 
@@ -290,15 +291,16 @@
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton2;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
         private System.Windows.Forms.Panel body;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbSC;
         private Bunifu.Framework.UI.BunifuFlatButton btnReturn;
         private Bunifu.Framework.UI.BunifuFlatButton btnRegSub;
-        private WindowsFormsControlLibrary1.BunifuCustomTextbox bunifuCustomTextbox2;
-        private WindowsFormsControlLibrary1.BunifuCustomTextbox bunifuCustomTextbox1;
+        private WindowsFormsControlLibrary1.BunifuCustomTextbox txtcode;
+        private WindowsFormsControlLibrary1.BunifuCustomTextbox txtName;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel7;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
+        private System.Windows.Forms.ErrorProvider Ep1;
     }
 }

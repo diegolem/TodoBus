@@ -202,7 +202,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
             //Los index empiezan desde 0, asi que verificamos en que columna estan los botones modificar y eliminar, para obtener correctamente el id
             int? id = getId();
 
-            if (e.ColumnIndex == 3)
+            if (e.ColumnIndex == 4)
             {
                 if (id != null)
                 {
@@ -210,7 +210,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
                     mod.ShowDialog();
                 }
             }
-            else if (e.ColumnIndex == 4)
+            else if (e.ColumnIndex == 5)
             {
                 if (id != null)
                 {
