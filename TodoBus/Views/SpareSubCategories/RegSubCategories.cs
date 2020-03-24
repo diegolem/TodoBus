@@ -105,5 +105,10 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
             }
             return true;
         }
+
+        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

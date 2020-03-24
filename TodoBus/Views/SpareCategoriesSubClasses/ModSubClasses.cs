@@ -104,7 +104,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
             subcategoryid.Clear();
             fillsubcategories.Clear();
 
-            subclassController.getSubCategory(ref subcategoryid, ref fillsubcategories);
+            subclassController.getSubClasses(ref subcategoryid, ref fillsubcategories);
             cmbSC.DataSource = fillsubcategories;
         }
     }

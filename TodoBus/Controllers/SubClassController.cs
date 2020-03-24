@@ -123,19 +123,7 @@ namespace TodoBus.Controllers
                 }
             }
         }
-        public void getSubCategory(ref List<int> SubcategoryId, ref List<string> fillcmb)
-        {
-            using (TodoBusEntities db = new TodoBusEntities())
-            {
-                var lst = from d in db.spare_subcategories
-                          select d;
-                foreach (var Subcategory in lst)
-                {
-                    fillcmb.Add(Subcategory.name);
-                    SubcategoryId.Add(Subcategory.id);
-                }
-            }
-        }
+       
         public spare_subcategories getSubCategory(int? id)
         {
             using (TodoBusEntities db = new TodoBusEntities())
@@ -150,6 +138,20 @@ namespace TodoBus.Controllers
                     return null;
                 }
 
+            }
+        }
+
+        public void getSubClasses(ref List<int> SubcategoryId, ref List<string> fillcmb)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                var lst = from d in db.spare_subcategories
+                          select d;
+                foreach (var Subcategory in lst)
+                {
+                    fillcmb.Add(Subcategory.name);
+                    SubcategoryId.Add(Subcategory.id);
+                }
             }
         }
     }
