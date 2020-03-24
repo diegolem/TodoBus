@@ -75,6 +75,12 @@
     <Compile Include="Models\clients.cs">
       <DependentUpon>TodoBus.tt</DependentUpon>
     </Compile>
+<Compile Include="Views\Spare\Imagen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Spare\Imagen.Designer.cs">
+      <DependentUpon>Imagen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\FakeBrands.cs" />
     <Compile Include="Models\FakeCategories.cs" />
     <Compile Include="Models\FakeClients.cs" />
@@ -294,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+<EmbeddedResource Include="Views\Spare\Imagen.resx">
+      <DependentUpon>Imagen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

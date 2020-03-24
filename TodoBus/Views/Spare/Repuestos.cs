@@ -11,9 +11,11 @@ using TodoBus.Views.Brands;
 using TodoBus.Views.SpareCategoriesSubClasses;
 using TodoBus.Views.SpareCategory;
 using TodoBus.Views.Units;
+using TodoBus.Views.Spare;
 using TodoBus.Views.Users;
 using TodoBus.Models;
 using TodoBus.Controllers;
+using System.IO;
 
 namespace TodoBus
 {
@@ -48,7 +50,7 @@ namespace TodoBus
 
         private void btnRegCliente_Click(object sender, EventArgs e)
         {
-            RegRepuest frmRegSpare = new RegRepuest(null);
+            RegRepuest frmRegSpare = new RegRepuest();
             frmRegSpare.ShowDialog();
         }
 
@@ -215,6 +217,13 @@ namespace TodoBus
                 btnDelete.UseColumnTextForButtonValue = true;
                 btnDelete.HeaderText = "Eliminar";
                 dgvRepuestos.Columns.Add(btnDelete);
+                DataGridViewButtonColumn btnView = new DataGridViewButtonColumn();
+                btnView.Name = "Ver";
+                btnView.Text = "Ver";
+                btnView.UseColumnTextForButtonValue = true;
+                btnView.HeaderText = "Ver Imagen";
+                dgvRepuestos.Columns.Add(btnView);
+
 
                 //Renombro las columnas del dgv como quiera
                 dgvRepuestos.Columns[0].HeaderText = "Id";
@@ -231,12 +240,14 @@ namespace TodoBus
         private void dgvRepuestos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int? id = getId();
+            string ur = dgvRepuestos.Rows[e.RowIndex].Cells[3].Value.ToString();
+            string Cod= dgvRepuestos.Rows[e.RowIndex].Cells[1].Value.ToString();
 
             if (e.ColumnIndex == 6)
             {
                 if (id != null)
                 {
-                    RegRepuest r = new RegRepuest(id);
+                    RegRepuest r = new RegRepuest(id,ur,Cod);
                     r.ShowDialog();
                     
                 }
@@ -249,8 +260,11 @@ namespace TodoBus
 
                     if (result == DialogResult.Yes)
                     {
+                        ur = dgvRepuestos.Rows[e.RowIndex].Cells[3].Value.ToString();
                         if (control.delete(id))
                         {
+                        //usar otro metodo para eliminar imagen
+                            File.Delete(ur);
                             MessageBox.Show("El repuesto se ha eliminado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
@@ -263,6 +277,25 @@ namespace TodoBus
                     }
                 }
             }
+            else if(e.ColumnIndex==8)
+            {
+                
+                if (ur == "Imagen no insertada")
+                {
+                    MessageBox.Show("No hay imagenes que mostrar", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    Imagen i = new Imagen(ur);
+                    i.ShowDialog();
+                }
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            Refresh();
+            formatTable();
         }
     }
 }
