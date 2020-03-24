@@ -44,6 +44,29 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
             this.Close();
         }
 
+        private void ModSubclass_Load(object sender, EventArgs e)
+        {
+            loadSCl = subclassController.getSubclass(id);
+            if (loadSCl != null)
+            {
+                loadSubcateg();
+
+                txtcode.Text = loadSCl.code;
+                txtName.Text = loadSCl.name;
+                spare_subcategories sc = subclassController.getSubCategory(loadSCl.subcategory_id);
+                cmbSC.SelectedItem = sc.name;
+
+            }
+        }
+        private void loadSubcateg()
+        {
+            subcategoryid.Clear();
+            fillcmb.Clear();
+
+            subclassController.getSubClasses(ref subcategoryid, ref fillcmb);
+            cmbSC.DataSource = fillcmb;
+        }
+
         private void btnRegSub_Click(object sender, EventArgs e)
         {
             if (validateFields())
@@ -62,25 +85,10 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
                 }
                 catch
                 {
-                    MessageBox.Show("Ya existe una subclase con estas mismas caracteristicas", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
-        }
-
-        private void ModSubclass_Load(object sender, EventArgs e)
-        {
-            loadSCl = subclassController.getSubclass(id);
-            if (loadSCl != null)
-            {
-                loadSubcateg();
-                
-                txtcode.Text = loadSCl.code;
-                txtName.Text = loadSCl.name;
-                spare_subcategories sc = subclassController.getSubCategory(loadSCl.subcategory_id);
-                cmbSC.SelectedItem = sc.name;
-                
-            }
         }
 
         private bool validateFields()
@@ -97,15 +105,6 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
                 return false;
             }
             return true;
-        }
-
-        private void loadSubcateg()
-        {
-            subcategoryid.Clear();
-            fillcmb.Clear();
-
-            subclassController.getSubClasses(ref subcategoryid, ref fillcmb);
-            cmbSC.DataSource = fillcmb;
         }
 
     }
