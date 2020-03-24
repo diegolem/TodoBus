@@ -45,10 +45,12 @@
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.Ep1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             this.body.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Ep1)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -265,6 +267,10 @@
             this.bunifuDragControl1.TargetControl = this.header;
             this.bunifuDragControl1.Vertical = true;
             // 
+            // Ep1
+            // 
+            this.Ep1.ContainerControl = this;
+            // 
             // ModSubClasses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,6 +286,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
             this.body.ResumeLayout(false);
             this.body.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Ep1)).EndInit();
             this.ResumeLayout(false);
 
         }

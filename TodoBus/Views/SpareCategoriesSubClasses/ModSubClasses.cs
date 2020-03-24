@@ -21,7 +21,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
         spare_subclasses loadSCl = new spare_subclasses();
 
         List<int> subcategoryid = new List<int>();
-        List<string> fillsubcategories = new List<string>();
+        List<string> fillcmb = new List<string>();
 
         public ModSubClasses(int? id)
         {
@@ -77,8 +77,8 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
                 
                 txtcode.Text = loadSCl.code;
                 txtName.Text = loadSCl.name;
-
-                cmbSC.SelectedItem = subclassController.getSubclass(loadSCl.subcategory_id).name;
+                spare_subcategories sc = subclassController.getSubCategory(loadSCl.subcategory_id);
+                cmbSC.SelectedItem = sc.name;
                 
             }
         }
@@ -102,11 +102,12 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
         private void loadSubcateg()
         {
             subcategoryid.Clear();
-            fillsubcategories.Clear();
+            fillcmb.Clear();
 
-            subclassController.getSubClasses(ref subcategoryid, ref fillsubcategories);
-            cmbSC.DataSource = fillsubcategories;
+            subclassController.getSubClasses(ref subcategoryid, ref fillcmb);
+            cmbSC.DataSource = fillcmb;
         }
+
     }
 }
   
