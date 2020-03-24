@@ -5,22 +5,42 @@ using System.Text;
 using System.Threading.Tasks;
 using TodoBus.Models;
 using System.Windows.Forms;
+using System.IO;
 
 
 namespace TodoBus.Controllers
 {
     class SpareController
     {
-        public bool save(string codigo,string nombre,int tipo,int marca,string imagen)
+        public bool save(string nombre,int Categoria,int marca,int SubClases ,string imagen)
         {
             using(TodoBusEntities db=new TodoBusEntities())
             {
                 try
                 {
+                    string codSubClass;                   
+                    string codCategory;
+                    string codigo;
+                    spare_subclasses osubcla = new spare_subclasses();
+                    spare_subcategories osubcat = new spare_subcategories();
+                    spare_categories oCate = new spare_categories();
+                    
                     spare oSpare = new spare();
+                    osubcla = db.spare_subclasses.Find(SubClases);
+                    codSubClass = osubcla.code;                   
+                    oCate = db.spare_categories.Find(Categoria);
+                    codCategory = oCate.code;
+                    string cadena = codCategory + codSubClass;
+
+                    var lst1 = from d in db.spare
+                               select d;
+
+                    lst1=lst1.Where(d => d.code.Contains(cadena));
+                    int numero= lst1.Count()+1;
+                    codigo = cadena + numero.ToString();
                     oSpare.code = codigo;
                     oSpare.name = nombre;
-                    oSpare.spare_type_id = tipo;
+                    oSpare.spare_type_id = Categoria;
                     oSpare.brand_id = marca;
                     oSpare.image = imagen;
 
@@ -36,7 +56,7 @@ namespace TodoBus.Controllers
             }
             
         }
-        public void llenarCMB(ref List<int> typeid, ref List<int> brandid, ref List<string> fillcmb1, ref List<string> fillcmb2)
+        public void llenarCMB(ref List<int> typeid, ref List<int> brandid,ref List<int> subclase, ref List<string> fillcmb1, ref List<string> fillcmb2, ref List<string> fillcmb3)
         {
             using (TodoBusEntities db = new TodoBusEntities())
             {             
@@ -50,10 +70,17 @@ namespace TodoBus.Controllers
                 }
                 var lst2 = from d in db.brands
                            select d;           
-                foreach (var category in lst2)
+                foreach (var Brand in lst2)
                 {
-                    fillcmb2.Add(category.name);                    
-                    brandid.Add(category.id);
+                    fillcmb2.Add(Brand.name);                    
+                    brandid.Add(Brand.id);
+                }
+                var lst3 = from d in db.spare_subclasses
+                           select d;
+                foreach(var cla in lst3)
+                {
+                    fillcmb3.Add(cla.name);
+                    subclase.Add(cla.id);
                 }
             }
         }
@@ -111,7 +138,7 @@ namespace TodoBus.Controllers
                 }
             }
         }
-        public bool find(int? id,TextBox codigo,TextBox nombre,ComboBox tipo, ComboBox marca,PictureBox imagen)
+        public bool find(int? id,TextBox nombre,ComboBox tipo, ComboBox marca,PictureBox imagen)
         {
             
             
@@ -129,11 +156,20 @@ namespace TodoBus.Controllers
                     spare_categories sc = db.spare_categories.Find(type);
 
 
-                    codigo.Text = fnd.code;
+                    
                     nombre.Text = fnd.name;
                     tipo.SelectedItem = sc.name;
                     marca.SelectedItem = br.name;
-                    imagen.Load(fnd.image);
+                    try
+                    {
+                        imagen.Load(fnd.image);
+                        
+                    }
+                    catch
+                    {
+                        
+                    }
+                    
 
                     return true;
                  }
@@ -144,5 +180,36 @@ namespace TodoBus.Controllers
             }
             
         }
+        public bool Modificar(string codigo, string nombre, int tipo, int marca, string imagen, spare sp)
+        {
+            using(TodoBusEntities db=new TodoBusEntities())
+            {
+                try
+                {
+                    sp.code = codigo;
+                    sp.name = nombre;
+                    sp.spare_type_id = tipo;
+                    sp.brand_id = marca;
+                    sp.image = imagen;
+                    db.Entry(sp).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+        public void EliImage(string Url)
+        {
+            File.Delete(Url);            
+        }
+        public void GenCod()
+        {
+
+        }
+
     }
+
 }
