@@ -51,7 +51,7 @@ namespace TodoBus.Views.SpareCategory
             }
         }
 
-        private void btnRegSub_Click(object sender, EventArgs e)
+        private void btnRegCategory_Click(object sender, EventArgs e)
         {
             if (validateFields())
             {

@@ -49,7 +49,7 @@ CREATE TABLE spare_categories(
 
 	PRIMARY KEY(id)
 );
-
+select * from spare_categories
 INSERT INTO spare_categories VALUES('10', 'ARTÍCULOS VARIOS');
 INSERT INTO spare_categories VALUES('11', 'ARTÍCULOS Y SERVICIOS NO INGRESADOS');
 INSERT INTO spare_categories VALUES('12', 'PARTES DE CARROCERÍA');

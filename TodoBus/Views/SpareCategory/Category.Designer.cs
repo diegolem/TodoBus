@@ -224,7 +224,9 @@
             this.dgvCategoria.HeaderForeColor = System.Drawing.Color.Black;
             this.dgvCategoria.Location = new System.Drawing.Point(31, 173);
             this.dgvCategoria.Name = "dgvCategoria";
+            this.dgvCategoria.ReadOnly = true;
             this.dgvCategoria.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvCategoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCategoria.Size = new System.Drawing.Size(646, 452);
             this.dgvCategoria.TabIndex = 34;
             this.dgvCategoria.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategorias_CellClick);

@@ -34,7 +34,7 @@
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.body = new System.Windows.Forms.Panel();
             this.btnReturn = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnRegSub = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnRegCategory = new Bunifu.Framework.UI.BunifuFlatButton();
             this.txtCode = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.txtName = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -67,7 +67,7 @@
             // 
             this.body.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.body.Controls.Add(this.btnReturn);
-            this.body.Controls.Add(this.btnRegSub);
+            this.body.Controls.Add(this.btnRegCategory);
             this.body.Controls.Add(this.txtCode);
             this.body.Controls.Add(this.txtName);
             this.body.Controls.Add(this.bunifuCustomLabel3);
@@ -116,42 +116,42 @@
             this.btnReturn.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
-            // btnRegSub
+            // btnRegCategory
             // 
-            this.btnRegSub.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
-            this.btnRegSub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
-            this.btnRegSub.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnRegSub.BorderRadius = 5;
-            this.btnRegSub.ButtonText = "    Registrar";
-            this.btnRegSub.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegSub.DisabledColor = System.Drawing.Color.Gray;
-            this.btnRegSub.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegSub.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnRegSub.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnRegSub.Iconimage")));
-            this.btnRegSub.Iconimage_right = null;
-            this.btnRegSub.Iconimage_right_Selected = null;
-            this.btnRegSub.Iconimage_Selected = null;
-            this.btnRegSub.IconMarginLeft = 25;
-            this.btnRegSub.IconMarginRight = 0;
-            this.btnRegSub.IconRightVisible = false;
-            this.btnRegSub.IconRightZoom = 0D;
-            this.btnRegSub.IconVisible = false;
-            this.btnRegSub.IconZoom = 60D;
-            this.btnRegSub.IsTab = false;
-            this.btnRegSub.Location = new System.Drawing.Point(142, 254);
-            this.btnRegSub.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnRegSub.Name = "btnRegSub";
-            this.btnRegSub.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
-            this.btnRegSub.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(130)))), ((int)(((byte)(184)))));
-            this.btnRegSub.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
-            this.btnRegSub.selected = false;
-            this.btnRegSub.Size = new System.Drawing.Size(88, 36);
-            this.btnRegSub.TabIndex = 68;
-            this.btnRegSub.Text = "    Registrar";
-            this.btnRegSub.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegSub.Textcolor = System.Drawing.Color.White;
-            this.btnRegSub.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegSub.Click += new System.EventHandler(this.btnRegSub_Click);
+            this.btnRegCategory.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            this.btnRegCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            this.btnRegCategory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRegCategory.BorderRadius = 5;
+            this.btnRegCategory.ButtonText = "    Registrar";
+            this.btnRegCategory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegCategory.DisabledColor = System.Drawing.Color.Gray;
+            this.btnRegCategory.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegCategory.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnRegCategory.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnRegCategory.Iconimage")));
+            this.btnRegCategory.Iconimage_right = null;
+            this.btnRegCategory.Iconimage_right_Selected = null;
+            this.btnRegCategory.Iconimage_Selected = null;
+            this.btnRegCategory.IconMarginLeft = 25;
+            this.btnRegCategory.IconMarginRight = 0;
+            this.btnRegCategory.IconRightVisible = false;
+            this.btnRegCategory.IconRightZoom = 0D;
+            this.btnRegCategory.IconVisible = false;
+            this.btnRegCategory.IconZoom = 60D;
+            this.btnRegCategory.IsTab = false;
+            this.btnRegCategory.Location = new System.Drawing.Point(142, 254);
+            this.btnRegCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRegCategory.Name = "btnRegCategory";
+            this.btnRegCategory.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            this.btnRegCategory.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(130)))), ((int)(((byte)(184)))));
+            this.btnRegCategory.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
+            this.btnRegCategory.selected = false;
+            this.btnRegCategory.Size = new System.Drawing.Size(88, 36);
+            this.btnRegCategory.TabIndex = 68;
+            this.btnRegCategory.Text = "    Registrar";
+            this.btnRegCategory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegCategory.Textcolor = System.Drawing.Color.White;
+            this.btnRegCategory.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegCategory.Click += new System.EventHandler(this.btnRegCategory_Click);
             // 
             // txtCode
             // 
@@ -257,7 +257,7 @@
             this.Controls.Add(this.header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegCategory";
-            this.Text = "ds";
+            this.Text = "RegCategories";
             this.body.ResumeLayout(false);
             this.body.PerformLayout();
             this.header.ResumeLayout(false);
@@ -274,7 +274,7 @@
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private System.Windows.Forms.Panel body;
         private Bunifu.Framework.UI.BunifuFlatButton btnReturn;
-        private Bunifu.Framework.UI.BunifuFlatButton btnRegSub;
+        private Bunifu.Framework.UI.BunifuFlatButton btnRegCategory;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txtCode;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txtName;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;

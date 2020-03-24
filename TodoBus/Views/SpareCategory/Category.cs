@@ -167,12 +167,12 @@ namespace TodoBus.Views.SpareCategory
             }
             dgvCategoria.DataSource = null;
 
-            List<FakeCategories> Categorie = new List<FakeCategories>();
-            Categorie = categoryController.getAllCategories();
+            List<FakeCategories> Categories = new List<FakeCategories>();
+            Categories = categoryController.getAllCategories();
 
-            if (Categorie.Count() > 0)
+            if (Categories.Count() > 0)
             {
-                dgvCategoria.DataSource = Categorie;
+                dgvCategoria.DataSource = Categories;
             }
             else
             {
@@ -208,8 +208,8 @@ namespace TodoBus.Views.SpareCategory
             {
                 if (id != null)
                 {
-                    ModCategory mC = new ModCategory(id);
-                    mC.ShowDialog();
+                    ModCategory mod = new ModCategory(id);
+                    mod.ShowDialog();
                 }
             }
 

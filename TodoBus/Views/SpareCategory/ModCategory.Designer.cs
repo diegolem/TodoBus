@@ -151,7 +151,7 @@
             this.btnRegSub.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRegSub.Textcolor = System.Drawing.Color.White;
             this.btnRegSub.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegSub.Click += new System.EventHandler(this.btnRegSub_Click);
+            this.btnRegSub.Click += new System.EventHandler(this.btnRegCategory_Click);
             // 
             // txtCode
             // 

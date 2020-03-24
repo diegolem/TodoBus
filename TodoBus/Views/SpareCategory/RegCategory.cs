@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TodoBus.Controllers;
+using TodoBus.Models;
 
 namespace TodoBus.Views.SpareCategory
 {
     public partial class RegCategory : Form
     {
-        ValidationController valid = new ValidationController();
         BrandController categoryController = new BrandController();
+        ValidationController valid = new ValidationController();
 
         public RegCategory()
         {
@@ -36,38 +37,6 @@ namespace TodoBus.Views.SpareCategory
             this.Close();
         }
 
-        private void btnRegSub_Click(object sender, EventArgs e)
-        {
-            if (validateFields())
-            {
-                try
-                {
-                    //Mando a llamar el metodo de guardar del controller y paso los parametros
-                    bool save = categoryController.save(txtCode.Text, txtName.Text);
-                    if (save)
-                    {
-                        //Limpio los controles
-                        clearFields();
-                        MessageBox.Show("La categoría se ha ingresado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                catch
-                {
-                    MessageBox.Show("Ya existe una categoria con estas mismas caracteristicas", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        private void clearFields()
-        {
-            txtCode.Text = "";
-            txtName.Text = "";
-        }
-
         private bool validateFields()
         {
             errorP.Clear();
@@ -82,6 +51,38 @@ namespace TodoBus.Views.SpareCategory
                 return false;
             }
             return true;
+        }
+
+        private void btnRegCategory_Click(object sender, EventArgs e)
+        {
+            if (validateFields())
+            {
+                try
+                {
+                    //Mando a llamar el metodo de guardar del controller y paso los parametros
+                    bool save = categoryController.save(txtName.Text, txtCode.Text);
+                    if (save)
+                    {
+                        //Limpio los controles
+                        clearFields();
+                        MessageBox.Show("La categoría se ha ingresado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Ya existe una categoría con estas mismas caracteristicas", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void clearFields()
+        {
+            txtCode.Text = "";
+            txtName.Text = "";
         }
     }
 }

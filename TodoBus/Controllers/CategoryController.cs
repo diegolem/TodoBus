@@ -9,7 +9,7 @@ namespace TodoBus.Controllers
 {
     class CategoryController
     {
-        public bool save(string name, string code, int id)
+        public bool save(string name, string code)
         {
             //Abro conexion solamente cuando ejecute la accion
             using (TodoBusEntities db = new TodoBusEntities())
@@ -21,9 +21,6 @@ namespace TodoBus.Controllers
                     //Luego obtengo todos los valores y los asigno a los campos del nuevo objeto
                     Category.name = name;
                     Category.code = code;
-                    //Para el combobox, obtengo del arreglo de categoria el valor, que posea el arreglo en el indice que
-                    //se ha seleccionado en el comboBox menos 1, porque en el combobox se empieza desde 1
-                    Category.id = id;
 
                     //Añado a mi tabla la subcategoria(objeto)
                     db.spare_categories.Add(Category);
@@ -50,9 +47,7 @@ namespace TodoBus.Controllers
                     Category.name = name;
 
                     db.Entry(Category).State = System.Data.Entity.EntityState.Modified;
-                    //Guardo los cambios para confirmar
                     db.SaveChanges();
-                    //Si todo bien regreso true
                     return true;
                 }
                 catch
