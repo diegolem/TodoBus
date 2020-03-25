@@ -120,6 +120,7 @@
             // 
             // cmbSC
             // 
+            this.cmbSC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSC.FormattingEnabled = true;
             this.cmbSC.Location = new System.Drawing.Point(131, 228);
             this.cmbSC.Name = "cmbSC";
@@ -283,6 +284,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegSubClase";
             this.Text = "RegSubClase";
+            this.Load += new System.EventHandler(this.RegSubClase_Load);
             this.header.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();

@@ -44,11 +44,6 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
 
         }
 
-        private void RegSubClass_Load(object sender, EventArgs e)
-        {
-            loadSubcateg();
-        }
-
         private void loadSubcateg()
         {
             SubcategoryId.Clear();
@@ -109,6 +104,11 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
         private void body_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void RegSubClase_Load(object sender, EventArgs e)
+        {
+            loadSubcateg();
         }
     }
 }

@@ -129,6 +129,7 @@
             // 
             // cmbSC
             // 
+            this.cmbSC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSC.FormattingEnabled = true;
             this.cmbSC.Location = new System.Drawing.Point(131, 222);
             this.cmbSC.Name = "cmbSC";
@@ -281,6 +282,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ModSubClasses";
             this.Text = "ModSubClasses";
+            this.Load += new System.EventHandler(this.ModSubclass_Load);
             this.header.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
