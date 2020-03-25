@@ -75,7 +75,13 @@
     <Compile Include="Models\clients.cs">
       <DependentUpon>TodoBus.tt</DependentUpon>
     </Compile>
-<Compile Include="Views\Spare\Imagen.cs">
+    <Compile Include="Views\Users\ModUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Users\ModUser.Designer.cs">
+      <DependentUpon>ModUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Spare\Imagen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Spare\Imagen.Designer.cs">
@@ -283,6 +289,9 @@
     <Compile Include="Views\Users\Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\Users\ModUser.resx">
+      <DependentUpon>ModUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Brands\Marca.resx">
       <DependentUpon>Marca.cs</DependentUpon>
     </EmbeddedResource>
@@ -301,7 +310,7 @@
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
-<EmbeddedResource Include="Views\Spare\Imagen.resx">
+    <EmbeddedResource Include="Views\Spare\Imagen.resx">
       <DependentUpon>Imagen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
