@@ -9,7 +9,7 @@ namespace TodoBus.Controllers
 {
     class CategoryController
     {
-        public bool save(string name, string code)
+        public bool save(string code, string name)
         {
             //Abro conexion solamente cuando ejecute la accion
             using (TodoBusEntities db = new TodoBusEntities())
@@ -19,8 +19,8 @@ namespace TodoBus.Controllers
                     //Defino el nuevo objeto
                     spare_categories Category = new spare_categories();
                     //Luego obtengo todos los valores y los asigno a los campos del nuevo objeto
-                    Category.name = name;
                     Category.code = code;
+                    Category.name = name;
 
                     //Añado a mi tabla la subcategoria(objeto)
                     db.spare_categories.Add(Category);
@@ -56,6 +56,7 @@ namespace TodoBus.Controllers
                 }
             }
         }
+
         public List<FakeCategories> getAllCategories()
         {
             using (TodoBusEntities db = new TodoBusEntities())

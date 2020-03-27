@@ -78,6 +78,7 @@
             this.body.Name = "body";
             this.body.Size = new System.Drawing.Size(388, 364);
             this.body.TabIndex = 49;
+            this.body.Paint += new System.Windows.Forms.PaintEventHandler(this.body_Paint);
             // 
             // btnReturn
             // 

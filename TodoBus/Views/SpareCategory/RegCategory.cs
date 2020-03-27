@@ -14,7 +14,7 @@ namespace TodoBus.Views.SpareCategory
 {
     public partial class RegCategory : Form
     {
-        BrandController categoryController = new BrandController();
+        CategoryController categoryController = new CategoryController();
         ValidationController valid = new ValidationController();
 
         public RegCategory()
@@ -37,20 +37,9 @@ namespace TodoBus.Views.SpareCategory
             this.Close();
         }
 
-        private bool validateFields()
+        private void body_Paint(object sender, PaintEventArgs e)
         {
-            errorP.Clear();
-            if (!(valid.isString(txtCode.Text)))
-            {
-                errorP.SetError(txtCode, "El código no puede quedar vacío");
-                return false;
-            }
-            if (!(valid.isString(txtName.Text)))
-            {
-                errorP.SetError(txtName, "El nombre no puede quedar vacío");
-                return false;
-            }
-            return true;
+
         }
 
         private void btnRegCategory_Click(object sender, EventArgs e)
@@ -60,7 +49,7 @@ namespace TodoBus.Views.SpareCategory
                 try
                 {
                     //Mando a llamar el metodo de guardar del controller y paso los parametros
-                    bool save = categoryController.save(txtName.Text, txtCode.Text);
+                    bool save = categoryController.save(txtCode.Text, txtName.Text);
                     if (save)
                     {
                         //Limpio los controles
@@ -77,6 +66,22 @@ namespace TodoBus.Views.SpareCategory
                     MessageBox.Show("Ya existe una categoría con estas mismas caracteristicas", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private bool validateFields()
+        {
+            errorP.Clear();
+            if (!(valid.isString(txtCode.Text)))
+            {
+                errorP.SetError(txtCode, "El código no puede quedar vacío");
+                return false;
+            }
+            if (!(valid.isString(txtName.Text)))
+            {
+                errorP.SetError(txtName, "El nombre no puede quedar vacío");
+                return false;
+            }
+            return true;
         }
 
         private void clearFields()
