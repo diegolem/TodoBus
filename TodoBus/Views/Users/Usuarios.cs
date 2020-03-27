@@ -12,8 +12,8 @@ using TodoBus.Views.SpareCategoriesSubClasses;
 using TodoBus.Views.SpareCategory;
 using TodoBus.Views.Units;
 using TodoBus.Views.Users;
-using TodoBus.Models;
 using TodoBus.Controllers;
+using TodoBus.Models;
 
 namespace TodoBus
 {
@@ -151,6 +151,8 @@ namespace TodoBus
                 dgvUsuarios.Columns[1].HeaderText = "Nombre";
                 dgvUsuarios.Columns[2].HeaderText = "Apellido";
                 dgvUsuarios.Columns[3].HeaderText = "Edad";
+                
+                
             }
         }
         private void Refresh()
@@ -186,9 +188,55 @@ namespace TodoBus
             formatTable();
         }
 
+        private int? getId()
+        {
+            //Metodo para obtener el id de la columna seleccionada
+            try
+            {
+                //Y le decimos que obtenga de mi dgv el valor de la celda 0(que es id) de la fila que se encuentre seleccionada
+                return int.Parse(dgvUsuarios.Rows[dgvUsuarios.CurrentRow.Index].Cells[0].Value.ToString());
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            //Los index empiezan desde 0, asi que verificamos en que columna estan los botones modificar y eliminar, para obtener correctamente el id
+            int? id = getId();
 
+            if (e.ColumnIndex == 4)
+            {
+                if (id != null)
+                {
+                    ModUser mod = new ModUser(id);
+                    mod.ShowDialog();
+                }
+            }
+            else if (e.ColumnIndex == 5)
+            {
+                if (id != null)
+                {
+                    DialogResult result = MessageBox.Show("¿Estas seguro que deseas eliminar este Usuario?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        if (userController.delete(id))
+                        {
+                            MessageBox.Show("El Usuario se ha eliminado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ocurrio un error al eliminar el Usuario", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                        Refresh();
+                        formatTable();
+                    }
+                }
+            }
         }
     }
 }

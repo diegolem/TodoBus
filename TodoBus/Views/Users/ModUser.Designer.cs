@@ -37,7 +37,6 @@
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomTextbox4 = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
-            this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
             this.bunifuCustomLabel9 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomTextbox2 = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
@@ -46,14 +45,18 @@
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.header = new System.Windows.Forms.Panel();
+            this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.PasswordtextBox = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.btnRegCliente = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
-            this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.Ep1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ep1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -74,7 +77,7 @@
             // 
             // Checkbox1
             // 
-            this.Checkbox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
+            this.Checkbox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
             this.Checkbox1.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
             this.Checkbox1.Checked = false;
             this.Checkbox1.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
@@ -123,13 +126,6 @@
             this.bunifuCustomTextbox4.Name = "bunifuCustomTextbox4";
             this.bunifuCustomTextbox4.Size = new System.Drawing.Size(351, 20);
             this.bunifuCustomTextbox4.TabIndex = 75;
-            // 
-            // domainUpDown1
-            // 
-            this.domainUpDown1.Location = new System.Drawing.Point(677, 273);
-            this.domainUpDown1.Name = "domainUpDown1";
-            this.domainUpDown1.Size = new System.Drawing.Size(51, 20);
-            this.domainUpDown1.TabIndex = 70;
             // 
             // bunifuCustomLabel9
             // 
@@ -215,6 +211,35 @@
             this.header.Size = new System.Drawing.Size(932, 32);
             this.header.TabIndex = 72;
             // 
+            // bunifuImageButton2
+            // 
+            this.bunifuImageButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.bunifuImageButton2.ErrorImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton2.ErrorImage")));
+            this.bunifuImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton2.Image")));
+            this.bunifuImageButton2.ImageActive = null;
+            this.bunifuImageButton2.Location = new System.Drawing.Point(843, 3);
+            this.bunifuImageButton2.Name = "bunifuImageButton2";
+            this.bunifuImageButton2.Size = new System.Drawing.Size(37, 28);
+            this.bunifuImageButton2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bunifuImageButton2.TabIndex = 4;
+            this.bunifuImageButton2.TabStop = false;
+            this.bunifuImageButton2.Zoom = 10;
+            this.bunifuImageButton2.Click += new System.EventHandler(this.bunifuImageButton2_Click_1);
+            // 
+            // bunifuImageButton1
+            // 
+            this.bunifuImageButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
+            this.bunifuImageButton1.ImageActive = null;
+            this.bunifuImageButton1.Location = new System.Drawing.Point(883, 3);
+            this.bunifuImageButton1.Name = "bunifuImageButton1";
+            this.bunifuImageButton1.Size = new System.Drawing.Size(37, 28);
+            this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bunifuImageButton1.TabIndex = 1;
+            this.bunifuImageButton1.TabStop = false;
+            this.bunifuImageButton1.Zoom = 10;
+            this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click_1);
+            // 
             // PasswordtextBox
             // 
             this.PasswordtextBox.BorderColor = System.Drawing.Color.SeaGreen;
@@ -298,32 +323,21 @@
             this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton1.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
             // 
-            // bunifuImageButton2
+            // Ep1
             // 
-            this.bunifuImageButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.bunifuImageButton2.ErrorImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton2.ErrorImage")));
-            this.bunifuImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton2.Image")));
-            this.bunifuImageButton2.ImageActive = null;
-            this.bunifuImageButton2.Location = new System.Drawing.Point(843, 3);
-            this.bunifuImageButton2.Name = "bunifuImageButton2";
-            this.bunifuImageButton2.Size = new System.Drawing.Size(37, 28);
-            this.bunifuImageButton2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton2.TabIndex = 4;
-            this.bunifuImageButton2.TabStop = false;
-            this.bunifuImageButton2.Zoom = 10;
+            this.Ep1.ContainerControl = this;
             // 
-            // bunifuImageButton1
+            // numericUpDown1
             // 
-            this.bunifuImageButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
-            this.bunifuImageButton1.ImageActive = null;
-            this.bunifuImageButton1.Location = new System.Drawing.Point(883, 3);
-            this.bunifuImageButton1.Name = "bunifuImageButton1";
-            this.bunifuImageButton1.Size = new System.Drawing.Size(37, 28);
-            this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton1.TabIndex = 1;
-            this.bunifuImageButton1.TabStop = false;
-            this.bunifuImageButton1.Zoom = 10;
+            this.numericUpDown1.Location = new System.Drawing.Point(672, 273);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(50, 20);
+            this.numericUpDown1.TabIndex = 80;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            18,
+            0,
+            0,
+            0});
             // 
             // ModUser
             // 
@@ -331,6 +345,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.ClientSize = new System.Drawing.Size(932, 556);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.bunifuCustomLabel5);
             this.Controls.Add(this.Checkbox1);
             this.Controls.Add(this.bunifuCustomTextbox6);
@@ -338,7 +353,6 @@
             this.Controls.Add(this.bunifuCustomLabel7);
             this.Controls.Add(this.bunifuCustomTextbox4);
             this.Controls.Add(this.btnRegCliente);
-            this.Controls.Add(this.domainUpDown1);
             this.Controls.Add(this.bunifuCustomLabel9);
             this.Controls.Add(this.bunifuCustomLabel6);
             this.Controls.Add(this.bunifuCustomTextbox2);
@@ -355,6 +369,8 @@
             this.header.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ep1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -370,7 +386,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel7;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox bunifuCustomTextbox4;
         private Bunifu.Framework.UI.BunifuFlatButton btnRegCliente;
-        private System.Windows.Forms.DomainUpDown domainUpDown1;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel9;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel6;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox bunifuCustomTextbox2;
@@ -383,5 +398,7 @@
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton2;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox PasswordtextBox;
+        private System.Windows.Forms.ErrorProvider Ep1;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

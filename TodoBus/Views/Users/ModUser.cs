@@ -12,13 +12,9 @@ namespace TodoBus
 {
     public partial class ModUser : Form
     {
-        public ModUser()
+        public ModUser(int? id)
         {
             InitializeComponent();
-        }
-        private void bunifuImageButton1_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void bunifuCustomLabel1_Click(object sender, EventArgs e)
@@ -41,7 +37,12 @@ namespace TodoBus
             PasswordtextBox.UseSystemPasswordChar = !Checkbox1.Checked;
         }
 
-        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        private void bunifuImageButton1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void bunifuImageButton2_Click_1(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }

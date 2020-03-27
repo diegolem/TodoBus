@@ -9,7 +9,7 @@ namespace TodoBus.Controllers
 {
     class UserController
     {
-        public bool save(string name, string last_name, string email, int age, string password, int id)
+        public bool save(string name, string last_name, string email, int age, string password)
         {
             //Abro conexion solamente cuando ejecute la accion
             using (TodoBusEntities db = new TodoBusEntities())
@@ -26,7 +26,7 @@ namespace TodoBus.Controllers
                     Usuarios.password = password;
                     //Para el combobox, obtengo del arreglo de categoria el valor, que posea el arreglo en el indice que
                     //se ha seleccionado en el comboBox menos 1, porque en el combobox se empieza desde 1
-                    Usuarios.id = id;
+                    
 
                     //Añado a mi tabla la subcategoria(objeto)
                     db.users.Add(Usuarios);
