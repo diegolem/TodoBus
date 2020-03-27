@@ -42,7 +42,7 @@ namespace TodoBus.Controllers
             }
         }
 
-        public bool edit(string name, string last_name, string email, int age, string password, int id, users Usuarios)
+        public bool edit(string name, string last_name, string email, int age, string password, users Usuarios)
         {
             //Abro conexion solamente cuando ejecute la accion
             using (TodoBusEntities db = new TodoBusEntities())
@@ -53,10 +53,8 @@ namespace TodoBus.Controllers
                     Usuarios.last_name = last_name;
                     Usuarios.email = email;
                     Usuarios.age = age;
-                    Usuarios.id = id;
-                    Usuarios.age = age;
                     Usuarios.password = password;
-                    Usuarios.id = id;
+                    
                     db.Entry(Usuarios).State = System.Data.Entity.EntityState.Modified;
                     //Guardo los cambios para confirmar
                     db.SaveChanges();
