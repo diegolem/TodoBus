@@ -26,7 +26,7 @@ namespace TodoBus
             InitializeComponent();
             btnClients.Enabled = false;
         }
-
+        #region Menu, Salir y Minimizar
         private void btnRegCliente_Click(object sender, EventArgs e)
         {
             RegCliente reg = new RegCliente();
@@ -128,7 +128,7 @@ namespace TodoBus
             Usuarios frmU = new Usuarios();
             frmU.Show();
         }
-
+        #endregion
         private void Clientes_Load(object sender, EventArgs e)
         {
             Refresh();

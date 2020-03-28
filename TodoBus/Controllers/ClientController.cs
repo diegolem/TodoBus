@@ -32,11 +32,11 @@ namespace TodoBus.Controllers
                     //Añado a mi tabla la subcategoria(objeto)
                     db.clients.Add(cliente);
                     //Guardo los cambios para confirmar
-                    db.SaveChanges();
+                    db.SaveChanges(); return true;
                     //Si todo bien regreso true
-                    return true;
+                    //return true;
                 }
-                catch
+                catch(Exception e)
                 {
                     return false;
                 }
