@@ -14,6 +14,8 @@ CREATE TABLE users(
 	password varchar(200) DEFAULT NULL,
 	PRIMARY KEY(id)
 );
+select * from users
+INSERT INTO users VALUES ('Admin','Prueba', 'abcdv_ads.2020@outlook.com', 25, ' ');
 
 DROP TABLE IF EXISTS clients;
 CREATE TABLE clients(
