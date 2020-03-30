@@ -28,7 +28,7 @@ namespace TodoBus.Controllers
                     cliente.units_total = uni;
                     cliente.client_type = tipo;
                     //Cambiar esto por el que esta en sesión
-                    cliente.user_id = 1;
+                    cliente.user_id = 2;
 
                     //Añado a mi tabla la subcategoria(objeto)
                     db.clients.Add(cliente);

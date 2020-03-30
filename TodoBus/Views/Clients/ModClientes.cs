@@ -94,7 +94,7 @@ namespace TodoBus.Views.Clients
                 txtDireccion.Text = loadC.address;
                 mtxtTelefono.Text = loadC.phone;
                 mtxtTelAlternativo.Text = loadC.alternative_phone;
-                nudUnidades.Value = loadC.units_total;
+                //nudUnidades.Value = loadC.units_total;
             }
             else if (loadC != null)
             {
@@ -105,7 +105,7 @@ namespace TodoBus.Views.Clients
                 txtDireccion.Text = loadC.address;
                 mtxtTelefono.Text = loadC.phone;
                 mtxtTelAlternativo.Text = loadC.alternative_phone;
-                nudUnidades.Value = loadC.units_total;
+                //nudUnidades.Value = loadC.units_total;
             }
         }
 
@@ -117,7 +117,7 @@ namespace TodoBus.Views.Clients
                 try
                 {
                     //Mando a llamar el metodo de guardar del controller y paso los parametros
-                    bool edit = clientController.edit(txtEmpresa.Text, txtContacto.Text, txtCorreo.Text, txtCorrAlternativo.Text, txtDireccion.Text, mtxtTelefono.Text, mtxtTelAlternativo.Text, int.Parse(nudUnidades.Text), loadC);
+                    bool edit = clientController.edit(txtEmpresa.Text, txtContacto.Text, txtCorreo.Text, txtCorrAlternativo.Text, txtDireccion.Text, mtxtTelefono.Text, mtxtTelAlternativo.Text, 0, loadC);
                     if (edit)
                     {
                         MessageBox.Show("El cliente se ha modificado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -244,7 +244,7 @@ namespace TodoBus
             {
                 if (id != null)
                 {
-                    DialogResult result = MessageBox.Show("¿Estas seguro que desea eliminar esta cliente?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    DialogResult result = MessageBox.Show("¿Estas seguro que desea eliminar este cliente?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
                     if (result == DialogResult.Yes)
                     {

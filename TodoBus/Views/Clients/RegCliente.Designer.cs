@@ -41,7 +41,6 @@
             this.mtxtTelAlternativo = new System.Windows.Forms.MaskedTextBox();
             this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtDireccion = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
-            this.bunifuCustomLabel9 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnRegCliente = new Bunifu.Framework.UI.BunifuFlatButton();
             this.header = new System.Windows.Forms.Panel();
             this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
@@ -53,12 +52,10 @@
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.nudUnidades = new System.Windows.Forms.NumericUpDown();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudUnidades)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuCustomLabel1
@@ -172,17 +169,6 @@
             this.txtDireccion.Size = new System.Drawing.Size(622, 25);
             this.txtDireccion.TabIndex = 12;
             // 
-            // bunifuCustomLabel9
-            // 
-            this.bunifuCustomLabel9.AutoSize = true;
-            this.bunifuCustomLabel9.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.bunifuCustomLabel9.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel9.Location = new System.Drawing.Point(69, 363);
-            this.bunifuCustomLabel9.Name = "bunifuCustomLabel9";
-            this.bunifuCustomLabel9.Size = new System.Drawing.Size(111, 17);
-            this.bunifuCustomLabel9.TabIndex = 17;
-            this.bunifuCustomLabel9.Text = "Unidades Totales:";
-            // 
             // btnRegCliente
             // 
             this.btnRegCliente.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
@@ -205,7 +191,7 @@
             this.btnRegCliente.IconVisible = false;
             this.btnRegCliente.IconZoom = 60D;
             this.btnRegCliente.IsTab = false;
-            this.btnRegCliente.Location = new System.Drawing.Point(427, 410);
+            this.btnRegCliente.Location = new System.Drawing.Point(427, 358);
             this.btnRegCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRegCliente.Name = "btnRegCliente";
             this.btnRegCliente.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
@@ -228,7 +214,7 @@
             this.header.Dock = System.Windows.Forms.DockStyle.Top;
             this.header.Location = new System.Drawing.Point(0, 0);
             this.header.Name = "header";
-            this.header.Size = new System.Drawing.Size(932, 32);
+            this.header.Size = new System.Drawing.Size(940, 32);
             this.header.TabIndex = 32;
             // 
             // bunifuImageButton2
@@ -348,25 +334,12 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // nudUnidades
-            // 
-            this.nudUnidades.Location = new System.Drawing.Point(207, 363);
-            this.nudUnidades.Name = "nudUnidades";
-            this.nudUnidades.Size = new System.Drawing.Size(120, 25);
-            this.nudUnidades.TabIndex = 38;
-            this.nudUnidades.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // RegCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.ClientSize = new System.Drawing.Size(932, 556);
-            this.Controls.Add(this.nudUnidades);
+            this.ClientSize = new System.Drawing.Size(940, 494);
             this.Controls.Add(this.txtCorrAlternativo);
             this.Controls.Add(this.bunifuCustomLabel8);
             this.Controls.Add(this.txtCorreo);
@@ -374,7 +347,6 @@
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.header);
             this.Controls.Add(this.btnRegCliente);
-            this.Controls.Add(this.bunifuCustomLabel9);
             this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.bunifuCustomLabel6);
             this.Controls.Add(this.mtxtTelAlternativo);
@@ -397,7 +369,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudUnidades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -416,7 +387,6 @@
         private System.Windows.Forms.MaskedTextBox mtxtTelAlternativo;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel6;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txtDireccion;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel9;
         private Bunifu.Framework.UI.BunifuFlatButton btnRegCliente;
         private System.Windows.Forms.Panel header;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
@@ -428,6 +398,5 @@
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton2;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private System.Windows.Forms.ErrorProvider errorProvider;
-        private System.Windows.Forms.NumericUpDown nudUnidades;
     }
 }
