@@ -180,17 +180,65 @@ namespace TodoBus.Controllers
             }
             
         }
-        public bool Modificar(string codigo, string nombre, int tipo, int marca, string imagen, spare sp)
+        public bool Modificar(int? id,string codigo, string nombre, int Categoria, int marca, int SubClases, string imagen, spare sp)
         {
             using(TodoBusEntities db=new TodoBusEntities())
             {
                 try
                 {
-                    sp.code = codigo;
-                    sp.name = nombre;
-                    sp.spare_type_id = tipo;
-                    sp.brand_id = marca;
-                    sp.image = imagen;
+                    MessageBox.Show(id.ToString());
+                    MessageBox.Show(codigo);
+                    MessageBox.Show(nombre);
+                    MessageBox.Show(Categoria.ToString());
+                    MessageBox.Show(marca.ToString());
+                    MessageBox.Show(SubClases.ToString());
+                    MessageBox.Show(imagen);
+                    string codSubClass;
+                    string codCategory;
+                    string codi;
+                    spare fnd = db.spare.Find(id);
+                    spare_subclasses osubcla = new spare_subclasses();
+                    spare_subcategories osubcat = new spare_subcategories();
+                    spare_categories oCate = new spare_categories();
+
+                    spare oSpare = new spare();
+                    osubcla = db.spare_subclasses.Find(SubClases);
+                    codSubClass = osubcla.code;
+                    oCate = db.spare_categories.Find(Categoria);
+                    codCategory = oCate.code;
+                    string cadena = codCategory + codSubClass;
+
+                    var lst1 = from d in db.spare
+                               select d;
+                    int cantidad = cadena.Length;
+                    codi = fnd.code;
+                    string verificar = codigo.Substring(0, cantidad);
+                    if (verificar == codi)
+                    {
+                        sp.name = nombre;
+                        if (fnd.image != imagen)
+                        { 
+                        sp.image = imagen;
+                        }
+                    }
+                    else
+                    {
+                        sp.code = codigo;
+                        if(fnd.spare_type_id!=Categoria)
+                        {
+                            sp.spare_type_id = Categoria;
+                        }
+                        if(fnd.brand_id!=marca)
+                        {
+                            sp.brand_id = marca;
+                        }
+                        if(fnd.image!=imagen)
+                        {
+                            sp.image = imagen;
+                        }
+                        sp.name = nombre;
+                        
+                    }
                     db.Entry(sp).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                     return true;
@@ -201,15 +249,51 @@ namespace TodoBus.Controllers
                 }
             }
         }
-        public void EliImage(string Url)
+        public void Busqueda(DataGridView data,string dato)
         {
-            File.Delete(Url);            
-        }
-        public void GenCod()
-        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
 
-        }
+                var lst = from d in db.spare
+                          join m in db.brands on d.brand_id equals m.id
+                          join c in db.spare_categories on d.spare_type_id equals c.id
+                          select d;
+                lst = lst.Where(d => d.code.Contains(dato));
 
+                if (lst.Count() > 0)
+                {
+                    List<FakeSpare> customL = new List<FakeSpare>();
+                    foreach (var spare in lst)
+                    {
+                        FakeSpare spareF = new FakeSpare();
+                        spareF.Id = spare.id;
+                        spareF.Codigo = spare.code;
+                        spareF.Nombre = spare.name;
+                        spareF.UrlImagen = spare.image;
+                        spareF.NombreMarca = spare.brands.name;
+                        spareF.NombreCategoria = spare.spare_categories.name;
+                        customL.Add(spareF);
+                        if (data.DataSource != null)
+                        {
+
+                            data.Columns.Clear();
+                        }
+                        data.DataSource = null;
+
+
+                        data.DataSource = customL;
+
+                    }
+                }
+                else
+                {
+                    List<FakeSpare> newSC = new List<FakeSpare>();
+                    data.DataSource = newSC;
+                }
+                
+
+            }
+        }
     }
 
 }

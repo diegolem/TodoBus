@@ -40,7 +40,8 @@ namespace TodoBus
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-
+            control.Busqueda(dgvRepuestos, txtBuscador.text);
+            formatTable();
         }
 
         private void txtBuscador_OnTextChange(object sender, EventArgs e)
@@ -239,56 +240,65 @@ namespace TodoBus
 
         private void dgvRepuestos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int? id = getId();
-            string ur = dgvRepuestos.Rows[e.RowIndex].Cells[3].Value.ToString();
-            string Cod= dgvRepuestos.Rows[e.RowIndex].Cells[1].Value.ToString();
-
-            if (e.ColumnIndex == 6)
+            try
             {
-                if (id != null)
-                {
-                    RegRepuest r = new RegRepuest(id,ur,Cod);
-                    r.ShowDialog();
-                    
-                }
-            }
-            else if (e.ColumnIndex == 7)
-            {
-                if (id != null)
-                {
-                    DialogResult result = MessageBox.Show("¿Estas seguro que deseas eliminar este repuesto?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                int? id = getId();
+                string ur = dgvRepuestos.Rows[e.RowIndex].Cells[3].Value.ToString();
+                string Cod = dgvRepuestos.Rows[e.RowIndex].Cells[1].Value.ToString();
 
-                    if (result == DialogResult.Yes)
+                if (e.ColumnIndex == 6)
+                {
+                    if (id != null)
                     {
-                        ur = dgvRepuestos.Rows[e.RowIndex].Cells[3].Value.ToString();
-                        if (control.delete(id))
-                        {
-                        //usar otro metodo para eliminar imagen
-                            File.Delete(ur);
-                            MessageBox.Show("El repuesto se ha eliminado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Ocurrio un error al eliminar el repuesto", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        RegRepuest r = new RegRepuest(id, ur, Cod);
+                        r.ShowDialog();
 
-                        Refresh();
-                        formatTable();
+                    }
+                }
+                else if (e.ColumnIndex == 7)
+                {
+                    if (id != null)
+                    {
+                        DialogResult result = MessageBox.Show("¿Estas seguro que deseas eliminar este repuesto?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            ur = dgvRepuestos.Rows[e.RowIndex].Cells[3].Value.ToString();
+                            if (control.delete(id))
+                            {
+                                if (File.Exists(ur))
+                                {
+                                    File.Delete(ur);
+                                }
+                                MessageBox.Show("El repuesto se ha eliminado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Ocurrio un error al eliminar el repuesto", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+
+                            Refresh();
+                            formatTable();
+                        }
+                    }
+                }
+                else if (e.ColumnIndex == 8)
+                {
+
+                    if (ur == "Imagen no insertada")
+                    {
+                        MessageBox.Show("No hay imagenes que mostrar", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        Imagen i = new Imagen(ur);
+                        i.ShowDialog();
                     }
                 }
             }
-            else if(e.ColumnIndex==8)
+            catch
             {
-                
-                if (ur == "Imagen no insertada")
-                {
-                    MessageBox.Show("No hay imagenes que mostrar", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    Imagen i = new Imagen(ur);
-                    i.ShowDialog();
-                }
+
             }
         }
 

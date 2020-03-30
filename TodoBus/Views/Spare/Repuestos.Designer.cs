@@ -833,6 +833,7 @@
             this.LogoTransition.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Repuestos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Repuestos";
             this.Load += new System.EventHandler(this.Repuestos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();

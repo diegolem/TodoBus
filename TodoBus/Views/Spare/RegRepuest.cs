@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using System.IO;
 using TodoBus.Models;
@@ -46,6 +47,25 @@ namespace TodoBus
 
             }
         }
+        public static void DeleteFile(string path)
+        {
+            if (!File.Exists(path))
+            {
+                return;
+            }        
+            try
+            {
+                File.Delete(path);
+                   
+            }
+            catch
+            {
+
+            }
+                
+                
+            
+        }
         private void bunifuCards1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -68,133 +88,24 @@ namespace TodoBus
 
         private void btnRegCliente_Click(object sender, EventArgs e)
         {
+            try
+            {
+
             
-            
-                string im = "Imagen no insertada";
-                if (txtNombre.Text == "")
+
+            string im = "Imagen no insertada";
+            if (txtNombre.Text == "")
+            {
+                errorProvider1.SetError(btnRegCliente, "No puede dejar campos vacíos");
+            }
+            else
+            {
+
+
+
+                string Carpeta = Application.StartupPath + @"\Imagenes";
+                if (Directory.Exists(Carpeta))
                 {
-                    errorProvider1.SetError(btnRegCliente, "No puede dejar campos vacíos");
-                }
-                else
-                {
-
-
-
-                    string Carpeta = Application.StartupPath + @"\Imagenes";
-                    if (Directory.Exists(Carpeta))
-                    {
-                        try
-                        {
-                            bunifuImageButton2.Image = Image.FromFile(openFileDialog1.FileName);
-                            bunifuImageButton2.Tag = openFileDialog1.FileName;
-                            string nombre = Path.GetFileName(bunifuImageButton2.Tag.ToString());
-                            string url = Carpeta + @"\" + nombre;
-                            bunifuImageButton2.Image.Save(url);
-                        if (btnRegCliente.Text == "Registrar Repuesto")
-                        {
-                            bool save = sc.save(txtNombre.Text, typeid[cmbSubclass.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], url);
-                                if (save)
-                                {
-                                    Limpiar();
-                                    MessageBox.Show("El Repuesto se ha ingresado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                        }
-                        else
-                        {
-                            if (Dic==im)
-                            {
-                                bool edit = sc.Modificar(codi, txtNombre.Text, typeid[cmbSubclass.SelectedIndex], brandid[cmbBrand.SelectedIndex], url, LoadSpare);
-                                if (edit)
-                                {
-                                    Limpiar();
-                                    MessageBox.Show("El Repuesto se ha Modificado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                            }
-                            else
-                            {
-                                File.Delete(Dic);
-                                bool edit = sc.Modificar(codi, txtNombre.Text, typeid[cmbSubclass.SelectedIndex], brandid[cmbBrand.SelectedIndex], url, LoadSpare);
-                                if (edit)
-                                {
-                                    Limpiar();
-                                    MessageBox.Show("El Repuesto se ha Modificado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-
-                            }
-                        }
-                            
-                        }
-                        catch
-                        {
-                        if (btnRegCliente.Text == "Registrar Repuesto")
-                        {
-
-                            MessageBox.Show(typeid[cmbSubclass.SelectedIndex].ToString());
-                            MessageBox.Show(brandid[cmbBrand.SelectedIndex].ToString());
-                            MessageBox.Show(Subclase[cmbSubclass.SelectedIndex].ToString());
-                            bool save = sc.save(txtNombre.Text, typeid[cmbSubclass.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], im);
-                            if (save)
-                            {
-                                Limpiar();
-                                MessageBox.Show("El Repuesto se ha ingresado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            else
-                            {
-                                MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
-                        else
-                        {
-                            if(Dic==im)
-                            {
-                                bool edit = sc.Modificar(codi, txtNombre.Text, typeid[cmbSubclass.SelectedIndex], brandid[cmbBrand.SelectedIndex], im, LoadSpare);
-                                if (edit)
-                                {
-                                    Limpiar();
-                                    MessageBox.Show("El Repuesto se ha Modificado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                            }
-                            else
-                            {
-                                File.Delete(Dic);
-                                
-                                bool edit = sc.Modificar(codi, txtNombre.Text, typeid[cmbSubclass.SelectedIndex], brandid[cmbBrand.SelectedIndex], im, LoadSpare);
-                                if (edit)
-                                {
-                                    Limpiar();
-                                    MessageBox.Show("El Repuesto se ha Modificado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-
-                                
-                            }
-                        }
-                        }
-
-
-                    }
-                    else
-                    {
-                        Directory.CreateDirectory(Carpeta);
                     try
                     {
                         bunifuImageButton2.Image = Image.FromFile(openFileDialog1.FileName);
@@ -204,7 +115,7 @@ namespace TodoBus
                         bunifuImageButton2.Image.Save(url);
                         if (btnRegCliente.Text == "Registrar Repuesto")
                         {
-                            bool save = sc.save(txtNombre.Text, typeid[cmbSubclass.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], url);
+                            bool save = sc.save(txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], url);
                             if (save)
                             {
                                 Limpiar();
@@ -217,9 +128,9 @@ namespace TodoBus
                         }
                         else
                         {
-                            if (Dic==im)
+                            if (Dic == im)
                             {
-                                bool edit = sc.Modificar(codi, txtNombre.Text, typeid[cmbSubclass.SelectedIndex], brandid[cmbBrand.SelectedIndex], url, LoadSpare);
+                                bool edit = sc.Modificar(id, codi, txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], url, LoadSpare);
                                 if (edit)
                                 {
                                     Limpiar();
@@ -232,8 +143,117 @@ namespace TodoBus
                             }
                             else
                             {
-                                File.Delete(Dic);
-                                bool edit = sc.Modificar(codi, txtNombre.Text, typeid[cmbSubclass.SelectedIndex], brandid[cmbBrand.SelectedIndex], url, LoadSpare);
+                                DeleteFile(Dic);
+                                bool edit = sc.Modificar(id, codi, txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], url, LoadSpare);
+                                if (edit)
+                                {
+                                    Limpiar();
+                                    MessageBox.Show("El Repuesto se ha Modificado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+
+                            }
+                        }
+
+                    }
+                    catch
+                    {
+                        if (btnRegCliente.Text == "Registrar Repuesto")
+                        {
+
+
+                            bool save = sc.save(txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], im);
+                            if (save)
+                            {
+                                Limpiar();
+                                MessageBox.Show("El Repuesto se ha ingresado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        else
+                        {
+                            if (Dic == im)
+                            {
+                                bool edit = sc.Modificar(id, codi, txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], im, LoadSpare);
+                                if (edit)
+                                {
+                                    Limpiar();
+                                    MessageBox.Show("El Repuesto se ha Modificado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                            else
+                            {
+                                DeleteFile(Dic);
+                                bool edit = sc.Modificar(id, codi, txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], im, LoadSpare);
+                                if (edit)
+                                {
+                                    Limpiar();
+                                    MessageBox.Show("El Repuesto se ha Modificado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+
+
+                            }
+                        }
+                    }
+
+
+                }
+                else
+                {
+                    Directory.CreateDirectory(Carpeta);
+                    try
+                    {
+                        bunifuImageButton2.Image = Image.FromFile(openFileDialog1.FileName);
+                        bunifuImageButton2.Tag = openFileDialog1.FileName;
+                        string nombre = Path.GetFileName(bunifuImageButton2.Tag.ToString());
+                        string url = Carpeta + @"\" + nombre;
+                        bunifuImageButton2.Image.Save(url);
+                        if (btnRegCliente.Text == "Registrar Repuesto")
+                        {
+                            bool save = sc.save(txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], url);
+                            if (save)
+                            {
+                                Limpiar();
+                                MessageBox.Show("El Repuesto se ha ingresado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        else
+                        {
+                            if (Dic == im)
+                            {
+                                bool edit = sc.Modificar(id, codi, txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], url, LoadSpare);
+                                if (edit)
+                                {
+                                    Limpiar();
+                                    MessageBox.Show("El Repuesto se ha Modificado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                            else
+                            {
+                                DeleteFile(Dic);
+                                bool edit = sc.Modificar(id, codi, txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], url, LoadSpare);
                                 if (edit)
                                 {
                                     Limpiar();
@@ -253,7 +273,7 @@ namespace TodoBus
                         {
 
 
-                            bool save = sc.save(txtNombre.Text, typeid[cmbSubclass.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], im);
+                            bool save = sc.save(txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], im);
                             if (save)
                             {
                                 Limpiar();
@@ -266,9 +286,9 @@ namespace TodoBus
                         }
                         else
                         {
-                            if (Dic==im)
+                            if (Dic == im)
                             {
-                                bool edit = sc.Modificar(codi, txtNombre.Text, typeid[cmbSubclass.SelectedIndex], brandid[cmbBrand.SelectedIndex], im, LoadSpare);
+                                bool edit = sc.Modificar(id,codi, txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], im, LoadSpare);
                                 if (edit)
                                 {
                                     Limpiar();
@@ -281,9 +301,9 @@ namespace TodoBus
                             }
                             else
                             {
-                                File.Delete(Dic);
+                                DeleteFile(Dic);
                                 {
-                                    bool edit = sc.Modificar(codi, txtNombre.Text, typeid[cmbSubclass.SelectedIndex], brandid[cmbBrand.SelectedIndex], im, LoadSpare);
+                                    bool edit = sc.Modificar(id, codi, txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], im, LoadSpare);
                                     if (edit)
                                     {
                                         Limpiar();
@@ -298,9 +318,14 @@ namespace TodoBus
                         }
                     }
 
-                    }
-
                 }
+
+            }
+        }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error: "+ex);
+            }
            
 
             
