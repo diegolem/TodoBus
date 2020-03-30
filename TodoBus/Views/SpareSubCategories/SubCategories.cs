@@ -140,22 +140,29 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
             {
                 //Y ahora añadimos el boton modificar a la tabla
                 DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
-                btnEdit.Name = "Editar";
+                btnEdit.FlatStyle = FlatStyle.Flat;
                 btnEdit.Text = "Modificar";
                 btnEdit.UseColumnTextForButtonValue = true;
                 btnEdit.HeaderText = "Modificar";
                 dgvSubCategory.Columns.Add(btnEdit);
                 //ahora el boton eliminar
                 DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
-                btnDelete.Name = "Eliminar";
+                btnDelete.FlatStyle = FlatStyle.Flat;
                 btnDelete.Text = "Eliminar";
                 btnDelete.UseColumnTextForButtonValue = true;
                 btnDelete.HeaderText = "Eliminar";
                 dgvSubCategory.Columns.Add(btnDelete);
 
                 //Renombro las columnas del dgv como quiera
+                dgvSubCategory.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvSubCategory.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvSubCategory.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvSubCategory.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvSubCategory.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvSubCategory.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
                 dgvSubCategory.Columns[0].HeaderText = "Id";
-                dgvSubCategory.Columns[0].Width = 50;
+                dgvSubCategory.Columns[0].Width = 30;
                 dgvSubCategory.Columns[1].HeaderText = "Código";
                 dgvSubCategory.Columns[1].Width = 50;
                 dgvSubCategory.Columns[2].HeaderText = "Nombre Subcategoría";

@@ -47,14 +47,6 @@ namespace TodoBus
                 validado = false;
                 errorProvider.SetError(txtCorreo, "Ingrese un correo válido");
             }
-            if(txtCorrAlternativo.Text.Trim().Length > 0)
-            {
-                if (!(valid.isEmail(txtCorrAlternativo.Text)))
-                {
-                    validado = false;
-                    errorProvider.SetError(txtCorrAlternativo, "Ingrese un correo válido");
-                }
-            }
             if (mtxtTelefono.Text == "")
             {
                 validado = false;

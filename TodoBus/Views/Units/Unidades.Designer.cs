@@ -288,7 +288,6 @@
             this.btnAssociateSpare.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAssociateSpare.Textcolor = System.Drawing.Color.White;
             this.btnAssociateSpare.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAssociateSpare.Click += new System.EventHandler(this.btnAssociateSpare_Click);
             // 
             // btnUserConfig
             // 
@@ -559,7 +558,6 @@
             this.btnUnits.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUnits.Textcolor = System.Drawing.Color.White;
             this.btnUnits.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUnits.Click += new System.EventHandler(this.btnUnits_Click_1);
             // 
             // btnMenu
             // 
@@ -731,7 +729,6 @@
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(102, 30);
             this.bunifuCustomLabel1.TabIndex = 35;
             this.bunifuCustomLabel1.Text = "Unidades";
-            this.bunifuCustomLabel1.Click += new System.EventHandler(this.bunifuCustomLabel1_Click);
             // 
             // btnNuevaUnidad
             // 

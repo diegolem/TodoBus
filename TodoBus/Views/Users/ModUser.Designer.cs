@@ -50,6 +50,7 @@
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.Ep1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.numage = new System.Windows.Forms.NumericUpDown();
+            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
@@ -324,6 +325,13 @@
             0,
             0});
             // 
+            // bunifuDragControl1
+            // 
+            this.bunifuDragControl1.Fixed = true;
+            this.bunifuDragControl1.Horizontal = true;
+            this.bunifuDragControl1.TargetControl = this.header;
+            this.bunifuDragControl1.Vertical = true;
+            // 
             // ModUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -382,5 +390,6 @@
         private WindowsFormsControlLibrary1.BunifuCustomTextbox PasswordtextBox;
         private System.Windows.Forms.ErrorProvider Ep1;
         private System.Windows.Forms.NumericUpDown numage;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
     }
 }

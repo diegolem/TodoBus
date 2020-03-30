@@ -56,13 +56,10 @@ namespace TodoBus
             loadUser = UserC.getUser(id);
             if (loadUser != null)
             {
-                
                 txtname.Text = loadUser.name;
                 txtlastname.Text = loadUser.last_name;
                 txtemail.Text = loadUser.email;
-                PasswordtextBox.Text = loadUser.password;
-                numage.Value = loadUser.age;
-
+                numage.Value = (decimal)loadUser.age;
             }
         }
 
@@ -105,17 +102,12 @@ namespace TodoBus
             }
             if (!(valid.isString(txtlastname.Text)))
             {
-                Ep1.SetError(txtlastname, "El Apelllido no puede quedar vacío");
+                Ep1.SetError(txtlastname, "El Apellido no puede quedar vacío");
                 return false;
             }
             if (!(valid.isString(txtemail.Text)))
             {
                 Ep1.SetError(txtemail, "El Correo no puede quedar vacío");
-                return false;
-            }
-            if (!(valid.isString(PasswordtextBox.Text)))
-            {
-                Ep1.SetError(PasswordtextBox, "Contraseña no puede quedar vacía");
                 return false;
             }
             return true;

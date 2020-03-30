@@ -124,7 +124,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            Refresh();
+            RefreshData();
             formatTable();
         }
 
@@ -134,22 +134,29 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
             {
                 //Y ahora añadimos el boton modificar a la tabla
                 DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
-                btnEdit.Name = "Editar";
+                btnEdit.FlatStyle = FlatStyle.Flat;
                 btnEdit.Text = "Modificar";
                 btnEdit.UseColumnTextForButtonValue = true;
                 btnEdit.HeaderText = "Modificar";
                 dgvSubClase.Columns.Add(btnEdit);
                 //ahora el boton eliminar
                 DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
-                btnDelete.Name = "Eliminar";
+                btnDelete.FlatStyle = FlatStyle.Flat;
                 btnDelete.Text = "Eliminar";
                 btnDelete.UseColumnTextForButtonValue = true;
                 btnDelete.HeaderText = "Eliminar";
                 dgvSubClase.Columns.Add(btnDelete);
 
                 //Renombro las columnas del dgv como quiera
+                dgvSubClase.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvSubClase.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvSubClase.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvSubClase.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvSubClase.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvSubClase.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
                 dgvSubClase.Columns[0].HeaderText = "Id";
-                dgvSubClase.Columns[0].Width = 50;
+                dgvSubClase.Columns[0].Width = 30;
                 dgvSubClase.Columns[1].HeaderText = "Código";
                 dgvSubClase.Columns[1].Width = 50;
                 dgvSubClase.Columns[2].HeaderText = "Nombre Subclase";
@@ -160,7 +167,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
         }
 
         #region  helper
-        private void Refresh()
+        private void RefreshData()
         {
             if (dgvSubClase.DataSource != null)
             {
@@ -227,7 +234,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
                             MessageBox.Show("Ocurrio un error al eliminar la subclase", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
-                        Refresh();
+                        RefreshData();
                         formatTable();
                     }
                 }
@@ -236,7 +243,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
 
         private void SubClasses_Load_1(object sender, EventArgs e)
         {
-            Refresh();
+            RefreshData();
             formatTable();
         }
     }

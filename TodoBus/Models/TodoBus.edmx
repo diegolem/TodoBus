@@ -93,9 +93,9 @@
           <Property Name="last_name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="age" Type="int" />
-          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="200" />
         </EntityType>
-        <Association Name="FK__clients__user_id__3C69FB99">
+        <Association Name="FK__clients__user_id__3D5E1FD2">
           <End Role="users" Type="Self.users" Multiplicity="1" />
           <End Role="clients" Type="Self.clients" Multiplicity="*" />
           <ReferentialConstraint>
@@ -107,7 +107,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__spare__brand_id__4BAC3F29">
+        <Association Name="FK__spare__brand_id__4CA06362">
           <End Role="brands" Type="Self.brands" Multiplicity="0..1" />
           <End Role="spare" Type="Self.spare" Multiplicity="*" />
           <ReferentialConstraint>
@@ -119,7 +119,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__spare__spare_typ__4AB81AF0">
+        <Association Name="FK__spare__spare_typ__4BAC3F29">
           <End Role="spare_categories" Type="Self.spare_categories" Multiplicity="1" />
           <End Role="spare" Type="Self.spare" Multiplicity="*" />
           <ReferentialConstraint>
@@ -131,7 +131,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__spare_sub__categ__44FF419A">
+        <Association Name="FK__spare_sub__categ__45F365D3">
           <End Role="spare_categories" Type="Self.spare_categories" Multiplicity="1" />
           <End Role="spare_subcategories" Type="Self.spare_subcategories" Multiplicity="*" />
           <ReferentialConstraint>
@@ -143,7 +143,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__spare_sub__subca__47DBAE45">
+        <Association Name="FK__spare_sub__subca__48CFD27E">
           <End Role="spare_subcategories" Type="Self.spare_subcategories" Multiplicity="1" />
           <End Role="spare_subclasses" Type="Self.spare_subclasses" Multiplicity="*" />
           <ReferentialConstraint>
@@ -155,7 +155,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__units__brand_id__4F7CD00D">
+        <Association Name="FK__units__brand_id__5070F446">
           <End Role="brands" Type="Self.brands" Multiplicity="1" />
           <End Role="units" Type="Self.units" Multiplicity="*" />
           <ReferentialConstraint>
@@ -167,7 +167,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__units__client_id__5070F446">
+        <Association Name="FK__units__client_id__5165187F">
           <End Role="clients" Type="Self.clients" Multiplicity="1" />
           <End Role="units" Type="Self.units" Multiplicity="*" />
           <ReferentialConstraint>
@@ -179,7 +179,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__units_spa__spare__5441852A">
+        <Association Name="FK__units_spa__spare__5535A963">
           <End Role="spare" Type="Self.spare" Multiplicity="1" />
           <End Role="units_spare" Type="Self.units_spare" Multiplicity="*" />
           <ReferentialConstraint>
@@ -191,7 +191,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__units_spa__unit___534D60F1">
+        <Association Name="FK__units_spa__unit___5441852A">
           <End Role="units" Type="Self.units" Multiplicity="1" />
           <End Role="units_spare" Type="Self.units_spare" Multiplicity="*" />
           <ReferentialConstraint>
@@ -213,39 +213,39 @@
           <EntitySet Name="units" EntityType="Self.units" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="units_spare" EntityType="Self.units_spare" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__clients__user_id__3C69FB99" Association="Self.FK__clients__user_id__3C69FB99">
+          <AssociationSet Name="FK__clients__user_id__3D5E1FD2" Association="Self.FK__clients__user_id__3D5E1FD2">
             <End Role="users" EntitySet="users" />
             <End Role="clients" EntitySet="clients" />
           </AssociationSet>
-          <AssociationSet Name="FK__spare__brand_id__4BAC3F29" Association="Self.FK__spare__brand_id__4BAC3F29">
+          <AssociationSet Name="FK__spare__brand_id__4CA06362" Association="Self.FK__spare__brand_id__4CA06362">
             <End Role="brands" EntitySet="brands" />
             <End Role="spare" EntitySet="spare" />
           </AssociationSet>
-          <AssociationSet Name="FK__spare__spare_typ__4AB81AF0" Association="Self.FK__spare__spare_typ__4AB81AF0">
+          <AssociationSet Name="FK__spare__spare_typ__4BAC3F29" Association="Self.FK__spare__spare_typ__4BAC3F29">
             <End Role="spare_categories" EntitySet="spare_categories" />
             <End Role="spare" EntitySet="spare" />
           </AssociationSet>
-          <AssociationSet Name="FK__spare_sub__categ__44FF419A" Association="Self.FK__spare_sub__categ__44FF419A">
+          <AssociationSet Name="FK__spare_sub__categ__45F365D3" Association="Self.FK__spare_sub__categ__45F365D3">
             <End Role="spare_categories" EntitySet="spare_categories" />
             <End Role="spare_subcategories" EntitySet="spare_subcategories" />
           </AssociationSet>
-          <AssociationSet Name="FK__spare_sub__subca__47DBAE45" Association="Self.FK__spare_sub__subca__47DBAE45">
+          <AssociationSet Name="FK__spare_sub__subca__48CFD27E" Association="Self.FK__spare_sub__subca__48CFD27E">
             <End Role="spare_subcategories" EntitySet="spare_subcategories" />
             <End Role="spare_subclasses" EntitySet="spare_subclasses" />
           </AssociationSet>
-          <AssociationSet Name="FK__units__brand_id__4F7CD00D" Association="Self.FK__units__brand_id__4F7CD00D">
+          <AssociationSet Name="FK__units__brand_id__5070F446" Association="Self.FK__units__brand_id__5070F446">
             <End Role="brands" EntitySet="brands" />
             <End Role="units" EntitySet="units" />
           </AssociationSet>
-          <AssociationSet Name="FK__units__client_id__5070F446" Association="Self.FK__units__client_id__5070F446">
+          <AssociationSet Name="FK__units__client_id__5165187F" Association="Self.FK__units__client_id__5165187F">
             <End Role="clients" EntitySet="clients" />
             <End Role="units" EntitySet="units" />
           </AssociationSet>
-          <AssociationSet Name="FK__units_spa__spare__5441852A" Association="Self.FK__units_spa__spare__5441852A">
+          <AssociationSet Name="FK__units_spa__spare__5535A963" Association="Self.FK__units_spa__spare__5535A963">
             <End Role="spare" EntitySet="spare" />
             <End Role="units_spare" EntitySet="units_spare" />
           </AssociationSet>
-          <AssociationSet Name="FK__units_spa__unit___534D60F1" Association="Self.FK__units_spa__unit___534D60F1">
+          <AssociationSet Name="FK__units_spa__unit___5441852A" Association="Self.FK__units_spa__unit___5441852A">
             <End Role="units" EntitySet="units" />
             <End Role="units_spare" EntitySet="units_spare" />
           </AssociationSet>
@@ -262,8 +262,8 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="spare" Relationship="Self.FK__spare__brand_id__4BAC3F29" FromRole="brands" ToRole="spare" />
-          <NavigationProperty Name="units" Relationship="Self.FK__units__brand_id__4F7CD00D" FromRole="brands" ToRole="units" />
+          <NavigationProperty Name="spare" Relationship="Self.FK__spare__brand_id__4CA06362" FromRole="brands" ToRole="spare" />
+          <NavigationProperty Name="units" Relationship="Self.FK__units__brand_id__5070F446" FromRole="brands" ToRole="units" />
         </EntityType>
         <EntityType Name="clients">
           <Key>
@@ -280,8 +280,8 @@
           <Property Name="alternative_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="units_total" Type="Int32" Nullable="false" />
           <Property Name="user_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="users" Relationship="Self.FK__clients__user_id__3C69FB99" FromRole="clients" ToRole="users" />
-          <NavigationProperty Name="units" Relationship="Self.FK__units__client_id__5070F446" FromRole="clients" ToRole="units" />
+          <NavigationProperty Name="users" Relationship="Self.FK__clients__user_id__3D5E1FD2" FromRole="clients" ToRole="users" />
+          <NavigationProperty Name="units" Relationship="Self.FK__units__client_id__5165187F" FromRole="clients" ToRole="units" />
         </EntityType>
         <EntityType Name="spare">
           <Key>
@@ -293,9 +293,9 @@
           <Property Name="code" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="brand_id" Type="Int32" />
           <Property Name="spare_type_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="brands" Relationship="Self.FK__spare__brand_id__4BAC3F29" FromRole="spare" ToRole="brands" />
-          <NavigationProperty Name="spare_categories" Relationship="Self.FK__spare__spare_typ__4AB81AF0" FromRole="spare" ToRole="spare_categories" />
-          <NavigationProperty Name="units_spare" Relationship="Self.FK__units_spa__spare__5441852A" FromRole="spare" ToRole="units_spare" />
+          <NavigationProperty Name="brands" Relationship="Self.FK__spare__brand_id__4CA06362" FromRole="spare" ToRole="brands" />
+          <NavigationProperty Name="spare_categories" Relationship="Self.FK__spare__spare_typ__4BAC3F29" FromRole="spare" ToRole="spare_categories" />
+          <NavigationProperty Name="units_spare" Relationship="Self.FK__units_spa__spare__5535A963" FromRole="spare" ToRole="units_spare" />
         </EntityType>
         <EntityType Name="spare_categories">
           <Key>
@@ -304,8 +304,8 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="code" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="spare" Relationship="Self.FK__spare__spare_typ__4AB81AF0" FromRole="spare_categories" ToRole="spare" />
-          <NavigationProperty Name="spare_subcategories" Relationship="Self.FK__spare_sub__categ__44FF419A" FromRole="spare_categories" ToRole="spare_subcategories" />
+          <NavigationProperty Name="spare" Relationship="Self.FK__spare__spare_typ__4BAC3F29" FromRole="spare_categories" ToRole="spare" />
+          <NavigationProperty Name="spare_subcategories" Relationship="Self.FK__spare_sub__categ__45F365D3" FromRole="spare_categories" ToRole="spare_subcategories" />
         </EntityType>
         <EntityType Name="spare_subcategories">
           <Key>
@@ -315,8 +315,8 @@
           <Property Name="code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="category_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="spare_categories" Relationship="Self.FK__spare_sub__categ__44FF419A" FromRole="spare_subcategories" ToRole="spare_categories" />
-          <NavigationProperty Name="spare_subclasses" Relationship="Self.FK__spare_sub__subca__47DBAE45" FromRole="spare_subcategories" ToRole="spare_subclasses" />
+          <NavigationProperty Name="spare_categories" Relationship="Self.FK__spare_sub__categ__45F365D3" FromRole="spare_subcategories" ToRole="spare_categories" />
+          <NavigationProperty Name="spare_subclasses" Relationship="Self.FK__spare_sub__subca__48CFD27E" FromRole="spare_subcategories" ToRole="spare_subclasses" />
         </EntityType>
         <EntityType Name="spare_subclasses">
           <Key>
@@ -326,7 +326,7 @@
           <Property Name="code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="subcategory_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="spare_subcategories" Relationship="Self.FK__spare_sub__subca__47DBAE45" FromRole="spare_subclasses" ToRole="spare_subcategories" />
+          <NavigationProperty Name="spare_subcategories" Relationship="Self.FK__spare_sub__subca__48CFD27E" FromRole="spare_subclasses" ToRole="spare_subcategories" />
         </EntityType>
         <EntityType Name="units">
           <Key>
@@ -337,9 +337,9 @@
           <Property Name="total" Type="Int32" Nullable="false" />
           <Property Name="brand_id" Type="Int32" Nullable="false" />
           <Property Name="client_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="brands" Relationship="Self.FK__units__brand_id__4F7CD00D" FromRole="units" ToRole="brands" />
-          <NavigationProperty Name="clients" Relationship="Self.FK__units__client_id__5070F446" FromRole="units" ToRole="clients" />
-          <NavigationProperty Name="units_spare" Relationship="Self.FK__units_spa__unit___534D60F1" FromRole="units" ToRole="units_spare" />
+          <NavigationProperty Name="brands" Relationship="Self.FK__units__brand_id__5070F446" FromRole="units" ToRole="brands" />
+          <NavigationProperty Name="clients" Relationship="Self.FK__units__client_id__5165187F" FromRole="units" ToRole="clients" />
+          <NavigationProperty Name="units_spare" Relationship="Self.FK__units_spa__unit___5441852A" FromRole="units" ToRole="units_spare" />
         </EntityType>
         <EntityType Name="units_spare">
           <Key>
@@ -348,8 +348,8 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="unit_id" Type="Int32" Nullable="false" />
           <Property Name="spare_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="spare" Relationship="Self.FK__units_spa__spare__5441852A" FromRole="units_spare" ToRole="spare" />
-          <NavigationProperty Name="units" Relationship="Self.FK__units_spa__unit___534D60F1" FromRole="units_spare" ToRole="units" />
+          <NavigationProperty Name="spare" Relationship="Self.FK__units_spa__spare__5535A963" FromRole="units_spare" ToRole="spare" />
+          <NavigationProperty Name="units" Relationship="Self.FK__units_spa__unit___5441852A" FromRole="units_spare" ToRole="units" />
         </EntityType>
         <EntityType Name="users">
           <Key>
@@ -360,10 +360,10 @@
           <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="age" Type="Int32" />
-          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="clients" Relationship="Self.FK__clients__user_id__3C69FB99" FromRole="users" ToRole="clients" />
+          <Property Name="password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="clients" Relationship="Self.FK__clients__user_id__3D5E1FD2" FromRole="users" ToRole="clients" />
         </EntityType>
-        <Association Name="FK__spare__brand_id__4BAC3F29">
+        <Association Name="FK__spare__brand_id__4CA06362">
           <End Role="brands" Type="Self.brands" Multiplicity="0..1" />
           <End Role="spare" Type="Self.spare" Multiplicity="*" />
           <ReferentialConstraint>
@@ -375,7 +375,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__units__brand_id__4F7CD00D">
+        <Association Name="FK__units__brand_id__5070F446">
           <End Role="brands" Type="Self.brands" Multiplicity="1" />
           <End Role="units" Type="Self.units" Multiplicity="*" />
           <ReferentialConstraint>
@@ -387,7 +387,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__clients__user_id__3C69FB99">
+        <Association Name="FK__clients__user_id__3D5E1FD2">
           <End Role="users" Type="Self.users" Multiplicity="1" />
           <End Role="clients" Type="Self.clients" Multiplicity="*" />
           <ReferentialConstraint>
@@ -399,7 +399,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__units__client_id__5070F446">
+        <Association Name="FK__units__client_id__5165187F">
           <End Role="clients" Type="Self.clients" Multiplicity="1" />
           <End Role="units" Type="Self.units" Multiplicity="*" />
           <ReferentialConstraint>
@@ -411,7 +411,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__spare__spare_typ__4AB81AF0">
+        <Association Name="FK__spare__spare_typ__4BAC3F29">
           <End Role="spare_categories" Type="Self.spare_categories" Multiplicity="1" />
           <End Role="spare" Type="Self.spare" Multiplicity="*" />
           <ReferentialConstraint>
@@ -423,7 +423,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__units_spa__spare__5441852A">
+        <Association Name="FK__units_spa__spare__5535A963">
           <End Role="spare" Type="Self.spare" Multiplicity="1" />
           <End Role="units_spare" Type="Self.units_spare" Multiplicity="*" />
           <ReferentialConstraint>
@@ -435,7 +435,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__spare_sub__categ__44FF419A">
+        <Association Name="FK__spare_sub__categ__45F365D3">
           <End Role="spare_categories" Type="Self.spare_categories" Multiplicity="1" />
           <End Role="spare_subcategories" Type="Self.spare_subcategories" Multiplicity="*" />
           <ReferentialConstraint>
@@ -447,7 +447,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__spare_sub__subca__47DBAE45">
+        <Association Name="FK__spare_sub__subca__48CFD27E">
           <End Role="spare_subcategories" Type="Self.spare_subcategories" Multiplicity="1" />
           <End Role="spare_subclasses" Type="Self.spare_subclasses" Multiplicity="*" />
           <ReferentialConstraint>
@@ -459,7 +459,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__units_spa__unit___534D60F1">
+        <Association Name="FK__units_spa__unit___5441852A">
           <End Role="units" Type="Self.units" Multiplicity="1" />
           <End Role="units_spare" Type="Self.units_spare" Multiplicity="*" />
           <ReferentialConstraint>
@@ -481,39 +481,39 @@
           <EntitySet Name="units" EntityType="Self.units" />
           <EntitySet Name="units_spare" EntityType="Self.units_spare" />
           <EntitySet Name="users" EntityType="Self.users" />
-          <AssociationSet Name="FK__spare__brand_id__4BAC3F29" Association="Self.FK__spare__brand_id__4BAC3F29">
+          <AssociationSet Name="FK__spare__brand_id__4CA06362" Association="Self.FK__spare__brand_id__4CA06362">
             <End Role="brands" EntitySet="brands" />
             <End Role="spare" EntitySet="spare" />
           </AssociationSet>
-          <AssociationSet Name="FK__units__brand_id__4F7CD00D" Association="Self.FK__units__brand_id__4F7CD00D">
+          <AssociationSet Name="FK__units__brand_id__5070F446" Association="Self.FK__units__brand_id__5070F446">
             <End Role="brands" EntitySet="brands" />
             <End Role="units" EntitySet="units" />
           </AssociationSet>
-          <AssociationSet Name="FK__clients__user_id__3C69FB99" Association="Self.FK__clients__user_id__3C69FB99">
+          <AssociationSet Name="FK__clients__user_id__3D5E1FD2" Association="Self.FK__clients__user_id__3D5E1FD2">
             <End Role="users" EntitySet="users" />
             <End Role="clients" EntitySet="clients" />
           </AssociationSet>
-          <AssociationSet Name="FK__units__client_id__5070F446" Association="Self.FK__units__client_id__5070F446">
+          <AssociationSet Name="FK__units__client_id__5165187F" Association="Self.FK__units__client_id__5165187F">
             <End Role="clients" EntitySet="clients" />
             <End Role="units" EntitySet="units" />
           </AssociationSet>
-          <AssociationSet Name="FK__spare__spare_typ__4AB81AF0" Association="Self.FK__spare__spare_typ__4AB81AF0">
+          <AssociationSet Name="FK__spare__spare_typ__4BAC3F29" Association="Self.FK__spare__spare_typ__4BAC3F29">
             <End Role="spare_categories" EntitySet="spare_categories" />
             <End Role="spare" EntitySet="spare" />
           </AssociationSet>
-          <AssociationSet Name="FK__units_spa__spare__5441852A" Association="Self.FK__units_spa__spare__5441852A">
+          <AssociationSet Name="FK__units_spa__spare__5535A963" Association="Self.FK__units_spa__spare__5535A963">
             <End Role="spare" EntitySet="spare" />
             <End Role="units_spare" EntitySet="units_spare" />
           </AssociationSet>
-          <AssociationSet Name="FK__spare_sub__categ__44FF419A" Association="Self.FK__spare_sub__categ__44FF419A">
+          <AssociationSet Name="FK__spare_sub__categ__45F365D3" Association="Self.FK__spare_sub__categ__45F365D3">
             <End Role="spare_categories" EntitySet="spare_categories" />
             <End Role="spare_subcategories" EntitySet="spare_subcategories" />
           </AssociationSet>
-          <AssociationSet Name="FK__spare_sub__subca__47DBAE45" Association="Self.FK__spare_sub__subca__47DBAE45">
+          <AssociationSet Name="FK__spare_sub__subca__48CFD27E" Association="Self.FK__spare_sub__subca__48CFD27E">
             <End Role="spare_subcategories" EntitySet="spare_subcategories" />
             <End Role="spare_subclasses" EntitySet="spare_subclasses" />
           </AssociationSet>
-          <AssociationSet Name="FK__units_spa__unit___534D60F1" Association="Self.FK__units_spa__unit___534D60F1">
+          <AssociationSet Name="FK__units_spa__unit___5441852A" Association="Self.FK__units_spa__unit___5441852A">
             <End Role="units" EntitySet="units" />
             <End Role="units_spare" EntitySet="units_spare" />
           </AssociationSet>

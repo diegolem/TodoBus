@@ -137,9 +137,11 @@ namespace TodoBus.Views.Brands
                 btnEdit.Text = "Modificar";
                 btnEdit.UseColumnTextForButtonValue = true;
                 btnEdit.HeaderText = "Modificar";
+                btnEdit.FlatStyle = FlatStyle.Flat;
                 dgvMarca.Columns.Add(btnEdit);
                 //ahora el boton eliminar
                 DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+                btnDelete.FlatStyle = FlatStyle.Flat;
                 btnDelete.Name = "Eliminar";
                 btnDelete.Text = "Eliminar";
                 btnDelete.UseColumnTextForButtonValue = true;
@@ -147,14 +149,20 @@ namespace TodoBus.Views.Brands
                 dgvMarca.Columns.Add(btnDelete);
 
                 //Renombro las columnas del dgv como quiera
+                dgvMarca.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvMarca.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvMarca.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvMarca.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvMarca.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
                 dgvMarca.Columns[0].HeaderText = "Id";
+                dgvMarca.Columns[0].Width = 30;
                 dgvMarca.Columns[1].HeaderText = "Nombre";
                 dgvMarca.Columns[2].HeaderText = "Descripción";
-                dgvMarca.Columns[2].Width = 185;
-
+                dgvMarca.Columns[2].Width = 275;
             }
         }
-        private void Refresh()
+        private void RefreshTable()
         {
             if (dgvMarca.DataSource != null)
             {
@@ -191,14 +199,14 @@ namespace TodoBus.Views.Brands
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            Refresh();
+            RefreshTable();
             formatTable();
         }
 
         private void Marca_Load(object sender, EventArgs e)
         {
             //Llamo al metodo para llenar la tabla
-            Refresh();
+            RefreshTable();
             formatTable();
         }
 
@@ -231,7 +239,7 @@ namespace TodoBus.Views.Brands
                             MessageBox.Show("Ocurrio un error al eliminar la marca", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
-                        Refresh();
+                        RefreshTable();
                         formatTable();
                     }
                 }

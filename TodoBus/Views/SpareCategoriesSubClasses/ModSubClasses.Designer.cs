@@ -179,7 +179,7 @@
             this.btnRegSub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
             this.btnRegSub.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRegSub.BorderRadius = 5;
-            this.btnRegSub.ButtonText = "    Modificar";
+            this.btnRegSub.ButtonText = "     Modificar";
             this.btnRegSub.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegSub.DisabledColor = System.Drawing.Color.Gray;
             this.btnRegSub.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -202,9 +202,9 @@
             this.btnRegSub.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(130)))), ((int)(((byte)(184)))));
             this.btnRegSub.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.btnRegSub.selected = false;
-            this.btnRegSub.Size = new System.Drawing.Size(84, 36);
+            this.btnRegSub.Size = new System.Drawing.Size(91, 36);
             this.btnRegSub.TabIndex = 68;
-            this.btnRegSub.Text = "    Modificar";
+            this.btnRegSub.Text = "     Modificar";
             this.btnRegSub.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRegSub.Textcolor = System.Drawing.Color.White;
             this.btnRegSub.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

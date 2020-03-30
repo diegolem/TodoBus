@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TodoBus.Models;
+using System.Security.Cryptography;
+using System.Windows.Forms;
 
 namespace TodoBus.Controllers
 {
@@ -14,30 +16,38 @@ namespace TodoBus.Controllers
             //Abro conexion solamente cuando ejecute la accion
             using (TodoBusEntities db = new TodoBusEntities())
             {
-                try
+                using (SHA256 sha256Hash = SHA256.Create())
                 {
-                    //Defino el nuevo objeto
-                    users Usuarios = new users();
-                    //Luego obtengo todos los valores y los asigno a los campos del nuevo objeto
-                    Usuarios.name = name;
-                    Usuarios.last_name = last_name;
-                    Usuarios.email = email;
-                    Usuarios.age = age;
-                    Usuarios.password = password;
-                    //Para el combobox, obtengo del arreglo de categoria el valor, que posea el arreglo en el indice que
-                    //se ha seleccionado en el comboBox menos 1, porque en el combobox se empieza desde 1
-                    
+                    try
+                    {
+                        //Defino el nuevo objeto
+                        users Usuarios = new users();
+                        //Luego obtengo todos los valores y los asigno a los campos del nuevo objeto
+                        Usuarios.name = name;
+                        Usuarios.last_name = last_name;
+                        Usuarios.email = email;
+                        Usuarios.age = age;
+                        
+                        byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+                        StringBuilder builder = new StringBuilder();
+                        for (int i = 0; i < bytes.Length; i++)
+                        {
+                            builder.Append(bytes[i].ToString("x2"));
+                            string hashedPassword = builder.ToString();
+                            Usuarios.password = hashedPassword;
+                        }
 
-                    //Añado a mi tabla la subcategoria(objeto)
-                    db.users.Add(Usuarios);
-                    //Guardo los cambios para confirmar
-                    db.SaveChanges();
-                    //Si todo bien regreso true
-                    return true;
-                }
-                catch
-                {
-                    return false;
+                        db.users.Add(Usuarios);
+                        //Guardo los cambios para confirmar
+                        db.SaveChanges();
+                        //Si todo bien regreso true
+                        return true;
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                        return false;
+                    }
                 }
             }
         }
@@ -47,23 +57,36 @@ namespace TodoBus.Controllers
             //Abro conexion solamente cuando ejecute la accion
             using (TodoBusEntities db = new TodoBusEntities())
             {
-                try
+                using (SHA256 sha256Hash = SHA256.Create())
                 {
-                    Usuarios.name = name;
-                    Usuarios.last_name = last_name;
-                    Usuarios.email = email;
-                    Usuarios.age = age;
-                    Usuarios.password = password;
-                    
-                    db.Entry(Usuarios).State = System.Data.Entity.EntityState.Modified;
-                    //Guardo los cambios para confirmar
-                    db.SaveChanges();
-                    //Si todo bien regreso true
-                    return true;
-                }
-                catch
-                {
-                    return false;
+                    try
+                    {
+                        Usuarios.name = name;
+                        Usuarios.last_name = last_name;
+                        Usuarios.email = email;
+                        Usuarios.age = age;
+                        if (password.Trim().Length > 0)
+                        {
+                            byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+                            StringBuilder builder = new StringBuilder();
+                            for (int i = 0; i < bytes.Length; i++)
+                            {
+                                builder.Append(bytes[i].ToString("x2"));
+                                string hashedPassword = builder.ToString();
+                                Usuarios.password = hashedPassword;
+                            }
+                        }
+
+                        db.Entry(Usuarios).State = System.Data.Entity.EntityState.Modified;
+                        //Guardo los cambios para confirmar
+                        db.SaveChanges();
+                        //Si todo bien regreso true
+                        return true;
+                    }
+                    catch
+                    {
+                        return false;
+                    }
                 }
             }
         }
@@ -86,6 +109,7 @@ namespace TodoBus.Controllers
                         userF.Id = user.id;
                         userF.Nombre = user.name;
                         userF.Apellido = user.last_name;
+                        userF.Email = user.email;
                         userF.Edad = user.age;
                         customL.Add(userF);
                     }

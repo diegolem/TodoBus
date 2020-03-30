@@ -129,8 +129,28 @@ namespace TodoBus.Views.SpareCategory
         private void Categories_Load(object sender, EventArgs e)
         {
             //Llamo al metodo para llenar la tabla
-            Refresh();
+            RefreshData();
             formatTable();
+        }
+
+        private void RefreshData()
+        {
+            if(dgvCategoria.DataSource != null)
+            {
+                dgvCategoria.Columns.Clear();
+            }
+            dgvCategoria.DataSource = null;
+
+            List<FakeCategories> categories = new List<FakeCategories>();
+            categories = categoryController.getAllCategories();
+            if (categories.Count() > 0)
+            {
+                dgvCategoria.DataSource = categories;
+            }
+            else
+            {
+                dgvCategoria.DataSource = null;
+            }
         }
         private void formatTable()
         {
@@ -138,23 +158,30 @@ namespace TodoBus.Views.SpareCategory
             {
                 //Y ahora añadimos el boton modificar a la tabla
                 DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
-                btnEdit.Name = "Editar";
+                btnEdit.FlatStyle = FlatStyle.Flat;
                 btnEdit.Text = "Modificar";
                 btnEdit.UseColumnTextForButtonValue = true;
                 btnEdit.HeaderText = "Modificar";
                 dgvCategoria.Columns.Add(btnEdit);
                 //ahora el boton eliminar
                 DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
-                btnDelete.Name = "Eliminar";
+                btnDelete.FlatStyle = FlatStyle.Flat;
                 btnDelete.Text = "Eliminar";
                 btnDelete.UseColumnTextForButtonValue = true;
                 btnDelete.HeaderText = "Eliminar";
                 dgvCategoria.Columns.Add(btnDelete);
-                //Renombro las columnas del dgv como quiera
+                //Renombro las columnas del dgv como quieradgvUnidad.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvCategoria.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvCategoria.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvCategoria.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvCategoria.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
                 dgvCategoria.Columns[0].HeaderText = "Id";
+                dgvCategoria.Columns[0].Width = 30;
                 dgvCategoria.Columns[1].HeaderText = "Codigo";
+                dgvCategoria.Columns[0].Width = 50;
                 dgvCategoria.Columns[2].HeaderText = "Nombre de Categoria";
-                dgvCategoria.Columns[2].Width = 205;
+                dgvCategoria.Columns[2].Width = 255;
             }
         }
         #region  helper
@@ -197,7 +224,7 @@ namespace TodoBus.Views.SpareCategory
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            Refresh();
+            RefreshData();
             formatTable();
         }
 
@@ -230,7 +257,7 @@ namespace TodoBus.Views.SpareCategory
                             MessageBox.Show("Ocurrio un error al eliminar el cliente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
-                        Refresh();
+                        RefreshData();
                         formatTable();
                     }
                 }

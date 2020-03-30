@@ -131,7 +131,7 @@ namespace TodoBus
         #endregion
         private void Clientes_Load(object sender, EventArgs e)
         {
-            Refresh();
+            RefreshData();
             formatTable();
         }
 
@@ -141,38 +141,53 @@ namespace TodoBus
             {
                 //Y ahora añadimos el boton modificar a la tabla
                 DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
-                btnEdit.Name = "Editar";
+                btnEdit.FlatStyle = FlatStyle.Flat;
                 btnEdit.Text = "Modificar";
                 btnEdit.UseColumnTextForButtonValue = true;
                 btnEdit.HeaderText = "Modificar";
                 dgvClientes.Columns.Add(btnEdit);
                 //ahora el boton eliminar
                 DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
-                btnDelete.Name = "Eliminar";
+                btnDelete.FlatStyle = FlatStyle.Flat;
                 btnDelete.Text = "Eliminar";
                 btnDelete.UseColumnTextForButtonValue = true;
                 btnDelete.HeaderText = "Eliminar";
                 dgvClientes.Columns.Add(btnDelete);
 
                 //Renombro las columnas del dgv como quiera
+                dgvClientes.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvClientes.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvClientes.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvClientes.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvClientes.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvClientes.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvClientes.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvClientes.Columns[7].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvClientes.Columns[8].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvClientes.Columns[9].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvClientes.Columns[10].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvClientes.Columns[11].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvClientes.Columns[12].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
                 dgvClientes.Columns[0].HeaderText = "Id";
+                dgvClientes.Columns[0].Width = 30;
                 dgvClientes.Columns[1].HeaderText = "Nombre Empresa";
                 dgvClientes.Columns[2].HeaderText = "Nombre Contacto";
                 dgvClientes.Columns[2].Width = 185;
                 dgvClientes.Columns[3].HeaderText = "Teléfono";
+                dgvClientes.Columns[3].Width = 85;
                 dgvClientes.Columns[4].HeaderText = "Teléfono Alternativo";
-                dgvClientes.Columns[4].Width = 185;
                 dgvClientes.Columns[5].HeaderText = "Dirección";
                 dgvClientes.Columns[6].HeaderText = "Correo";
+                dgvClientes.Columns[6].Width = 85;
                 dgvClientes.Columns[7].HeaderText = "Correo Alternativo";
-                dgvClientes.Columns[7].Width = 185;
                 dgvClientes.Columns[8].HeaderText = "Unidades Totales";
-                dgvClientes.Columns[8].Width = 185;
+                dgvClientes.Columns[8].Width = 75;
                 dgvClientes.Columns[9].HeaderText = "Tipo de usuario";
                 dgvClientes.Columns[10].HeaderText = "Registrado por";
             }
         }
-        private void Refresh()
+        private void RefreshData()
         {
             if (dgvClientes.DataSource != null)
             {
@@ -209,7 +224,7 @@ namespace TodoBus
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            Refresh();
+            RefreshData();
             formatTable();
         }
 
@@ -242,7 +257,7 @@ namespace TodoBus
                             MessageBox.Show("Ocurrio un error al eliminar el cliente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
-                        Refresh();
+                        RefreshData();
                         formatTable();
                     }
                 }

@@ -87,7 +87,7 @@ namespace TodoBus
             }
             if (!(valid.isString(txtlastname.Text)))
             {
-                Ep1.SetError(txtlastname, "El Apelllido no puede quedar vacío");
+                Ep1.SetError(txtlastname, "El Apellido no puede quedar vacío");
                 return false;
             }
             if (!(valid.isString(txtemail.Text)))

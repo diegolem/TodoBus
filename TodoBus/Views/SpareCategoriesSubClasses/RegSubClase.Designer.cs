@@ -181,7 +181,7 @@
             this.btnRegSub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
             this.btnRegSub.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRegSub.BorderRadius = 5;
-            this.btnRegSub.ButtonText = "    Registrar Subclase";
+            this.btnRegSub.ButtonText = "              Registrar";
             this.btnRegSub.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegSub.DisabledColor = System.Drawing.Color.Gray;
             this.btnRegSub.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -206,7 +206,7 @@
             this.btnRegSub.selected = false;
             this.btnRegSub.Size = new System.Drawing.Size(142, 36);
             this.btnRegSub.TabIndex = 68;
-            this.btnRegSub.Text = "    Registrar Subclase";
+            this.btnRegSub.Text = "              Registrar";
             this.btnRegSub.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRegSub.Textcolor = System.Drawing.Color.White;
             this.btnRegSub.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

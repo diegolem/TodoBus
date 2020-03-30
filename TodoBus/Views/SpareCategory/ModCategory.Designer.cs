@@ -60,7 +60,7 @@
             // 
             this.bunifuDragControl1.Fixed = true;
             this.bunifuDragControl1.Horizontal = true;
-            this.bunifuDragControl1.TargetControl = null;
+            this.bunifuDragControl1.TargetControl = this.header;
             this.bunifuDragControl1.Vertical = true;
             // 
             // body
@@ -85,7 +85,7 @@
             this.btnReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
             this.btnReturn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnReturn.BorderRadius = 5;
-            this.btnReturn.ButtonText = "              Volver";
+            this.btnReturn.ButtonText = "              Cerrar";
             this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReturn.DisabledColor = System.Drawing.Color.Gray;
             this.btnReturn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -110,7 +110,7 @@
             this.btnReturn.selected = false;
             this.btnReturn.Size = new System.Drawing.Size(128, 36);
             this.btnReturn.TabIndex = 69;
-            this.btnReturn.Text = "              Volver";
+            this.btnReturn.Text = "              Cerrar";
             this.btnReturn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReturn.Textcolor = System.Drawing.Color.White;
             this.btnReturn.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -138,7 +138,7 @@
             this.btnRegSub.IconVisible = false;
             this.btnRegSub.IconZoom = 60D;
             this.btnRegSub.IsTab = false;
-            this.btnRegSub.Location = new System.Drawing.Point(142, 254);
+            this.btnRegSub.Location = new System.Drawing.Point(152, 245);
             this.btnRegSub.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRegSub.Name = "btnRegSub";
             this.btnRegSub.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));

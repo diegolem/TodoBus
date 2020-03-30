@@ -134,25 +134,37 @@ namespace TodoBus
                 
                 //Y ahora añadimos el boton modificar a la tabla
                 DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
-                btnEdit.Name = "Editar";
+                btnEdit.FlatStyle = FlatStyle.Flat;
                 btnEdit.Text = "Modificar";
                 btnEdit.UseColumnTextForButtonValue = true;
                 btnEdit.HeaderText = "Modificar";
                 dgvUsuarios.Columns.Add(btnEdit);
                 //ahora el boton eliminar
                 DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
-                btnDelete.Name = "Eliminar";
+                btnDelete.FlatStyle = FlatStyle.Flat;
                 btnDelete.Text = "Eliminar";
                 btnDelete.UseColumnTextForButtonValue = true;
                 btnDelete.HeaderText = "Eliminar";
                 dgvUsuarios.Columns.Add(btnDelete);
 
+                dgvUsuarios.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvUsuarios.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvUsuarios.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvUsuarios.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvUsuarios.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvUsuarios.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvUsuarios.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
                 dgvUsuarios.Columns[0].HeaderText = "Id";
+                dgvUsuarios.Columns[0].Width = 30;
                 dgvUsuarios.Columns[1].HeaderText = "Nombre";
                 dgvUsuarios.Columns[2].HeaderText = "Apellido";
                 dgvUsuarios.Columns[3].HeaderText = "Edad";
-                
-                
+                dgvUsuarios.Columns[3].Width = 50;
+                dgvUsuarios.Columns[4].HeaderText = "Correo";
+                dgvUsuarios.Columns[4].Width = 150;
+
+
             }
         }
         private void Refresh()
@@ -207,7 +219,7 @@ namespace TodoBus
             //Los index empiezan desde 0, asi que verificamos en que columna estan los botones modificar y eliminar, para obtener correctamente el id
             int? id = getId();
 
-            if (e.ColumnIndex == 4)
+            if (e.ColumnIndex == 5)
             {
                 if (id != null)
                 {
@@ -215,7 +227,7 @@ namespace TodoBus
                     mod.ShowDialog();
                 }
             }
-            else if (e.ColumnIndex == 5)
+            else if (e.ColumnIndex == 6)
             {
                 if (id != null)
                 {
