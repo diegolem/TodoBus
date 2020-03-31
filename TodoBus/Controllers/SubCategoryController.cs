@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TodoBus.Models;
 
+
 namespace TodoBus.Controllers
 {
     class SubCategoryController
@@ -101,13 +102,18 @@ namespace TodoBus.Controllers
             {
                 try
                 {
-                    //Se obtiene el objeto a borrar
+
                     spare_subcategories subc = db.spare_subcategories.Find(id);
-                    //Se borra el objeto que se obtuvo de la tabla
-                    db.spare_subcategories.Remove(subc);
-                    //Guardamos cambios
-                    db.SaveChanges();
-                    //Si todo bien regreso true
+                    if (subc.spare_categories != null)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        db.spare_subcategories.Remove(subc);
+
+                        db.SaveChanges();
+                    }
                     return true;
                 }
                 catch

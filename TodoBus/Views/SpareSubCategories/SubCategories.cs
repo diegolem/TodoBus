@@ -197,7 +197,6 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
 
         private int? getId()
         {
-            //Metodo para obtener el id de la columna seleccionada
             try
             {
                 //Y le decimos que obtenga de mi dgv el valor de la celda 0(que es id) de la fila que se encuentre seleccionada
@@ -237,7 +236,8 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
                         }
                         else
                         {
-                            MessageBox.Show("Ocurrio un error al eliminar la categoria", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Ocurrio un error al eliminar la subcategoria \n" + 
+                                "o esta no puede ser eliminada", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                         Refresh();
