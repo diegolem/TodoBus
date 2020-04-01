@@ -250,7 +250,7 @@ namespace TodoBus.Views.SpareCategory
                     {
                         if (categoryController.delete(id))
                         {
-                            MessageBox.Show("El cliente se ha eliminado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("La categoría se ha eliminado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
