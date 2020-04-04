@@ -186,13 +186,7 @@ namespace TodoBus.Controllers
             {
                 try
                 {
-                    MessageBox.Show(id.ToString());
-                    MessageBox.Show(codigo);
-                    MessageBox.Show(nombre);
-                    MessageBox.Show(Categoria.ToString());
-                    MessageBox.Show(marca.ToString());
-                    MessageBox.Show(SubClases.ToString());
-                    MessageBox.Show(imagen);
+                    
                     string codSubClass;
                     string codCategory;
                     string codi;
@@ -212,39 +206,26 @@ namespace TodoBus.Controllers
                                select d;
                     int cantidad = cadena.Length;
                     codi = fnd.code;
+                    
                     string verificar = codigo.Substring(0, cantidad);
-                    if (verificar == codi)
+                    if (verificar != codi)
                     {
-                        sp.name = nombre;
-                        if (fnd.image != imagen)
-                        { 
-                        sp.image = imagen;
-                        }
+                        fnd.code = codigo;
                     }
-                    else
-                    {
-                        sp.code = codigo;
-                        if(fnd.spare_type_id!=Categoria)
-                        {
-                            sp.spare_type_id = Categoria;
-                        }
-                        if(fnd.brand_id!=marca)
-                        {
-                            sp.brand_id = marca;
-                        }
-                        if(fnd.image!=imagen)
-                        {
-                            sp.image = imagen;
-                        }
-                        sp.name = nombre;
-                        
-                    }
-                    db.Entry(sp).State = System.Data.Entity.EntityState.Modified;
-                    db.SaveChanges();
-                    return true;
+                    fnd.spare_type_id = Categoria;
+                    fnd.brand_id = marca;
+                    fnd.image = imagen;
+                    fnd.name = nombre;
+                        db.Entry(fnd).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                        return true;
+
+                    
+                    
                 }
-                catch
+                catch(Exception ex)
                 {
+                    MessageBox.Show("Error:" + ex);
                     return false;
                 }
             }
