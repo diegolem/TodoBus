@@ -8,7 +8,7 @@ namespace TodoBus.Controllers
 {
     class ClientController
     {
-        public bool save(string nameE, string nameC, string correo, string correoA, string dir,string tel, string telA, int uni, byte? tipo)
+        public bool save(string nameE, string nameC, string correo, string correoA, string dir,string tel, string telA, int uni, byte? tipo, int user_id)
         {
             //Abro conexion solamente cuando ejecute la accion
             using (TodoBusEntities db = new TodoBusEntities())
@@ -27,8 +27,7 @@ namespace TodoBus.Controllers
                     cliente.alternative_phone = telA;
                     cliente.units_total = uni;
                     cliente.client_type = tipo;
-                    //Cambiar esto por el que esta en sesión
-                    cliente.user_id = 2;
+                    cliente.user_id = user_id;
 
                     //Añado a mi tabla la subcategoria(objeto)
                     db.clients.Add(cliente);
@@ -138,8 +137,6 @@ namespace TodoBus.Controllers
                     cliente.phone = tel;
                     cliente.alternative_phone = telA;
                     cliente.units_total = uni;
-                    //Cambiar esto por el que esta en sesión
-                    cliente.user_id = 1;
 
                     db.Entry(cliente).State = System.Data.Entity.EntityState.Modified;
                     //Guardo los cambios para confirmar

@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TodoBus.Views.Brands;
 using TodoBus.Views.SpareCategory;
@@ -19,9 +14,12 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
     public partial class SubClasses : Form
     {
         SubClassController subClController = new SubClassController();
-        public SubClasses()
+
+        users user = new users();
+        public SubClasses(users userS)
         {
             InitializeComponent();
+            this.user = userS;
             btnSubClase.Enabled = false;
         }
 
@@ -62,28 +60,28 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
         private void btnUnits_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Unidades frmUnits = new Unidades();
+            Unidades frmUnits = new Unidades(user);
             frmUnits.Show();
         }
 
         private void btnClients_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Clientes frmClientes = new Clientes();
+            Clientes frmClientes = new Clientes(user);
             frmClientes.Show();
         }
 
         private void btnSubCategory_Click(object sender, EventArgs e)
         {
             this.Hide();
-            SubCategories frmSub = new SubCategories();
+            SubCategories frmSub = new SubCategories(user);
             frmSub.Show();
         }
 
         private void btnUserConfig_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DatosUsuario frmConfig = new DatosUsuario();
+            DatosUsuario frmConfig = new DatosUsuario(user);
             frmConfig.Show();
         }
 
@@ -97,28 +95,28 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
         private void btnBrands_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Marca frmM = new Marca();
+            Marca frmM = new Marca(user);
             frmM.Show();
         }
 
         private void btnSpare_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Repuestos frmR = new Repuestos();
+            Repuestos frmR = new Repuestos(user);
             frmR.Show();
         }
 
         private void btnSpareTypes_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Category ct = new Category();
+            Category ct = new Category(user);
             ct.Show();
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Usuarios frmU = new Usuarios();
+            Usuarios frmU = new Usuarios(user);
             frmU.Show();
         }
 

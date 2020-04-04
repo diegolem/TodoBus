@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TodoBus.Controllers;
+using TodoBus.Models;
 
 namespace TodoBus
 {
@@ -16,9 +11,11 @@ namespace TodoBus
         ClientController clientController = new ClientController();
         ValidationController valid = new ValidationController();
         byte? tipoC;
-        public RegCliente()
+        users user = new users();
+        public RegCliente(users userS)
         {
             InitializeComponent();
+            this.user = userS;
         }
         private bool validarCampos()
         {
@@ -99,7 +96,7 @@ namespace TodoBus
                 try
                 {
                     //Mando a llamar el metodo de guardar del controller y paso los parametros
-                    bool save = clientController.save(txtEmpresa.Text, txtContacto.Text, txtCorreo.Text, txtCorrAlternativo.Text, txtDireccion.Text, mtxtTelefono.Text, mtxtTelAlternativo.Text, 0, tipoC);
+                    bool save = clientController.save(txtEmpresa.Text, txtContacto.Text, txtCorreo.Text, txtCorrAlternativo.Text, txtDireccion.Text, mtxtTelefono.Text, mtxtTelAlternativo.Text, 0, tipoC, user.id);
                     if (save)
                     {
                         //Limpio los controles

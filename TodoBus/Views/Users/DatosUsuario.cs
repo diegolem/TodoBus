@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using TodoBus.Models;
 using TodoBus.Views.Brands;
 using TodoBus.Views.SpareCategoriesSubClasses;
 using TodoBus.Views.SpareCategory;
@@ -16,26 +10,19 @@ namespace TodoBus.Views.Users
 {
     public partial class DatosUsuario : Form
     {
-        public DatosUsuario()
+        users user = new users();
+        public DatosUsuario(users userS)
         {
             InitializeComponent();
+            this.user = userS;
             btnUserConfig.Enabled = false;
-        }
-
-        private void bunifuCustomLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuCustomTextbox1_TextChanged(object sender, EventArgs e)
-        {
-
+            loadInformation();
         }
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            SubCategories frmSub = new SubCategories();
+            SubCategories frmSub = new SubCategories(user);
             frmSub.Show();
         }
 
@@ -54,22 +41,15 @@ namespace TodoBus.Views.Users
         private void btnClients_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Clientes frmClientes = new Clientes();
+            Clientes frmClientes = new Clientes(user);
             frmClientes.Show();
         }
 
         private void btnUnits_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Unidades frmUnits = new Unidades();
+            Unidades frmUnits = new Unidades(user);
             frmUnits.Show();
-        }
-
-        private void btnUserConfig_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            DatosUsuario frmConfig = new DatosUsuario();
-            frmConfig.Show();
         }
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
@@ -79,52 +59,45 @@ namespace TodoBus.Views.Users
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
-            SubClasses frmSub = new SubClasses();
+            SubClasses frmSub = new SubClasses(user);
             frmSub.Show();
             this.Hide();
-        }
-
-        private void bunifuCustomLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuCustomTextbox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuCustomTextbox3_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnBrands_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Marca frmM = new Marca();
+            Marca frmM = new Marca(user);
             frmM.Show();
         }
 
         private void btnSpare_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Repuestos frmR = new Repuestos();
+            Repuestos frmR = new Repuestos(user);
             frmR.Show();
         }
 
         private void btnSpareTypes_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Category ct = new Category();
+            Category ct = new Category(user);
             ct.Show();
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Usuarios frmU = new Usuarios();
+            Usuarios frmU = new Usuarios(user);
             frmU.Show();
+        }
+
+        private void loadInformation()
+        {
+            txtName.Text = user.name;
+            txtLastName.Text = user.last_name;
+            txtMail.Text = user.email;
+            Age.Text = user.age.ToString();
         }
 
         private void btnMenu_Click(object sender, EventArgs e)

@@ -331,7 +331,6 @@
             this.btnUserConfig.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUserConfig.Textcolor = System.Drawing.Color.White;
             this.btnUserConfig.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUserConfig.Click += new System.EventHandler(this.btnUserConfig_Click);
             // 
             // btnUsers
             // 
@@ -691,7 +690,6 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(200, 22);
             this.txtName.TabIndex = 34;
-            this.txtName.TextChanged += new System.EventHandler(this.bunifuCustomTextbox3_TextChanged);
             // 
             // bunifuCustomLabel6
             // 
@@ -768,7 +766,6 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(319, 22);
             this.txtPassword.TabIndex = 18;
-            this.txtPassword.TextChanged += new System.EventHandler(this.bunifuCustomTextbox2_TextChanged);
             // 
             // bunifuCustomLabel1
             // 
@@ -782,7 +779,6 @@
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(41, 17);
             this.bunifuCustomLabel1.TabIndex = 17;
             this.bunifuCustomLabel1.Text = "Edad:";
-            this.bunifuCustomLabel1.Click += new System.EventHandler(this.bunifuCustomLabel1_Click);
             // 
             // txtLastName
             // 
@@ -794,7 +790,6 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(200, 22);
             this.txtLastName.TabIndex = 16;
-            this.txtLastName.TextChanged += new System.EventHandler(this.bunifuCustomTextbox1_TextChanged);
             // 
             // bunifuCustomLabel2
             // 
@@ -808,7 +803,6 @@
             this.bunifuCustomLabel2.Size = new System.Drawing.Size(65, 17);
             this.bunifuCustomLabel2.TabIndex = 15;
             this.bunifuCustomLabel2.Text = "Apellidos:";
-            this.bunifuCustomLabel2.Click += new System.EventHandler(this.bunifuCustomLabel2_Click);
             // 
             // errorProvider1
             // 

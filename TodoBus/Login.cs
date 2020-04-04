@@ -1,21 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TodoBus.Views.Units;
 using static TodoBus.Controllers.LoginController;
 using TodoBus.Controllers;
+using TodoBus.Models;
 
 namespace TodoBus
 {
     public partial class Login : Form
     {
         LoginController c = new LoginController();
+        users user = new users();
         public Login()
         {
             InitializeComponent();
@@ -44,7 +39,7 @@ namespace TodoBus
             string correo = txtEmail.Text;
             string pass = GetSHA256(txtPassword.Text.Trim());
             ErrorProvider r = new ErrorProvider();
-            if (txtEmail.Text.Trim().Equals("")||txtPassword.Text.Trim().Equals(""))
+            if (txtEmail.Text.Trim().Equals("") || txtPassword.Text.Trim().Equals(""))
             {
                 r.SetError(txtEmail, "No se permiten campos vacios");
             }
@@ -52,7 +47,8 @@ namespace TodoBus
             if(verifi)
             {
                 this.Hide();
-                Unidades frmMenu = new Unidades();
+                user = c.getUser(pass, correo);
+                Unidades frmMenu = new Unidades(user);
                 frmMenu.Show();
             }
             else

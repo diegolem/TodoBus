@@ -52,7 +52,7 @@ namespace TodoBus.Controllers
                 int e = 0;
                 if (int.TryParse(chain, out e))
                 {
-                    if (e >= 0)
+                    if (e > 0)
                     {
                         return true;
                     }

@@ -90,16 +90,13 @@ namespace TodoBus.Controllers
                 }
             }
         }
-        public List<FakeUsers> getAllUsers()
+        public List<FakeUsers> getAllUsers(int user_id)
         {
             using (TodoBusEntities db = new TodoBusEntities())
             {
-                //Obtengo todos los registros de mi tabla en la variable lst
                 var lst = from d in db.users
-                          where d.id != 1
+                          where d.id != user_id
                           select d;
-                //Luego colocamos los registros que generamos de la base en el DataGridView y lo pasamos a lista para que
-                //sea compatible con el DGV
                 if (lst.Count() > 0)
                 {
                     List<FakeUsers> customL = new List<FakeUsers>();

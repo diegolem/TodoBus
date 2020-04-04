@@ -17,9 +17,12 @@ namespace TodoBus.Views.Units
         UnitController unitController = new UnitController();
         ClientController clientController = new ClientController();
         List<clients> lsClient = new List<clients>();
-        public Unidades()
+
+        users user = new users();
+        public Unidades(users userS)
         {
             InitializeComponent();
+            this.user = userS;
             btnUnits.Enabled = false;
         }
 
@@ -56,21 +59,21 @@ namespace TodoBus.Views.Units
         private void btnClients_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Clientes frmClientes = new Clientes();
+            Clientes frmClientes = new Clientes(user);
             frmClientes.Show();
         }
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            SubCategories frmSub = new SubCategories();
+            SubCategories frmSub = new SubCategories(user);
             frmSub.Show();
         }
 
         private void btnUserConfig_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DatosUsuario frmConfig = new DatosUsuario();
+            DatosUsuario frmConfig = new DatosUsuario(user);
             frmConfig.Show();
         }
 
@@ -82,35 +85,35 @@ namespace TodoBus.Views.Units
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            SubClasses frmSub = new SubClasses();
+            SubClasses frmSub = new SubClasses(user);
             frmSub.Show();
         }
 
         private void btnBrands_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Marca frmM = new Marca();
+            Marca frmM = new Marca(user);
             frmM.Show(); 
         }
 
         private void btnSpare_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Repuestos frmR = new Repuestos();
+            Repuestos frmR = new Repuestos(user);
             frmR.Show();
         }
 
         private void btnSpareTypes_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Category ct = new Category();
+            Category ct = new Category(user);
             ct.Show();
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Usuarios frmU = new Usuarios();
+            Usuarios frmU = new Usuarios(user);
             frmU.Show();
         }
 

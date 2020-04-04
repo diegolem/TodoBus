@@ -24,6 +24,11 @@ namespace TodoBus.Controllers
                     unidad.measure_description = description;
 
                     db.units.Add(unidad);
+
+                    clients client = db.clients.Find(client_id);
+                    client.units_total += total;
+                    db.Entry(client).State = System.Data.Entity.EntityState.Modified;
+
                     db.SaveChanges();
 
                     return true;
@@ -35,7 +40,7 @@ namespace TodoBus.Controllers
             }
         }
 
-        public bool edit(int brand_id, int client_id, string description, int total, units unidad)
+        public bool edit(int brand_id, int client_id, string description, int total, units unidad, int oldTotal)
         {
             using (TodoBusEntities db = new TodoBusEntities())
             {
@@ -47,6 +52,12 @@ namespace TodoBus.Controllers
                     unidad.measure_description = description;
 
                     db.Entry(unidad).State = System.Data.Entity.EntityState.Modified;
+
+                    clients client = db.clients.Find(client_id);
+                    client.units_total -= oldTotal;
+                    client.units_total += total;
+                    db.Entry(client).State = System.Data.Entity.EntityState.Modified;
+
                     db.SaveChanges();
                     return true;
                 }

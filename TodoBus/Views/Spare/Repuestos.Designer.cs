@@ -550,7 +550,6 @@
             this.Options.Name = "Options";
             this.Options.Size = new System.Drawing.Size(200, 688);
             this.Options.TabIndex = 42;
-            this.Options.Paint += new System.Windows.Forms.PaintEventHandler(this.Options_Paint);
             // 
             // header
             // 
@@ -564,7 +563,6 @@
             this.header.Name = "header";
             this.header.Size = new System.Drawing.Size(936, 32);
             this.header.TabIndex = 41;
-            this.header.Paint += new System.Windows.Forms.PaintEventHandler(this.header_Paint);
             // 
             // bunifuImageButton2
             // 
@@ -638,7 +636,6 @@
             this.txtBuscador.Size = new System.Drawing.Size(531, 38);
             this.txtBuscador.TabIndex = 39;
             this.txtBuscador.text = "";
-            this.txtBuscador.OnTextChange += new System.EventHandler(this.txtBuscador_OnTextChange);
             // 
             // btnRegCliente
             // 
@@ -691,7 +688,6 @@
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(111, 30);
             this.bunifuCustomLabel1.TabIndex = 37;
             this.bunifuCustomLabel1.Text = "Repuestos";
-            this.bunifuCustomLabel1.Click += new System.EventHandler(this.bunifuCustomLabel1_Click);
             // 
             // dgvRepuestos
             // 
@@ -725,7 +721,6 @@
             this.dgvRepuestos.Size = new System.Drawing.Size(646, 452);
             this.dgvRepuestos.TabIndex = 36;
             this.dgvRepuestos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRepuestos_CellClick);
-            this.dgvRepuestos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellContentClick);
             // 
             // PanelTransition
             // 

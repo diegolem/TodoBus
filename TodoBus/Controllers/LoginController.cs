@@ -44,5 +44,30 @@ namespace TodoBus.Controllers
                 }
             }
         }
+
+        public users getUser(string pass, string correo)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                try
+                {
+                    var lst = from d in db.users
+                              where d.email == correo
+                              && d.password == pass
+                              select d;
+                    if(lst.Count() > 0){
+                        return lst.First();
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+        }
     }
 }

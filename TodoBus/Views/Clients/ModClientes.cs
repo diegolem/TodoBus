@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TodoBus.Controllers;
 using TodoBus.Models;
@@ -18,6 +12,7 @@ namespace TodoBus.Views.Clients
         ClientController clientController = new ClientController();
         ValidationController valid = new ValidationController();
         clients loadC = new clients();
+
         public ModClientes(int? id)
         {
             this.id = id;
@@ -94,7 +89,6 @@ namespace TodoBus.Views.Clients
                 txtDireccion.Text = loadC.address;
                 mtxtTelefono.Text = loadC.phone;
                 mtxtTelAlternativo.Text = loadC.alternative_phone;
-                //nudUnidades.Value = loadC.units_total;
             }
             else if (loadC != null)
             {
@@ -105,7 +99,6 @@ namespace TodoBus.Views.Clients
                 txtDireccion.Text = loadC.address;
                 mtxtTelefono.Text = loadC.phone;
                 mtxtTelAlternativo.Text = loadC.alternative_phone;
-                //nudUnidades.Value = loadC.units_total;
             }
         }
 

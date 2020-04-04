@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TodoBus.Views.SpareCategoriesSubClasses;
 using TodoBus.Views.SpareCategory;
@@ -19,9 +14,11 @@ namespace TodoBus.Views.Brands
     public partial class Marca : Form
     {
         BrandController brandController = new BrandController();
-        public Marca()
+        users user = new users();
+        public Marca(users userS)
         {
             InitializeComponent();
+            this.user = userS;
             btnBrands.Enabled = false;
         }
 
@@ -62,42 +59,42 @@ namespace TodoBus.Views.Brands
         private void btnUnits_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Unidades frmUnits = new Unidades();
+            Unidades frmUnits = new Unidades(user);
             frmUnits.Show();
         }
 
         private void btnClients_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Clientes frmClientes = new Clientes();
+            Clientes frmClientes = new Clientes(user);
             frmClientes.Show();
         }
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            SubCategories frmSub = new SubCategories();
+            SubCategories frmSub = new SubCategories(user);
             frmSub.Show();
         }
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            SubClasses frmSub = new SubClasses();
+            SubClasses frmSub = new SubClasses(user);
             frmSub.Show();
         }
 
         private void btnUserConfig_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DatosUsuario frmConfig = new DatosUsuario();
+            DatosUsuario frmConfig = new DatosUsuario(user);
             frmConfig.Show();
         }
 
         private void btnSpare_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Repuestos frmR = new Repuestos();
+            Repuestos frmR = new Repuestos(user);
             frmR.Show();
         }
 
@@ -109,7 +106,7 @@ namespace TodoBus.Views.Brands
         private void btnUsers_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Usuarios frmU = new Usuarios();
+            Usuarios frmU = new Usuarios(user);
             frmU.Show();
         }
 
@@ -123,7 +120,7 @@ namespace TodoBus.Views.Brands
         private void btnSpareTypes_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Category ct = new Category();
+            Category ct = new Category(user);
             ct.Show();
         }
 

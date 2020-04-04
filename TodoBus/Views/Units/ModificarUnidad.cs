@@ -18,6 +18,8 @@ namespace TodoBus.Views.Units
         ValidationController valid = new ValidationController();
         UnitController units = new UnitController();
 
+        int oldTotal = 0;
+
         units loadU = new units();
 
         List<int> clientsId = new List<int>();
@@ -53,7 +55,7 @@ namespace TodoBus.Views.Units
             {
                 try
                 {
-                    bool edit = units.edit(brandsId[cmbBrand.SelectedIndex], clientsId[cmbpOwner.SelectedIndex], txtUnitDescription.Text, int.Parse(txtTotal.Text), loadU);
+                    bool edit = units.edit(brandsId[cmbBrand.SelectedIndex], clientsId[cmbpOwner.SelectedIndex], txtUnitDescription.Text, int.Parse(txtTotal.Text), loadU, oldTotal);
                     if (edit)
                     {
                         MessageBox.Show("La Unidad se ha modificado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -119,6 +121,7 @@ namespace TodoBus.Views.Units
                 loadBrands();
 
                 txtTotal.Text = loadU.total.ToString();
+                oldTotal = loadU.total;
                 txtUnitDescription.Text = loadU.measure_description;
 
                 cmbBrand.SelectedItem = units.getBrand(loadU.brand_id).name;

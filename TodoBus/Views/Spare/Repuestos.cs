@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TodoBus.Views.Brands;
 using TodoBus.Views.SpareCategoriesSubClasses;
@@ -22,20 +17,13 @@ namespace TodoBus
     public partial class Repuestos : Form
     {
         SpareController control = new SpareController();
-        public Repuestos()
+
+        users user = new users();
+        public Repuestos(users userS)
         {
             InitializeComponent();
+            this.user = userS;
             btnSpare.Enabled = false;
-        }
-
-        private void bunifuCustomLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void header_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
@@ -44,25 +32,10 @@ namespace TodoBus
             formatTable();
         }
 
-        private void txtBuscador_OnTextChange(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnRegCliente_Click(object sender, EventArgs e)
         {
             RegRepuest frmRegSpare = new RegRepuest();
             frmRegSpare.ShowDialog();
-        }
-
-        private void Options_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         #region Helper
@@ -110,7 +83,7 @@ namespace TodoBus
         private void btnClients_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Clientes frmClientes = new Clientes();
+            Clientes frmClientes = new Clientes(user);
             frmClientes.Show();
         }
 
@@ -133,7 +106,7 @@ namespace TodoBus
         private void btnUsers_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Usuarios frmUsuario = new Usuarios();
+            Usuarios frmUsuario = new Usuarios(user);
             frmUsuario.Show();
         }
 
@@ -158,42 +131,42 @@ namespace TodoBus
         private void btnUnits_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Unidades frmUnits = new Unidades();
+            Unidades frmUnits = new Unidades(user);
             frmUnits.Show();
         }
 
         private void btnBrands_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Marca frmB = new Marca();
+            Marca frmB = new Marca(user);
             frmB.Show();
         }
 
         private void btnSpareTypes_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Category ct = new Category();
+            Category ct = new Category(user);
             ct.Show();
         }
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            SubClasses frmSub = new SubClasses();
+            SubClasses frmSub = new SubClasses(user);
             frmSub.Show();
         }
 
         private void bunifuFlatButton3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            SubCategories frmSub = new SubCategories();
+            SubCategories frmSub = new SubCategories(user);
             frmSub.Show();
         }
 
         private void btnUserConfig_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DatosUsuario frmConfig = new DatosUsuario();
+            DatosUsuario frmConfig = new DatosUsuario(user);
             frmConfig.Show();
         }
 
