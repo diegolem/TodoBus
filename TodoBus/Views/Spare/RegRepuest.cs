@@ -38,6 +38,10 @@ namespace TodoBus
                 {
                     btnRegCliente.Text = "Modificar";
                     btnRegCliente.TextAlign = ContentAlignment.MiddleCenter;
+                    ckModImagen.Visible = true;
+                    ckModImagen.Checked = false;
+                    bunifuImageButton2.Enabled = false;
+
                 }
 
             }
@@ -82,6 +86,10 @@ namespace TodoBus
             try
             {
             string im = "Imagen no insertada";
+                if(ckModImagen.Checked==false)
+                {
+                    im = Dic;
+                }
             if (txtNombre.Text == "")
             {
                 errorProvider1.SetError(btnRegCliente, "No puede dejar campos vacíos");
@@ -366,6 +374,18 @@ namespace TodoBus
         {
             Llenar();
             CargarDatos();
+        }
+
+        private void ckModImagen_CheckedChanged(object sender, EventArgs e)
+        {
+            if(ckModImagen.Checked==true)
+            {
+                bunifuImageButton2.Enabled = true;
+            }
+            if(ckModImagen.Checked == false)
+            {
+                bunifuImageButton2.Enabled = false;
+            }
         }
     }
 }

@@ -48,6 +48,7 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.ckModImagen = new System.Windows.Forms.CheckBox();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
@@ -290,12 +291,27 @@
             this.bunifuCustomLabel6.TabIndex = 85;
             this.bunifuCustomLabel6.Text = "Categoría Repuesto:";
             // 
+            // ckModImagen
+            // 
+            this.ckModImagen.AutoSize = true;
+            this.ckModImagen.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.ckModImagen.ForeColor = System.Drawing.Color.White;
+            this.ckModImagen.Location = new System.Drawing.Point(629, 100);
+            this.ckModImagen.Name = "ckModImagen";
+            this.ckModImagen.Size = new System.Drawing.Size(130, 21);
+            this.ckModImagen.TabIndex = 86;
+            this.ckModImagen.Text = "Modificar Imagen";
+            this.ckModImagen.UseVisualStyleBackColor = true;
+            this.ckModImagen.Visible = false;
+            this.ckModImagen.CheckedChanged += new System.EventHandler(this.ckModImagen_CheckedChanged);
+            // 
             // RegRepuest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.ClientSize = new System.Drawing.Size(932, 556);
+            this.Controls.Add(this.ckModImagen);
             this.Controls.Add(this.bunifuCustomLabel6);
             this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.cmbBrand);
@@ -342,5 +358,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel6;
         private System.Windows.Forms.ComboBox cmbCategory;
+        private System.Windows.Forms.CheckBox ckModImagen;
     }
 }
