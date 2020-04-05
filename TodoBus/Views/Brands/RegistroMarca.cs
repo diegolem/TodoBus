@@ -15,6 +15,7 @@ namespace TodoBus.Views.Brands
     {
         ValidationController valid = new ValidationController();
         BrandController brandController = new BrandController();
+        AlertController alerts = new AlertController();
 
         public RegistroMarca()
         {
@@ -48,21 +49,31 @@ namespace TodoBus.Views.Brands
                 try
                 {
                     //Mando a llamar el metodo de guardar del controller y paso los parametros
-                    bool save = brandController.save(txtName.Text, txtDescription.Text);
-                    if (save)
+                    int save = brandController.save(txtName.Text, txtDescription.Text);
+                    if (save == 1)
                     {
-                        //Limpio los controles
-                        clearFields();
-                        MessageBox.Show("La Marca se ha ingresado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DialogResult result = MessageBox.Show("La marca se ha ingresado exitosamente\n\n¿Quieres registrar otra marca?", "TodoBus", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            clearFields();
+                        }
+                        else
+                        {
+                            this.Close();
+                        }
+                    }else if (save == 2)
+                    {
+                        alerts.errorInSaveChanges("una marca");
                     }
                     else
                     {
-                        MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        alerts.errorInSaveChanges("");
                     }
                 }
                 catch
                 {
-                    MessageBox.Show("Ya existe una marca con estas mismas caracteristicas", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    alerts.errorInSaveChanges("");
                 }
             }
         }

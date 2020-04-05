@@ -17,6 +17,9 @@ namespace TodoBus
     public partial class Repuestos : Form
     {
         SpareController control = new SpareController();
+        BrandController brandController = new BrandController();
+        CategoryController categoryController = new CategoryController();
+        AlertController alerts = new AlertController();
 
         users user = new users();
         public Repuestos(users userS)
@@ -34,8 +37,14 @@ namespace TodoBus
 
         private void btnRegCliente_Click(object sender, EventArgs e)
         {
-            RegRepuest frmRegSpare = new RegRepuest();
-            frmRegSpare.ShowDialog();
+            if (brandController.countBrands() && categoryController.countCategories())
+            {
+                RegRepuest frmRegSpare = new RegRepuest();
+                frmRegSpare.ShowDialog();
+            }
+            else{
+                alerts.errorCountRelationships("un repuesto", "una marca y/o una categoría");
+            }
         }
 
         #region Helper
@@ -89,7 +98,12 @@ namespace TodoBus
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult result = MessageBox.Show("Estas seguro que deseas cerrar la aplicación", "TodoBus", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -247,7 +261,7 @@ namespace TodoBus
                             }
                             else
                             {
-                                MessageBox.Show("Ocurrio un error al eliminar el repuesto", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("No se puede eliminar este repuesto", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
 
                             Refresh();

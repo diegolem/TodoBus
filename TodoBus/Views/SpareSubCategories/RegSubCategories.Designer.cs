@@ -123,7 +123,7 @@
             this.cmbCategory.Location = new System.Drawing.Point(131, 228);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(202, 21);
-            this.cmbCategory.TabIndex = 71;
+            this.cmbCategory.TabIndex = 3;
             this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
             // 
             // bunifuCustomLabel7
@@ -167,7 +167,7 @@
             this.btnReturn.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.btnReturn.selected = false;
             this.btnReturn.Size = new System.Drawing.Size(128, 36);
-            this.btnReturn.TabIndex = 69;
+            this.btnReturn.TabIndex = 5;
             this.btnReturn.Text = "              Cerrar";
             this.btnReturn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReturn.Textcolor = System.Drawing.Color.White;
@@ -180,7 +180,7 @@
             this.btnRegSub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
             this.btnRegSub.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRegSub.BorderRadius = 5;
-            this.btnRegSub.ButtonText = "    Registrar Subcategoría";
+            this.btnRegSub.ButtonText = "       Registrar";
             this.btnRegSub.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegSub.DisabledColor = System.Drawing.Color.Gray;
             this.btnRegSub.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -196,16 +196,16 @@
             this.btnRegSub.IconVisible = false;
             this.btnRegSub.IconZoom = 60D;
             this.btnRegSub.IsTab = false;
-            this.btnRegSub.Location = new System.Drawing.Point(116, 278);
+            this.btnRegSub.Location = new System.Drawing.Point(149, 276);
             this.btnRegSub.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRegSub.Name = "btnRegSub";
             this.btnRegSub.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
             this.btnRegSub.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(130)))), ((int)(((byte)(184)))));
             this.btnRegSub.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.btnRegSub.selected = false;
-            this.btnRegSub.Size = new System.Drawing.Size(167, 36);
-            this.btnRegSub.TabIndex = 68;
-            this.btnRegSub.Text = "    Registrar Subcategoría";
+            this.btnRegSub.Size = new System.Drawing.Size(107, 36);
+            this.btnRegSub.TabIndex = 4;
+            this.btnRegSub.Text = "       Registrar";
             this.btnRegSub.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRegSub.Textcolor = System.Drawing.Color.White;
             this.btnRegSub.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -218,7 +218,7 @@
             this.txtCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(202, 20);
-            this.txtCode.TabIndex = 67;
+            this.txtCode.TabIndex = 1;
             // 
             // txtName
             // 
@@ -227,7 +227,7 @@
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(202, 20);
-            this.txtName.TabIndex = 66;
+            this.txtName.TabIndex = 2;
             // 
             // bunifuCustomLabel3
             // 

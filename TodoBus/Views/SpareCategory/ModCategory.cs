@@ -61,6 +61,7 @@ namespace TodoBus.Views.SpareCategory
                     if (edit)
                     {
                         MessageBox.Show("La categoría se ha modificado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
                     }
                     else
                     {

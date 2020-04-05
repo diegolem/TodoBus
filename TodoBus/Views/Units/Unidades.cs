@@ -16,6 +16,9 @@ namespace TodoBus.Views.Units
     {
         UnitController unitController = new UnitController();
         ClientController clientController = new ClientController();
+        BrandController brandController = new BrandController();
+        AlertController alerts = new AlertController();
+
         List<clients> lsClient = new List<clients>();
 
         users user = new users();
@@ -40,8 +43,14 @@ namespace TodoBus.Views.Units
 
         private void btnNuevaUnidad_Click(object sender, EventArgs e)
         {
-            RegistroUnidad RU = new RegistroUnidad();
-            RU.ShowDialog();
+            if (clientController.countClients() && brandController.countBrands()) {
+                RegistroUnidad RU = new RegistroUnidad();
+                RU.ShowDialog();
+            }
+            else
+            {
+                alerts.errorCountRelationships("una unidad", "un cliente y/o una marca");
+            }
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)
@@ -79,7 +88,12 @@ namespace TodoBus.Views.Units
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult result = MessageBox.Show("Estas seguro que deseas cerrar la aplicación", "TodoBus", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
@@ -217,7 +231,7 @@ namespace TodoBus.Views.Units
                         }
                         else
                         {
-                            MessageBox.Show("Ocurrio un error al eliminar la unidad", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("No se puede eliminar esta unidad", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                         RefreshData();

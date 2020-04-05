@@ -15,6 +15,7 @@ namespace TodoBus.Views.Units
     {
         ValidationController valid = new ValidationController();
         UnitController units = new UnitController();
+        AlertController alerts = new AlertController();
 
         List<int> clientsId = new List<int>();
         List<string> fillClients = new List<string>();
@@ -74,17 +75,25 @@ namespace TodoBus.Views.Units
                     bool save = units.save(brandsId[cmbBrand.SelectedIndex], clientsId[cmbpOwner.SelectedIndex], txtUnitDescription.Text, int.Parse(txtTotal.Text));
                     if (save)
                     {
-                        clearFields();
-                        MessageBox.Show("La Unidad se ha ingresado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DialogResult result = MessageBox.Show("La unidad se ha ingresado exitosamente\n\n¿Quieres registrar otra unidad?", "TodoBus", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            clearFields();
+                        }
+                        else
+                        {
+                            this.Close();
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        alerts.errorInSaveChanges("");
                     }
                 }
                 catch
                 {
-                    MessageBox.Show("La unidad no se pudo registrar", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    alerts.errorInSaveChanges("");
                 }
             }
         }

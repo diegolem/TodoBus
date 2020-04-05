@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TodoBus.Controllers;
 using TodoBus.Models;
@@ -82,6 +76,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
                     if (edit)
                     {
                         MessageBox.Show("La Subcategoria se ha modificado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
                     }
                     else
                     {

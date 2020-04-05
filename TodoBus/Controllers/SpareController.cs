@@ -84,6 +84,24 @@ namespace TodoBus.Controllers
                 }
             }
         }
+
+        public bool countSpares()
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                var lst = from d in db.spare
+                          select d;
+                if (lst.Count() > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
         public List<FakeSpare> getAllSpare()
         {
             using (TodoBusEntities db = new TodoBusEntities())

@@ -120,7 +120,7 @@
             this.txtEmpresa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEmpresa.Name = "txtEmpresa";
             this.txtEmpresa.Size = new System.Drawing.Size(319, 25);
-            this.txtEmpresa.TabIndex = 7;
+            this.txtEmpresa.TabIndex = 1;
             // 
             // txtContacto
             // 
@@ -129,7 +129,7 @@
             this.txtContacto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtContacto.Name = "txtContacto";
             this.txtContacto.Size = new System.Drawing.Size(319, 25);
-            this.txtContacto.TabIndex = 8;
+            this.txtContacto.TabIndex = 2;
             // 
             // mtxtTelefono
             // 
@@ -138,7 +138,7 @@
             this.mtxtTelefono.Mask = "(999)0000-0000";
             this.mtxtTelefono.Name = "mtxtTelefono";
             this.mtxtTelefono.Size = new System.Drawing.Size(206, 25);
-            this.mtxtTelefono.TabIndex = 9;
+            this.mtxtTelefono.TabIndex = 3;
             // 
             // mtxtTelAlternativo
             // 
@@ -147,7 +147,7 @@
             this.mtxtTelAlternativo.Mask = "(999)0000-0000";
             this.mtxtTelAlternativo.Name = "mtxtTelAlternativo";
             this.mtxtTelAlternativo.Size = new System.Drawing.Size(140, 25);
-            this.mtxtTelAlternativo.TabIndex = 10;
+            this.mtxtTelAlternativo.TabIndex = 4;
             // 
             // bunifuCustomLabel6
             // 
@@ -167,7 +167,7 @@
             this.txtDireccion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(622, 25);
-            this.txtDireccion.TabIndex = 12;
+            this.txtDireccion.TabIndex = 7;
             // 
             // btnRegCliente
             // 
@@ -290,7 +290,7 @@
             this.txtCorrAlternativo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCorrAlternativo.Name = "txtCorrAlternativo";
             this.txtCorrAlternativo.Size = new System.Drawing.Size(236, 25);
-            this.txtCorrAlternativo.TabIndex = 37;
+            this.txtCorrAlternativo.TabIndex = 6;
             // 
             // bunifuCustomLabel8
             // 
@@ -310,7 +310,7 @@
             this.txtCorreo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(236, 25);
-            this.txtCorreo.TabIndex = 35;
+            this.txtCorreo.TabIndex = 5;
             // 
             // bunifuCustomLabel7
             // 

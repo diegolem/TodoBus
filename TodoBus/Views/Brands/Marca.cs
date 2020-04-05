@@ -29,7 +29,12 @@ namespace TodoBus.Views.Brands
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult result = MessageBox.Show("Estas seguro que deseas cerrar la aplicación", "TodoBus", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         private void btnNuevaUnidad_Click(object sender, EventArgs e)
@@ -233,7 +238,7 @@ namespace TodoBus.Views.Brands
                         }
                         else
                         {
-                            MessageBox.Show("Ocurrio un error al eliminar la marca", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("No se puede eliminar esta marca", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                         RefreshTable();

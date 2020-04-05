@@ -9,29 +9,35 @@ namespace TodoBus.Controllers
 {
     class BrandController
     {
-        public bool save(string name, string descript)
+        public int save(string name, string descript)
         {
             //Abro conexion solamente cuando ejecute la accion
             using (TodoBusEntities db = new TodoBusEntities())
             {
                 try
                 {
-                    //Defino el nuevo objeto
-                    brands Marca = new brands();
-                    //Luego obtengo todos los valores y los asigno a los campos del nuevo objeto
-                    Marca.name = name;
-                    Marca.description = descript;
+                    var lst = from d in db.brands
+                              where d.name == name
+                              select d;
+                    if(lst.Count() == 0)
+                    {
+                        brands Marca = new brands();
 
-                    //Añado a mi tabla la subcategoria(objeto)
-                    db.brands.Add(Marca);
-                    //Guardo los cambios para confirmar
-                    db.SaveChanges();
-                    //Si todo bien regreso true
-                    return true;
+                        Marca.name = name;
+                        Marca.description = descript;
+
+                        db.brands.Add(Marca);
+                        db.SaveChanges();
+                        return 1;
+                    }
+                    else
+                    {
+                        return 2;
+                    }
                 }
                 catch
                 {
-                    return false;
+                    return 0;
                 }
             }
         }
@@ -83,6 +89,23 @@ namespace TodoBus.Controllers
                 {
                     List<FakeBrands> newBR = new List<FakeBrands>();
                     return newBR;
+                }
+            }
+        }
+
+        public bool countBrands()
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                var lst = from d in db.brands
+                          select d;
+                if(lst.Count() > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
         }

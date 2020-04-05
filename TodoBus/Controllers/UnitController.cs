@@ -15,7 +15,6 @@ namespace TodoBus.Controllers
             {
                 try
                 {
-
                     units unidad = new units();
 
                     unidad.brand_id = brand_id;
@@ -34,6 +33,23 @@ namespace TodoBus.Controllers
                     return true;
                 }
                 catch
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool countUnits()
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                var lst = from d in db.units
+                          select d;
+                if (lst.Count() > 0)
+                {
+                    return true;
+                }
+                else
                 {
                     return false;
                 }

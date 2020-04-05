@@ -10,6 +10,8 @@ namespace TodoBus
     {
         ClientController clientController = new ClientController();
         ValidationController valid = new ValidationController();
+        AlertController alerts = new AlertController();
+
         byte? tipoC;
         users user = new users();
         public RegCliente(users userS)
@@ -96,22 +98,40 @@ namespace TodoBus
                 try
                 {
                     //Mando a llamar el metodo de guardar del controller y paso los parametros
-                    bool save = clientController.save(txtEmpresa.Text, txtContacto.Text, txtCorreo.Text, txtCorrAlternativo.Text, txtDireccion.Text, mtxtTelefono.Text, mtxtTelAlternativo.Text, 0, tipoC, user.id);
-                    if (save)
+                    string empresa = "";
+                    if(tipoC == 1)
                     {
-                        //Limpio los controles
-                        clearFields();
-                        MessageBox.Show("El cliente se ha ingresado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
+                        empresa = txtContacto.Text;
                     }
                     else
                     {
-                        MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        empresa = txtEmpresa.Text;
+                    }
+                    int save = clientController.save(empresa, txtContacto.Text, txtCorreo.Text, txtCorrAlternativo.Text, txtDireccion.Text, mtxtTelefono.Text, mtxtTelAlternativo.Text, 0, tipoC, user.id);
+                    if (save == 1)
+                    {                        
+                        DialogResult result = MessageBox.Show("El cliente se ha ingresado exitosamente\n\n¿Quieres registrar otro cliente?", "TodoBus", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if(result == DialogResult.Yes)
+                        {
+                            clearFields();
+                        }
+                        else
+                        {
+                            this.Close();
+                        }
+                    }else if (save == 2)
+                    {
+                        alerts.errorInSaveChanges("un cliente");
+                    }
+                    else
+                    {
+                        alerts.errorInSaveChanges("");
                     }
                 }
                 catch
                 {
-                    MessageBox.Show("Ya existe un cliente con estas mismas caracteristicas", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    alerts.errorInSaveChanges("");
                 }
             }
         }

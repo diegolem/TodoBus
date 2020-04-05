@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
 using System.Windows.Forms;
 using System.IO;
 using TodoBus.Models;
@@ -56,15 +51,11 @@ namespace TodoBus
             try
             {
                 File.Delete(path);
-                   
             }
             catch
             {
 
             }
-                
-                
-            
         }
         private void bunifuCards1_Paint(object sender, PaintEventArgs e)
         {
@@ -90,9 +81,6 @@ namespace TodoBus
         {
             try
             {
-
-            
-
             string im = "Imagen no insertada";
             if (txtNombre.Text == "")
             {
@@ -100,9 +88,6 @@ namespace TodoBus
             }
             else
             {
-
-
-
                 string Carpeta = Application.StartupPath + @"\Imagenes";
                 if (Directory.Exists(Carpeta))
                 {
@@ -157,7 +142,6 @@ namespace TodoBus
 
                             }
                         }
-
                     }
                     catch
                     {
@@ -209,8 +193,6 @@ namespace TodoBus
                             }
                         }
                     }
-
-
                 }
                 else
                 {
@@ -271,8 +253,6 @@ namespace TodoBus
                     {
                         if (btnRegCliente.Text == "Registrar Repuesto")
                         {
-
-
                             bool save = sc.save(txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], im);
                             if (save)
                             {
@@ -326,11 +306,6 @@ namespace TodoBus
             {
                 MessageBox.Show("Error: "+ex);
             }
-           
-
-            
-           
-        
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)
@@ -350,9 +325,6 @@ namespace TodoBus
                 bunifuImageButton2.Load(url);
 
             }
-
-
-
         }
 
         private void bunifuImageButton2_MouseClick(object sender, MouseEventArgs e)

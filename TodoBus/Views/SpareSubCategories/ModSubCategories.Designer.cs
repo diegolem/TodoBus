@@ -123,7 +123,7 @@
             this.cmbCategory.Location = new System.Drawing.Point(131, 222);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(202, 21);
-            this.cmbCategory.TabIndex = 71;
+            this.cmbCategory.TabIndex = 3;
             // 
             // bunifuCustomLabel7
             // 
@@ -166,7 +166,7 @@
             this.btnReturn.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.btnReturn.selected = false;
             this.btnReturn.Size = new System.Drawing.Size(128, 36);
-            this.btnReturn.TabIndex = 69;
+            this.btnReturn.TabIndex = 5;
             this.btnReturn.Text = "              Cerrar";
             this.btnReturn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReturn.Textcolor = System.Drawing.Color.White;
@@ -203,7 +203,7 @@
             this.btnRegSub.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.btnRegSub.selected = false;
             this.btnRegSub.Size = new System.Drawing.Size(84, 36);
-            this.btnRegSub.TabIndex = 68;
+            this.btnRegSub.TabIndex = 4;
             this.btnRegSub.Text = "    Modificar";
             this.btnRegSub.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRegSub.Textcolor = System.Drawing.Color.White;
@@ -217,7 +217,7 @@
             this.txtCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(202, 20);
-            this.txtCode.TabIndex = 67;
+            this.txtCode.TabIndex = 1;
             // 
             // txtName
             // 
@@ -226,7 +226,7 @@
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(202, 20);
-            this.txtName.TabIndex = 66;
+            this.txtName.TabIndex = 2;
             // 
             // bunifuCustomLabel3
             // 

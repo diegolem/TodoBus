@@ -16,6 +16,9 @@ namespace TodoBus
     public partial class Clientes : Form
     {
         ClientController clientController = new ClientController();
+        UserController userController = new UserController();
+        AlertController alerts = new AlertController();
+
         users user = new users();
         public Clientes(users userS)
         {
@@ -26,8 +29,15 @@ namespace TodoBus
         #region Menu, Salir y Minimizar
         private void btnRegCliente_Click(object sender, EventArgs e)
         {
-            RegCliente reg = new RegCliente(user);
-            reg.ShowDialog();
+            if (userController.countUsers())
+            {
+                RegCliente reg = new RegCliente(user);
+                reg.ShowDialog();
+            }
+            else
+            {
+                alerts.errorCountRelationships("una unidad", "un usuario");
+            }
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)
@@ -88,7 +98,12 @@ namespace TodoBus
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult result = MessageBox.Show("Estas seguro que deseas cerrar la aplicación", "TodoBus", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
@@ -251,7 +266,7 @@ namespace TodoBus
                         }
                         else
                         {
-                            MessageBox.Show("Ocurrio un error al eliminar el cliente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("No se puede eliminar este cliente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                         RefreshData();

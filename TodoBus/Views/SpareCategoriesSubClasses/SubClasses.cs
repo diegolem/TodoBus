@@ -14,6 +14,8 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
     public partial class SubClasses : Form
     {
         SubClassController subClController = new SubClassController();
+        SubCategoryController subCategoryController = new SubCategoryController();
+        AlertController alerts = new AlertController();
 
         users user = new users();
         public SubClasses(users userS)
@@ -30,7 +32,12 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult result = MessageBox.Show("Estas seguro que deseas cerrar la aplicación", "TodoBus", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -53,8 +60,15 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
 
         private void btnRegSubCategoria_Click(object sender, EventArgs e)
         {
-            RegSubClase frmR = new RegSubClase();
-            frmR.ShowDialog();
+            if (subCategoryController.countSubCategories())
+            {
+                RegSubClase frmR = new RegSubClase();
+                frmR.ShowDialog();
+            }
+            else
+            {
+                alerts.errorCountRelationships("una subclase", "una subcategoría");
+            }
         }
 
         private void btnUnits_Click(object sender, EventArgs e)
@@ -229,7 +243,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
                         }
                         else
                         {
-                            MessageBox.Show("Ocurrio un error al eliminar la subclase", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("No se puede eliminar esta subclase", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                         RefreshData();

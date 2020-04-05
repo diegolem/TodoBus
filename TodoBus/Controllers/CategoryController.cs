@@ -1,35 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TodoBus.Models;
 
 namespace TodoBus.Controllers
 {
     class CategoryController
     {
-        public bool save(string code, string name)
+        public int save(string code, string name)
         {
             //Abro conexion solamente cuando ejecute la accion
             using (TodoBusEntities db = new TodoBusEntities())
             {
                 try
                 {
-                    //Defino el nuevo objeto
-                    spare_categories Category = new spare_categories();
-                    //Luego obtengo todos los valores y los asigno a los campos del nuevo objeto
-                    Category.code = code;
-                    Category.name = name;
+                    var lst = from d in db.spare_categories
+                              where d.code == code && d.name == name
+                              select d;
 
-                    //Añado a mi tabla la subcategoria(objeto)
-                    db.spare_categories.Add(Category);
-                    //Guardo los cambios para confirmar
-                    db.SaveChanges();
-                    //Si todo bien regreso true
-                    return true;
+                    if(lst.Count() == 0)
+                    {
+                        spare_categories Category = new spare_categories();
+
+                        Category.code = code;
+                        Category.name = name;
+
+
+                        db.spare_categories.Add(Category);
+                        db.SaveChanges();
+                        return 1;
+                    }
+                    else
+                    {
+                        return 2;
+                    }
                 }
                 catch
+                {
+                    return 0;
+                }
+            }
+        }
+
+        public bool countCategories()
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                var lst = from d in db.spare_categories
+                          select d;
+                if (lst.Count() > 0)
+                {
+                    return true;
+                }
+                else
                 {
                     return false;
                 }

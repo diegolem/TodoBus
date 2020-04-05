@@ -1,38 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TodoBus.Models;
 
 namespace TodoBus.Controllers
 {
     class SubClassController
     {
-        public bool save(string code, string name, int subcategory_id)
+        public int save(string code, string name, int subcategory_id)
         {
-            //Abro conexion solamente cuando ejecute la accion
             using (TodoBusEntities db = new TodoBusEntities())
             {
                 try
                 {
-                    //Defino el nuevo objeto
-                    spare_subclasses Subclase = new spare_subclasses();
-                    //Luego obtengo todos los valores y los asigno a los campos del nuevo objeto
-                    Subclase.code = code;
-                    Subclase.name = name;
-                    Subclase.subcategory_id = subcategory_id;
+                    var lst = from d in db.spare_subclasses
+                              where d.name == name
+                              select d;
+                    if(lst.Count() == 0)
+                    {
+                        spare_subclasses Subclase = new spare_subclasses();
 
-                    //Añado a mi tabla la subcategoria(objeto)
-                    db.spare_subclasses.Add(Subclase);
-                    //Guardo los cambios para confirmar
-                    db.SaveChanges();
-                    //Si todo bien regreso true
-                    return true;
+                        Subclase.code = code;
+                        Subclase.name = name;
+                        Subclase.subcategory_id = subcategory_id;
+
+                        db.spare_subclasses.Add(Subclase);
+                        db.SaveChanges();
+                        return 1;
+                    }
+                    else
+                    {
+                        return 2;
+                    }
                 }
                 catch
                 {
-                    return false;
+                    return 0;
                 }
             }
         }
@@ -53,8 +56,25 @@ namespace TodoBus.Controllers
                 { return false; 
                 }
             }
-
         }
+
+        public bool countSubClasses()
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                var lst = from d in db.spare_subclasses
+                          select d;
+                if (lst.Count() > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
         public List<FakeSubClasses> getAllSubclasses()
         {
             using (TodoBusEntities db = new TodoBusEntities())

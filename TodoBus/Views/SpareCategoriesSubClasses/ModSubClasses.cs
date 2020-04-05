@@ -77,6 +77,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
                     if (edit)
                     {
                         MessageBox.Show("La Subclase se ha modificado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
                     }
                     else
                     {

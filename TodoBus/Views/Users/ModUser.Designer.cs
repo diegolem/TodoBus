@@ -94,7 +94,7 @@
             this.txtlastname.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtlastname.Name = "txtlastname";
             this.txtlastname.Size = new System.Drawing.Size(270, 20);
-            this.txtlastname.TabIndex = 77;
+            this.txtlastname.TabIndex = 2;
             // 
             // bunifuCustomLabel4
             // 
@@ -125,7 +125,7 @@
             this.txtemail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtemail.Name = "txtemail";
             this.txtemail.Size = new System.Drawing.Size(351, 20);
-            this.txtemail.TabIndex = 75;
+            this.txtemail.TabIndex = 3;
             // 
             // bunifuCustomLabel9
             // 
@@ -156,7 +156,7 @@
             this.txtname.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtname.Name = "txtname";
             this.txtname.Size = new System.Drawing.Size(270, 20);
-            this.txtname.TabIndex = 66;
+            this.txtname.TabIndex = 1;
             // 
             // bunifuCustomLabel3
             // 
@@ -227,7 +227,7 @@
             this.PasswordtextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PasswordtextBox.Name = "PasswordtextBox";
             this.PasswordtextBox.Size = new System.Drawing.Size(193, 20);
-            this.PasswordtextBox.TabIndex = 68;
+            this.PasswordtextBox.TabIndex = 5;
             this.PasswordtextBox.UseSystemPasswordChar = true;
             // 
             // btnRegCliente
@@ -260,7 +260,7 @@
             this.btnRegCliente.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.btnRegCliente.selected = false;
             this.btnRegCliente.Size = new System.Drawing.Size(128, 36);
-            this.btnRegCliente.TabIndex = 71;
+            this.btnRegCliente.TabIndex = 6;
             this.btnRegCliente.Text = "   Modificar Usuario";
             this.btnRegCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRegCliente.Textcolor = System.Drawing.Color.White;
@@ -289,7 +289,7 @@
             this.bunifuFlatButton1.IconVisible = false;
             this.bunifuFlatButton1.IconZoom = 60D;
             this.bunifuFlatButton1.IsTab = false;
-            this.bunifuFlatButton1.Location = new System.Drawing.Point(54, 483);
+            this.bunifuFlatButton1.Location = new System.Drawing.Point(56, 433);
             this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bunifuFlatButton1.Name = "bunifuFlatButton1";
             this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
@@ -297,7 +297,7 @@
             this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.bunifuFlatButton1.selected = false;
             this.bunifuFlatButton1.Size = new System.Drawing.Size(128, 36);
-            this.bunifuFlatButton1.TabIndex = 73;
+            this.bunifuFlatButton1.TabIndex = 7;
             this.bunifuFlatButton1.Text = "              Cerrar";
             this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuFlatButton1.Textcolor = System.Drawing.Color.White;
@@ -318,7 +318,7 @@
             0});
             this.numage.Name = "numage";
             this.numage.Size = new System.Drawing.Size(50, 20);
-            this.numage.TabIndex = 80;
+            this.numage.TabIndex = 4;
             this.numage.Value = new decimal(new int[] {
             18,
             0,
@@ -337,7 +337,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.ClientSize = new System.Drawing.Size(932, 556);
+            this.ClientSize = new System.Drawing.Size(932, 493);
             this.Controls.Add(this.numage);
             this.Controls.Add(this.bunifuCustomLabel5);
             this.Controls.Add(this.Checkbox1);

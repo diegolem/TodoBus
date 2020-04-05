@@ -1,14 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TodoBus.Controllers;
-using TodoBus.Models;
 
 namespace TodoBus.Views.SpareCategoriesSubClasses
 {
@@ -16,6 +9,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
     {
         SubCategoryController catec = new SubCategoryController();
         ValidationController valid = new ValidationController();
+        AlertController alerts = new AlertController();
 
         List<int> categoriesId = new List<int>();
         List<string> fillcmb = new List<string>();
@@ -47,21 +41,33 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
                 try
                 {
                     //Mando a llamar el metodo de guardar del controller y paso los parametros
-                    bool save = catec.save(txtName.Text, txtCode.Text, categoriesId[cmbCategory.SelectedIndex]);
-                    if (save)
+                    int save = catec.save(txtName.Text, txtCode.Text, categoriesId[cmbCategory.SelectedIndex]);
+                    if (save == 1)
                     {
                         //Limpio los controles
-                        clearFields();
-                        MessageBox.Show("La Subcategoria se ha ingresado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DialogResult result = MessageBox.Show("La subcategoría se ha ingresado exitosamente\n\n¿Quieres registrar otra subcategoría?", "TodoBus", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            clearFields();
+                        }
+                        else
+                        {
+                            this.Close();
+                        }
+                    }
+                    else if(save == 2)
+                    {
+                        alerts.errorInSaveChanges("una subcategoría");
                     }
                     else
                     {
-                        MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        alerts.errorInSaveChanges("");
                     }
                 }
                 catch
                 {
-                    MessageBox.Show("Ya existe una subcategoria con estas mismas caracteristicas", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    alerts.errorInSaveChanges("");
                 }
             }
         }

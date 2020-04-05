@@ -73,7 +73,7 @@ namespace TodoBus.Views.Clients
         private void ModClientes_Load(object sender, EventArgs e)
         {
             loadC = clientController.getClient(id);
-            if (loadC!= null && loadC.client_type!=0)
+            if (loadC!= null && loadC.client_type != 0)
             {
                 bunifuCustomLabel2.Visible = false;
                 txtEmpresa.Visible = false;
@@ -109,8 +109,16 @@ namespace TodoBus.Views.Clients
             {
                 try
                 {
-                    //Mando a llamar el metodo de guardar del controller y paso los parametros
-                    bool edit = clientController.edit(txtEmpresa.Text, txtContacto.Text, txtCorreo.Text, txtCorrAlternativo.Text, txtDireccion.Text, mtxtTelefono.Text, mtxtTelAlternativo.Text, 0, loadC);
+                    string empresa = "";
+                    if (loadC.client_type == 1)
+                    {
+                        empresa = txtContacto.Text;
+                    }
+                    else
+                    {
+                        empresa = txtEmpresa.Text;
+                    }
+                    bool edit = clientController.edit(empresa, txtContacto.Text, txtCorreo.Text, txtCorrAlternativo.Text, txtDireccion.Text, mtxtTelefono.Text, mtxtTelAlternativo.Text, 0, loadC);
                     if (edit)
                     {
                         MessageBox.Show("El cliente se ha modificado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -126,7 +134,6 @@ namespace TodoBus.Views.Clients
                     MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            
         }
 
         private void LimpiarError()

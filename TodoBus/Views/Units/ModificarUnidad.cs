@@ -59,6 +59,7 @@ namespace TodoBus.Views.Units
                     if (edit)
                     {
                         MessageBox.Show("La Unidad se ha modificado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
                     }
                     else
                     {

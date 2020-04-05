@@ -14,6 +14,8 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
     public partial class SubCategories : Form
     {
         SubCategoryController subController = new SubCategoryController();
+        CategoryController categoryController = new CategoryController();
+        AlertController alerts = new AlertController();
         users user = new users();
 
         public SubCategories(users userS)
@@ -30,13 +32,25 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult result = MessageBox.Show("Estas seguro que deseas cerrar la aplicación", "TodoBus", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         private void btnRegSubCategoria_Click(object sender, EventArgs e)
         {
-            RegSubCategories frmR = new RegSubCategories();
-            frmR.ShowDialog();
+            if (categoryController.countCategories())
+            {
+                RegSubCategories frmR = new RegSubCategories();
+                frmR.ShowDialog();
+            }
+            else
+            {
+                alerts.errorCountRelationships("una subcategoría", "una categoría");
+            }
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)
@@ -234,8 +248,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
                         }
                         else
                         {
-                            MessageBox.Show("Ocurrio un error al eliminar la subcategoria \n" + 
-                                "o esta no puede ser eliminada", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("No se puede eliminar esta subcategoría", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                         Refresh();

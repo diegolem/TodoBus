@@ -10,32 +10,37 @@ namespace TodoBus.Controllers
 {
     class SubCategoryController
     {
-        public bool save(string name, string code, int category_id)
+        public int save(string name, string code, int category_id)
         {
             //Abro conexion solamente cuando ejecute la accion
             using (TodoBusEntities db = new TodoBusEntities())
             {
                 try
                 {
-                    //Defino el nuevo objeto
-                    spare_subcategories subCategory = new spare_subcategories();
-                    //Luego obtengo todos los valores y los asigno a los campos del nuevo objeto
-                    subCategory.name = name;
-                    subCategory.code = code;
-                    //Para el combobox, obtengo del arreglo de categoria el valor, que posea el arreglo en el indice que
-                    //se ha seleccionado en el comboBox menos 1, porque en el combobox se empieza desde 1
-                    subCategory.category_id = category_id;
+                    var lst = from d in db.spare_subcategories
+                              where d.name == name
+                              select d;
 
-                    //Añado a mi tabla la subcategoria(objeto)
-                    db.spare_subcategories.Add(subCategory);
-                    //Guardo los cambios para confirmar
-                    db.SaveChanges();
-                    //Si todo bien regreso true
-                    return true;
+                    if(lst.Count() == 0)
+                    {
+                        spare_subcategories subCategory = new spare_subcategories();
+                        subCategory.name = name;
+                        subCategory.code = code;
+                        subCategory.category_id = category_id;
+
+                        db.spare_subcategories.Add(subCategory);
+                        db.SaveChanges();
+
+                        return 1;
+                    }
+                    else
+                    {
+                        return 2;
+                    }
                 }
                 catch
                 {
-                    return false;
+                    return 0;
                 }
             }
         }
@@ -63,6 +68,23 @@ namespace TodoBus.Controllers
                 }
             }
         }
+        public bool countSubCategories()
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                var lst = from d in db.spare_subcategories
+                          select d;
+                if (lst.Count() > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
 
         public List<FakeSubCategories> getAllSubCategories()
         {

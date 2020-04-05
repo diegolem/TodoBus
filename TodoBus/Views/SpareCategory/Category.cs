@@ -122,7 +122,12 @@ namespace TodoBus.Views.SpareCategory
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult result = MessageBox.Show("Estas seguro que deseas cerrar la aplicación", "TodoBus", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
         private void Categories_Load(object sender, EventArgs e)
         {
@@ -252,7 +257,7 @@ namespace TodoBus.Views.SpareCategory
                         }
                         else
                         {
-                            MessageBox.Show("Ocurrio un error al eliminar el cliente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("No se puede eliminar esta categoría", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                         RefreshData();

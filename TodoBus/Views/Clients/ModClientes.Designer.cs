@@ -105,7 +105,7 @@
             this.txtCorrAlternativo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCorrAlternativo.Name = "txtCorrAlternativo";
             this.txtCorrAlternativo.Size = new System.Drawing.Size(236, 20);
-            this.txtCorrAlternativo.TabIndex = 63;
+            this.txtCorrAlternativo.TabIndex = 6;
             // 
             // bunifuCustomLabel8
             // 
@@ -125,7 +125,7 @@
             this.txtCorreo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(236, 20);
-            this.txtCorreo.TabIndex = 61;
+            this.txtCorreo.TabIndex = 5;
             // 
             // bunifuCustomLabel7
             // 
@@ -168,7 +168,7 @@
             this.btnModCliente.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.btnModCliente.selected = false;
             this.btnModCliente.Size = new System.Drawing.Size(128, 36);
-            this.btnModCliente.TabIndex = 59;
+            this.btnModCliente.TabIndex = 8;
             this.btnModCliente.Text = "    Modificar Cliente";
             this.btnModCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnModCliente.Textcolor = System.Drawing.Color.White;
@@ -182,7 +182,7 @@
             this.txtDireccion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(622, 20);
-            this.txtDireccion.TabIndex = 57;
+            this.txtDireccion.TabIndex = 7;
             // 
             // bunifuCustomLabel6
             // 
@@ -202,7 +202,7 @@
             this.mtxtTelAlternativo.Mask = "(999)0000-0000";
             this.mtxtTelAlternativo.Name = "mtxtTelAlternativo";
             this.mtxtTelAlternativo.Size = new System.Drawing.Size(140, 20);
-            this.mtxtTelAlternativo.TabIndex = 55;
+            this.mtxtTelAlternativo.TabIndex = 4;
             // 
             // mtxtTelefono
             // 
@@ -211,7 +211,7 @@
             this.mtxtTelefono.Mask = "(999)0000-0000";
             this.mtxtTelefono.Name = "mtxtTelefono";
             this.mtxtTelefono.Size = new System.Drawing.Size(206, 20);
-            this.mtxtTelefono.TabIndex = 54;
+            this.mtxtTelefono.TabIndex = 3;
             // 
             // txtContacto
             // 
@@ -220,7 +220,7 @@
             this.txtContacto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtContacto.Name = "txtContacto";
             this.txtContacto.Size = new System.Drawing.Size(319, 20);
-            this.txtContacto.TabIndex = 53;
+            this.txtContacto.TabIndex = 2;
             // 
             // txtEmpresa
             // 
@@ -229,7 +229,7 @@
             this.txtEmpresa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEmpresa.Name = "txtEmpresa";
             this.txtEmpresa.Size = new System.Drawing.Size(319, 20);
-            this.txtEmpresa.TabIndex = 52;
+            this.txtEmpresa.TabIndex = 1;
             // 
             // bunifuCustomLabel5
             // 
@@ -320,7 +320,7 @@
             this.btnVolver.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.btnVolver.selected = false;
             this.btnVolver.Size = new System.Drawing.Size(128, 36);
-            this.btnVolver.TabIndex = 66;
+            this.btnVolver.TabIndex = 9;
             this.btnVolver.Text = "              Cerrar";
             this.btnVolver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVolver.Textcolor = System.Drawing.Color.White;

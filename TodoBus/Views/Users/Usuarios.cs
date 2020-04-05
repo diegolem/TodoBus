@@ -38,7 +38,12 @@ namespace TodoBus
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult result = MessageBox.Show("Estas seguro que deseas cerrar la aplicación", "TodoBus", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -238,7 +243,7 @@ namespace TodoBus
                         }
                         else
                         {
-                            MessageBox.Show("Ocurrio un error al eliminar el Usuario", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("No se puede eliminar este usuario", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                         Refresh();

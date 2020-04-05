@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation5 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DatosUsuario));
+            BunifuAnimatorNS.Animation animation6 = new BunifuAnimatorNS.Animation();
             this.header = new System.Windows.Forms.Panel();
             this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
@@ -632,7 +632,7 @@
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.PasswordChar = '*';
             this.txtNewPassword.Size = new System.Drawing.Size(319, 22);
-            this.txtNewPassword.TabIndex = 40;
+            this.txtNewPassword.TabIndex = 7;
             // 
             // bunifuCustomLabel4
             // 
@@ -654,7 +654,7 @@
             this.Age.Location = new System.Drawing.Point(487, 244);
             this.Age.Name = "Age";
             this.Age.Size = new System.Drawing.Size(95, 22);
-            this.Age.TabIndex = 37;
+            this.Age.TabIndex = 4;
             // 
             // txtMail
             // 
@@ -665,7 +665,7 @@
             this.txtMail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(200, 22);
-            this.txtMail.TabIndex = 36;
+            this.txtMail.TabIndex = 3;
             // 
             // bunifuCustomLabel5
             // 
@@ -689,7 +689,7 @@
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(200, 22);
-            this.txtName.TabIndex = 34;
+            this.txtName.TabIndex = 1;
             // 
             // bunifuCustomLabel6
             // 
@@ -728,7 +728,7 @@
             this.btnRegCliente.IconVisible = false;
             this.btnRegCliente.IconZoom = 60D;
             this.btnRegCliente.IsTab = false;
-            this.btnRegCliente.Location = new System.Drawing.Point(297, 505);
+            this.btnRegCliente.Location = new System.Drawing.Point(300, 486);
             this.btnRegCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRegCliente.Name = "btnRegCliente";
             this.btnRegCliente.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
@@ -736,7 +736,7 @@
             this.btnRegCliente.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.btnRegCliente.selected = false;
             this.btnRegCliente.Size = new System.Drawing.Size(133, 36);
-            this.btnRegCliente.TabIndex = 32;
+            this.btnRegCliente.TabIndex = 5;
             this.btnRegCliente.Text = "Guardar Cambios";
             this.btnRegCliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnRegCliente.Textcolor = System.Drawing.Color.White;
@@ -765,7 +765,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(319, 22);
-            this.txtPassword.TabIndex = 18;
+            this.txtPassword.TabIndex = 6;
             // 
             // bunifuCustomLabel1
             // 
@@ -789,7 +789,7 @@
             this.txtLastName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(200, 22);
-            this.txtLastName.TabIndex = 16;
+            this.txtLastName.TabIndex = 2;
             // 
             // bunifuCustomLabel2
             // 
@@ -812,43 +812,43 @@
             // 
             this.PanelTransition.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
             this.PanelTransition.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 1;
-            animation2.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 2F;
-            animation2.TransparencyCoeff = 0F;
-            this.PanelTransition.DefaultAnimation = animation2;
+            animation5.AnimateOnlyDifferences = true;
+            animation5.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.BlindCoeff")));
+            animation5.LeafCoeff = 0F;
+            animation5.MaxTime = 1F;
+            animation5.MinTime = 0F;
+            animation5.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicCoeff")));
+            animation5.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicShift")));
+            animation5.MosaicSize = 1;
+            animation5.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
+            animation5.RotateCoeff = 0F;
+            animation5.RotateLimit = 0F;
+            animation5.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.ScaleCoeff")));
+            animation5.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.SlideCoeff")));
+            animation5.TimeCoeff = 2F;
+            animation5.TransparencyCoeff = 0F;
+            this.PanelTransition.DefaultAnimation = animation5;
             // 
             // LogoTransition
             // 
             this.LogoTransition.AnimationType = BunifuAnimatorNS.AnimationType.ScaleAndRotate;
             this.LogoTransition.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(30);
-            animation1.RotateCoeff = 0.5F;
-            animation1.RotateLimit = 0.2F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 0F;
-            this.LogoTransition.DefaultAnimation = animation1;
+            animation6.AnimateOnlyDifferences = true;
+            animation6.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.BlindCoeff")));
+            animation6.LeafCoeff = 0F;
+            animation6.MaxTime = 1F;
+            animation6.MinTime = 0F;
+            animation6.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicCoeff")));
+            animation6.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicShift")));
+            animation6.MosaicSize = 0;
+            animation6.Padding = new System.Windows.Forms.Padding(30);
+            animation6.RotateCoeff = 0.5F;
+            animation6.RotateLimit = 0.2F;
+            animation6.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.ScaleCoeff")));
+            animation6.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.SlideCoeff")));
+            animation6.TimeCoeff = 0F;
+            animation6.TransparencyCoeff = 0F;
+            this.LogoTransition.DefaultAnimation = animation6;
             // 
             // bunifuDragControl1
             // 

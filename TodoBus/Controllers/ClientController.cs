@@ -8,37 +8,61 @@ namespace TodoBus.Controllers
 {
     class ClientController
     {
-        public bool save(string nameE, string nameC, string correo, string correoA, string dir,string tel, string telA, int uni, byte? tipo, int user_id)
+        public int save(string nameE, string nameC, string correo, string correoA, string dir,string tel, string telA, int uni, byte? tipo, int user_id)
         {
             //Abro conexion solamente cuando ejecute la accion
             using (TodoBusEntities db = new TodoBusEntities())
             {
                 try
                 {
-                    //Defino el nuevo objeto
-                    clients cliente = new clients();
-                    //Luego obtengo todos los valores y los asigno a los campos del nuevo objeto
-                    cliente.client_name = nameE;
-                    cliente.contact_name = nameC;
-                    cliente.email = correo;
-                    cliente.alternative_email = correoA;
-                    cliente.address = dir;
-                    cliente.phone = tel;
-                    cliente.alternative_phone = telA;
-                    cliente.units_total = uni;
-                    cliente.client_type = tipo;
-                    cliente.user_id = user_id;
+                    var lst = from d in db.clients
+                              where d.client_name == nameE && d.contact_name == nameC
+                              select d;
 
-                    //Añado a mi tabla la subcategoria(objeto)
-                    db.clients.Add(cliente);
-                    //Guardo los cambios para confirmar
-                    db.SaveChanges(); return true;
-                    //Si todo bien regreso true
-                    //return true;
+                    if(lst.Count() == 0)
+                    {
+                        clients cliente = new clients();
+
+                        cliente.client_name = nameE;
+                        cliente.contact_name = nameC;
+                        cliente.email = correo;
+                        cliente.alternative_email = correoA;
+                        cliente.address = dir;
+                        cliente.phone = tel;
+                        cliente.alternative_phone = telA;
+                        cliente.units_total = uni;
+                        cliente.client_type = tipo;
+                        cliente.user_id = user_id;
+
+                        db.clients.Add(cliente);
+                        db.SaveChanges();
+
+                        return 1;
+                    }
+                    else
+                    {
+                        return 2;
+                    }
                 }
                 catch(Exception e)
                 {
-                    MessageBox.Show(e.ToString());
+                    return 0;
+                }
+            }
+        }
+
+        public bool countClients()
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                var lst = from d in db.clients
+                          select d;
+                if (lst.Count() > 0)
+                {
+                    return true;
+                }
+                else
+                {
                     return false;
                 }
             }

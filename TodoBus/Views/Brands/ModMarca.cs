@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TodoBus.Controllers;
 using TodoBus.Models;
@@ -17,6 +10,7 @@ namespace TodoBus.Views.Brands
         public int? id;
         ValidationController valid = new ValidationController();
         BrandController brandController = new BrandController();
+        AlertController alerts = new AlertController();
 
         brands loadB = new brands();
 
@@ -51,15 +45,16 @@ namespace TodoBus.Views.Brands
                     if (edit)
                     {
                         MessageBox.Show("La Marca se ha modificado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Ocurrio un error, revise los datos", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        alerts.errorInSaveChanges("");
                     }
                 }
                 catch
                 {
-                    MessageBox.Show("Ya existe una marca con estas mismas caracteristicas", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    alerts.errorInSaveChanges("");
                 }
             }
         }

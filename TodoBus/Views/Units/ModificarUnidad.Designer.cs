@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModificarUnidad));
             this.Ep1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.body = new System.Windows.Forms.Panel();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             this.btnBack = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnRegUnit = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -47,7 +48,6 @@
             this.btnExit = new Bunifu.Framework.UI.BunifuImageButton();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.txtTotal = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Ep1)).BeginInit();
             this.body.SuspendLayout();
             this.header.SuspendLayout();
@@ -80,6 +80,13 @@
             this.body.Size = new System.Drawing.Size(500, 466);
             this.body.TabIndex = 5;
             // 
+            // txtTotal
+            // 
+            this.txtTotal.Location = new System.Drawing.Point(216, 300);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(111, 22);
+            this.txtTotal.TabIndex = 4;
+            // 
             // btnBack
             // 
             this.btnBack.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
@@ -110,7 +117,7 @@
             this.btnBack.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.btnBack.selected = false;
             this.btnBack.Size = new System.Drawing.Size(128, 36);
-            this.btnBack.TabIndex = 48;
+            this.btnBack.TabIndex = 6;
             this.btnBack.Text = "Cerrar";
             this.btnBack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnBack.Textcolor = System.Drawing.Color.White;
@@ -147,7 +154,7 @@
             this.btnRegUnit.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.btnRegUnit.selected = false;
             this.btnRegUnit.Size = new System.Drawing.Size(128, 36);
-            this.btnRegUnit.TabIndex = 47;
+            this.btnRegUnit.TabIndex = 5;
             this.btnRegUnit.Text = "  Modificar";
             this.btnRegUnit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnRegUnit.Textcolor = System.Drawing.Color.White;
@@ -173,7 +180,7 @@
             this.txtUnitDescription.Multiline = true;
             this.txtUnitDescription.Name = "txtUnitDescription";
             this.txtUnitDescription.Size = new System.Drawing.Size(202, 103);
-            this.txtUnitDescription.TabIndex = 42;
+            this.txtUnitDescription.TabIndex = 3;
             // 
             // bunifuCustomLabel4
             // 
@@ -192,7 +199,7 @@
             this.cmbpOwner.Location = new System.Drawing.Point(213, 121);
             this.cmbpOwner.Name = "cmbpOwner";
             this.cmbpOwner.Size = new System.Drawing.Size(202, 21);
-            this.cmbpOwner.TabIndex = 40;
+            this.cmbpOwner.TabIndex = 2;
             // 
             // bunifuCustomLabel3
             // 
@@ -211,7 +218,7 @@
             this.cmbBrand.Location = new System.Drawing.Point(132, 72);
             this.cmbBrand.Name = "cmbBrand";
             this.cmbBrand.Size = new System.Drawing.Size(202, 21);
-            this.cmbBrand.TabIndex = 38;
+            this.cmbBrand.TabIndex = 1;
             // 
             // bunifuCustomLabel2
             // 
@@ -286,13 +293,6 @@
             // 
             this.bunifuElipse1.ElipseRadius = 5;
             this.bunifuElipse1.TargetControl = this;
-            // 
-            // txtTotal
-            // 
-            this.txtTotal.Location = new System.Drawing.Point(216, 300);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(111, 22);
-            this.txtTotal.TabIndex = 49;
             // 
             // ModificarUnidad
             // 
