@@ -86,7 +86,7 @@ namespace TodoBus
             try
             {
             string im = "Imagen no insertada";
-                if(ckModImagen.Checked==false)
+                if(ckModImagen.Checked==false && ckModImagen.Visible==true)
                 {
                     im = Dic;
                 }
