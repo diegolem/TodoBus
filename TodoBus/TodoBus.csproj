@@ -113,6 +113,18 @@
     <Compile Include="Models\users.cs">
       <DependentUpon>TodoBus.tt</DependentUpon>
     </Compile>
+    <Compile Include="Views\Units\ModRepuesto_Unidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Units\ModRepuesto_Unidad.Designer.cs">
+      <DependentUpon>ModRepuesto_Unidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Units\Repuesto_Unidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Units\Repuesto_Unidades.Designer.cs">
+      <DependentUpon>Repuesto_Unidades.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Users\ModUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +297,12 @@
     <Compile Include="Views\Users\Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\Units\ModRepuesto_Unidad.resx">
+      <DependentUpon>ModRepuesto_Unidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Units\Repuesto_Unidades.resx">
+      <DependentUpon>Repuesto_Unidades.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Users\ModUser.resx">
       <DependentUpon>ModUser.cs</DependentUpon>
     </EmbeddedResource>
