@@ -240,5 +240,12 @@ namespace TodoBus.Views.Units
                 }
             }
         }
+
+        private void btnAssociateSpare_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Repuesto_Unidades repunit = new Repuesto_Unidades(user);
+            repunit.Show();
+        }
     }
 }

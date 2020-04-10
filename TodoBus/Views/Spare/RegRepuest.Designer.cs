@@ -49,6 +49,8 @@
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.ckModImagen = new System.Windows.Forms.CheckBox();
+            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.cmbSubcategory = new System.Windows.Forms.ComboBox();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
@@ -61,7 +63,7 @@
             this.bunifuCustomLabel7.AutoSize = true;
             this.bunifuCustomLabel7.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.bunifuCustomLabel7.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel7.Location = new System.Drawing.Point(67, 180);
+            this.bunifuCustomLabel7.Location = new System.Drawing.Point(67, 286);
             this.bunifuCustomLabel7.Name = "bunifuCustomLabel7";
             this.bunifuCustomLabel7.Size = new System.Drawing.Size(121, 17);
             this.bunifuCustomLabel7.TabIndex = 74;
@@ -73,7 +75,7 @@
             this.btnVolver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
             this.btnVolver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnVolver.BorderRadius = 5;
-            this.btnVolver.ButtonText = "              Volver";
+            this.btnVolver.ButtonText = "              Cerrar";
             this.btnVolver.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVolver.DisabledColor = System.Drawing.Color.Gray;
             this.btnVolver.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -98,7 +100,7 @@
             this.btnVolver.selected = false;
             this.btnVolver.Size = new System.Drawing.Size(128, 36);
             this.btnVolver.TabIndex = 73;
-            this.btnVolver.Text = "              Volver";
+            this.btnVolver.Text = "              Cerrar";
             this.btnVolver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVolver.Textcolor = System.Drawing.Color.White;
             this.btnVolver.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -232,7 +234,7 @@
             this.bunifuCustomLabel4.AutoSize = true;
             this.bunifuCustomLabel4.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel4.Location = new System.Drawing.Point(140, 274);
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(140, 339);
             this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
             this.bunifuCustomLabel4.Size = new System.Drawing.Size(48, 17);
             this.bunifuCustomLabel4.TabIndex = 79;
@@ -253,7 +255,7 @@
             // 
             this.cmbSubclass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSubclass.FormattingEnabled = true;
-            this.cmbSubclass.Location = new System.Drawing.Point(218, 176);
+            this.cmbSubclass.Location = new System.Drawing.Point(218, 282);
             this.cmbSubclass.Name = "cmbSubclass";
             this.cmbSubclass.Size = new System.Drawing.Size(319, 21);
             this.cmbSubclass.TabIndex = 80;
@@ -262,7 +264,7 @@
             // 
             this.cmbBrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBrand.FormattingEnabled = true;
-            this.cmbBrand.Location = new System.Drawing.Point(218, 270);
+            this.cmbBrand.Location = new System.Drawing.Point(218, 335);
             this.cmbBrand.Name = "cmbBrand";
             this.cmbBrand.Size = new System.Drawing.Size(319, 21);
             this.cmbBrand.TabIndex = 81;
@@ -275,17 +277,18 @@
             // 
             this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(218, 220);
+            this.cmbCategory.Location = new System.Drawing.Point(218, 179);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(319, 21);
             this.cmbCategory.TabIndex = 83;
+            this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
             // 
             // bunifuCustomLabel6
             // 
             this.bunifuCustomLabel6.AutoSize = true;
             this.bunifuCustomLabel6.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.bunifuCustomLabel6.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel6.Location = new System.Drawing.Point(61, 224);
+            this.bunifuCustomLabel6.Location = new System.Drawing.Point(67, 183);
             this.bunifuCustomLabel6.Name = "bunifuCustomLabel6";
             this.bunifuCustomLabel6.Size = new System.Drawing.Size(127, 17);
             this.bunifuCustomLabel6.TabIndex = 85;
@@ -305,12 +308,35 @@
             this.ckModImagen.Visible = false;
             this.ckModImagen.CheckedChanged += new System.EventHandler(this.ckModImagen_CheckedChanged);
             // 
+            // bunifuCustomLabel2
+            // 
+            this.bunifuCustomLabel2.AutoSize = true;
+            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.White;
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(39, 233);
+            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(149, 17);
+            this.bunifuCustomLabel2.TabIndex = 88;
+            this.bunifuCustomLabel2.Text = "SubCategoría Repuesto:";
+            // 
+            // cmbSubcategory
+            // 
+            this.cmbSubcategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSubcategory.FormattingEnabled = true;
+            this.cmbSubcategory.Location = new System.Drawing.Point(218, 229);
+            this.cmbSubcategory.Name = "cmbSubcategory";
+            this.cmbSubcategory.Size = new System.Drawing.Size(319, 21);
+            this.cmbSubcategory.TabIndex = 87;
+            this.cmbSubcategory.SelectedIndexChanged += new System.EventHandler(this.cmbSubcategory_SelectedIndexChanged);
+            // 
             // RegRepuest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.ClientSize = new System.Drawing.Size(932, 556);
+            this.Controls.Add(this.bunifuCustomLabel2);
+            this.Controls.Add(this.cmbSubcategory);
             this.Controls.Add(this.ckModImagen);
             this.Controls.Add(this.bunifuCustomLabel6);
             this.Controls.Add(this.cmbCategory);
@@ -359,5 +385,7 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel6;
         private System.Windows.Forms.ComboBox cmbCategory;
         private System.Windows.Forms.CheckBox ckModImagen;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
+        private System.Windows.Forms.ComboBox cmbSubcategory;
     }
 }

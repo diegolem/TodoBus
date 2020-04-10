@@ -220,3 +220,12 @@ CREATE TABLE units_spare(
 	FOREIGN KEY(unit_id) REFERENCES units(id),
 	FOREIGN KEY(spare_id) REFERENCES spare(id)
 );
+
+DROP TABLE IF EXISTS spare_codes;
+CREATE TABLE spare_codes(
+	id INT NOT NULL IDENTITY,
+	code VARCHAR(20) NOT NULL,
+	count_spare INT NOT NULL DEFAULT 0
+
+	PRIMARY KEY(id)
+);

@@ -423,6 +423,7 @@
             this.btnAssociateSpare.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAssociateSpare.Textcolor = System.Drawing.Color.White;
             this.btnAssociateSpare.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAssociateSpare.Click += new System.EventHandler(this.btnAssociateSpare_Click);
             // 
             // btnUserConfig
             // 

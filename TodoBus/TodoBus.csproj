@@ -64,8 +64,10 @@
     <Compile Include="Controllers\BrandController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
+    <Compile Include="Controllers\CodeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SpareController.cs" />
+    <Compile Include="Controllers\SpareUnitController.cs" />
     <Compile Include="Controllers\SubCategoryController.cs" />
     <Compile Include="Controllers\SubClassController.cs" />
     <Compile Include="Controllers\UnitController.cs" />
@@ -77,16 +79,23 @@
     <Compile Include="Models\clients.cs">
       <DependentUpon>TodoBus.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FakeSpareUnit.cs" />
     <Compile Include="Models\spare.cs">
       <DependentUpon>TodoBus.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\spare_categories.cs">
       <DependentUpon>TodoBus.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\spare_codes.cs">
+      <DependentUpon>TodoBus.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\spare_subcategories.cs">
       <DependentUpon>TodoBus.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\spare_subclasses.cs">
+      <DependentUpon>TodoBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>TodoBus.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TodoBus.Context.cs">

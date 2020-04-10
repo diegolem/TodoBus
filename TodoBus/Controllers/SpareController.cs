@@ -12,51 +12,160 @@ namespace TodoBus.Controllers
 {
     class SpareController
     {
-        public bool save(string nombre,int Categoria,int marca,int SubClases ,string imagen)
+        CodeController codeController = new CodeController();
+        public bool save(string nombre,int Categoria,int marca,int SubClases ,string imagen, int subCategoria)
         {
             using(TodoBusEntities db=new TodoBusEntities())
             {
                 try
                 {
-                    string codSubClass;                   
-                    string codCategory;
+                    string codSubClass = "";                   
+                    string codCategory = "";
+                    string codsubCate = "";
                     string codigo;
+
+                    spare oSpare = new spare();
                     spare_subclasses osubcla = new spare_subclasses();
                     spare_subcategories osubcat = new spare_subcategories();
                     spare_categories oCate = new spare_categories();
-                    
-                    spare oSpare = new spare();
-                    osubcla = db.spare_subclasses.Find(SubClases);
-                    codSubClass = osubcla.code;                   
+
                     oCate = db.spare_categories.Find(Categoria);
                     codCategory = oCate.code;
-                    string cadena = codCategory + codSubClass;
 
-                    var lst1 = from d in db.spare
-                               select d;
+                    osubcat = db.spare_subcategories.Find(subCategoria);
+                    if (osubcat != null)
+                    {
+                        codsubCate = osubcat.code;
+                    }
 
-                    lst1=lst1.Where(d => d.code.Contains(cadena));
-                    int numero= lst1.Count()+1;
-                    codigo = cadena + numero.ToString();
-                    oSpare.code = codigo;
-                    oSpare.name = nombre;
-                    oSpare.spare_type_id = Categoria;
-                    oSpare.brand_id = marca;
-                    oSpare.image = imagen;
+                    osubcla = db.spare_subclasses.Find(SubClases);
+                    if(osubcla != null)
+                    {
+                        codSubClass = osubcla.code;
+                    }
 
-                    db.spare.Add(oSpare);
-                    db.SaveChanges();
-                    return true;
+                    string cadena = codCategory + codsubCate + codSubClass;
+
+                    int numero = codeController.findSpareCode(codCategory + "-" + codsubCate + "-" + codSubClass);
+
+                    if (numero > 0)
+                    {
+                        codigo = cadena + this.complementaryCode(numero);
+
+                        oSpare.code = codigo;
+                        oSpare.name = nombre;
+                        oSpare.spare_type_id = Categoria;
+                        oSpare.brand_id = marca;
+                        oSpare.image = imagen;
+
+                        db.spare.Add(oSpare);
+                        db.SaveChanges();
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
                 catch
                 {
                     return false;
                 }
-                
             }
-            
         }
-        public void llenarCMB(ref List<int> typeid, ref List<int> brandid,ref List<int> subclase, ref List<string> fillcmb1, ref List<string> fillcmb2, ref List<string> fillcmb3)
+
+        public string complementaryCode(int numero)
+        {
+            string cadena = "";
+            if (numero > 0 && numero <= 9)
+            {
+                cadena = "000" + numero.ToString();
+            } else if (numero >= 10 && numero <= 99)
+            {
+                cadena = "00" + numero.ToString();
+            } else if (numero >= 100 && numero <= 999)
+            {
+                cadena = "0" + numero.ToString();
+            } else if (numero >= 1000 && numero <= 9999) {
+                cadena = numero.ToString();
+            }
+            return cadena;
+        }
+
+        public bool Modificar(int? id, string codigoAnterior, string nombre, int Categoria, int marca, int SubClases, string imagen, int Subcategoria)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                try
+                {
+                    string codSubClass = "";
+                    string codCategory = "";
+                    string codsubCate = "";                    
+                    spare fnd = db.spare.Find(id);
+
+                    spare_subclasses osubcla = new spare_subclasses();
+                    spare_subcategories osubcat = new spare_subcategories();
+                    spare_categories oCate = new spare_categories();
+
+                    oCate = db.spare_categories.Find(Categoria);
+                    codCategory = oCate.code;
+
+                    osubcat = db.spare_subcategories.Find(Subcategoria);
+                    if (osubcat != null)
+                    {
+                        codsubCate = osubcat.code;
+                    }
+
+                    osubcla = db.spare_subclasses.Find(SubClases);
+                    if (osubcla != null)
+                    {
+                        codSubClass = osubcla.code;
+                    }
+                    //Probable nuevo codigo
+                    string nuevoCodigo = codCategory + codsubCate + codSubClass;
+
+                    int longitudCodigo = codigoAnterior.Length - 4;
+
+                    string codigoAlfanumerico = codigoAnterior.Substring(0, longitudCodigo);
+
+                    if (nuevoCodigo != codigoAlfanumerico)
+                    {
+                        int numero = codeController.findSpareCode(codCategory + "-" + codsubCate + "-" + codSubClass);
+                        if (numero > 0)
+                        {
+                            fnd.code = nuevoCodigo + this.complementaryCode(numero);
+                            fnd.name = nombre;
+                            fnd.spare_type_id = Categoria;
+                            fnd.brand_id = marca;
+                            fnd.image = imagen;
+
+                            db.Entry(fnd).State = System.Data.Entity.EntityState.Modified;
+                            db.SaveChanges();
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else{
+                        fnd.name = nombre;
+                        fnd.spare_type_id = Categoria;
+                        fnd.brand_id = marca;
+                        fnd.image = imagen;
+
+                        db.Entry(fnd).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+        }
+        public void llenarCMB(ref List<int> typeid, ref List<int> brandid, ref List<string> fillcmb1, ref List<string> fillcmb2)
         {
             using (TodoBusEntities db = new TodoBusEntities())
             {             
@@ -64,8 +173,7 @@ namespace TodoBus.Controllers
                            select d;               
                 foreach (var category in lst1)
                 {
-                    fillcmb1.Add(category.name);
-                   
+                    fillcmb1.Add("Código: " + category.code + " - " + category.name);
                     typeid.Add(category.id);
                 }
                 var lst2 = from d in db.brands
@@ -75,12 +183,51 @@ namespace TodoBus.Controllers
                     fillcmb2.Add(Brand.name);                    
                     brandid.Add(Brand.id);
                 }
-                var lst3 = from d in db.spare_subclasses
+            }
+        }
+
+        public void llenarCmbSubcategories(ref List<int> subcategoriesId, ref List<string> subcategoriesCmb, int category_id)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                var lst = from d in db.spare_subcategories
+                           where d.category_id == category_id
                            select d;
-                foreach(var cla in lst3)
+                if(lst.Count() > 0)
                 {
-                    fillcmb3.Add(cla.name);
-                    subclase.Add(cla.id);
+                    foreach (var Subcategory in lst)
+                    {
+                        subcategoriesId.Add(Subcategory.id);
+                        subcategoriesCmb.Add("Código: " + Subcategory.code + " - " + Subcategory.name);
+                    }
+                }
+                else
+                {
+                    subcategoriesId.Add(-1);
+                    subcategoriesCmb.Add("No hay subcategorías asociadas");
+                }
+            }
+        }
+
+        public void llenarCmbSubclasses(ref List<int> subclassesId, ref List<string> subclassesCmb, int subcategory_id)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                var lst = from d in db.spare_subclasses
+                          where d.subcategory_id == subcategory_id
+                          select d;
+                if(lst.Count() > 0)
+                {
+                    foreach (var Subclasses in lst)
+                    {
+                        subclassesId.Add(Subclasses.id);
+                        subclassesCmb.Add("Código: " + Subclasses.code + " - " + Subclasses.name);
+                    }
+                }
+                else
+                {
+                    subclassesId.Add(-1);
+                    subclassesCmb.Add("No hay subclases asociadas");
                 }
             }
         }
@@ -173,8 +320,6 @@ namespace TodoBus.Controllers
                     brands br = db.brands.Find(brand);
                     spare_categories sc = db.spare_categories.Find(type);
 
-
-                    
                     nombre.Text = fnd.name;
                     tipo.SelectedItem = sc.name;
                     marca.SelectedItem = br.name;
@@ -187,8 +332,6 @@ namespace TodoBus.Controllers
                     {
                         
                     }
-                    
-
                     return true;
                  }
                 catch
@@ -197,56 +340,6 @@ namespace TodoBus.Controllers
                 }
             }
             
-        }
-        public bool Modificar(int? id,string codigo, string nombre, int Categoria, int marca, int SubClases, string imagen, spare sp)
-        {
-            using(TodoBusEntities db=new TodoBusEntities())
-            {
-                try
-                {
-                    
-                    string codSubClass;
-                    string codCategory;
-                    string codi;
-                    spare fnd = db.spare.Find(id);
-                    spare_subclasses osubcla = new spare_subclasses();
-                    spare_subcategories osubcat = new spare_subcategories();
-                    spare_categories oCate = new spare_categories();
-
-                    spare oSpare = new spare();
-                    osubcla = db.spare_subclasses.Find(SubClases);
-                    codSubClass = osubcla.code;
-                    oCate = db.spare_categories.Find(Categoria);
-                    codCategory = oCate.code;
-                    string cadena = codCategory + codSubClass;
-
-                    var lst1 = from d in db.spare
-                               select d;
-                    int cantidad = cadena.Length;
-                    codi = fnd.code;
-                    
-                    string verificar = codigo.Substring(0, cantidad);
-                    if (verificar != codi)
-                    {
-                        fnd.code = codigo;
-                    }
-                    fnd.spare_type_id = Categoria;
-                    fnd.brand_id = marca;
-                    fnd.image = imagen;
-                    fnd.name = nombre;
-                        db.Entry(fnd).State = System.Data.Entity.EntityState.Modified;
-                        db.SaveChanges();
-                        return true;
-
-                    
-                    
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show("Error:" + ex);
-                    return false;
-                }
-            }
         }
         public void Busqueda(DataGridView data,string dato)
         {

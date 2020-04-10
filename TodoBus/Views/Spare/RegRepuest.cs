@@ -17,6 +17,10 @@ namespace TodoBus
         List<string> fillcmb1 = new List<string>();
         List<string> fillcmb2 = new List<string>();
         List<string> fillcmb3 = new List<string>();
+
+        List<int> Subcategory = new List<int>();
+        List<string> fillSubcategories = new List<string>();
+
         spare LoadSpare = new spare();
         
         public string Dic;
@@ -41,9 +45,7 @@ namespace TodoBus
                     ckModImagen.Visible = true;
                     ckModImagen.Checked = false;
                     bunifuImageButton2.Enabled = false;
-
                 }
-
             }
         }
         public static void DeleteFile(string path)
@@ -85,6 +87,19 @@ namespace TodoBus
         {
             try
             {
+                int idSubcategoria = -1;
+                int idSubclase = -1;
+
+                if (fillSubcategories[0] != "No hay subcategorías asociadas")
+                {
+                    idSubcategoria = Subcategory[cmbSubcategory.SelectedIndex];
+                }
+
+                if(fillcmb3[0] != "No hay subclases asociadas")
+                {
+                    idSubclase = Subclase[cmbSubclass.SelectedIndex];
+                }
+
             string im = "Imagen no insertada";
                 if(ckModImagen.Checked==false && ckModImagen.Visible==true)
                 {
@@ -108,7 +123,7 @@ namespace TodoBus
                         bunifuImageButton2.Image.Save(url);
                         if (btnRegCliente.Text == "Registrar Repuesto")
                         {
-                            bool save = sc.save(txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], url);
+                            bool save = sc.save(txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], idSubclase, url, idSubcategoria);
                             if (save)
                             {
                                 Limpiar();
@@ -123,7 +138,7 @@ namespace TodoBus
                         {
                             if (Dic == im)
                             {
-                                bool edit = sc.Modificar(id, codi, txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], url, LoadSpare);
+                                bool edit = sc.Modificar(id, codi, txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], idSubclase, url, idSubcategoria);
                                 if (edit)
                                 {
                                     Limpiar();
@@ -137,7 +152,7 @@ namespace TodoBus
                             else
                             {
                                 DeleteFile(Dic);
-                                bool edit = sc.Modificar(id, codi, txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], url, LoadSpare);
+                                bool edit = sc.Modificar(id, codi, txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], idSubclase, url, idSubcategoria);
                                 if (edit)
                                 {
                                     Limpiar();
@@ -157,7 +172,7 @@ namespace TodoBus
                         {
 
 
-                            bool save = sc.save(txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], im);
+                            bool save = sc.save(txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], idSubclase, im, idSubcategoria);
                             if (save)
                             {
                                 Limpiar();
@@ -172,7 +187,7 @@ namespace TodoBus
                         {
                             if (Dic == im)
                             {
-                                bool edit = sc.Modificar(id, codi, txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], im, LoadSpare);
+                                bool edit = sc.Modificar(id, codi, txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], idSubclase, im, idSubcategoria);
                                 if (edit)
                                 {
                                     Limpiar();
@@ -186,7 +201,7 @@ namespace TodoBus
                             else
                             {
                                 DeleteFile(Dic);
-                                bool edit = sc.Modificar(id, codi, txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], im, LoadSpare);
+                                bool edit = sc.Modificar(id, codi, txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], idSubclase, im, idSubcategoria);
                                 if (edit)
                                 {
                                     Limpiar();
@@ -214,7 +229,7 @@ namespace TodoBus
                         bunifuImageButton2.Image.Save(url);
                         if (btnRegCliente.Text == "Registrar Repuesto")
                         {
-                            bool save = sc.save(txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], url);
+                            bool save = sc.save(txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], idSubclase, url, idSubcategoria);
                             if (save)
                             {
                                 Limpiar();
@@ -229,7 +244,7 @@ namespace TodoBus
                         {
                             if (Dic == im)
                             {
-                                bool edit = sc.Modificar(id, codi, txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], url, LoadSpare);
+                                bool edit = sc.Modificar(id, codi, txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], idSubclase, url, idSubcategoria);
                                 if (edit)
                                 {
                                     Limpiar();
@@ -243,7 +258,7 @@ namespace TodoBus
                             else
                             {
                                 DeleteFile(Dic);
-                                bool edit = sc.Modificar(id, codi, txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], url, LoadSpare);
+                                bool edit = sc.Modificar(id, codi, txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], idSubclase, url, idSubcategoria);
                                 if (edit)
                                 {
                                     Limpiar();
@@ -261,7 +276,7 @@ namespace TodoBus
                     {
                         if (btnRegCliente.Text == "Registrar Repuesto")
                         {
-                            bool save = sc.save(txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], im);
+                            bool save = sc.save(txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], idSubclase, im, idSubcategoria);
                             if (save)
                             {
                                 Limpiar();
@@ -276,7 +291,7 @@ namespace TodoBus
                         {
                             if (Dic == im)
                             {
-                                bool edit = sc.Modificar(id,codi, txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], im, LoadSpare);
+                                bool edit = sc.Modificar(id,codi, txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], idSubclase, im, idSubcategoria);
                                 if (edit)
                                 {
                                     Limpiar();
@@ -291,7 +306,7 @@ namespace TodoBus
                             {
                                 DeleteFile(Dic);
                                 {
-                                    bool edit = sc.Modificar(id, codi, txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], Subclase[cmbSubclass.SelectedIndex], im, LoadSpare);
+                                    bool edit = sc.Modificar(id, codi, txtNombre.Text, typeid[cmbCategory.SelectedIndex], brandid[cmbBrand.SelectedIndex], idSubclase, im, idSubcategoria);
                                     if (edit)
                                     {
                                         Limpiar();
@@ -307,7 +322,6 @@ namespace TodoBus
                     }
 
                 }
-
             }
         }
             catch(Exception ex)
@@ -355,18 +369,40 @@ namespace TodoBus
         {
             typeid.Clear();
             brandid.Clear();
-            Subclase.Clear();
             fillcmb1.Clear();
             fillcmb2.Clear();
-            fillcmb3.Clear();
             
 
-            sc.llenarCMB(ref typeid, ref brandid,ref Subclase, ref fillcmb1, ref fillcmb2,ref fillcmb3);
+            sc.llenarCMB(ref typeid, ref brandid, ref fillcmb1, ref fillcmb2);
+
             cmbCategory.DataSource = fillcmb1;
             cmbBrand.DataSource = fillcmb2;
+        }
+
+        public void LlenarSubCategory(int id)
+        {
+            Subcategory.Clear();
+            fillSubcategories.Clear();
+
+            Subclase.Clear();
+            fillcmb3.Clear();
+
+            cmbSubcategory.DataSource = null;
+            cmbSubclass.DataSource = null;
+
+            sc.llenarCmbSubcategories(ref Subcategory, ref fillSubcategories, id);
+            cmbSubcategory.DataSource = fillSubcategories;
+        }
+
+        public void LlenarSubClass(int id)
+        {
+            Subclase.Clear();
+            fillcmb3.Clear();
+
+            cmbSubclass.DataSource = null;
+
+            sc.llenarCmbSubclasses(ref Subclase, ref fillcmb3, id);
             cmbSubclass.DataSource = fillcmb3;
-
-
         }
         #endregion
 
@@ -385,6 +421,22 @@ namespace TodoBus
             if(ckModImagen.Checked == false)
             {
                 bunifuImageButton2.Enabled = false;
+            }
+        }
+
+        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbCategory.DataSource != null)
+            {
+                LlenarSubCategory(typeid[cmbCategory.SelectedIndex]);
+            }
+        }
+
+        private void cmbSubcategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbSubcategory.DataSource != null)
+            {
+                LlenarSubClass(Subcategory[cmbSubcategory.SelectedIndex]);
             }
         }
     }
