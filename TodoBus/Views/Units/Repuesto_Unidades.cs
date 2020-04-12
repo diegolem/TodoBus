@@ -99,12 +99,6 @@ namespace TodoBus.Views.Units
             frmConfig.Show();
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            RefreshData();
-            formatTable();
-        }
-
         private void btnMenu_Click(object sender, EventArgs e)
         {
             if (Options.Width == 50)
