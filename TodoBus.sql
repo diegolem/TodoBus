@@ -203,10 +203,21 @@ CREATE TABLE units(
 	id int NOT NULL IDENTITY,
 	measure_description varchar(255) null,
 	total int NOT NULL CHECK(total > 0),
+	diseño_pintura varchar(100) null,
+	año int null,
+	modelo varchar(150),
+	numero_FC varchar (17) null, /*numero de fabricacion de carroceria*/
+	numero_FCH varchar (17) null, /*numero de fabricacion de chasis*/
+	marca_carroceria int NOT NULL,
+	marca_chasis int NOT NULL,
+	marca_motor int NOT NULL,
 	brand_id int NOT NULL,
 	client_id int NOT NULL,
 	PRIMARY KEY(id),
 	FOREIGN KEY (brand_id) REFERENCES brands(id),
+	FOREIGN KEY (marca_carroceria) REFERENCES brands(id),
+	FOREIGN KEY (marca_chasis) REFERENCES brands(id),
+	FOREIGN KEY (marca_motor) REFERENCES brands(id),
 	FOREIGN KEY (client_id) REFERENCES clients(id)
 );
 
