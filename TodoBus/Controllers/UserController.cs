@@ -179,6 +179,49 @@ namespace TodoBus.Controllers
                 }
             }
         }
-        
+
+        public void Busqueda(DataGridView data, string dato)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+
+                var lst = from d in db.users
+                          select d;
+                lst = lst.Where(d => d.name.Contains(dato));
+
+                if (lst.Count() > 0)
+                {
+                    List<FakeUsers> customL = new List<FakeUsers>();
+                    foreach (var user in lst)
+                    {
+                        FakeUsers UsersF = new FakeUsers();
+                        UsersF.Id = user.id;
+                        UsersF.Nombre = user.name;
+                        UsersF.Apellido = user.last_name;
+                        UsersF.Email = user.email;
+                        UsersF.Edad = user.age;
+                        customL.Add(UsersF);
+                        if (data.DataSource != null)
+                        {
+
+                            data.Columns.Clear();
+                        }
+                        data.DataSource = null;
+
+
+                        data.DataSource = customL;
+
+                    }
+                }
+                else
+                {
+                    List<FakeUsers> newSC = new List<FakeUsers>();
+                    data.DataSource = newSC;
+                }
+
+
+            }
+        }
+
     }
 }

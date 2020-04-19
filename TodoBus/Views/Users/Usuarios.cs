@@ -259,5 +259,11 @@ namespace TodoBus
             Repuesto_Unidades repunit = new Repuesto_Unidades(user);
             repunit.Show();
         }
+
+        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        {
+            userController.Busqueda(dgvUsuarios, txtBuscador.text);
+            formatTable();
+        }
     }
 }
