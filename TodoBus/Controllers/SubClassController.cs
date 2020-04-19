@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using TodoBus.Models;
+using System.Windows.Forms;
 
 namespace TodoBus.Controllers
 {
@@ -16,7 +17,7 @@ namespace TodoBus.Controllers
                     var lst = from d in db.spare_subclasses
                               where d.name == name
                               select d;
-                    if(lst.Count() == 0)
+                    if (lst.Count() == 0)
                     {
                         spare_subclasses Subclase = new spare_subclasses();
 
@@ -53,7 +54,8 @@ namespace TodoBus.Controllers
                     return true;
                 }
                 catch
-                { return false; 
+                {
+                    return false;
                 }
             }
         }
@@ -143,7 +145,7 @@ namespace TodoBus.Controllers
                 }
             }
         }
-       
+
         public spare_subcategories getSubCategory(int? id)
         {
             using (TodoBusEntities db = new TodoBusEntities())
@@ -172,6 +174,49 @@ namespace TodoBus.Controllers
                     fillcmb.Add(Subcategory.name);
                     SubcategoryId.Add(Subcategory.id);
                 }
+            }
+        }
+
+        public void Busqueda(DataGridView data, string dato)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+
+                var lst = from d in db.spare_subclasses
+                          join c in db.spare_subcategories on d.subcategory_id equals c.id
+                          select d;
+                lst = lst.Where(d => d.code.Contains(dato));
+
+                if (lst.Count() > 0)
+                {
+                    List<FakeSubClasses> customL = new List<FakeSubClasses>();
+                    foreach (var subclass in lst)
+                    {
+                        FakeSubClasses ClassF = new FakeSubClasses();
+                        ClassF.Id = subclass.id;
+                        ClassF.Codigo = subclass.code;
+                        ClassF.Nombre = subclass.name;
+                        ClassF.NombreSubCategoria = subclass.spare_subcategories.name;
+                        customL.Add(ClassF);
+                        if (data.DataSource != null) 
+                        {
+
+                            data.Columns.Clear();
+                        }
+                        data.DataSource = null;
+
+
+                        data.DataSource = customL;
+
+                    }
+                }
+                else
+                {
+                    List<FakeSubClasses> newSC = new List<FakeSubClasses>();
+                    data.DataSource = newSC;
+                }
+
+
             }
         }
     }
