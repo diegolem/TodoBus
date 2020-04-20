@@ -32,7 +32,6 @@ namespace TodoBus.Models
         public virtual DbSet<spare_codes> spare_codes { get; set; }
         public virtual DbSet<spare_subcategories> spare_subcategories { get; set; }
         public virtual DbSet<spare_subclasses> spare_subclasses { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<units> units { get; set; }
         public virtual DbSet<units_spare> units_spare { get; set; }
         public virtual DbSet<users> users { get; set; }

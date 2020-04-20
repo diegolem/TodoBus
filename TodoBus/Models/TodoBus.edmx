@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TodoBus.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="TodoBusModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="brands">
           <Key>
             <PropertyRef Name="id" />
@@ -35,6 +35,7 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="description" Type="text" />
           <Property Name="image" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="code" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="brand_id" Type="int" />
@@ -74,16 +75,6 @@
           <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="subcategory_id" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="units">
           <Key>
             <PropertyRef Name="id" />
@@ -91,6 +82,14 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="measure_description" Type="varchar" MaxLength="255" />
           <Property Name="total" Type="int" Nullable="false" />
+          <Property Name="diseño_pintura" Type="varchar" MaxLength="100" />
+          <Property Name="año" Type="int" />
+          <Property Name="modelo" Type="varchar" MaxLength="150" />
+          <Property Name="numero_FC" Type="varchar" MaxLength="17" />
+          <Property Name="numero_FCH" Type="varchar" MaxLength="17" />
+          <Property Name="marca_carroceria" Type="int" Nullable="false" />
+          <Property Name="marca_chasis" Type="int" Nullable="false" />
+          <Property Name="marca_motor" Type="int" Nullable="false" />
           <Property Name="brand_id" Type="int" Nullable="false" />
           <Property Name="client_id" Type="int" Nullable="false" />
         </EntityType>
@@ -185,7 +184,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__units__client_id__5165187F">
+        <Association Name="FK__units__client_id__5441852A">
           <End Role="clients" Type="Self.clients" Multiplicity="1" />
           <End Role="units" Type="Self.units" Multiplicity="*" />
           <ReferentialConstraint>
@@ -197,7 +196,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__units_spa__spare__5535A963">
+        <Association Name="FK__units__marca_car__5165187F">
+          <End Role="brands" Type="Self.brands" Multiplicity="1" />
+          <End Role="units" Type="Self.units" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="brands">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="units">
+              <PropertyRef Name="marca_carroceria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__units__marca_cha__52593CB8">
+          <End Role="brands" Type="Self.brands" Multiplicity="1" />
+          <End Role="units" Type="Self.units" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="brands">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="units">
+              <PropertyRef Name="marca_chasis" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__units__marca_mot__534D60F1">
+          <End Role="brands" Type="Self.brands" Multiplicity="1" />
+          <End Role="units" Type="Self.units" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="brands">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="units">
+              <PropertyRef Name="marca_motor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__units_spa__spare__5812160E">
           <End Role="spare" Type="Self.spare" Multiplicity="1" />
           <End Role="units_spare" Type="Self.units_spare" Multiplicity="*" />
           <ReferentialConstraint>
@@ -209,7 +244,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__units_spa__unit___5441852A">
+        <Association Name="FK__units_spa__unit___571DF1D5">
           <End Role="units" Type="Self.units" Multiplicity="1" />
           <End Role="units_spare" Type="Self.units_spare" Multiplicity="*" />
           <ReferentialConstraint>
@@ -221,7 +256,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TodoBusStoreContainer">
+        <EntityContainer Name="TodoBusModelStoreContainer">
           <EntitySet Name="brands" EntityType="Self.brands" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="clients" EntityType="Self.clients" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="spare" EntityType="Self.spare" Schema="dbo" store:Type="Tables" />
@@ -229,7 +264,6 @@
           <EntitySet Name="spare_codes" EntityType="Self.spare_codes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="spare_subcategories" EntityType="Self.spare_subcategories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="spare_subclasses" EntityType="Self.spare_subclasses" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="units" EntityType="Self.units" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="units_spare" EntityType="Self.units_spare" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
@@ -257,15 +291,27 @@
             <End Role="brands" EntitySet="brands" />
             <End Role="units" EntitySet="units" />
           </AssociationSet>
-          <AssociationSet Name="FK__units__client_id__5165187F" Association="Self.FK__units__client_id__5165187F">
+          <AssociationSet Name="FK__units__client_id__5441852A" Association="Self.FK__units__client_id__5441852A">
             <End Role="clients" EntitySet="clients" />
             <End Role="units" EntitySet="units" />
           </AssociationSet>
-          <AssociationSet Name="FK__units_spa__spare__5535A963" Association="Self.FK__units_spa__spare__5535A963">
+          <AssociationSet Name="FK__units__marca_car__5165187F" Association="Self.FK__units__marca_car__5165187F">
+            <End Role="brands" EntitySet="brands" />
+            <End Role="units" EntitySet="units" />
+          </AssociationSet>
+          <AssociationSet Name="FK__units__marca_cha__52593CB8" Association="Self.FK__units__marca_cha__52593CB8">
+            <End Role="brands" EntitySet="brands" />
+            <End Role="units" EntitySet="units" />
+          </AssociationSet>
+          <AssociationSet Name="FK__units__marca_mot__534D60F1" Association="Self.FK__units__marca_mot__534D60F1">
+            <End Role="brands" EntitySet="brands" />
+            <End Role="units" EntitySet="units" />
+          </AssociationSet>
+          <AssociationSet Name="FK__units_spa__spare__5812160E" Association="Self.FK__units_spa__spare__5812160E">
             <End Role="spare" EntitySet="spare" />
             <End Role="units_spare" EntitySet="units_spare" />
           </AssociationSet>
-          <AssociationSet Name="FK__units_spa__unit___5441852A" Association="Self.FK__units_spa__unit___5441852A">
+          <AssociationSet Name="FK__units_spa__unit___571DF1D5" Association="Self.FK__units_spa__unit___571DF1D5">
             <End Role="units" EntitySet="units" />
             <End Role="units_spare" EntitySet="units_spare" />
           </AssociationSet>
@@ -274,7 +320,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="TodoBus" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="TodoBusModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="brands">
           <Key>
             <PropertyRef Name="id" />
@@ -284,6 +330,9 @@
           <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="spare" Relationship="Self.FK__spare__brand_id__4CA06362" FromRole="brands" ToRole="spare" />
           <NavigationProperty Name="units" Relationship="Self.FK__units__brand_id__5070F446" FromRole="brands" ToRole="units" />
+          <NavigationProperty Name="units1" Relationship="Self.FK__units__marca_car__5165187F" FromRole="brands" ToRole="units" />
+          <NavigationProperty Name="units2" Relationship="Self.FK__units__marca_cha__52593CB8" FromRole="brands" ToRole="units" />
+          <NavigationProperty Name="units3" Relationship="Self.FK__units__marca_mot__534D60F1" FromRole="brands" ToRole="units" />
         </EntityType>
         <EntityType Name="clients">
           <Key>
@@ -301,7 +350,7 @@
           <Property Name="units_total" Type="Int32" Nullable="false" />
           <Property Name="user_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="users" Relationship="Self.FK__clients__user_id__3D5E1FD2" FromRole="clients" ToRole="users" />
-          <NavigationProperty Name="units" Relationship="Self.FK__units__client_id__5165187F" FromRole="clients" ToRole="units" />
+          <NavigationProperty Name="units" Relationship="Self.FK__units__client_id__5441852A" FromRole="clients" ToRole="units" />
         </EntityType>
         <EntityType Name="spare">
           <Key>
@@ -309,13 +358,14 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="code" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="brand_id" Type="Int32" />
           <Property Name="spare_type_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="brands" Relationship="Self.FK__spare__brand_id__4CA06362" FromRole="spare" ToRole="brands" />
           <NavigationProperty Name="spare_categories" Relationship="Self.FK__spare__spare_typ__4BAC3F29" FromRole="spare" ToRole="spare_categories" />
-          <NavigationProperty Name="units_spare" Relationship="Self.FK__units_spa__spare__5535A963" FromRole="spare" ToRole="units_spare" />
+          <NavigationProperty Name="units_spare" Relationship="Self.FK__units_spa__spare__5812160E" FromRole="spare" ToRole="units_spare" />
         </EntityType>
         <EntityType Name="spare_categories">
           <Key>
@@ -356,16 +406,6 @@
           <Property Name="subcategory_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="spare_subcategories" Relationship="Self.FK__spare_sub__subca__48CFD27E" FromRole="spare_subclasses" ToRole="spare_subcategories" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="units">
           <Key>
             <PropertyRef Name="id" />
@@ -373,11 +413,22 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="measure_description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="total" Type="Int32" Nullable="false" />
+          <Property Name="diseño_pintura" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="año" Type="Int32" />
+          <Property Name="modelo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="numero_FC" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
+          <Property Name="numero_FCH" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
+          <Property Name="marca_carroceria" Type="Int32" Nullable="false" />
+          <Property Name="marca_chasis" Type="Int32" Nullable="false" />
+          <Property Name="marca_motor" Type="Int32" Nullable="false" />
           <Property Name="brand_id" Type="Int32" Nullable="false" />
           <Property Name="client_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="brands" Relationship="Self.FK__units__brand_id__5070F446" FromRole="units" ToRole="brands" />
-          <NavigationProperty Name="clients" Relationship="Self.FK__units__client_id__5165187F" FromRole="units" ToRole="clients" />
-          <NavigationProperty Name="units_spare" Relationship="Self.FK__units_spa__unit___5441852A" FromRole="units" ToRole="units_spare" />
+          <NavigationProperty Name="brands_bodywork" Relationship="Self.FK__units__marca_car__5165187F" FromRole="units" ToRole="brands" />
+          <NavigationProperty Name="brands_chassis" Relationship="Self.FK__units__marca_cha__52593CB8" FromRole="units" ToRole="brands" />
+          <NavigationProperty Name="brands_motor" Relationship="Self.FK__units__marca_mot__534D60F1" FromRole="units" ToRole="brands" />
+          <NavigationProperty Name="clients" Relationship="Self.FK__units__client_id__5441852A" FromRole="units" ToRole="clients" />
+          <NavigationProperty Name="units_spare" Relationship="Self.FK__units_spa__unit___571DF1D5" FromRole="units" ToRole="units_spare" />
         </EntityType>
         <EntityType Name="units_spare">
           <Key>
@@ -386,8 +437,8 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="unit_id" Type="Int32" Nullable="false" />
           <Property Name="spare_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="spare" Relationship="Self.FK__units_spa__spare__5535A963" FromRole="units_spare" ToRole="spare" />
-          <NavigationProperty Name="units" Relationship="Self.FK__units_spa__unit___5441852A" FromRole="units_spare" ToRole="units" />
+          <NavigationProperty Name="spare" Relationship="Self.FK__units_spa__spare__5812160E" FromRole="units_spare" ToRole="spare" />
+          <NavigationProperty Name="units" Relationship="Self.FK__units_spa__unit___571DF1D5" FromRole="units_spare" ToRole="units" />
         </EntityType>
         <EntityType Name="users">
           <Key>
@@ -425,6 +476,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__units__marca_car__5165187F">
+          <End Role="brands" Type="Self.brands" Multiplicity="1" />
+          <End Role="units" Type="Self.units" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="brands">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="units">
+              <PropertyRef Name="marca_carroceria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__units__marca_cha__52593CB8">
+          <End Role="brands" Type="Self.brands" Multiplicity="1" />
+          <End Role="units" Type="Self.units" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="brands">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="units">
+              <PropertyRef Name="marca_chasis" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__units__marca_mot__534D60F1">
+          <End Role="brands" Type="Self.brands" Multiplicity="1" />
+          <End Role="units" Type="Self.units" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="brands">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="units">
+              <PropertyRef Name="marca_motor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__clients__user_id__3D5E1FD2">
           <End Role="users" Type="Self.users" Multiplicity="1" />
           <End Role="clients" Type="Self.clients" Multiplicity="*" />
@@ -437,7 +524,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__units__client_id__5165187F">
+        <Association Name="FK__units__client_id__5441852A">
           <End Role="clients" Type="Self.clients" Multiplicity="1" />
           <End Role="units" Type="Self.units" Multiplicity="*" />
           <ReferentialConstraint>
@@ -461,7 +548,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__units_spa__spare__5535A963">
+        <Association Name="FK__units_spa__spare__5812160E">
           <End Role="spare" Type="Self.spare" Multiplicity="1" />
           <End Role="units_spare" Type="Self.units_spare" Multiplicity="*" />
           <ReferentialConstraint>
@@ -497,7 +584,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__units_spa__unit___5441852A">
+        <Association Name="FK__units_spa__unit___571DF1D5">
           <End Role="units" Type="Self.units" Multiplicity="1" />
           <End Role="units_spare" Type="Self.units_spare" Multiplicity="*" />
           <ReferentialConstraint>
@@ -517,7 +604,6 @@
           <EntitySet Name="spare_codes" EntityType="Self.spare_codes" />
           <EntitySet Name="spare_subcategories" EntityType="Self.spare_subcategories" />
           <EntitySet Name="spare_subclasses" EntityType="Self.spare_subclasses" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="units" EntityType="Self.units" />
           <EntitySet Name="units_spare" EntityType="Self.units_spare" />
           <EntitySet Name="users" EntityType="Self.users" />
@@ -529,11 +615,23 @@
             <End Role="brands" EntitySet="brands" />
             <End Role="units" EntitySet="units" />
           </AssociationSet>
+          <AssociationSet Name="FK__units__marca_car__5165187F" Association="Self.FK__units__marca_car__5165187F">
+            <End Role="brands" EntitySet="brands" />
+            <End Role="units" EntitySet="units" />
+          </AssociationSet>
+          <AssociationSet Name="FK__units__marca_cha__52593CB8" Association="Self.FK__units__marca_cha__52593CB8">
+            <End Role="brands" EntitySet="brands" />
+            <End Role="units" EntitySet="units" />
+          </AssociationSet>
+          <AssociationSet Name="FK__units__marca_mot__534D60F1" Association="Self.FK__units__marca_mot__534D60F1">
+            <End Role="brands" EntitySet="brands" />
+            <End Role="units" EntitySet="units" />
+          </AssociationSet>
           <AssociationSet Name="FK__clients__user_id__3D5E1FD2" Association="Self.FK__clients__user_id__3D5E1FD2">
             <End Role="users" EntitySet="users" />
             <End Role="clients" EntitySet="clients" />
           </AssociationSet>
-          <AssociationSet Name="FK__units__client_id__5165187F" Association="Self.FK__units__client_id__5165187F">
+          <AssociationSet Name="FK__units__client_id__5441852A" Association="Self.FK__units__client_id__5441852A">
             <End Role="clients" EntitySet="clients" />
             <End Role="units" EntitySet="units" />
           </AssociationSet>
@@ -541,7 +639,7 @@
             <End Role="spare_categories" EntitySet="spare_categories" />
             <End Role="spare" EntitySet="spare" />
           </AssociationSet>
-          <AssociationSet Name="FK__units_spa__spare__5535A963" Association="Self.FK__units_spa__spare__5535A963">
+          <AssociationSet Name="FK__units_spa__spare__5812160E" Association="Self.FK__units_spa__spare__5812160E">
             <End Role="spare" EntitySet="spare" />
             <End Role="units_spare" EntitySet="units_spare" />
           </AssociationSet>
@@ -553,7 +651,7 @@
             <End Role="spare_subcategories" EntitySet="spare_subcategories" />
             <End Role="spare_subclasses" EntitySet="spare_subclasses" />
           </AssociationSet>
-          <AssociationSet Name="FK__units_spa__unit___5441852A" Association="Self.FK__units_spa__unit___5441852A">
+          <AssociationSet Name="FK__units_spa__unit___571DF1D5" Association="Self.FK__units_spa__unit___571DF1D5">
             <End Role="units" EntitySet="units" />
             <End Role="units_spare" EntitySet="units_spare" />
           </AssociationSet>
@@ -563,9 +661,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TodoBusStoreContainer" CdmEntityContainer="TodoBusEntities">
+        <EntityContainerMapping StorageEntityContainer="TodoBusModelStoreContainer" CdmEntityContainer="TodoBusEntities">
           <EntitySetMapping Name="brands">
-            <EntityTypeMapping TypeName="TodoBus.brands">
+            <EntityTypeMapping TypeName="TodoBusModel.brands">
               <MappingFragment StoreEntitySet="brands">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -574,7 +672,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="clients">
-            <EntityTypeMapping TypeName="TodoBus.clients">
+            <EntityTypeMapping TypeName="TodoBusModel.clients">
               <MappingFragment StoreEntitySet="clients">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="client_name" ColumnName="client_name" />
@@ -591,10 +689,11 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="spare">
-            <EntityTypeMapping TypeName="TodoBus.spare">
+            <EntityTypeMapping TypeName="TodoBusModel.spare">
               <MappingFragment StoreEntitySet="spare">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
                 <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="code" ColumnName="code" />
                 <ScalarProperty Name="brand_id" ColumnName="brand_id" />
@@ -603,7 +702,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="spare_categories">
-            <EntityTypeMapping TypeName="TodoBus.spare_categories">
+            <EntityTypeMapping TypeName="TodoBusModel.spare_categories">
               <MappingFragment StoreEntitySet="spare_categories">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="code" ColumnName="code" />
@@ -612,7 +711,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="spare_codes">
-            <EntityTypeMapping TypeName="TodoBus.spare_codes">
+            <EntityTypeMapping TypeName="TodoBusModel.spare_codes">
               <MappingFragment StoreEntitySet="spare_codes">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="code" ColumnName="code" />
@@ -621,7 +720,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="spare_subcategories">
-            <EntityTypeMapping TypeName="TodoBus.spare_subcategories">
+            <EntityTypeMapping TypeName="TodoBusModel.spare_subcategories">
               <MappingFragment StoreEntitySet="spare_subcategories">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="code" ColumnName="code" />
@@ -631,7 +730,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="spare_subclasses">
-            <EntityTypeMapping TypeName="TodoBus.spare_subclasses">
+            <EntityTypeMapping TypeName="TodoBusModel.spare_subclasses">
               <MappingFragment StoreEntitySet="spare_subclasses">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="code" ColumnName="code" />
@@ -640,30 +739,27 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="TodoBus.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="units">
-            <EntityTypeMapping TypeName="TodoBus.units">
+            <EntityTypeMapping TypeName="TodoBusModel.units">
               <MappingFragment StoreEntitySet="units">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="measure_description" ColumnName="measure_description" />
                 <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="diseño_pintura" ColumnName="diseño_pintura" />
+                <ScalarProperty Name="año" ColumnName="año" />
+                <ScalarProperty Name="modelo" ColumnName="modelo" />
+                <ScalarProperty Name="numero_FC" ColumnName="numero_FC" />
+                <ScalarProperty Name="numero_FCH" ColumnName="numero_FCH" />
+                <ScalarProperty Name="marca_carroceria" ColumnName="marca_carroceria" />
+                <ScalarProperty Name="marca_chasis" ColumnName="marca_chasis" />
+                <ScalarProperty Name="marca_motor" ColumnName="marca_motor" />
                 <ScalarProperty Name="brand_id" ColumnName="brand_id" />
                 <ScalarProperty Name="client_id" ColumnName="client_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="units_spare">
-            <EntityTypeMapping TypeName="TodoBus.units_spare">
+            <EntityTypeMapping TypeName="TodoBusModel.units_spare">
               <MappingFragment StoreEntitySet="units_spare">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="unit_id" ColumnName="unit_id" />
@@ -672,7 +768,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="users">
-            <EntityTypeMapping TypeName="TodoBus.users">
+            <EntityTypeMapping TypeName="TodoBusModel.users">
               <MappingFragment StoreEntitySet="users">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />

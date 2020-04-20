@@ -51,7 +51,7 @@ namespace TodoBus.Controllers
                             return 2;
                         }
                     }
-                    catch(Exception ex)
+                    catch
                     {
                         return 0;
                     }

@@ -9,7 +9,8 @@ namespace TodoBus.Controllers
 {
     class UnitController
     {
-        public bool save(int brand_id, int client_id, string description, int total)
+
+        public bool save(int brand_id, int client_id, string description, int total,string painting_design,string model, int anio, string num_fc, string num_fch,int brand_bodywork_id, int brand_chassis_id, int brand_motor_id)
         {
             using (TodoBusEntities db = new TodoBusEntities())
             {
@@ -17,10 +18,18 @@ namespace TodoBus.Controllers
                 {
                     units unidad = new units();
 
+                    unidad.measure_description = description;
+                    unidad.total = total;
+                    unidad.diseño_pintura = painting_design;
+                    unidad.año = anio;
+                    unidad.modelo = model;
+                    unidad.numero_FC = num_fc;
+                    unidad.numero_FCH = num_fch;
+                    unidad.marca_carroceria = brand_bodywork_id;
+                    unidad.marca_chasis = brand_chassis_id;
+                    unidad.marca_motor = brand_motor_id;
                     unidad.brand_id = brand_id;
                     unidad.client_id = client_id;
-                    unidad.total = total;
-                    unidad.measure_description = description;
 
                     db.units.Add(unidad);
 
@@ -56,16 +65,24 @@ namespace TodoBus.Controllers
             }
         }
 
-        public bool edit(int brand_id, int client_id, string description, int total, units unidad, int oldTotal)
+        public bool edit(int brand_id, int client_id, string description, int total, units unidad, int oldTotal, string painting_design, string model, int anio, string num_fc, string num_fch, int brand_bodywork_id, int brand_chassis_id, int brand_motor_id)
         {
             using (TodoBusEntities db = new TodoBusEntities())
             {
                 try
                 {
+                    unidad.measure_description = description;
+                    unidad.total = total;
+                    unidad.diseño_pintura = painting_design;
+                    unidad.año = anio;
+                    unidad.modelo = model;
+                    unidad.numero_FC = num_fc;
+                    unidad.numero_FCH = num_fch;
+                    unidad.marca_carroceria = brand_bodywork_id;
+                    unidad.marca_chasis = brand_chassis_id;
+                    unidad.marca_motor = brand_motor_id;
                     unidad.brand_id = brand_id;
                     unidad.client_id = client_id;
-                    unidad.total = total;
-                    unidad.measure_description = description;
 
                     db.Entry(unidad).State = System.Data.Entity.EntityState.Modified;
 
@@ -120,7 +137,7 @@ namespace TodoBus.Controllers
             }
         }
 
-        public void getBrands(ref List<int> brandsId, ref List<string> fillcmb)
+        public void getBrands(ref List<int> brandsId, ref List<string> fillcmb, ref List<string> fillcmb1, ref List<string> fillcmb2, ref List<string> fillcmb3)
         {
             using(TodoBusEntities db = new TodoBusEntities())
             {
@@ -129,6 +146,9 @@ namespace TodoBus.Controllers
                 foreach (var brand in lst)
                 {
                     fillcmb.Add(brand.name);
+                    fillcmb1.Add(brand.name);
+                    fillcmb2.Add(brand.name);
+                    fillcmb3.Add(brand.name);
                     brandsId.Add(brand.id);
                 }
             }
@@ -198,11 +218,21 @@ namespace TodoBus.Controllers
                     foreach (var unit in lst)
                     {
                         FakeUnits unitF = new FakeUnits();
+
                         unitF.Id = unit.id;
-                        unitF.Medidas = unit.measure_description;
-                        unitF.Totalunidades = unit.total;
-                        unitF.Brandname = unit.brands.name;
-                        unitF.Clientname = unit.clients.client_name;
+                        unitF.Total_unidades = unit.total;
+                        unitF.Marca_unidad = unit.brands.name;
+                        unitF.Nombre_cliente = unit.clients.client_name;
+                        unitF.Descripcion = (unit.measure_description.Length > 0 ? unit.measure_description : "No especificada");
+                        unitF.Disenio_pintura = (unit.diseño_pintura.Length > 0 ? unit.diseño_pintura : "No especificado");
+                        unitF.Anio = (int)unit.año;
+                        unitF.Modelo = (unit.modelo.Length > 0 ? unit.modelo : "No especificado");
+                        unitF.Numero_fabricacion_carroceria = (unit.numero_FC.Length > 0 ? unit.numero_FC : "No especificado");
+                        unitF.Numero_fabricacion_chasis = (unit.numero_FCH.Length > 0 ? unit.numero_FCH : "No especificado");
+                        unitF.Marca_carroceria = unit.brands_bodywork.name;
+                        unitF.Marca_chasis = unit.brands_chassis.name;
+                        unitF.Marca_motor = unit.brands_motor.name;
+
                         customL.Add(unitF);
                     }
                     return customL;

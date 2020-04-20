@@ -95,9 +95,6 @@
     <Compile Include="Models\spare_subclasses.cs">
       <DependentUpon>TodoBus.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>TodoBus.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\TodoBus.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

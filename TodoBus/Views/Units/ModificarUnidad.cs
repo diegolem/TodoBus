@@ -27,6 +27,9 @@ namespace TodoBus.Views.Units
 
         List<int> brandsId = new List<int>();
         List<string> fillBrands = new List<string>();
+        List<string> fillBrandsBodywork = new List<string>();
+        List<string> fillBrandsChassis = new List<string>();
+        List<string> fillBrandsMotor = new List<string>();
 
         public ModificarUnidad(int? id)
         {
@@ -55,7 +58,7 @@ namespace TodoBus.Views.Units
             {
                 try
                 {
-                    bool edit = units.edit(brandsId[cmbBrand.SelectedIndex], clientsId[cmbpOwner.SelectedIndex], txtUnitDescription.Text, int.Parse(txtTotal.Text), loadU, oldTotal);
+                    bool edit = units.edit(brandsId[cmbBrand.SelectedIndex], clientsId[cmbpOwner.SelectedIndex], txtUnitDescription.Text, int.Parse(txtTotal.Text), loadU, oldTotal, txtPaintingDesign.Text.Trim(), txtModel.Text.Trim(), int.Parse(txtYear.Text), txtNumBodywork.Text.Trim(), txtNumChassis.Text.Trim(), brandsId[cmbBrandBodywork.SelectedIndex], brandsId[cmbBrandChassis.SelectedIndex], brandsId[cmbBrandMotor.SelectedIndex]);
                     if (edit)
                     {
                         MessageBox.Show("La Unidad se ha modificado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -87,14 +90,22 @@ namespace TodoBus.Views.Units
             brandsId.Clear();
             fillBrands.Clear();
 
-            units.getBrands(ref brandsId, ref fillBrands);
+            units.getBrands(ref brandsId, ref fillBrands, ref fillBrandsBodywork, ref fillBrandsChassis, ref fillBrandsMotor);
             cmbBrand.DataSource = fillBrands;
+            cmbBrandBodywork.DataSource = fillBrandsBodywork;
+            cmbBrandChassis.DataSource = fillBrandsChassis;
+            cmbBrandMotor.DataSource = fillBrandsMotor;
         }
 
         private void clearFields()
         {
             txtUnitDescription.Text = "";
             txtTotal.Text = "";
+            txtNumBodywork.Text = "";
+            txtNumChassis.Text = "";
+            txtPaintingDesign.Text = "";
+            txtModel.Text = "";
+            txtYear.Text = "";
         }
 
         private bool validateFields()
@@ -110,6 +121,15 @@ namespace TodoBus.Views.Units
                 Ep1.SetError(txtTotal, "Porfavor ingrese un número válido");
                 return false;
             }
+
+            if (txtYear.Text.Trim().Length > 0)
+            {
+                if (!(valid.isValidYear(txtYear.Text)))
+                {
+                    Ep1.SetError(txtYear, "Ingrese un año válido, el año mínimo es 1990");
+                    return false;
+                }
+            }
             return true;
         }
 
@@ -124,8 +144,17 @@ namespace TodoBus.Views.Units
                 txtTotal.Text = loadU.total.ToString();
                 oldTotal = loadU.total;
                 txtUnitDescription.Text = loadU.measure_description;
+                txtPaintingDesign.Text = loadU.diseño_pintura;
+                txtYear.Text = loadU.año.ToString();
+                txtNumBodywork.Text = loadU.numero_FC;
+                txtNumChassis.Text = loadU.numero_FCH;
+                txtModel.Text = loadU.modelo;
+
 
                 cmbBrand.SelectedItem = units.getBrand(loadU.brand_id).name;
+                cmbBrandBodywork.SelectedItem = units.getBrand(loadU.marca_carroceria).name;
+                cmbBrandChassis.SelectedItem = units.getBrand(loadU.marca_chasis).name;
+                cmbBrandMotor.SelectedItem = units.getBrand(loadU.marca_motor).name;
                 cmbpOwner.SelectedItem = units.getClient(loadU.client_id).client_name;
             }
         }

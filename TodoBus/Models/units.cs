@@ -23,10 +23,21 @@ namespace TodoBus.Models
         public int id { get; set; }
         public string measure_description { get; set; }
         public int total { get; set; }
+        public string diseño_pintura { get; set; }
+        public Nullable<int> año { get; set; }
+        public string modelo { get; set; }
+        public string numero_FC { get; set; }
+        public string numero_FCH { get; set; }
+        public int marca_carroceria { get; set; }
+        public int marca_chasis { get; set; }
+        public int marca_motor { get; set; }
         public int brand_id { get; set; }
         public int client_id { get; set; }
     
         public virtual brands brands { get; set; }
+        public virtual brands brands_bodywork { get; set; }
+        public virtual brands brands_chassis { get; set; }
+        public virtual brands brands_motor { get; set; }
         public virtual clients clients { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<units_spare> units_spare { get; set; }

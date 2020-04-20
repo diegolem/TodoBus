@@ -19,6 +19,9 @@ namespace TodoBus.Models
         {
             this.spare = new HashSet<spare>();
             this.units = new HashSet<units>();
+            this.units1 = new HashSet<units>();
+            this.units2 = new HashSet<units>();
+            this.units3 = new HashSet<units>();
         }
     
         public int id { get; set; }
@@ -29,5 +32,11 @@ namespace TodoBus.Models
         public virtual ICollection<spare> spare { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<units> units { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<units> units1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<units> units2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<units> units3 { get; set; }
     }
 }

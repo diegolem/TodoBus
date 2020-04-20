@@ -72,6 +72,27 @@ namespace TodoBus.Controllers
             }
         }
 
+        public bool isValidYear(string chain)
+        {
+            if (this.isPositiveNumber(chain))
+            {
+                int year = int.Parse(chain);
+
+                if(year >= 1990)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public bool isEmail(string chain)
         {
             if (string.IsNullOrWhiteSpace(chain))

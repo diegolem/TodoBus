@@ -166,17 +166,29 @@ namespace TodoBus.Views.Units
                 dgvSpareUnit.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dgvSpareUnit.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dgvSpareUnit.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvSpareUnit.Columns[7].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvSpareUnit.Columns[8].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvSpareUnit.Columns[9].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvSpareUnit.Columns[10].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvSpareUnit.Columns[11].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvSpareUnit.Columns[12].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                 dgvSpareUnit.Columns[0].HeaderText = "Id";
                 dgvSpareUnit.Columns[0].Width = 30;
-                dgvSpareUnit.Columns[1].HeaderText = "Medidas";
-                dgvSpareUnit.Columns[1].Width = 150;
-                dgvSpareUnit.Columns[2].HeaderText = "Total de unidades";
-                dgvSpareUnit.Columns[2].Width = 75;
-                dgvSpareUnit.Columns[3].HeaderText = "Marca";
-                dgvSpareUnit.Columns[4].HeaderText = "Cliente";
-                dgvSpareUnit.Columns[5].Width = 125;
-                dgvSpareUnit.Columns[6].Width = 125;
+                dgvSpareUnit.Columns[1].HeaderText = "Total de unidades";
+                dgvSpareUnit.Columns[1].Width = 75;
+                dgvSpareUnit.Columns[2].HeaderText = "Marca unidad";
+                dgvSpareUnit.Columns[3].HeaderText = "Cliente";
+                dgvSpareUnit.Columns[4].HeaderText = "Descripción";
+                dgvSpareUnit.Columns[4].Width = 150;
+                dgvSpareUnit.Columns[5].HeaderText = "Diseño pintura";
+                dgvSpareUnit.Columns[6].HeaderText = "Año unidad";
+                dgvSpareUnit.Columns[7].HeaderText = "Modelo unidad";
+                dgvSpareUnit.Columns[8].HeaderText = "Número fabricación carrocería";
+                dgvSpareUnit.Columns[9].HeaderText = "Número fabricación chasis";
+                dgvSpareUnit.Columns[10].HeaderText = "Marca carrocería";
+                dgvSpareUnit.Columns[11].HeaderText = "Marca chasis";
+                dgvSpareUnit.Columns[12].HeaderText = "Marca motor";
             }
         }
 
@@ -196,14 +208,14 @@ namespace TodoBus.Views.Units
         {
             int? id = getId();
 
-            if (e.ColumnIndex == 5)
+            if (e.ColumnIndex == 13)
             {
                 if (id != null)
                 {
                     //Aca el ver repuestos
                 }
             }
-            else if (e.ColumnIndex == 6)
+            else if (e.ColumnIndex == 14)
             {
                 if (id != null)
                 {
