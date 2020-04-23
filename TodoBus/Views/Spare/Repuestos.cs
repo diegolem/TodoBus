@@ -31,7 +31,7 @@ namespace TodoBus
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            control.Busqueda(dgvRepuestos, txtBuscador.text);
+            control.Busqueda(dgvRepuestos, txtBuscador.text,rbCodigo,rbNombre,rbMarca,rbCategoria);
             formatTable();
         }
 
@@ -217,7 +217,7 @@ namespace TodoBus
                 dgvRepuestos.Columns[0].HeaderText = "Id";
                 dgvRepuestos.Columns[1].HeaderText = "Código";
                 dgvRepuestos.Columns[2].HeaderText = "Nombre";
-                dgvRepuestos.Columns[3].HeaderText = "Imagen";
+                dgvRepuestos.Columns[3].HeaderText = "Descripción";
                 dgvRepuestos.Columns[3].Width = 185;
                 dgvRepuestos.Columns[4].HeaderText = "Marca";
                 dgvRepuestos.Columns[5].HeaderText = "Categoría";
@@ -230,7 +230,7 @@ namespace TodoBus
             try
             {
                 int? id = getId();
-                string ur = dgvRepuestos.Rows[e.RowIndex].Cells[3].Value.ToString();
+                string ur = control.imagen(id);
                 string Cod = dgvRepuestos.Rows[e.RowIndex].Cells[1].Value.ToString();
 
                 if (e.ColumnIndex == 6)
@@ -250,7 +250,7 @@ namespace TodoBus
 
                         if (result == DialogResult.Yes)
                         {
-                            ur = dgvRepuestos.Rows[e.RowIndex].Cells[3].Value.ToString();
+                            ur = control.imagen(id);
                             if (control.delete(id))
                             {
                                 if (File.Exists(ur))
@@ -300,6 +300,11 @@ namespace TodoBus
             this.Hide();
             Repuesto_Unidades repunit = new Repuesto_Unidades(user);
             repunit.Show();
+        }
+
+        private void bunifuCustomLabel2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

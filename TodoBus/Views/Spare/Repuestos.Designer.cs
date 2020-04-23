@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
             BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Repuestos));
+            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -61,6 +61,12 @@
             this.btnUpdate = new Bunifu.Framework.UI.BunifuFlatButton();
             this.LogoTransition = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.rbCodigo = new System.Windows.Forms.RadioButton();
+            this.rbNombre = new System.Windows.Forms.RadioButton();
+            this.rbMarca = new System.Windows.Forms.RadioButton();
+            this.rbCategoria = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
@@ -68,6 +74,7 @@
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRepuestos)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -684,7 +691,7 @@
             this.LogoTransition.SetDecoration(this.bunifuCustomLabel1, BunifuAnimatorNS.DecorationType.None);
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(512, 53);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(512, 38);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(111, 30);
             this.bunifuCustomLabel1.TabIndex = 37;
@@ -727,22 +734,22 @@
             // 
             this.PanelTransition.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
             this.PanelTransition.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 1;
-            animation2.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 2F;
-            animation2.TransparencyCoeff = 0F;
-            this.PanelTransition.DefaultAnimation = animation2;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 1;
+            animation1.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 2F;
+            animation1.TransparencyCoeff = 0F;
+            this.PanelTransition.DefaultAnimation = animation1;
             // 
             // btnUpdate
             // 
@@ -787,22 +794,22 @@
             // 
             this.LogoTransition.AnimationType = BunifuAnimatorNS.AnimationType.ScaleAndRotate;
             this.LogoTransition.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(30);
-            animation1.RotateCoeff = 0.5F;
-            animation1.RotateLimit = 0.2F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 0F;
-            this.LogoTransition.DefaultAnimation = animation1;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 0;
+            animation2.Padding = new System.Windows.Forms.Padding(30);
+            animation2.RotateCoeff = 0.5F;
+            animation2.RotateLimit = 0.2F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 0F;
+            animation2.TransparencyCoeff = 0F;
+            this.LogoTransition.DefaultAnimation = animation2;
             // 
             // bunifuDragControl1
             // 
@@ -811,12 +818,100 @@
             this.bunifuDragControl1.TargetControl = this.header;
             this.bunifuDragControl1.Vertical = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rbCategoria);
+            this.groupBox1.Controls.Add(this.rbMarca);
+            this.groupBox1.Controls.Add(this.rbNombre);
+            this.groupBox1.Controls.Add(this.rbCodigo);
+            this.groupBox1.Controls.Add(this.bunifuCustomLabel2);
+            this.LogoTransition.SetDecoration(this.groupBox1, BunifuAnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.groupBox1, BunifuAnimatorNS.DecorationType.None);
+            this.groupBox1.Location = new System.Drawing.Point(246, 71);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(645, 44);
+            this.groupBox1.TabIndex = 53;
+            this.groupBox1.TabStop = false;
+            // 
+            // bunifuCustomLabel2
+            // 
+            this.bunifuCustomLabel2.AutoSize = true;
+            this.PanelTransition.SetDecoration(this.bunifuCustomLabel2, BunifuAnimatorNS.DecorationType.None);
+            this.LogoTransition.SetDecoration(this.bunifuCustomLabel2, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.White;
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(6, 16);
+            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(74, 17);
+            this.bunifuCustomLabel2.TabIndex = 54;
+            this.bunifuCustomLabel2.Text = "Buscar por:";
+            this.bunifuCustomLabel2.Click += new System.EventHandler(this.bunifuCustomLabel2_Click);
+            // 
+            // rbCodigo
+            // 
+            this.rbCodigo.AutoSize = true;
+            this.rbCodigo.Checked = true;
+            this.PanelTransition.SetDecoration(this.rbCodigo, BunifuAnimatorNS.DecorationType.None);
+            this.LogoTransition.SetDecoration(this.rbCodigo, BunifuAnimatorNS.DecorationType.None);
+            this.rbCodigo.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.rbCodigo.ForeColor = System.Drawing.Color.White;
+            this.rbCodigo.Location = new System.Drawing.Point(117, 14);
+            this.rbCodigo.Name = "rbCodigo";
+            this.rbCodigo.Size = new System.Drawing.Size(69, 21);
+            this.rbCodigo.TabIndex = 55;
+            this.rbCodigo.TabStop = true;
+            this.rbCodigo.Text = "Código";
+            this.rbCodigo.UseVisualStyleBackColor = true;
+            // 
+            // rbNombre
+            // 
+            this.rbNombre.AutoSize = true;
+            this.PanelTransition.SetDecoration(this.rbNombre, BunifuAnimatorNS.DecorationType.None);
+            this.LogoTransition.SetDecoration(this.rbNombre, BunifuAnimatorNS.DecorationType.None);
+            this.rbNombre.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.rbNombre.ForeColor = System.Drawing.Color.White;
+            this.rbNombre.Location = new System.Drawing.Point(258, 14);
+            this.rbNombre.Name = "rbNombre";
+            this.rbNombre.Size = new System.Drawing.Size(75, 21);
+            this.rbNombre.TabIndex = 56;
+            this.rbNombre.Text = "Nombre";
+            this.rbNombre.UseVisualStyleBackColor = true;
+            // 
+            // rbMarca
+            // 
+            this.rbMarca.AutoSize = true;
+            this.PanelTransition.SetDecoration(this.rbMarca, BunifuAnimatorNS.DecorationType.None);
+            this.LogoTransition.SetDecoration(this.rbMarca, BunifuAnimatorNS.DecorationType.None);
+            this.rbMarca.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.rbMarca.ForeColor = System.Drawing.Color.White;
+            this.rbMarca.Location = new System.Drawing.Point(401, 14);
+            this.rbMarca.Name = "rbMarca";
+            this.rbMarca.Size = new System.Drawing.Size(63, 21);
+            this.rbMarca.TabIndex = 57;
+            this.rbMarca.Text = "Marca";
+            this.rbMarca.UseVisualStyleBackColor = true;
+            // 
+            // rbCategoria
+            // 
+            this.rbCategoria.AutoSize = true;
+            this.PanelTransition.SetDecoration(this.rbCategoria, BunifuAnimatorNS.DecorationType.None);
+            this.LogoTransition.SetDecoration(this.rbCategoria, BunifuAnimatorNS.DecorationType.None);
+            this.rbCategoria.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.rbCategoria.ForeColor = System.Drawing.Color.White;
+            this.rbCategoria.Location = new System.Drawing.Point(538, 14);
+            this.rbCategoria.Name = "rbCategoria";
+            this.rbCategoria.Size = new System.Drawing.Size(83, 21);
+            this.rbCategoria.TabIndex = 58;
+            this.rbCategoria.Text = "Categoría";
+            this.rbCategoria.UseVisualStyleBackColor = true;
+            // 
             // Repuestos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.ClientSize = new System.Drawing.Size(936, 720);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.Options);
             this.Controls.Add(this.bunifuFlatButton1);
@@ -839,6 +934,8 @@
             this.header.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRepuestos)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -873,5 +970,11 @@
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton2;
         private Bunifu.Framework.UI.BunifuFlatButton btnUpdate;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
+        private System.Windows.Forms.RadioButton rbCategoria;
+        private System.Windows.Forms.RadioButton rbMarca;
+        private System.Windows.Forms.RadioButton rbNombre;
+        private System.Windows.Forms.RadioButton rbCodigo;
     }
 }

@@ -13,7 +13,7 @@ namespace TodoBus.Controllers
     class SpareController
     {
         CodeController codeController = new CodeController();
-        public bool save(string nombre,int Categoria,int marca,int SubClases ,string imagen, int subCategoria)
+        public bool save(string nombre,int Categoria,int marca,int SubClases ,string imagen, int subCategoria,string descripcion)
         {
             using(TodoBusEntities db=new TodoBusEntities())
             {
@@ -57,6 +57,7 @@ namespace TodoBus.Controllers
                         oSpare.spare_type_id = Categoria;
                         oSpare.brand_id = marca;
                         oSpare.image = imagen;
+                        oSpare.description = descripcion;
 
                         db.spare.Add(oSpare);
                         db.SaveChanges();
@@ -92,7 +93,7 @@ namespace TodoBus.Controllers
             return cadena;
         }
 
-        public bool Modificar(int? id, string codigoAnterior, string nombre, int Categoria, int marca, int SubClases, string imagen, int Subcategoria)
+        public bool Modificar(int? id, string codigoAnterior, string nombre, int Categoria, int marca, int SubClases, string imagen, int Subcategoria,string descripcion)
         {
             using (TodoBusEntities db = new TodoBusEntities())
             {
@@ -138,6 +139,7 @@ namespace TodoBus.Controllers
                             fnd.spare_type_id = Categoria;
                             fnd.brand_id = marca;
                             fnd.image = imagen;
+                            fnd.description = descripcion;
 
                             db.Entry(fnd).State = System.Data.Entity.EntityState.Modified;
                             db.SaveChanges();
@@ -153,6 +155,7 @@ namespace TodoBus.Controllers
                         fnd.spare_type_id = Categoria;
                         fnd.brand_id = marca;
                         fnd.image = imagen;
+                        fnd.description = descripcion;
 
                         db.Entry(fnd).State = System.Data.Entity.EntityState.Modified;
                         db.SaveChanges();
@@ -268,7 +271,7 @@ namespace TodoBus.Controllers
                         spareF.Id = spare.id;
                         spareF.Codigo = spare.code;
                         spareF.Nombre = spare.name;
-                        spareF.UrlImagen = spare.image;
+                        spareF.Descripcion = spare.description;
                         spareF.NombreMarca = spare.brands.name;
                         spareF.NombreCategoria = spare.spare_categories.name;
                         customL.Add(spareF);
@@ -303,7 +306,7 @@ namespace TodoBus.Controllers
                 }
             }
         }
-        public bool find(int? id,TextBox nombre,ComboBox tipo, ComboBox marca,PictureBox imagen)
+        public bool find(int? id,TextBox nombre,ComboBox tipo, ComboBox marca,PictureBox imagen,TextBox descripcion)
         {
             
             
@@ -321,6 +324,7 @@ namespace TodoBus.Controllers
                     spare_categories sc = db.spare_categories.Find(type);
 
                     nombre.Text = fnd.name;
+                    descripcion.Text = fnd.description;
                     tipo.SelectedItem = sc.name;
                     marca.SelectedItem = br.name;
                     try
@@ -341,7 +345,7 @@ namespace TodoBus.Controllers
             }
             
         }
-        public void Busqueda(DataGridView data,string dato)
+        public void Busqueda(DataGridView data,string dato,RadioButton codigo,RadioButton nombre, RadioButton marca, RadioButton categoria)
         {
             using (TodoBusEntities db = new TodoBusEntities())
             {
@@ -350,7 +354,32 @@ namespace TodoBus.Controllers
                           join m in db.brands on d.brand_id equals m.id
                           join c in db.spare_categories on d.spare_type_id equals c.id
                           select d;
-                lst = lst.Where(d => d.code.Contains(dato));
+
+                
+                
+                brands brandsF = new brands();
+                FakeCategories cateF = new FakeCategories();
+
+                
+
+
+                if (codigo.Checked == true)
+                {
+                    lst = lst.Where(d => d.code.Contains(dato));
+                }
+                else if (nombre.Checked == true)
+                {
+                    lst = lst.Where(d => d.name.Contains(dato));
+                }
+                else if (marca.Checked == true)
+                {
+                    lst = lst.Where(d => d.brands.name.Contains(dato));
+                }
+                else if (categoria.Checked == true)
+                {
+                    lst = lst.Where(d => d.spare_categories.name.Contains(dato));
+                }
+
 
                 if (lst.Count() > 0)
                 {
@@ -361,7 +390,7 @@ namespace TodoBus.Controllers
                         spareF.Id = spare.id;
                         spareF.Codigo = spare.code;
                         spareF.Nombre = spare.name;
-                        spareF.UrlImagen = spare.image;
+                        spareF.Descripcion = spare.description;
                         spareF.NombreMarca = spare.brands.name;
                         spareF.NombreCategoria = spare.spare_categories.name;
                         customL.Add(spareF);
@@ -384,6 +413,14 @@ namespace TodoBus.Controllers
                 }
                 
 
+            }
+        }
+        public string imagen(int? id)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                spare fnd = db.spare.Find(id);
+                return fnd.image;
             }
         }
     }

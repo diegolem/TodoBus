@@ -51,6 +51,8 @@
             this.ckModImagen = new System.Windows.Forms.CheckBox();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.cmbSubcategory = new System.Windows.Forms.ComboBox();
+            this.txtDescripcion = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
+            this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
@@ -329,12 +331,35 @@
             this.cmbSubcategory.TabIndex = 87;
             this.cmbSubcategory.SelectedIndexChanged += new System.EventHandler(this.cmbSubcategory_SelectedIndexChanged);
             // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.BorderColor = System.Drawing.Color.SeaGreen;
+            this.txtDescripcion.Location = new System.Drawing.Point(607, 335);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(313, 114);
+            this.txtDescripcion.TabIndex = 89;
+            // 
+            // bunifuCustomLabel5
+            // 
+            this.bunifuCustomLabel5.AutoSize = true;
+            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.White;
+            this.bunifuCustomLabel5.Location = new System.Drawing.Point(604, 314);
+            this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
+            this.bunifuCustomLabel5.Size = new System.Drawing.Size(79, 17);
+            this.bunifuCustomLabel5.TabIndex = 90;
+            this.bunifuCustomLabel5.Text = "Descripción:";
+            // 
             // RegRepuest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.ClientSize = new System.Drawing.Size(932, 556);
+            this.Controls.Add(this.bunifuCustomLabel5);
+            this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.bunifuCustomLabel2);
             this.Controls.Add(this.cmbSubcategory);
             this.Controls.Add(this.ckModImagen);
@@ -387,5 +412,7 @@
         private System.Windows.Forms.CheckBox ckModImagen;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private System.Windows.Forms.ComboBox cmbSubcategory;
+        private WindowsFormsControlLibrary1.BunifuCustomTextbox txtDescripcion;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel5;
     }
 }
