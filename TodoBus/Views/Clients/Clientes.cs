@@ -145,6 +145,7 @@ namespace TodoBus
         {
             RefreshData();
             formatTable();
+            cmbOptions.selectedIndex = 0;
         }
 
         private void formatTable()
@@ -281,6 +282,26 @@ namespace TodoBus
             this.Hide();
             Repuesto_Unidades repunit = new Repuesto_Unidades(user);
             repunit.Show();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (txtBuscador.text.Length > 0)
+            {
+                if (cmbOptions.selectedIndex > 0)
+                {
+                    clientController.buscar(ref dgvClientes, txtBuscador.text, cmbOptions.selectedValue);
+                    formatTable();
+            }
+                else
+                {
+                    MessageBox.Show("Seleccione un parametro de búsqueda válido", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingrese una cadena de búsqueda", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
