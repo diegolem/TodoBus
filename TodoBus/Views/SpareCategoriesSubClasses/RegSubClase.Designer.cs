@@ -255,11 +255,11 @@
             // bunifuCustomLabel1
             // 
             this.bunifuCustomLabel1.AutoSize = true;
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Semilight", 16.25F);
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(111, 30);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(117, 36);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(186, 30);
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(183, 30);
             this.bunifuCustomLabel1.TabIndex = 63;
             this.bunifuCustomLabel1.Text = "Registrar Subclase";
             // 

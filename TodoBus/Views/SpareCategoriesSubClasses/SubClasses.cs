@@ -266,7 +266,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
             repunit.Show();
         }
 
-        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
             subClController.Busqueda(dgvSubClase, txtBuscador.text);
             formatTable();

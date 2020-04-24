@@ -603,7 +603,7 @@
             this.LogoTransition.SetDecoration(this.body, BunifuAnimatorNS.DecorationType.None);
             this.PanelTransition.SetDecoration(this.body, BunifuAnimatorNS.DecorationType.None);
             this.body.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.body.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.body.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F);
             this.body.Location = new System.Drawing.Point(200, 34);
             this.body.Name = "body";
             this.body.Size = new System.Drawing.Size(736, 673);
@@ -614,11 +614,11 @@
             this.bunifuCustomLabel7.AutoSize = true;
             this.PanelTransition.SetDecoration(this.bunifuCustomLabel7, BunifuAnimatorNS.DecorationType.None);
             this.LogoTransition.SetDecoration(this.bunifuCustomLabel7, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuCustomLabel7.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.bunifuCustomLabel7.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F);
             this.bunifuCustomLabel7.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel7.Location = new System.Drawing.Point(69, 380);
+            this.bunifuCustomLabel7.Location = new System.Drawing.Point(104, 388);
             this.bunifuCustomLabel7.Name = "bunifuCustomLabel7";
-            this.bunifuCustomLabel7.Size = new System.Drawing.Size(118, 17);
+            this.bunifuCustomLabel7.Size = new System.Drawing.Size(132, 20);
             this.bunifuCustomLabel7.TabIndex = 41;
             this.bunifuCustomLabel7.Text = "Nueva Contraseña:";
             // 
@@ -627,11 +627,11 @@
             this.txtNewPassword.BorderColor = System.Drawing.Color.SeaGreen;
             this.PanelTransition.SetDecoration(this.txtNewPassword, BunifuAnimatorNS.DecorationType.None);
             this.LogoTransition.SetDecoration(this.txtNewPassword, BunifuAnimatorNS.DecorationType.None);
-            this.txtNewPassword.Location = new System.Drawing.Point(241, 380);
+            this.txtNewPassword.Location = new System.Drawing.Point(263, 385);
             this.txtNewPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.PasswordChar = '*';
-            this.txtNewPassword.Size = new System.Drawing.Size(319, 22);
+            this.txtNewPassword.Size = new System.Drawing.Size(319, 27);
             this.txtNewPassword.TabIndex = 7;
             // 
             // bunifuCustomLabel4
@@ -639,11 +639,11 @@
             this.bunifuCustomLabel4.AutoSize = true;
             this.PanelTransition.SetDecoration(this.bunifuCustomLabel4, BunifuAnimatorNS.DecorationType.None);
             this.LogoTransition.SetDecoration(this.bunifuCustomLabel4, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F);
             this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel4.Location = new System.Drawing.Point(69, 323);
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(104, 331);
             this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
-            this.bunifuCustomLabel4.Size = new System.Drawing.Size(116, 17);
+            this.bunifuCustomLabel4.Size = new System.Drawing.Size(131, 20);
             this.bunifuCustomLabel4.TabIndex = 39;
             this.bunifuCustomLabel4.Text = "Contraseña Actual:";
             // 
@@ -653,7 +653,7 @@
             this.PanelTransition.SetDecoration(this.Age, BunifuAnimatorNS.DecorationType.None);
             this.Age.Location = new System.Drawing.Point(487, 244);
             this.Age.Name = "Age";
-            this.Age.Size = new System.Drawing.Size(95, 22);
+            this.Age.Size = new System.Drawing.Size(95, 27);
             this.Age.TabIndex = 4;
             // 
             // txtMail
@@ -664,7 +664,7 @@
             this.txtMail.Location = new System.Drawing.Point(144, 249);
             this.txtMail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(200, 22);
+            this.txtMail.Size = new System.Drawing.Size(200, 27);
             this.txtMail.TabIndex = 3;
             // 
             // bunifuCustomLabel5
@@ -672,11 +672,11 @@
             this.bunifuCustomLabel5.AutoSize = true;
             this.PanelTransition.SetDecoration(this.bunifuCustomLabel5, BunifuAnimatorNS.DecorationType.None);
             this.LogoTransition.SetDecoration(this.bunifuCustomLabel5, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F);
             this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel5.Location = new System.Drawing.Point(89, 249);
+            this.bunifuCustomLabel5.Location = new System.Drawing.Point(72, 249);
             this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
-            this.bunifuCustomLabel5.Size = new System.Drawing.Size(52, 17);
+            this.bunifuCustomLabel5.Size = new System.Drawing.Size(57, 20);
             this.bunifuCustomLabel5.TabIndex = 35;
             this.bunifuCustomLabel5.Text = "Correo:";
             // 
@@ -688,7 +688,7 @@
             this.txtName.Location = new System.Drawing.Point(144, 177);
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(200, 22);
+            this.txtName.Size = new System.Drawing.Size(200, 27);
             this.txtName.TabIndex = 1;
             // 
             // bunifuCustomLabel6
@@ -696,11 +696,11 @@
             this.bunifuCustomLabel6.AutoSize = true;
             this.PanelTransition.SetDecoration(this.bunifuCustomLabel6, BunifuAnimatorNS.DecorationType.None);
             this.LogoTransition.SetDecoration(this.bunifuCustomLabel6, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuCustomLabel6.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.bunifuCustomLabel6.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F);
             this.bunifuCustomLabel6.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel6.Location = new System.Drawing.Point(75, 182);
+            this.bunifuCustomLabel6.Location = new System.Drawing.Point(58, 182);
             this.bunifuCustomLabel6.Name = "bunifuCustomLabel6";
-            this.bunifuCustomLabel6.Size = new System.Drawing.Size(66, 17);
+            this.bunifuCustomLabel6.Size = new System.Drawing.Size(73, 20);
             this.bunifuCustomLabel6.TabIndex = 33;
             this.bunifuCustomLabel6.Text = "Nombres:";
             // 
@@ -747,11 +747,11 @@
             this.bunifuCustomLabel3.AutoSize = true;
             this.PanelTransition.SetDecoration(this.bunifuCustomLabel3, BunifuAnimatorNS.DecorationType.None);
             this.LogoTransition.SetDecoration(this.bunifuCustomLabel3, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25F);
             this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel3.Location = new System.Drawing.Point(295, 59);
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(282, 69);
             this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
-            this.bunifuCustomLabel3.Size = new System.Drawing.Size(175, 30);
+            this.bunifuCustomLabel3.Size = new System.Drawing.Size(215, 37);
             this.bunifuCustomLabel3.TabIndex = 19;
             this.bunifuCustomLabel3.Text = "Datos Personales";
             // 
@@ -760,11 +760,11 @@
             this.txtPassword.BorderColor = System.Drawing.Color.SeaGreen;
             this.PanelTransition.SetDecoration(this.txtPassword, BunifuAnimatorNS.DecorationType.None);
             this.LogoTransition.SetDecoration(this.txtPassword, BunifuAnimatorNS.DecorationType.None);
-            this.txtPassword.Location = new System.Drawing.Point(241, 323);
+            this.txtPassword.Location = new System.Drawing.Point(263, 328);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(319, 22);
+            this.txtPassword.Size = new System.Drawing.Size(319, 27);
             this.txtPassword.TabIndex = 6;
             // 
             // bunifuCustomLabel1
@@ -772,11 +772,11 @@
             this.bunifuCustomLabel1.AutoSize = true;
             this.PanelTransition.SetDecoration(this.bunifuCustomLabel1, BunifuAnimatorNS.DecorationType.None);
             this.LogoTransition.SetDecoration(this.bunifuCustomLabel1, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F);
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(440, 249);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(423, 249);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(41, 17);
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(46, 20);
             this.bunifuCustomLabel1.TabIndex = 17;
             this.bunifuCustomLabel1.Text = "Edad:";
             // 
@@ -788,7 +788,7 @@
             this.txtLastName.Location = new System.Drawing.Point(487, 177);
             this.txtLastName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(200, 22);
+            this.txtLastName.Size = new System.Drawing.Size(200, 27);
             this.txtLastName.TabIndex = 2;
             // 
             // bunifuCustomLabel2
@@ -796,11 +796,11 @@
             this.bunifuCustomLabel2.AutoSize = true;
             this.PanelTransition.SetDecoration(this.bunifuCustomLabel2, BunifuAnimatorNS.DecorationType.None);
             this.LogoTransition.SetDecoration(this.bunifuCustomLabel2, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F);
             this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(416, 182);
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(399, 182);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(65, 17);
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(72, 20);
             this.bunifuCustomLabel2.TabIndex = 15;
             this.bunifuCustomLabel2.Text = "Apellidos:";
             // 

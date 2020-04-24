@@ -172,11 +172,11 @@
             // bunifuCustomLabel1
             // 
             this.bunifuCustomLabel1.AutoSize = true;
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25F);
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(393, 76);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(378, 72);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(201, 30);
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(244, 37);
             this.bunifuCustomLabel1.TabIndex = 38;
             this.bunifuCustomLabel1.Text = "Registro de Usuario";
             this.bunifuCustomLabel1.Click += new System.EventHandler(this.bunifuCustomLabel1_Click);

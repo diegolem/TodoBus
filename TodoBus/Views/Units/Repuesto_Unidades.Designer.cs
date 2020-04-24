@@ -574,11 +574,11 @@
             this.bunifuCustomLabel1.AutoSize = true;
             this.LogoTransition.SetDecoration(this.bunifuCustomLabel1, BunifuAnimatorNS.DecorationType.None);
             this.PanelTransition.SetDecoration(this.bunifuCustomLabel1, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25F);
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(435, 50);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(410, 50);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(279, 30);
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(340, 37);
             this.bunifuCustomLabel1.TabIndex = 39;
             this.bunifuCustomLabel1.Text = "Asociar Respuesto a Unidad";
             // 
