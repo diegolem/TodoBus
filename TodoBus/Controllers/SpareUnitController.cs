@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TodoBus.Models;
+using Bunifu.Framework.UI;
 
 namespace TodoBus.Controllers
 {
@@ -55,6 +56,34 @@ namespace TodoBus.Controllers
                 {
                     List<FakeSpareUnit> newSC = new List<FakeSpareUnit>();
                     return newSC;
+                }
+            }
+        }
+
+        public void spareInformation(int spare_id,ref Label lblNotImage, ref BunifuCustomLabel lblName, ref BunifuCustomLabel lblBrand, ref BunifuCustomLabel lblCategory,ref BunifuCustomLabel lblCode, ref  WindowsFormsControlLibrary1.BunifuCustomTextbox txtDescription, ref PictureBox picImage)
+        {
+            using(TodoBusEntities db = new TodoBusEntities())
+            {
+                var lst = from d in db.spare
+                          where d.id == spare_id
+                          select d;
+                spare spare = lst.First();
+
+                lblName.Text = "Nombre: " + spare.name;
+                lblCategory.Text = "Categoría: " + spare.spare_categories.name;
+                lblCode.Text = "Código: " + spare.code;
+                txtDescription.Text = "Descripción: " + spare.description;
+                lblBrand.Text = "Marca: " + spare.brands.name;
+                if(spare.image != "Imagen no insertada")
+                {
+                    lblNotImage.Visible = false;
+                    picImage.Visible = true;
+                    picImage.Load(spare.image);
+                }
+                else
+                {
+                    lblNotImage.Visible = true;
+                    picImage.Visible = false;
                 }
             }
         }

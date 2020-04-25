@@ -143,9 +143,9 @@ namespace TodoBus.Controllers
                                 StringBuilder constructor = new StringBuilder();
                                 for (int i = 0; i < bytess.Length; i++)
                                 {
-                                    builder.Append(bytes[i].ToString("x2"));
-                                    string hashedPassword = builder.ToString();
-                                    Usuarios.password = hashedPassword;
+                                    constructor.Append(bytess[i].ToString("x2"));
+                                    string hash = constructor.ToString();
+                                    Usuarios.password = hash;
                                 }
 
                                 Usuarios.name = name;

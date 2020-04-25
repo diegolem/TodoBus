@@ -212,7 +212,8 @@ namespace TodoBus.Views.Units
             {
                 if (id != null)
                 {
-                    //Aca el ver repuestos
+                    RepuestosAsociados ra = new RepuestosAsociados(id);
+                    ra.ShowDialog();
                 }
             }
             else if (e.ColumnIndex == 14)
