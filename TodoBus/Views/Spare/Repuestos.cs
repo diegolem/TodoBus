@@ -31,7 +31,7 @@ namespace TodoBus
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            control.Busqueda(dgvRepuestos, txtBuscador.text,rbCodigo,rbNombre,rbMarca,rbCategoria);
+            control.Busqueda(dgvRepuestos, txtBuscador.text,cmbOptions.selectedValue);
             formatTable();
         }
 
@@ -87,6 +87,11 @@ namespace TodoBus
         {
             Refresh();
             formatTable();
+            cmbOptions.Clear();
+            cmbOptions.AddItem("Código");
+            cmbOptions.AddItem("Nombre");
+            cmbOptions.AddItem("Marca");
+            cmbOptions.AddItem("Categoría");
         }
 
         private void btnClients_Click(object sender, EventArgs e)

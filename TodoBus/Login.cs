@@ -65,7 +65,7 @@ namespace TodoBus
 
         private void txtPassword_OnValueChanged(object sender, EventArgs e)
         {
-            txtPassword.isPassword = true;
+            txtPassword.isPassword = true;            
         }
     }
 }

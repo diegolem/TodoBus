@@ -345,7 +345,7 @@ namespace TodoBus.Controllers
             }
             
         }
-        public void Busqueda(DataGridView data,string dato,RadioButton codigo,RadioButton nombre, RadioButton marca, RadioButton categoria)
+        public void Busqueda(DataGridView data,string dato,string combo)
         {
             using (TodoBusEntities db = new TodoBusEntities())
             {
@@ -363,19 +363,19 @@ namespace TodoBus.Controllers
                 
 
 
-                if (codigo.Checked == true)
+                if (combo=="Código")
                 {
                     lst = lst.Where(d => d.code.Contains(dato));
                 }
-                else if (nombre.Checked == true)
+                else if (combo == "Nombre")
                 {
                     lst = lst.Where(d => d.name.Contains(dato));
                 }
-                else if (marca.Checked == true)
+                else if (combo == "Marca")
                 {
                     lst = lst.Where(d => d.brands.name.Contains(dato));
                 }
-                else if (categoria.Checked == true)
+                else if (combo == "Categoría")
                 {
                     lst = lst.Where(d => d.spare_categories.name.Contains(dato));
                 }
