@@ -29,11 +29,6 @@ namespace TodoBus
             this.Close();
         }
 
-        private void bunifuCustomLabel5_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void bunifuImageButton1_Click_1(object sender, EventArgs e)
         {
             this.Close();
@@ -52,7 +47,6 @@ namespace TodoBus
                 txtname.Text = loadUser.name;
                 txtlastname.Text = loadUser.last_name;
                 txtemail.Text = loadUser.email;
-                numage.Value = (decimal)loadUser.age;
             }
         }
 
@@ -67,7 +61,7 @@ namespace TodoBus
             {
                 try
                 {
-                    bool edit = UserC.edit(txtname.Text, txtlastname.Text, txtemail.Text, int.Parse(numage.Text), PasswordtextBox.Text, loadUser);
+                    bool edit = UserC.edit(txtname.Text, txtlastname.Text, txtemail.Text, PasswordtextBox.Text, loadUser);
                     if (edit)
                     {
                         MessageBox.Show("El Usuario se ha modificado exitosamente", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -101,6 +95,12 @@ namespace TodoBus
             if (!(valid.isString(txtemail.Text)))
             {
                 Ep1.SetError(txtemail, "El Correo no puede quedar vacío");
+                return false;
+            }
+
+            if (!(valid.isEmail(txtemail.Text)))
+            {
+                Ep1.SetError(txtemail, "Porfavor ingresa un correo válido");
                 return false;
             }
             return true;

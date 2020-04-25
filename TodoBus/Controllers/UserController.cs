@@ -11,7 +11,7 @@ namespace TodoBus.Controllers
 {
     class UserController
     {
-        public int save(string name, string last_name, string email, int age, string password)
+        public int save(string name, string last_name, string email, string password)
         {
             //Abro conexion solamente cuando ejecute la accion
             using (TodoBusEntities db = new TodoBusEntities())
@@ -30,7 +30,7 @@ namespace TodoBus.Controllers
                             Usuarios.name = name;
                             Usuarios.last_name = last_name;
                             Usuarios.email = email;
-                            Usuarios.age = age;
+                            Usuarios.age = 30;
 
                             byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
                             StringBuilder builder = new StringBuilder();
@@ -76,7 +76,7 @@ namespace TodoBus.Controllers
             }
         }
 
-        public bool edit(string name, string last_name, string email, int age, string password, users Usuarios)
+        public bool edit(string name, string last_name, string email, string password, users Usuarios)
         {
             //Abro conexion solamente cuando ejecute la accion
             using (TodoBusEntities db = new TodoBusEntities())
@@ -88,7 +88,6 @@ namespace TodoBus.Controllers
                         Usuarios.name = name;
                         Usuarios.last_name = last_name;
                         Usuarios.email = email;
-                        Usuarios.age = age;
                         if (password.Trim().Length > 0)
                         {
                             byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
@@ -114,6 +113,80 @@ namespace TodoBus.Controllers
                 }
             }
         }
+
+        public int modifyUserData( string name, string lastname, string email, string password, string newpass, users Usuarios)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                using (SHA256 sha256Hash = SHA256.Create())
+                {
+                    try
+                    {
+                        if (password.Trim().Length > 0)
+                        {
+                            byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+                            StringBuilder builder = new StringBuilder();
+                            bool correctpass = false;
+                            for (int i = 0; i < bytes.Length; i++)
+                            {
+                                builder.Append(bytes[i].ToString("x2"));
+                                string hashedPassword = builder.ToString();
+                                if(hashedPassword == Usuarios.password)
+                                {
+                                    correctpass = true;
+                                }
+                            }
+
+                            if (correctpass)
+                            {
+                                byte[] bytess = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(newpass));
+                                StringBuilder constructor = new StringBuilder();
+                                for (int i = 0; i < bytess.Length; i++)
+                                {
+                                    builder.Append(bytes[i].ToString("x2"));
+                                    string hashedPassword = builder.ToString();
+                                    Usuarios.password = hashedPassword;
+                                }
+
+                                Usuarios.name = name;
+                                Usuarios.last_name = lastname;
+                                Usuarios.email = email;
+
+                                db.Entry(Usuarios).State = System.Data.Entity.EntityState.Modified;
+                                db.SaveChanges();
+
+                                return 2;
+                            }
+                            else
+                            {
+                                Usuarios.name = name;
+                                Usuarios.last_name = lastname;
+                                Usuarios.email = email;
+                                db.Entry(Usuarios).State = System.Data.Entity.EntityState.Modified;
+                                db.SaveChanges();
+
+                                return 3;
+                            }
+                        }
+                        else
+                        {
+                            Usuarios.name = name;
+                            Usuarios.last_name = lastname;
+                            Usuarios.email = email;
+                            db.Entry(Usuarios).State = System.Data.Entity.EntityState.Modified;
+                            db.SaveChanges();
+
+                            return 1;
+                        }
+                    }
+                    catch
+                    {
+                        return 0;
+                    }
+                }
+            }
+        }
+
         public List<FakeUsers> getAllUsers(int user_id)
         {
             using (TodoBusEntities db = new TodoBusEntities())
@@ -131,7 +204,6 @@ namespace TodoBus.Controllers
                         userF.Nombre = user.name;
                         userF.Apellido = user.last_name;
                         userF.Email = user.email;
-                        userF.Edad = user.age;
                         customL.Add(userF);
                     }
                     return customL;
@@ -199,7 +271,6 @@ namespace TodoBus.Controllers
                         UsersF.Nombre = user.name;
                         UsersF.Apellido = user.last_name;
                         UsersF.Email = user.email;
-                        UsersF.Edad = user.age;
                         customL.Add(UsersF);
                         if (data.DataSource != null)
                         {

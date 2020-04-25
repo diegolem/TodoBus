@@ -161,10 +161,8 @@ namespace TodoBus
                 dgvUsuarios.Columns[0].Width = 30;
                 dgvUsuarios.Columns[1].HeaderText = "Nombre";
                 dgvUsuarios.Columns[2].HeaderText = "Apellido";
-                dgvUsuarios.Columns[3].HeaderText = "Edad";
-                dgvUsuarios.Columns[3].Width = 50;
-                dgvUsuarios.Columns[4].HeaderText = "Correo";
-                dgvUsuarios.Columns[4].Width = 150;
+                dgvUsuarios.Columns[3].HeaderText = "Correo";
+                dgvUsuarios.Columns[3].Width = 150;
 
 
             }
@@ -221,7 +219,7 @@ namespace TodoBus
             //Los index empiezan desde 0, asi que verificamos en que columna estan los botones modificar y eliminar, para obtener correctamente el id
             int? id = getId();
 
-            if (e.ColumnIndex == 5)
+            if (e.ColumnIndex == 4)
             {
                 if (id != null)
                 {
@@ -229,7 +227,7 @@ namespace TodoBus
                     mod.ShowDialog();
                 }
             }
-            else if (e.ColumnIndex == 6)
+            else if (e.ColumnIndex == 5)
             {
                 if (id != null)
                 {
