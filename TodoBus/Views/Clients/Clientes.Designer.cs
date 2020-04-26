@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            BunifuAnimatorNS.Animation animation11 = new BunifuAnimatorNS.Animation();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            BunifuAnimatorNS.Animation animation15 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Clientes));
-            BunifuAnimatorNS.Animation animation12 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation16 = new BunifuAnimatorNS.Animation();
             this.dgvClientes = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnRegCliente = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -74,19 +74,19 @@
             // 
             // dgvClientes
             // 
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvClientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvClientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dgvClientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
             this.dgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PanelTransition.SetDecoration(this.dgvClientes, BunifuAnimatorNS.DecorationType.None);
             this.LogoTransition.SetDecoration(this.dgvClientes, BunifuAnimatorNS.DecorationType.None);
@@ -672,22 +672,22 @@
             // 
             this.PanelTransition.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
             this.PanelTransition.Cursor = null;
-            animation11.AnimateOnlyDifferences = true;
-            animation11.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation11.BlindCoeff")));
-            animation11.LeafCoeff = 0F;
-            animation11.MaxTime = 1F;
-            animation11.MinTime = 0F;
-            animation11.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation11.MosaicCoeff")));
-            animation11.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation11.MosaicShift")));
-            animation11.MosaicSize = 1;
-            animation11.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
-            animation11.RotateCoeff = 0F;
-            animation11.RotateLimit = 0F;
-            animation11.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation11.ScaleCoeff")));
-            animation11.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation11.SlideCoeff")));
-            animation11.TimeCoeff = 2F;
-            animation11.TransparencyCoeff = 0F;
-            this.PanelTransition.DefaultAnimation = animation11;
+            animation15.AnimateOnlyDifferences = true;
+            animation15.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation15.BlindCoeff")));
+            animation15.LeafCoeff = 0F;
+            animation15.MaxTime = 1F;
+            animation15.MinTime = 0F;
+            animation15.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation15.MosaicCoeff")));
+            animation15.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation15.MosaicShift")));
+            animation15.MosaicSize = 1;
+            animation15.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
+            animation15.RotateCoeff = 0F;
+            animation15.RotateLimit = 0F;
+            animation15.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation15.ScaleCoeff")));
+            animation15.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation15.SlideCoeff")));
+            animation15.TimeCoeff = 2F;
+            animation15.TransparencyCoeff = 0F;
+            this.PanelTransition.DefaultAnimation = animation15;
             // 
             // btnUpdate
             // 
@@ -746,7 +746,7 @@
         "Teléfono",
         "Teléfono Alternativo",
         "Correo Alternativo"};
-            this.cmbOptions.Location = new System.Drawing.Point(622, 121);
+            this.cmbOptions.Location = new System.Drawing.Point(623, 120);
             this.cmbOptions.Name = "cmbOptions";
             this.cmbOptions.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.cmbOptions.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(73)))), ((int)(((byte)(109)))));
@@ -778,7 +778,7 @@
             this.btnBuscar.IconVisible = false;
             this.btnBuscar.IconZoom = 60D;
             this.btnBuscar.IsTab = false;
-            this.btnBuscar.Location = new System.Drawing.Point(804, 121);
+            this.btnBuscar.Location = new System.Drawing.Point(805, 120);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
@@ -803,7 +803,7 @@
             this.txtBuscador.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtBuscador.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.txtBuscador.Icon = ((System.Drawing.Image)(resources.GetObject("txtBuscador.Icon")));
-            this.txtBuscador.Location = new System.Drawing.Point(289, 121);
+            this.txtBuscador.Location = new System.Drawing.Point(290, 120);
             this.txtBuscador.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtBuscador.Name = "txtBuscador";
             this.txtBuscador.Size = new System.Drawing.Size(317, 35);
@@ -815,22 +815,22 @@
             // 
             this.LogoTransition.AnimationType = BunifuAnimatorNS.AnimationType.ScaleAndRotate;
             this.LogoTransition.Cursor = null;
-            animation12.AnimateOnlyDifferences = true;
-            animation12.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation12.BlindCoeff")));
-            animation12.LeafCoeff = 0F;
-            animation12.MaxTime = 1F;
-            animation12.MinTime = 0F;
-            animation12.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation12.MosaicCoeff")));
-            animation12.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation12.MosaicShift")));
-            animation12.MosaicSize = 0;
-            animation12.Padding = new System.Windows.Forms.Padding(30);
-            animation12.RotateCoeff = 0.5F;
-            animation12.RotateLimit = 0.2F;
-            animation12.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation12.ScaleCoeff")));
-            animation12.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation12.SlideCoeff")));
-            animation12.TimeCoeff = 0F;
-            animation12.TransparencyCoeff = 0F;
-            this.LogoTransition.DefaultAnimation = animation12;
+            animation16.AnimateOnlyDifferences = true;
+            animation16.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation16.BlindCoeff")));
+            animation16.LeafCoeff = 0F;
+            animation16.MaxTime = 1F;
+            animation16.MinTime = 0F;
+            animation16.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation16.MosaicCoeff")));
+            animation16.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation16.MosaicShift")));
+            animation16.MosaicSize = 0;
+            animation16.Padding = new System.Windows.Forms.Padding(30);
+            animation16.RotateCoeff = 0.5F;
+            animation16.RotateLimit = 0.2F;
+            animation16.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation16.ScaleCoeff")));
+            animation16.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation16.SlideCoeff")));
+            animation16.TimeCoeff = 0F;
+            animation16.TransparencyCoeff = 0F;
+            this.LogoTransition.DefaultAnimation = animation16;
             // 
             // btnResetSearch
             // 
@@ -839,14 +839,13 @@
             this.PanelTransition.SetDecoration(this.btnResetSearch, BunifuAnimatorNS.DecorationType.None);
             this.btnResetSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnResetSearch.Image")));
             this.btnResetSearch.ImageActive = null;
-            this.btnResetSearch.Location = new System.Drawing.Point(246, 121);
+            this.btnResetSearch.Location = new System.Drawing.Point(247, 120);
             this.btnResetSearch.Name = "btnResetSearch";
             this.btnResetSearch.Size = new System.Drawing.Size(37, 35);
             this.btnResetSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnResetSearch.TabIndex = 61;
             this.btnResetSearch.TabStop = false;
             this.btnResetSearch.Zoom = 10;
-            this.btnResetSearch.Click += new System.EventHandler(this.btnResetSearch_Click);
             // 
             // Clientes
             // 

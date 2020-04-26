@@ -343,6 +343,7 @@ namespace TodoBus
         {
             search = false;
             isSearching();
+            txtBuscador.text = "";
         }
     }
 }

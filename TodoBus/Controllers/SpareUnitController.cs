@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TodoBus.Models;
 using Bunifu.Framework.UI;
@@ -121,6 +119,68 @@ namespace TodoBus.Controllers
                 {
                     List<FakeSpareUnit> newSC = new List<FakeSpareUnit>();
                     return newSC;
+                }
+            }
+        }
+
+        public void buscar(int unit_id, ref Bunifu.Framework.UI.BunifuCustomDataGrid dgv, string cadena, string index)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                this.lstSpareUnits.Clear();
+
+                var lst = from d in db.units_spare
+                          join s in db.spare on d.spare_id equals s.id
+                          join m in db.brands on s.brand_id equals m.id
+                          join c in db.spare_categories on s.spare_type_id equals c.id
+                          where d.unit_id == unit_id
+                          select d;
+
+                if (index == "Código")
+                {
+                    lst = lst.Where(c => c.spare.code.Contains(cadena));
+                }
+                else if (index == "Nombre")
+                {
+                    lst = lst.Where(c => c.spare.name.Contains(cadena));
+                }
+                else if (index == "Marca")
+                {
+                    lst = lst.Where(c => c.spare.brands.name.Contains(cadena));
+                }
+                else if (index == "Categoría")
+                {
+                    lst = lst.Where(c => c.spare.spare_categories.name.Contains(cadena));
+                }
+
+                if (lst.Count() > 0)
+                {
+                    List<FakeSpareUnit> customL = new List<FakeSpareUnit>();
+                    foreach (var units_spare in lst)
+                    {
+                        this.lstSpareUnits.Add(units_spare.spare.id);
+
+                        FakeSpareUnit spareF = new FakeSpareUnit();
+                        spareF.Spare_id = units_spare.spare.id;
+                        spareF.Codigo = units_spare.spare.code;
+                        spareF.Nombre = units_spare.spare.name;
+                        spareF.NombreMarca = units_spare.spare.brands.name;
+                        spareF.NombreCategoria = units_spare.spare.spare_categories.name;
+                        customL.Add(spareF);
+                    }
+
+                    if (dgv.DataSource != null)
+                    {
+                        dgv.Columns.Clear();
+                    }
+
+                    dgv.DataSource = null;
+                    dgv.DataSource = customL;
+                }
+                else
+                {
+                    List<FakeSpareUnit> newCl = new List<FakeSpareUnit>();
+                    dgv.DataSource = newCl;
                 }
             }
         }

@@ -93,6 +93,50 @@ namespace TodoBus.Controllers
             }
         }
 
+        public void buscar(ref Bunifu.Framework.UI.BunifuCustomDataGrid dgv, string cadena, string index)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                var lst = from d in db.brands
+                          select d;
+
+                if (index == "Nombre")
+                {
+                    lst = lst.Where(c => c.name.Contains(cadena));
+                }
+                else if (index == "Descripción")
+                {
+                    lst = lst.Where(c => c.description.Contains(cadena));
+                }
+
+                if (lst.Count() > 0)
+                {
+                    List<FakeBrands> customL = new List<FakeBrands>();
+                    foreach (var brand in lst)
+                    {
+                        FakeBrands brandF = new FakeBrands();
+                        brandF.Id = brand.id;
+                        brandF.Nombre = brand.name;
+                        brandF.Descripcion = (brand.description != "" ? brand.description : "No hay descripción");
+                        customL.Add(brandF);
+                    }
+
+                    if (dgv.DataSource != null)
+                    {
+                        dgv.Columns.Clear();
+                    }
+
+                    dgv.DataSource = null;
+                    dgv.DataSource = customL;
+                }
+                else
+                {
+                    List<FakeBrands> newCl = new List<FakeBrands>();
+                    dgv.DataSource = newCl;
+                }
+            }
+        }
+
         public bool countBrands()
         {
             using (TodoBusEntities db = new TodoBusEntities())

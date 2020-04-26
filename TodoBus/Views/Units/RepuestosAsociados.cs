@@ -11,6 +11,8 @@ namespace TodoBus.Views.Units
     {
         int? unit_id = 0;
         SpareUnitController spareUnitController = new SpareUnitController();
+
+        bool search = false;
         public RepuestosAsociados(int? id)
         {
             InitializeComponent();
@@ -34,8 +36,27 @@ namespace TodoBus.Views.Units
 
         private void RepuestosAsociados_Load(object sender, EventArgs e)
         {
+            isSearching();
             lblNotImage.Visible = false;
             loadAssignedSpares();
+            cmbAssignedSpares.selectedIndex = 0;
+        }
+
+        private void isSearching()
+        {
+            if (search)
+            {
+                btnResetSearch.Visible = true;
+                txtBuscador.Size = new System.Drawing.Size(231, 35);
+                txtBuscador.Location = new System.Drawing.Point(59, 121);
+            }
+            else
+            {
+                loadAssignedSpares();
+                btnResetSearch.Visible = false;
+                txtBuscador.Size = new System.Drawing.Size(188, 35);
+                txtBuscador.Location = new System.Drawing.Point(102, 121);
+            }
         }
 
         private void loadAssignedSpares()
@@ -107,6 +128,74 @@ namespace TodoBus.Views.Units
                     spareUnitController.spareInformation(id,ref lblNotImage, ref lblNombre,ref lblBrand,ref lblCategory,ref lblCode,ref txtDescription,ref picSpareImage);
                 }
             }
+        }
+
+        private void formatTable()
+        {
+            if (dgvAssignedSpares.DataSource != null)
+            {
+                DataGridViewButtonColumn btnRead = new DataGridViewButtonColumn();
+                btnRead.FlatStyle = FlatStyle.Flat;
+                btnRead.Text = "Ver Información";
+                btnRead.UseColumnTextForButtonValue = true;
+                btnRead.HeaderText = "Acción";
+                dgvAssignedSpares.Columns.Add(btnRead);
+
+                dgvAssignedSpares.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvAssignedSpares.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvAssignedSpares.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvAssignedSpares.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvAssignedSpares.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                dgvAssignedSpares.Columns[0].HeaderText = "Id";
+                dgvAssignedSpares.Columns[0].Width = 30;
+                dgvAssignedSpares.Columns[1].HeaderText = "Código";
+                dgvAssignedSpares.Columns[1].Width = 75;
+                dgvAssignedSpares.Columns[2].HeaderText = "Nombre";
+                dgvAssignedSpares.Columns[3].HeaderText = "Marca";
+                dgvAssignedSpares.Columns[4].HeaderText = "Categoría";
+                dgvAssignedSpares.Columns[4].Width = 200;
+            }
+        }
+
+        private void btnAssignedSpares_Click(object sender, EventArgs e)
+        {
+            if (txtBuscador.text.Length > 0)
+            {
+                if (cmbAssignedSpares.selectedIndex > 0)
+                {
+                    spareUnitController.buscar(int.Parse(unit_id.ToString()),ref dgvAssignedSpares, txtBuscador.text, cmbAssignedSpares.selectedValue);
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un parametro de búsqueda válido", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingrese una cadena de búsqueda", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void txtAssignedSpares_OnTextChange(object sender, EventArgs e)
+        {
+            if (txtBuscador.text.Trim().Length > 0)
+            {
+                search = true;
+                isSearching();
+            }
+            else
+            {
+                search = false;
+                isSearching();
+            }
+        }
+
+        private void btnResetSearch_Click(object sender, EventArgs e)
+        {
+            search = false;
+            isSearching();
+            txtBuscador.text = "";
         }
     }
 }

@@ -15,6 +15,8 @@ namespace TodoBus.Views.Brands
     {
         BrandController brandController = new BrandController();
         users user = new users();
+
+        bool search = false;
         public Marca(users userS)
         {
             InitializeComponent();
@@ -187,10 +189,9 @@ namespace TodoBus.Views.Brands
         }
         private int? getId()
         {
-            //Metodo para obtener el id de la columna seleccionada
+            
             try
             {
-                //Y le decimos que obtenga de mi dgv el valor de la celda 0(que es id) de la fila que se encuentre seleccionada
                 return int.Parse(dgvMarca.Rows[dgvMarca.CurrentRow.Index].Cells[0].Value.ToString());
             }
             catch
@@ -207,9 +208,28 @@ namespace TodoBus.Views.Brands
 
         private void Marca_Load(object sender, EventArgs e)
         {
-            //Llamo al metodo para llenar la tabla
+            isSearching();
             RefreshTable();
             formatTable();
+            cmbOptions.selectedIndex = 0;
+        }
+
+        private void isSearching()
+        {
+            if (search)
+            {
+                btnResetSearch.Visible = true;
+                txtBuscador.Size = new System.Drawing.Size(317, 35);
+                txtBuscador.Location = new System.Drawing.Point(89, 87);
+            }
+            else
+            {
+                RefreshTable();
+                formatTable();
+                btnResetSearch.Visible = false;
+                txtBuscador.Size = new System.Drawing.Size(359, 35);
+                txtBuscador.Location = new System.Drawing.Point(46, 87);
+            }
         }
 
         private void dgvMarca_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -253,6 +273,47 @@ namespace TodoBus.Views.Brands
             this.Hide();
             Repuesto_Unidades repunit = new Repuesto_Unidades(user);
             repunit.Show();
+        }
+
+        private void txtBuscador_OnTextChange(object sender, EventArgs e)
+        {
+            if (txtBuscador.text.Trim().Length > 0)
+            {
+                search = true;
+                isSearching();
+            }
+            else
+            {
+                search = false;
+                isSearching();
+            }
+        }
+
+        private void btnResetSearch_Click(object sender, EventArgs e)
+        {
+            search = false;
+            isSearching();
+            txtBuscador.text = "";
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (txtBuscador.text.Length > 0)
+            {
+                if (cmbOptions.selectedIndex > 0)
+                {
+                    brandController.buscar(ref dgvMarca, txtBuscador.text, cmbOptions.selectedValue);
+                    formatTable();
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un parametro de búsqueda válido", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingrese una cadena de búsqueda", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

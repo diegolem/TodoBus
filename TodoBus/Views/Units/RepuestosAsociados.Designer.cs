@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RepuestosAsociados));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.header = new System.Windows.Forms.Panel();
@@ -38,7 +38,7 @@
             this.btnExit = new Bunifu.Framework.UI.BunifuImageButton();
             this.cmbAssignedSpares = new Bunifu.Framework.UI.BunifuDropdown();
             this.btnAssignedSpares = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.txtAssignedSpares = new Bunifu.Framework.UI.BunifuTextbox();
+            this.txtBuscador = new Bunifu.Framework.UI.BunifuTextbox();
             this.dgvAssignedSpares = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.picSpareImage = new System.Windows.Forms.PictureBox();
@@ -50,11 +50,13 @@
             this.lblCode = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblNotImage = new System.Windows.Forms.Label();
             this.txtDescription = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
+            this.btnResetSearch = new Bunifu.Framework.UI.BunifuImageButton();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssignedSpares)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSpareImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnResetSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -79,7 +81,7 @@
             this.bunifuImageButton2.ErrorImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton2.ErrorImage")));
             this.bunifuImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton2.Image")));
             this.bunifuImageButton2.ImageActive = null;
-            this.bunifuImageButton2.Location = new System.Drawing.Point(918, 0);
+            this.bunifuImageButton2.Location = new System.Drawing.Point(943, 3);
             this.bunifuImageButton2.Name = "bunifuImageButton2";
             this.bunifuImageButton2.Size = new System.Drawing.Size(37, 28);
             this.bunifuImageButton2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -93,7 +95,7 @@
             this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.ImageActive = null;
-            this.btnExit.Location = new System.Drawing.Point(959, 0);
+            this.btnExit.Location = new System.Drawing.Point(984, 3);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(37, 28);
             this.btnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -110,6 +112,7 @@
             this.cmbAssignedSpares.DisabledColor = System.Drawing.Color.Gray;
             this.cmbAssignedSpares.ForeColor = System.Drawing.Color.White;
             this.cmbAssignedSpares.Items = new string[] {
+        "Buscar por",
         "Código",
         "Nombre",
         "Marca",
@@ -157,37 +160,39 @@
             this.btnAssignedSpares.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAssignedSpares.Textcolor = System.Drawing.Color.White;
             this.btnAssignedSpares.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAssignedSpares.Click += new System.EventHandler(this.btnAssignedSpares_Click);
             // 
-            // txtAssignedSpares
+            // txtBuscador
             // 
-            this.txtAssignedSpares.BackColor = System.Drawing.Color.White;
-            this.txtAssignedSpares.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtAssignedSpares.BackgroundImage")));
-            this.txtAssignedSpares.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.txtAssignedSpares.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.txtAssignedSpares.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.txtAssignedSpares.Icon = ((System.Drawing.Image)(resources.GetObject("txtAssignedSpares.Icon")));
-            this.txtAssignedSpares.Location = new System.Drawing.Point(59, 121);
-            this.txtAssignedSpares.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtAssignedSpares.Name = "txtAssignedSpares";
-            this.txtAssignedSpares.Size = new System.Drawing.Size(231, 35);
-            this.txtAssignedSpares.TabIndex = 49;
-            this.txtAssignedSpares.text = "";
+            this.txtBuscador.BackColor = System.Drawing.Color.White;
+            this.txtBuscador.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtBuscador.BackgroundImage")));
+            this.txtBuscador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.txtBuscador.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.txtBuscador.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.txtBuscador.Icon = ((System.Drawing.Image)(resources.GetObject("txtBuscador.Icon")));
+            this.txtBuscador.Location = new System.Drawing.Point(102, 121);
+            this.txtBuscador.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtBuscador.Name = "txtBuscador";
+            this.txtBuscador.Size = new System.Drawing.Size(188, 35);
+            this.txtBuscador.TabIndex = 49;
+            this.txtBuscador.text = "";
+            this.txtBuscador.OnTextChange += new System.EventHandler(this.txtAssignedSpares_OnTextChange);
             // 
             // dgvAssignedSpares
             // 
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvAssignedSpares.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvAssignedSpares.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvAssignedSpares.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
             this.dgvAssignedSpares.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAssignedSpares.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAssignedSpares.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAssignedSpares.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvAssignedSpares.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAssignedSpares.DoubleBuffered = true;
             this.dgvAssignedSpares.EnableHeadersVisualStyles = false;
@@ -339,12 +344,27 @@
             this.txtDescription.TabIndex = 77;
             this.txtDescription.Text = "Descripción:";
             // 
+            // btnResetSearch
+            // 
+            this.btnResetSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnResetSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnResetSearch.Image")));
+            this.btnResetSearch.ImageActive = null;
+            this.btnResetSearch.Location = new System.Drawing.Point(59, 121);
+            this.btnResetSearch.Name = "btnResetSearch";
+            this.btnResetSearch.Size = new System.Drawing.Size(37, 35);
+            this.btnResetSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnResetSearch.TabIndex = 78;
+            this.btnResetSearch.TabStop = false;
+            this.btnResetSearch.Zoom = 10;
+            this.btnResetSearch.Click += new System.EventHandler(this.btnResetSearch_Click);
+            // 
             // RepuestosAsociados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.ClientSize = new System.Drawing.Size(1026, 675);
+            this.Controls.Add(this.btnResetSearch);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.lblNotImage);
             this.Controls.Add(this.lblCode);
@@ -357,7 +377,7 @@
             this.Controls.Add(this.bunifuCustomLabel3);
             this.Controls.Add(this.cmbAssignedSpares);
             this.Controls.Add(this.btnAssignedSpares);
-            this.Controls.Add(this.txtAssignedSpares);
+            this.Controls.Add(this.txtBuscador);
             this.Controls.Add(this.dgvAssignedSpares);
             this.Controls.Add(this.header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -369,6 +389,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssignedSpares)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSpareImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnResetSearch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -382,7 +403,7 @@
         private Bunifu.Framework.UI.BunifuImageButton btnExit;
         private Bunifu.Framework.UI.BunifuDropdown cmbAssignedSpares;
         private Bunifu.Framework.UI.BunifuFlatButton btnAssignedSpares;
-        private Bunifu.Framework.UI.BunifuTextbox txtAssignedSpares;
+        private Bunifu.Framework.UI.BunifuTextbox txtBuscador;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvAssignedSpares;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
@@ -394,5 +415,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lblCode;
         private System.Windows.Forms.Label lblNotImage;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txtDescription;
+        private Bunifu.Framework.UI.BunifuImageButton btnResetSearch;
     }
 }
