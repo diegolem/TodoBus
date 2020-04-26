@@ -69,5 +69,43 @@ namespace TodoBus.Controllers
                 }
             }
         }
+        public string recoverPassword(string userRegisting)
+        {
+            using(TodoBusEntities db =new TodoBusEntities())
+            {
+                try
+                {
+                    var lst = from d in db.users
+                              where d.email == userRegisting
+                              select d;
+
+                    if(lst.Count()>0)
+                    {
+                        users Usuarios = new users();
+                        string Nombre = Usuarios.name;
+                        string Apellido = Usuarios.last_name;
+                        string nombreCom = Nombre + " " + Apellido;
+                        var mailService = new SystemSupportMail();
+                        mailService.sendMail(
+                          subject: "SYSTEM: Recuperar Contraseña",
+                          body: "Hola, " + nombreCom + "\nEstas solicitando recuperar tu contraseña.\n" +
+                          "Tu código de recuperación es el siguiente : 1234\n"+
+                          "No compartas tu codigo de recuperación por ningún motivo.",
+                          
+                          recipientMail: new List<string> { userRegisting }
+                          );
+                        return "Hola, " + nombreCom + "\nEstas solicitando recuperar tu contraseña.\n" + "Por favor revisa tu correo electrónico";
+                    }
+                    else
+                    {
+                        return "No se ha podido encontrar ningún usuario relacionado con el correo que nos proporcionaste";
+                    }
+                }
+                catch
+                {
+                    return "Ocurrio un error, revisa tu conexión";
+                }
+            }
+        }
     }
 }

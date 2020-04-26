@@ -118,8 +118,8 @@ namespace TodoBus.Views.Brands
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Login log = new Login();
-            log.Show();
+            //Login log = new Login();
+            //log.Show();
         }
 
         private void btnSpareTypes_Click(object sender, EventArgs e)

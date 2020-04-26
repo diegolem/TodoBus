@@ -11,11 +11,12 @@ CREATE TABLE users(
 	last_name varchar(50) NOT NULL,
 	email varchar(50) NOT NULL UNIQUE,
 	age int CHECK(age >= 18),
+	token int NOT NULL,
 	password varchar(200) DEFAULT NULL,
 	PRIMARY KEY(id)
 );
 
-INSERT INTO users VALUES ('Samuel','Peña', 'samuel07@gmail.com', 25, '6dad920bd261ddc177c720d8dade39984f228de59e3700f89231a480f3761c66');
+INSERT INTO users VALUES ('Samuel','Peña', 'samuel07@gmail.com', 25,ROUND(((9999 - 1) * RAND() + 1),0),'6dad920bd261ddc177c720d8dade39984f228de59e3700f89231a480f3761c66');
 
 DROP TABLE IF EXISTS clients;
 CREATE TABLE clients(

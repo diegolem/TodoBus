@@ -66,10 +66,12 @@
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\CodeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MasterMailServer.cs" />
     <Compile Include="Controllers\SpareController.cs" />
     <Compile Include="Controllers\SpareUnitController.cs" />
     <Compile Include="Controllers\SubCategoryController.cs" />
     <Compile Include="Controllers\SubClassController.cs" />
+    <Compile Include="Controllers\SystemSupportMail.cs" />
     <Compile Include="Controllers\UnitController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValidationController.cs" />
@@ -118,6 +120,12 @@
     </Compile>
     <Compile Include="Models\users.cs">
       <DependentUpon>TodoBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodigoRecuperacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CodigoRecuperacion.Designer.cs">
+      <DependentUpon>CodigoRecuperacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Units\ModRepuesto_Unidad.cs">
       <SubType>Form</SubType>
@@ -303,6 +311,9 @@
     <Compile Include="Views\Users\Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CodigoRecuperacion.resx">
+      <DependentUpon>CodigoRecuperacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Units\ModRepuesto_Unidad.resx">
       <DependentUpon>ModRepuesto_Unidad.cs</DependentUpon>
     </EmbeddedResource>
