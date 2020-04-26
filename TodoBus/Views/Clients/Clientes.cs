@@ -230,7 +230,7 @@ namespace TodoBus
             }
             dgvClientes.DataSource = null;
 
-            List<FakeClients> clients= new List<FakeClients>();
+            List<FakeClients> clients = new List<FakeClients>();
             clients = clientController.getAllClients();
 
             if (clients.Count() > 0)
@@ -313,7 +313,7 @@ namespace TodoBus
                 {
                     clientController.buscar(ref dgvClientes, txtBuscador.text, cmbOptions.selectedValue);
                     formatTable();
-            }
+                }
                 else
                 {
                     MessageBox.Show("Seleccione un parametro de búsqueda válido", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);

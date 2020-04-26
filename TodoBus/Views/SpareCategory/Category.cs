@@ -328,5 +328,12 @@ namespace TodoBus.Views.SpareCategory
                 isSearching();
             }
         }
+
+        private void btnResetSearch_Click(object sender, EventArgs e)
+        {
+            search = false;
+            isSearching();
+            txtBuscador.text = "";
+        }
     }
 }
