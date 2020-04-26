@@ -110,6 +110,7 @@
           <Property Name="last_name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="age" Type="int" />
+          <Property Name="token" Type="int" Nullable="false" />
           <Property Name="password" Type="varchar" MaxLength="200" />
         </EntityType>
         <Association Name="FK__clients__user_id__3D5E1FD2">
@@ -424,9 +425,9 @@
           <Property Name="brand_id" Type="Int32" Nullable="false" />
           <Property Name="client_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="brands" Relationship="Self.FK__units__brand_id__5070F446" FromRole="units" ToRole="brands" />
-          <NavigationProperty Name="brands_bodywork" Relationship="Self.FK__units__marca_car__5165187F" FromRole="units" ToRole="brands" />
-          <NavigationProperty Name="brands_chassis" Relationship="Self.FK__units__marca_cha__52593CB8" FromRole="units" ToRole="brands" />
-          <NavigationProperty Name="brands_motor" Relationship="Self.FK__units__marca_mot__534D60F1" FromRole="units" ToRole="brands" />
+          <NavigationProperty Name="brands1" Relationship="Self.FK__units__marca_car__5165187F" FromRole="units" ToRole="brands" />
+          <NavigationProperty Name="brands2" Relationship="Self.FK__units__marca_cha__52593CB8" FromRole="units" ToRole="brands" />
+          <NavigationProperty Name="brands3" Relationship="Self.FK__units__marca_mot__534D60F1" FromRole="units" ToRole="brands" />
           <NavigationProperty Name="clients" Relationship="Self.FK__units__client_id__5441852A" FromRole="units" ToRole="clients" />
           <NavigationProperty Name="units_spare" Relationship="Self.FK__units_spa__unit___571DF1D5" FromRole="units" ToRole="units_spare" />
         </EntityType>
@@ -449,6 +450,7 @@
           <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="age" Type="Int32" />
+          <Property Name="token" Type="Int32" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="clients" Relationship="Self.FK__clients__user_id__3D5E1FD2" FromRole="users" ToRole="clients" />
         </EntityType>
@@ -775,6 +777,7 @@
                 <ScalarProperty Name="last_name" ColumnName="last_name" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="token" ColumnName="token" />
                 <ScalarProperty Name="password" ColumnName="password" />
               </MappingFragment>
             </EntityTypeMapping>
