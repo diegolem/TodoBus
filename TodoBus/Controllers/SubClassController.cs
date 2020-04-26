@@ -177,7 +177,7 @@ namespace TodoBus.Controllers
             }
         }
 
-        public void Busqueda(DataGridView data, string dato)
+        public void buscar(ref Bunifu.Framework.UI.BunifuCustomDataGrid dgv, string cadena, string index)
         {
             using (TodoBusEntities db = new TodoBusEntities())
             {
@@ -185,7 +185,19 @@ namespace TodoBus.Controllers
                 var lst = from d in db.spare_subclasses
                           join c in db.spare_subcategories on d.subcategory_id equals c.id
                           select d;
-                lst = lst.Where(d => d.code.Contains(dato));
+
+                if (index == "Código")
+                {
+                    lst = lst.Where(c => c.code.Contains(cadena));
+                }
+                else if (index == "Nombre")
+                {
+                    lst = lst.Where(c => c.name.Contains(cadena));
+                }
+                else if (index == "Subcategoría")
+                {
+                    lst = lst.Where(c => c.spare_subcategories.name.Contains(cadena));
+                }
 
                 if (lst.Count() > 0)
                 {
@@ -198,22 +210,21 @@ namespace TodoBus.Controllers
                         ClassF.Nombre = subclass.name;
                         ClassF.NombreSubCategoria = subclass.spare_subcategories.name;
                         customL.Add(ClassF);
-                        if (data.DataSource != null) 
+
+                        if (dgv.DataSource != null)
                         {
-
-                            data.Columns.Clear();
+                            dgv.Columns.Clear();
                         }
-                        data.DataSource = null;
 
-
-                        data.DataSource = customL;
+                        dgv.DataSource = null;
+                        dgv.DataSource = customL;
 
                     }
                 }
                 else
                 {
-                    List<FakeSubClasses> newSC = new List<FakeSubClasses>();
-                    data.DataSource = newSC;
+                    List<FakeSubClasses> newCl = new List<FakeSubClasses>();
+                    dgv.DataSource = newCl;
                 }
 
 
