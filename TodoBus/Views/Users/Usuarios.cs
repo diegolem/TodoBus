@@ -136,7 +136,6 @@ namespace TodoBus
         {
             if (dgvUsuarios.DataSource != null)
             {
-                
                 //Y ahora añadimos el boton modificar a la tabla
                 DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
                 btnEdit.FlatStyle = FlatStyle.Flat;
@@ -156,9 +155,6 @@ namespace TodoBus
                 dgvUsuarios.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dgvUsuarios.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dgvUsuarios.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dgvUsuarios.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dgvUsuarios.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dgvUsuarios.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                 dgvUsuarios.Columns[0].HeaderText = "Id";
                 dgvUsuarios.Columns[0].Width = 30;
@@ -166,15 +162,12 @@ namespace TodoBus
                 dgvUsuarios.Columns[2].HeaderText = "Apellido";
                 dgvUsuarios.Columns[3].HeaderText = "Correo";
                 dgvUsuarios.Columns[3].Width = 150;
-
-
             }
         }
         private void RefreshData()
         {
             if (dgvUsuarios.DataSource != null)
             {
-                //Si esto no estaba vacio limpio todas las columas del Grid
                 dgvUsuarios.Columns.Clear();
             }
             dgvUsuarios.DataSource = null;
@@ -193,15 +186,15 @@ namespace TodoBus
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            Refresh();
+            RefreshData();
             formatTable();
         }
 
         private void Usuarios_Load(object sender, EventArgs e)
         {
-            Refresh();
-            formatTable();
             isSearching();
+            RefreshData();
+            formatTable();
             cmbOptions.selectedIndex = 0;
         }
 
@@ -249,7 +242,7 @@ namespace TodoBus
                             MessageBox.Show("No se puede eliminar este usuario", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
-                        Refresh();
+                        RefreshData();
                         formatTable();
                     }
                 }
