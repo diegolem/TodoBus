@@ -82,6 +82,12 @@
       <DependentUpon>TodoBus.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\FakeSpareUnit.cs" />
+    <Compile Include="CodigoRecuperacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CodigoRecuperacion.Designer.cs">
+      <DependentUpon>CodigoRecuperacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\spare.cs">
       <DependentUpon>TodoBus.tt</DependentUpon>
     </Compile>
@@ -120,12 +126,6 @@
     </Compile>
     <Compile Include="Models\users.cs">
       <DependentUpon>TodoBus.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CodigoRecuperacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CodigoRecuperacion.Designer.cs">
-      <DependentUpon>CodigoRecuperacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Units\ModRepuesto_Unidad.cs">
       <SubType>Form</SubType>

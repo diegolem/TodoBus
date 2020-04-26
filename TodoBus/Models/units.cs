@@ -35,9 +35,9 @@ namespace TodoBus.Models
         public int client_id { get; set; }
     
         public virtual brands brands { get; set; }
-        public virtual brands brands1 { get; set; }
-        public virtual brands brands2 { get; set; }
-        public virtual brands brands3 { get; set; }
+        public virtual brands brands_bodywork { get; set; }
+        public virtual brands brands_chassis { get; set; }
+        public virtual brands brands_motor { get; set; }
         public virtual clients clients { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<units_spare> units_spare { get; set; }
