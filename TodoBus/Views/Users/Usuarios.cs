@@ -161,7 +161,7 @@ namespace TodoBus
                 dgvUsuarios.Columns[1].HeaderText = "Nombre";
                 dgvUsuarios.Columns[2].HeaderText = "Apellido";
                 dgvUsuarios.Columns[3].HeaderText = "Correo";
-                dgvUsuarios.Columns[3].Width = 150;
+                dgvUsuarios.Columns[3].Width = 175;
             }
         }
         private void RefreshData()
