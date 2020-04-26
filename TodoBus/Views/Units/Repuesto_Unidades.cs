@@ -22,6 +22,8 @@ namespace TodoBus.Views.Units
         UnitController unitController = new UnitController();
 
         users user = new users();
+
+        bool search = false;
         public Repuesto_Unidades(users userS)
         {
             InitializeComponent();
@@ -126,6 +128,24 @@ namespace TodoBus.Views.Units
             }
         }
 
+        private void isSearching()
+        {
+            if (search)
+            {
+                btnResetSearch.Visible = true;
+                txtBuscador.Size = new System.Drawing.Size(317, 35);
+                txtBuscador.Location = new System.Drawing.Point(287, 131);
+            }
+            else
+            {
+                RefreshData();
+                formatTable();
+                btnResetSearch.Visible = false;
+                txtBuscador.Size = new System.Drawing.Size(359, 35);
+                txtBuscador.Location = new System.Drawing.Point(246, 131);
+            }
+        }
+
         private void RefreshData()
         {
             if(dgvSpareUnit.DataSource != null)
@@ -212,7 +232,8 @@ namespace TodoBus.Views.Units
             {
                 if (id != null)
                 {
-                    //Aca el ver repuestos
+                    RepuestosAsociados ra = new RepuestosAsociados(id);
+                    ra.ShowDialog();
                 }
             }
             else if (e.ColumnIndex == 14)
@@ -227,8 +248,51 @@ namespace TodoBus.Views.Units
 
         private void Repuesto_Unidades_Load(object sender, EventArgs e)
         {
+            isSearching();
             RefreshData();
             formatTable();
+            cmbOptions.selectedIndex = 0;
+        }
+
+        private void txtBuscador_OnTextChange(object sender, EventArgs e)
+        {
+            if (txtBuscador.text.Trim().Length > 0)
+            {
+                search = true;
+                isSearching();
+            }
+            else
+            {
+                search = false;
+                isSearching();
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (txtBuscador.text.Length > 0)
+            {
+                if (cmbOptions.selectedIndex > 0)
+                {
+                    unitController.buscar(ref dgvSpareUnit, txtBuscador.text, cmbOptions.selectedValue);
+                    formatTable();
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un parametro de búsqueda válido", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingrese una cadena de búsqueda", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnResetSearch_Click(object sender, EventArgs e)
+        {
+            search = false;
+            isSearching();
+            txtBuscador.text = "";
         }
     }
 }

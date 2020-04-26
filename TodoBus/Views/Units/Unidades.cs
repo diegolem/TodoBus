@@ -21,6 +21,8 @@ namespace TodoBus.Views.Units
 
         List<clients> lsClient = new List<clients>();
 
+        bool search = false;
+
         users user = new users();
         public Unidades(users userS)
         {
@@ -38,6 +40,24 @@ namespace TodoBus.Views.Units
             else
             {
                 LogoTransition.Hide(logo);Options.Visible = false;Options.Width = 50; PanelTransition.ShowSync(Options);
+            }
+        }
+
+        private void isSearching()
+        {
+            if (search)
+            {
+                btnResetSearch.Visible = true;
+                txtBuscador.Size = new System.Drawing.Size(317, 35);
+                txtBuscador.Location = new System.Drawing.Point(90, 86);
+            }
+            else
+            {
+                RefreshData();
+                formatTable();
+                btnResetSearch.Visible = false;
+                txtBuscador.Size = new System.Drawing.Size(359, 35);
+                txtBuscador.Location = new System.Drawing.Point(47, 86);
             }
         }
 
@@ -133,8 +153,10 @@ namespace TodoBus.Views.Units
 
         private void Unidades_Load(object sender, EventArgs e)
         {
+            isSearching();
             RefreshData();
             formatTable();
+            cmbOptions.selectedIndex = 0;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -261,6 +283,47 @@ namespace TodoBus.Views.Units
             this.Hide();
             Repuesto_Unidades repunit = new Repuesto_Unidades(user);
             repunit.Show();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (txtBuscador.text.Length > 0)
+            {
+                if (cmbOptions.selectedIndex > 0)
+                {
+                    unitController.buscar(ref dgvUnidad, txtBuscador.text, cmbOptions.selectedValue);
+                    formatTable();
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un parametro de búsqueda válido", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingrese una cadena de búsqueda", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnResetSearch_Click(object sender, EventArgs e)
+        {
+            search = false;
+            isSearching();
+            txtBuscador.text = "";
+        }
+
+        private void txtBuscador_OnTextChange(object sender, EventArgs e)
+        {
+            if (txtBuscador.text.Trim().Length > 0)
+            {
+                search = true;
+                isSearching();
+            }
+            else
+            {
+                search = false;
+                isSearching();
+            }
         }
     }
 }

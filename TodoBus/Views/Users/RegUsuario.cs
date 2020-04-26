@@ -53,7 +53,7 @@ namespace TodoBus
                 try
                 {
                     //Mando a llamar el metodo de guardar del controller y paso los parametros
-                    int save = UserC.save(txtname.Text, txtlastname.Text, txtemail.Text, int.Parse(numage.Text), PasswordtextBox.Text);
+                    int save = UserC.save(txtname.Text, txtlastname.Text, txtemail.Text, PasswordtextBox.Text);
                     if (save == 1)
                     {
                         DialogResult result = MessageBox.Show("El usuario se ha ingresado exitosamente\n\n¿Quieres registrar otro usuario?", "TodoBus", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -81,7 +81,6 @@ namespace TodoBus
                     alerts.errorInSaveChanges("");
                 }
             }
-
         }
         private bool validateFields()
         {
@@ -101,6 +100,11 @@ namespace TodoBus
                 Ep1.SetError(txtemail, "El Correo no puede quedar vacío");
                 return false;
             }
+            if (!(valid.isEmail(txtemail.Text)))
+            {
+                Ep1.SetError(txtemail, "Porfavor ingresa un correo válido");
+                return false;
+            }
             if (!(valid.isString(PasswordtextBox.Text)))
             {
                 Ep1.SetError(PasswordtextBox, "Contraseña no puede quedar vacía");
@@ -114,7 +118,6 @@ namespace TodoBus
             txtname.Text = "";
             txtlastname.Text = "";
             txtemail.Text = "";
-            numage.Text = "18";
             PasswordtextBox.Text = "";
         }
 

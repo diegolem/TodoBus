@@ -22,6 +22,8 @@ namespace TodoBus
         AlertController alerts = new AlertController();
 
         users user = new users();
+
+        bool search = false;
         public Repuestos(users userS)
         {
             InitializeComponent();
@@ -31,8 +33,22 @@ namespace TodoBus
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            control.Busqueda(dgvRepuestos, txtBuscador.text,cmbOptions.selectedValue);
-            formatTable();
+            if (txtBuscador.text.Length > 0)
+            {
+                if (cmbOptions.selectedIndex > 0)
+                {
+                    control.Busqueda(dgvRepuestos, txtBuscador.text, cmbOptions.selectedValue);
+                    formatTable();
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un parametro de búsqueda válido", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingrese una cadena de búsqueda", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnRegCliente_Click(object sender, EventArgs e)
@@ -85,13 +101,35 @@ namespace TodoBus
         #endregion
         private void Repuestos_Load(object sender, EventArgs e)
         {
+            isSearching();
             Refresh();
             formatTable();
             cmbOptions.Clear();
+            cmbOptions.AddItem("Buscar por");
             cmbOptions.AddItem("Código");
             cmbOptions.AddItem("Nombre");
             cmbOptions.AddItem("Marca");
             cmbOptions.AddItem("Categoría");
+
+            cmbOptions.selectedIndex = 0;
+        }
+
+        private void isSearching()
+        {
+            if (search)
+            {
+                btnResetSearch.Visible = true;
+                txtBuscador.Size = new System.Drawing.Size(317, 35);
+                txtBuscador.Location = new System.Drawing.Point(288, 114);
+            }
+            else
+            {
+                Refresh();
+                formatTable();
+                btnResetSearch.Visible = false;
+                txtBuscador.Size = new System.Drawing.Size(359, 35);
+                txtBuscador.Location = new System.Drawing.Point(246, 114);
+            }
         }
 
         private void btnClients_Click(object sender, EventArgs e)
@@ -310,6 +348,27 @@ namespace TodoBus
         private void bunifuCustomLabel2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtBuscador_OnTextChange(object sender, EventArgs e)
+        {
+            if (txtBuscador.text.Trim().Length > 0)
+            {
+                search = true;
+                isSearching();
+            }
+            else
+            {
+                search = false;
+                isSearching();
+            }
+        }
+
+        private void btnResetSearch_Click(object sender, EventArgs e)
+        {
+            search = false;
+            isSearching();
+            txtBuscador.text = "";
         }
     }
 }

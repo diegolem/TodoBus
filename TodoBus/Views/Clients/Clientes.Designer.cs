@@ -60,6 +60,7 @@
             this.cmbOptions = new Bunifu.Framework.UI.BunifuDropdown();
             this.btnBuscar = new Bunifu.Framework.UI.BunifuFlatButton();
             this.txtBuscador = new Bunifu.Framework.UI.BunifuTextbox();
+            this.btnResetSearch = new Bunifu.Framework.UI.BunifuImageButton();
             this.LogoTransition = new BunifuAnimatorNS.BunifuTransition(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.header.SuspendLayout();
@@ -68,6 +69,7 @@
             this.Options.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnResetSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvClientes
@@ -744,7 +746,7 @@
         "Teléfono",
         "Teléfono Alternativo",
         "Correo Alternativo"};
-            this.cmbOptions.Location = new System.Drawing.Point(622, 121);
+            this.cmbOptions.Location = new System.Drawing.Point(623, 120);
             this.cmbOptions.Name = "cmbOptions";
             this.cmbOptions.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.cmbOptions.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(73)))), ((int)(((byte)(109)))));
@@ -776,7 +778,7 @@
             this.btnBuscar.IconVisible = false;
             this.btnBuscar.IconZoom = 60D;
             this.btnBuscar.IsTab = false;
-            this.btnBuscar.Location = new System.Drawing.Point(804, 121);
+            this.btnBuscar.Location = new System.Drawing.Point(805, 120);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
@@ -801,12 +803,29 @@
             this.txtBuscador.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtBuscador.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.txtBuscador.Icon = ((System.Drawing.Image)(resources.GetObject("txtBuscador.Icon")));
-            this.txtBuscador.Location = new System.Drawing.Point(247, 121);
+            this.txtBuscador.Location = new System.Drawing.Point(290, 120);
             this.txtBuscador.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtBuscador.Name = "txtBuscador";
-            this.txtBuscador.Size = new System.Drawing.Size(356, 35);
+            this.txtBuscador.Size = new System.Drawing.Size(317, 35);
             this.txtBuscador.TabIndex = 58;
             this.txtBuscador.text = "";
+            this.txtBuscador.OnTextChange += new System.EventHandler(this.txtBuscador_OnTextChange);
+            // 
+            // btnResetSearch
+            // 
+            this.btnResetSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.LogoTransition.SetDecoration(this.btnResetSearch, BunifuAnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.btnResetSearch, BunifuAnimatorNS.DecorationType.None);
+            this.btnResetSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnResetSearch.Image")));
+            this.btnResetSearch.ImageActive = null;
+            this.btnResetSearch.Location = new System.Drawing.Point(247, 120);
+            this.btnResetSearch.Name = "btnResetSearch";
+            this.btnResetSearch.Size = new System.Drawing.Size(37, 35);
+            this.btnResetSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnResetSearch.TabIndex = 61;
+            this.btnResetSearch.TabStop = false;
+            this.btnResetSearch.Zoom = 10;
+            this.btnResetSearch.Click += new System.EventHandler(this.btnResetSearch_Click);
             // 
             // LogoTransition
             // 
@@ -835,6 +854,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.ClientSize = new System.Drawing.Size(936, 720);
+            this.Controls.Add(this.btnResetSearch);
             this.Controls.Add(this.cmbOptions);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtBuscador);
@@ -858,6 +878,7 @@
             this.Options.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnResetSearch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -892,5 +913,6 @@
         private Bunifu.Framework.UI.BunifuDropdown cmbOptions;
         private Bunifu.Framework.UI.BunifuFlatButton btnBuscar;
         private Bunifu.Framework.UI.BunifuTextbox txtBuscador;
+        private Bunifu.Framework.UI.BunifuImageButton btnResetSearch;
     }
 }

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TodoBus.Models;
 
 
@@ -116,7 +113,57 @@ namespace TodoBus.Controllers
                     return newSC;
                 }
             }
-        } 
+        }
+
+        public void buscar(ref Bunifu.Framework.UI.BunifuCustomDataGrid dgv, string cadena, string index)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                var lst = from d in db.spare_subcategories
+                          join c in db.spare_categories on d.category_id equals c.id
+                          select d;
+
+                if (index == "Código")
+                {
+                    lst = lst.Where(c => c.code.Contains(cadena));
+                }
+                else if (index == "Nombre")
+                {
+                    lst = lst.Where(c => c.name.Contains(cadena));
+                }
+                else if (index == "Categoría")
+                {
+                    lst = lst.Where(c => c.spare_categories.name.Contains(cadena));
+                }
+
+                if (lst.Count() > 0)
+                {
+                    List<FakeSubCategories> customL = new List<FakeSubCategories>();
+                    foreach (var sub in lst)
+                    {
+                        FakeSubCategories subF = new FakeSubCategories();
+                        subF.Id = sub.id;
+                        subF.Codigo = sub.code;
+                        subF.Nombre = sub.name;
+                        subF.NombreCategoria = sub.spare_categories.name;
+                        customL.Add(subF);
+                    }
+
+                    if (dgv.DataSource != null)
+                    {
+                        dgv.Columns.Clear();
+                    }
+
+                    dgv.DataSource = null;
+                    dgv.DataSource = customL;
+                }
+                else
+                {
+                    List<FakeSubCategories> newCl = new List<FakeSubCategories>();
+                    dgv.DataSource = newCl;
+                }
+            }
+        }
 
         public bool delete(int? id)
         {

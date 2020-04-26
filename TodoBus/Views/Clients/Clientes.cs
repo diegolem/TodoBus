@@ -19,6 +19,8 @@ namespace TodoBus
         UserController userController = new UserController();
         AlertController alerts = new AlertController();
 
+        bool search = false;
+
         users user = new users();
         public Clientes(users userS)
         {
@@ -143,9 +145,28 @@ namespace TodoBus
         #endregion
         private void Clientes_Load(object sender, EventArgs e)
         {
+            isSearching();
             RefreshData();
             formatTable();
             cmbOptions.selectedIndex = 0;
+        }
+
+        private void isSearching()
+        {
+            if (search)
+            {
+                btnResetSearch.Visible = true;
+                txtBuscador.Size = new System.Drawing.Size(317, 35);
+                txtBuscador.Location = new System.Drawing.Point(289, 121);
+            }
+            else
+            {
+                RefreshData();
+                formatTable();
+                btnResetSearch.Visible = false;
+                txtBuscador.Size = new System.Drawing.Size(359, 35);
+                txtBuscador.Location = new System.Drawing.Point(247, 121);
+            }
         }
 
         private void formatTable()
@@ -209,7 +230,7 @@ namespace TodoBus
             }
             dgvClientes.DataSource = null;
 
-            List<FakeClients> clients= new List<FakeClients>();
+            List<FakeClients> clients = new List<FakeClients>();
             clients = clientController.getAllClients();
 
             if (clients.Count() > 0)
@@ -292,7 +313,7 @@ namespace TodoBus
                 {
                     clientController.buscar(ref dgvClientes, txtBuscador.text, cmbOptions.selectedValue);
                     formatTable();
-            }
+                }
                 else
                 {
                     MessageBox.Show("Seleccione un parametro de búsqueda válido", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -302,6 +323,27 @@ namespace TodoBus
             {
                 MessageBox.Show("Ingrese una cadena de búsqueda", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void txtBuscador_OnTextChange(object sender, EventArgs e)
+        {
+            if (txtBuscador.text.Trim().Length > 0)
+            {
+                search = true;
+                isSearching();
+            }
+            else
+            {
+                search = false;
+                isSearching();
+            }
+        }
+
+        private void btnResetSearch_Click(object sender, EventArgs e)
+        {
+            search = false;
+            isSearching();
+            txtBuscador.text = "";
         }
     }
 }

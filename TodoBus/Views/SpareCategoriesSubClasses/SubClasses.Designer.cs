@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation4 = new BunifuAnimatorNS.Animation();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            BunifuAnimatorNS.Animation animation3 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SubClasses));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.header = new System.Windows.Forms.Panel();
             this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
@@ -54,14 +54,15 @@
             this.btnMenu = new Bunifu.Framework.UI.BunifuImageButton();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.PanelTransition = new BunifuAnimatorNS.BunifuTransition(this.components);
-            this.body = new System.Windows.Forms.Panel();
-            this.cmbOptions = new Bunifu.Framework.UI.BunifuDropdown();
-            this.btnBuscar = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.txtBuscador = new Bunifu.Framework.UI.BunifuTextbox();
-            this.btnUpdate = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnRegSubCategoria = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.dgvSubClase = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.btnRegSubCategoria = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnUpdate = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.txtBuscador = new Bunifu.Framework.UI.BunifuTextbox();
+            this.btnBuscar = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.cmbOptions = new Bunifu.Framework.UI.BunifuDropdown();
+            this.body = new System.Windows.Forms.Panel();
+            this.btnResetSearch = new Bunifu.Framework.UI.BunifuImageButton();
             this.LogoTransition = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
@@ -69,8 +70,9 @@
             this.Options.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
-            this.body.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubClase)).BeginInit();
+            this.body.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnResetSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -595,157 +597,65 @@
             // 
             this.PanelTransition.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
             this.PanelTransition.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 1;
-            animation1.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 2F;
-            animation1.TransparencyCoeff = 0F;
-            this.PanelTransition.DefaultAnimation = animation1;
+            animation4.AnimateOnlyDifferences = true;
+            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
+            animation4.LeafCoeff = 0F;
+            animation4.MaxTime = 1F;
+            animation4.MinTime = 0F;
+            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
+            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
+            animation4.MosaicSize = 1;
+            animation4.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
+            animation4.RotateCoeff = 0F;
+            animation4.RotateLimit = 0F;
+            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
+            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
+            animation4.TimeCoeff = 2F;
+            animation4.TransparencyCoeff = 0F;
+            this.PanelTransition.DefaultAnimation = animation4;
             // 
-            // body
+            // dgvSubClase
             // 
-            this.body.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.body.Controls.Add(this.cmbOptions);
-            this.body.Controls.Add(this.btnBuscar);
-            this.body.Controls.Add(this.txtBuscador);
-            this.body.Controls.Add(this.btnUpdate);
-            this.body.Controls.Add(this.btnRegSubCategoria);
-            this.body.Controls.Add(this.bunifuCustomLabel1);
-            this.body.Controls.Add(this.dgvSubClase);
-            this.LogoTransition.SetDecoration(this.body, BunifuAnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.body, BunifuAnimatorNS.DecorationType.None);
-            this.body.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.body.Location = new System.Drawing.Point(200, 32);
-            this.body.Name = "body";
-            this.body.Size = new System.Drawing.Size(736, 675);
-            this.body.TabIndex = 47;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvSubClase.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvSubClase.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.dgvSubClase.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvSubClase.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubClase.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvSubClase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PanelTransition.SetDecoration(this.dgvSubClase, BunifuAnimatorNS.DecorationType.None);
+            this.LogoTransition.SetDecoration(this.dgvSubClase, BunifuAnimatorNS.DecorationType.None);
+            this.dgvSubClase.DoubleBuffered = true;
+            this.dgvSubClase.EnableHeadersVisualStyles = false;
+            this.dgvSubClase.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(197)))));
+            this.dgvSubClase.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            this.dgvSubClase.HeaderForeColor = System.Drawing.Color.Black;
+            this.dgvSubClase.Location = new System.Drawing.Point(45, 176);
+            this.dgvSubClase.Name = "dgvSubClase";
+            this.dgvSubClase.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvSubClase.Size = new System.Drawing.Size(646, 452);
+            this.dgvSubClase.TabIndex = 44;
+            this.dgvSubClase.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSubClase_CellClick);
             // 
-            // cmbOptions
+            // bunifuCustomLabel1
             // 
-            this.cmbOptions.BackColor = System.Drawing.Color.Transparent;
-            this.cmbOptions.BorderRadius = 3;
-            this.cmbOptions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanelTransition.SetDecoration(this.cmbOptions, BunifuAnimatorNS.DecorationType.None);
-            this.LogoTransition.SetDecoration(this.cmbOptions, BunifuAnimatorNS.DecorationType.None);
-            this.cmbOptions.DisabledColor = System.Drawing.Color.Gray;
-            this.cmbOptions.ForeColor = System.Drawing.Color.White;
-            this.cmbOptions.Items = new string[] {
-        "Buscar por",
-        "Código",
-        "Nombre",
-        "Subcategoría"};
-            this.cmbOptions.Location = new System.Drawing.Point(430, 71);
-            this.cmbOptions.Name = "cmbOptions";
-            this.cmbOptions.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
-            this.cmbOptions.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(73)))), ((int)(((byte)(109)))));
-            this.cmbOptions.selectedIndex = -1;
-            this.cmbOptions.Size = new System.Drawing.Size(163, 35);
-            this.cmbOptions.TabIndex = 60;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
-            this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBuscar.BorderRadius = 5;
-            this.btnBuscar.ButtonText = "       Buscar";
-            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LogoTransition.SetDecoration(this.btnBuscar, BunifuAnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.btnBuscar, BunifuAnimatorNS.DecorationType.None);
-            this.btnBuscar.DisabledColor = System.Drawing.Color.Gray;
-            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnBuscar.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Iconimage")));
-            this.btnBuscar.Iconimage_right = null;
-            this.btnBuscar.Iconimage_right_Selected = null;
-            this.btnBuscar.Iconimage_Selected = null;
-            this.btnBuscar.IconMarginLeft = 25;
-            this.btnBuscar.IconMarginRight = 0;
-            this.btnBuscar.IconRightVisible = false;
-            this.btnBuscar.IconRightZoom = 0D;
-            this.btnBuscar.IconVisible = false;
-            this.btnBuscar.IconZoom = 60D;
-            this.btnBuscar.IsTab = false;
-            this.btnBuscar.Location = new System.Drawing.Point(599, 71);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
-            this.btnBuscar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(130)))), ((int)(((byte)(184)))));
-            this.btnBuscar.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
-            this.btnBuscar.selected = false;
-            this.btnBuscar.Size = new System.Drawing.Size(89, 35);
-            this.btnBuscar.TabIndex = 59;
-            this.btnBuscar.Text = "       Buscar";
-            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Textcolor = System.Drawing.Color.White;
-            this.btnBuscar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // txtBuscador
-            // 
-            this.txtBuscador.BackColor = System.Drawing.Color.White;
-            this.txtBuscador.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtBuscador.BackgroundImage")));
-            this.txtBuscador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.LogoTransition.SetDecoration(this.txtBuscador, BunifuAnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.txtBuscador, BunifuAnimatorNS.DecorationType.None);
-            this.txtBuscador.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.txtBuscador.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.txtBuscador.Icon = ((System.Drawing.Image)(resources.GetObject("txtBuscador.Icon")));
-            this.txtBuscador.Location = new System.Drawing.Point(42, 71);
-            this.txtBuscador.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtBuscador.Name = "txtBuscador";
-            this.txtBuscador.Size = new System.Drawing.Size(376, 35);
-            this.txtBuscador.TabIndex = 58;
-            this.txtBuscador.text = "";
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
-            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
-            this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnUpdate.BorderRadius = 5;
-            this.btnUpdate.ButtonText = "    Actualizar Registros";
-            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LogoTransition.SetDecoration(this.btnUpdate, BunifuAnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.btnUpdate, BunifuAnimatorNS.DecorationType.None);
-            this.btnUpdate.DisabledColor = System.Drawing.Color.Gray;
-            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnUpdate.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Iconimage")));
-            this.btnUpdate.Iconimage_right = null;
-            this.btnUpdate.Iconimage_right_Selected = null;
-            this.btnUpdate.Iconimage_Selected = null;
-            this.btnUpdate.IconMarginLeft = 25;
-            this.btnUpdate.IconMarginRight = 0;
-            this.btnUpdate.IconRightVisible = false;
-            this.btnUpdate.IconRightZoom = 0D;
-            this.btnUpdate.IconVisible = false;
-            this.btnUpdate.IconZoom = 60D;
-            this.btnUpdate.IsTab = false;
-            this.btnUpdate.Location = new System.Drawing.Point(535, 125);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
-            this.btnUpdate.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(130)))), ((int)(((byte)(184)))));
-            this.btnUpdate.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
-            this.btnUpdate.selected = false;
-            this.btnUpdate.Size = new System.Drawing.Size(151, 33);
-            this.btnUpdate.TabIndex = 52;
-            this.btnUpdate.Text = "    Actualizar Registros";
-            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdate.Textcolor = System.Drawing.Color.White;
-            this.btnUpdate.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.bunifuCustomLabel1.AutoSize = true;
+            this.PanelTransition.SetDecoration(this.bunifuCustomLabel1, BunifuAnimatorNS.DecorationType.None);
+            this.LogoTransition.SetDecoration(this.bunifuCustomLabel1, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25F);
+            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.White;
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(226, 16);
+            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(293, 37);
+            this.bunifuCustomLabel1.TabIndex = 45;
+            this.bunifuCustomLabel1.Text = "Subclases de categorías";
             // 
             // btnRegSubCategoria
             // 
@@ -786,69 +696,179 @@
             this.btnRegSubCategoria.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegSubCategoria.Click += new System.EventHandler(this.btnRegSubCategoria_Click);
             // 
-            // bunifuCustomLabel1
+            // btnUpdate
             // 
-            this.bunifuCustomLabel1.AutoSize = true;
-            this.PanelTransition.SetDecoration(this.bunifuCustomLabel1, BunifuAnimatorNS.DecorationType.None);
-            this.LogoTransition.SetDecoration(this.bunifuCustomLabel1, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25F);
-            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(226, 16);
-            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(293, 37);
-            this.bunifuCustomLabel1.TabIndex = 45;
-            this.bunifuCustomLabel1.Text = "Subclases de categorías";
+            this.btnUpdate.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnUpdate.BorderRadius = 5;
+            this.btnUpdate.ButtonText = "    Actualizar Registros";
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LogoTransition.SetDecoration(this.btnUpdate, BunifuAnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.btnUpdate, BunifuAnimatorNS.DecorationType.None);
+            this.btnUpdate.DisabledColor = System.Drawing.Color.Gray;
+            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnUpdate.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Iconimage")));
+            this.btnUpdate.Iconimage_right = null;
+            this.btnUpdate.Iconimage_right_Selected = null;
+            this.btnUpdate.Iconimage_Selected = null;
+            this.btnUpdate.IconMarginLeft = 25;
+            this.btnUpdate.IconMarginRight = 0;
+            this.btnUpdate.IconRightVisible = false;
+            this.btnUpdate.IconRightZoom = 0D;
+            this.btnUpdate.IconVisible = false;
+            this.btnUpdate.IconZoom = 60D;
+            this.btnUpdate.IsTab = false;
+            this.btnUpdate.Location = new System.Drawing.Point(535, 125);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            this.btnUpdate.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(130)))), ((int)(((byte)(184)))));
+            this.btnUpdate.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
+            this.btnUpdate.selected = false;
+            this.btnUpdate.Size = new System.Drawing.Size(151, 33);
+            this.btnUpdate.TabIndex = 52;
+            this.btnUpdate.Text = "    Actualizar Registros";
+            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdate.Textcolor = System.Drawing.Color.White;
+            this.btnUpdate.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // dgvSubClase
+            // txtBuscador
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvSubClase.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvSubClase.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.dgvSubClase.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvSubClase.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubClase.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvSubClase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PanelTransition.SetDecoration(this.dgvSubClase, BunifuAnimatorNS.DecorationType.None);
-            this.LogoTransition.SetDecoration(this.dgvSubClase, BunifuAnimatorNS.DecorationType.None);
-            this.dgvSubClase.DoubleBuffered = true;
-            this.dgvSubClase.EnableHeadersVisualStyles = false;
-            this.dgvSubClase.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(197)))));
-            this.dgvSubClase.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
-            this.dgvSubClase.HeaderForeColor = System.Drawing.Color.Black;
-            this.dgvSubClase.Location = new System.Drawing.Point(45, 176);
-            this.dgvSubClase.Name = "dgvSubClase";
-            this.dgvSubClase.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvSubClase.Size = new System.Drawing.Size(646, 452);
-            this.dgvSubClase.TabIndex = 44;
-            this.dgvSubClase.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSubClase_CellClick);
+            this.txtBuscador.BackColor = System.Drawing.Color.White;
+            this.txtBuscador.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtBuscador.BackgroundImage")));
+            this.txtBuscador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.LogoTransition.SetDecoration(this.txtBuscador, BunifuAnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.txtBuscador, BunifuAnimatorNS.DecorationType.None);
+            this.txtBuscador.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.txtBuscador.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.txtBuscador.Icon = ((System.Drawing.Image)(resources.GetObject("txtBuscador.Icon")));
+            this.txtBuscador.Location = new System.Drawing.Point(86, 71);
+            this.txtBuscador.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtBuscador.Name = "txtBuscador";
+            this.txtBuscador.Size = new System.Drawing.Size(333, 35);
+            this.txtBuscador.TabIndex = 58;
+            this.txtBuscador.text = "";
+            this.txtBuscador.OnTextChange += new System.EventHandler(this.txtBuscador_OnTextChange);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBuscar.BorderRadius = 5;
+            this.btnBuscar.ButtonText = "       Buscar";
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LogoTransition.SetDecoration(this.btnBuscar, BunifuAnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.btnBuscar, BunifuAnimatorNS.DecorationType.None);
+            this.btnBuscar.DisabledColor = System.Drawing.Color.Gray;
+            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnBuscar.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Iconimage")));
+            this.btnBuscar.Iconimage_right = null;
+            this.btnBuscar.Iconimage_right_Selected = null;
+            this.btnBuscar.Iconimage_Selected = null;
+            this.btnBuscar.IconMarginLeft = 25;
+            this.btnBuscar.IconMarginRight = 0;
+            this.btnBuscar.IconRightVisible = false;
+            this.btnBuscar.IconRightZoom = 0D;
+            this.btnBuscar.IconVisible = false;
+            this.btnBuscar.IconZoom = 60D;
+            this.btnBuscar.IsTab = false;
+            this.btnBuscar.Location = new System.Drawing.Point(599, 71);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            this.btnBuscar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(130)))), ((int)(((byte)(184)))));
+            this.btnBuscar.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
+            this.btnBuscar.selected = false;
+            this.btnBuscar.Size = new System.Drawing.Size(89, 35);
+            this.btnBuscar.TabIndex = 59;
+            this.btnBuscar.Text = "       Buscar";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscar.Textcolor = System.Drawing.Color.White;
+            this.btnBuscar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // cmbOptions
+            // 
+            this.cmbOptions.BackColor = System.Drawing.Color.Transparent;
+            this.cmbOptions.BorderRadius = 3;
+            this.cmbOptions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanelTransition.SetDecoration(this.cmbOptions, BunifuAnimatorNS.DecorationType.None);
+            this.LogoTransition.SetDecoration(this.cmbOptions, BunifuAnimatorNS.DecorationType.None);
+            this.cmbOptions.DisabledColor = System.Drawing.Color.Gray;
+            this.cmbOptions.ForeColor = System.Drawing.Color.White;
+            this.cmbOptions.Items = new string[] {
+        "Buscar por",
+        "Código",
+        "Nombre",
+        "Subcategoría"};
+            this.cmbOptions.Location = new System.Drawing.Point(430, 71);
+            this.cmbOptions.Name = "cmbOptions";
+            this.cmbOptions.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
+            this.cmbOptions.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(73)))), ((int)(((byte)(109)))));
+            this.cmbOptions.selectedIndex = -1;
+            this.cmbOptions.Size = new System.Drawing.Size(163, 35);
+            this.cmbOptions.TabIndex = 60;
+            // 
+            // body
+            // 
+            this.body.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.body.Controls.Add(this.btnResetSearch);
+            this.body.Controls.Add(this.cmbOptions);
+            this.body.Controls.Add(this.btnBuscar);
+            this.body.Controls.Add(this.txtBuscador);
+            this.body.Controls.Add(this.btnUpdate);
+            this.body.Controls.Add(this.btnRegSubCategoria);
+            this.body.Controls.Add(this.bunifuCustomLabel1);
+            this.body.Controls.Add(this.dgvSubClase);
+            this.LogoTransition.SetDecoration(this.body, BunifuAnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.body, BunifuAnimatorNS.DecorationType.None);
+            this.body.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.body.Location = new System.Drawing.Point(200, 32);
+            this.body.Name = "body";
+            this.body.Size = new System.Drawing.Size(736, 675);
+            this.body.TabIndex = 47;
+            // 
+            // btnResetSearch
+            // 
+            this.btnResetSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.LogoTransition.SetDecoration(this.btnResetSearch, BunifuAnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.btnResetSearch, BunifuAnimatorNS.DecorationType.None);
+            this.btnResetSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnResetSearch.Image")));
+            this.btnResetSearch.ImageActive = null;
+            this.btnResetSearch.Location = new System.Drawing.Point(43, 71);
+            this.btnResetSearch.Name = "btnResetSearch";
+            this.btnResetSearch.Size = new System.Drawing.Size(37, 35);
+            this.btnResetSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnResetSearch.TabIndex = 65;
+            this.btnResetSearch.TabStop = false;
+            this.btnResetSearch.Zoom = 10;
+            this.btnResetSearch.Click += new System.EventHandler(this.btnResetSearch_Click);
             // 
             // LogoTransition
             // 
             this.LogoTransition.AnimationType = BunifuAnimatorNS.AnimationType.ScaleAndRotate;
             this.LogoTransition.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(30);
-            animation2.RotateCoeff = 0.5F;
-            animation2.RotateLimit = 0.2F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 0F;
-            this.LogoTransition.DefaultAnimation = animation2;
+            animation3.AnimateOnlyDifferences = true;
+            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
+            animation3.LeafCoeff = 0F;
+            animation3.MaxTime = 1F;
+            animation3.MinTime = 0F;
+            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
+            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
+            animation3.MosaicSize = 0;
+            animation3.Padding = new System.Windows.Forms.Padding(30);
+            animation3.RotateCoeff = 0.5F;
+            animation3.RotateLimit = 0.2F;
+            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
+            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
+            animation3.TimeCoeff = 0F;
+            animation3.TransparencyCoeff = 0F;
+            this.LogoTransition.DefaultAnimation = animation3;
             // 
             // SubClasses
             // 
@@ -870,9 +890,10 @@
             this.Options.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSubClase)).EndInit();
             this.body.ResumeLayout(false);
             this.body.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSubClase)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnResetSearch)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -901,12 +922,13 @@
         private BunifuAnimatorNS.BunifuTransition LogoTransition;
         private BunifuAnimatorNS.BunifuTransition PanelTransition;
         private System.Windows.Forms.Panel body;
-        private Bunifu.Framework.UI.BunifuFlatButton btnRegSubCategoria;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
-        private Bunifu.Framework.UI.BunifuCustomDataGrid dgvSubClase;
-        private Bunifu.Framework.UI.BunifuFlatButton btnUpdate;
+        private Bunifu.Framework.UI.BunifuImageButton btnResetSearch;
         private Bunifu.Framework.UI.BunifuDropdown cmbOptions;
         private Bunifu.Framework.UI.BunifuFlatButton btnBuscar;
         private Bunifu.Framework.UI.BunifuTextbox txtBuscador;
+        private Bunifu.Framework.UI.BunifuFlatButton btnUpdate;
+        private Bunifu.Framework.UI.BunifuFlatButton btnRegSubCategoria;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
+        private Bunifu.Framework.UI.BunifuCustomDataGrid dgvSubClase;
     }
 }

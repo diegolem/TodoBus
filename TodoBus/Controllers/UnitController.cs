@@ -48,6 +48,7 @@ namespace TodoBus.Controllers
             }
         }
 
+
         public bool countUnits()
         {
             using (TodoBusEntities db = new TodoBusEntities())
@@ -206,12 +207,10 @@ namespace TodoBus.Controllers
         {
             using (TodoBusEntities db = new TodoBusEntities())
             {
-                //Obtengo todos los registros de mi tabla en la variable lst
                 var lst = from d in db.units
                           join c in db.clients on d.client_id equals c.id
                           select d;
-                //Luego colocamos los registros que generamos de la base en el DataGridView y lo pasamos a lista para que
-                //sea compatible con el DGV
+                
                 if (lst.Count() > 0)
                 {
                     List<FakeUnits> customL = new List<FakeUnits>();
@@ -245,6 +244,101 @@ namespace TodoBus.Controllers
             }
         }
 
+        public void buscar(ref Bunifu.Framework.UI.BunifuCustomDataGrid dgv, string cadena, string index)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                var lst = from d in db.units
+                          select d;
 
+                if (index == "Unidades Totales")
+                {
+                    lst = lst.Where(c => c.total.ToString().Contains(cadena));
+                    
+                }
+                else if (index == "Descripción General")
+                {
+                    lst = lst.Where(c => c.measure_description.Contains(cadena));
+                }
+                else if (index == "Marca Unidad")
+                {
+                    lst = lst.Where(c => c.brands.name.Contains(cadena));
+                }
+                else if (index == "Cliente")
+                {
+                    lst = lst.Where(c => c.clients.client_name.Contains(cadena));
+                }
+                else if (index == "Diseño de Pintura")
+                {
+                    lst = lst.Where(c => c.diseño_pintura.Contains(cadena));
+                }
+                else if (index == "Año de la Unidad")
+                {
+                    lst = lst.Where(c => c.año.ToString().Contains(cadena));
+                }
+                else if (index == "Num. Fabricación Carrocería")
+                {
+                    lst = lst.Where(c => c.numero_FC.Contains(cadena));
+                }
+                else if (index == "Num. Fabricación Chasis")
+                {
+                    lst = lst.Where(c => c.numero_FCH.Contains(cadena));
+                }
+                else if (index == "Marca Carrocería")
+                {
+                    lst = lst.Where(c => c.brands_bodywork.name.Contains(cadena));
+                }
+                else if (index == "Marca Chasis")
+                {
+                    lst = lst.Where(c => c.brands_chassis.name.Contains(cadena));
+                }
+                else if (index == "Marca Motor")
+                {
+                    lst = lst.Where(c => c.brands_motor.name.Contains(cadena));
+                }
+                else if (index == "Modelo")
+                {
+                    lst = lst.Where(c => c.modelo.Contains(cadena));
+                }
+
+                if (lst.Count() > 0)
+                {
+                    List<FakeUnits> customL = new List<FakeUnits>();
+                    foreach (var unit in lst)
+                    {
+                        FakeUnits unitF = new FakeUnits();
+
+                        unitF.Id = unit.id;
+                        unitF.Total_unidades = unit.total;
+                        unitF.Marca_unidad = unit.brands.name;
+                        unitF.Nombre_cliente = unit.clients.client_name;
+                        unitF.Descripcion = (unit.measure_description.Length > 0 ? unit.measure_description : "No especificada");
+                        unitF.Disenio_pintura = (unit.diseño_pintura.Length > 0 ? unit.diseño_pintura : "No especificado");
+                        unitF.Anio = (int)unit.año;
+                        unitF.Modelo = (unit.modelo.Length > 0 ? unit.modelo : "No especificado");
+                        unitF.Numero_fabricacion_carroceria = (unit.numero_FC.Length > 0 ? unit.numero_FC : "No especificado");
+                        unitF.Numero_fabricacion_chasis = (unit.numero_FCH.Length > 0 ? unit.numero_FCH : "No especificado");
+                        unitF.Marca_carroceria = unit.brands_bodywork.name;
+                        unitF.Marca_chasis = unit.brands_chassis.name;
+                        unitF.Marca_motor = unit.brands_motor.name;
+
+                        customL.Add(unitF);
+                    }
+
+                    if (dgv.DataSource != null)
+                    {
+                        dgv.Columns.Clear();
+                    }
+
+                    dgv.DataSource = null;
+                    dgv.DataSource = customL;
+                }
+                else
+                {
+                    List<FakeUnits> newCl = new List<FakeUnits>();
+                    dgv.DataSource = newCl;
+                }
+            }
+        }
     }
 }
