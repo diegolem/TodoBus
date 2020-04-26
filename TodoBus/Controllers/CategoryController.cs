@@ -110,6 +110,50 @@ namespace TodoBus.Controllers
             }
         }
 
+        public void buscar(ref Bunifu.Framework.UI.BunifuCustomDataGrid dgv, string cadena, string index)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+                var lst = from d in db.spare_categories
+                          select d;
+
+                if (index == "Código")
+                {
+                    lst = lst.Where(c => c.code.Contains(cadena));
+                }
+                else if (index == "Nombre")
+                {
+                    lst = lst.Where(c => c.name.Contains(cadena));
+                }
+
+                if (lst.Count() > 0)
+                {
+                    List<FakeCategories> customL = new List<FakeCategories>();
+                    foreach (var Category in lst)
+                    {
+                        FakeCategories categoryF = new FakeCategories();
+                        categoryF.Id = Category.id;
+                        categoryF.Codigo = Category.code;
+                        categoryF.Nombre = Category.name;
+                        customL.Add(categoryF);
+                    }
+
+                    if (dgv.DataSource != null)
+                    {
+                        dgv.Columns.Clear();
+                    }
+
+                    dgv.DataSource = null;
+                    dgv.DataSource = customL;
+                }
+                else
+                {
+                    List<FakeCategories> newCl = new List<FakeCategories>();
+                    dgv.DataSource = newCl;
+                }
+            }
+        }
+
         public spare_categories getCategory(int? id)
         {
             using (TodoBusEntities db = new TodoBusEntities())

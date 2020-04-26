@@ -58,6 +58,76 @@ namespace TodoBus.Controllers
             }
         }
 
+        public void buscarDisponibles(ref Bunifu.Framework.UI.BunifuCustomDataGrid dgv, string cadena, string index)
+        {
+            using (TodoBusEntities db = new TodoBusEntities())
+            {
+
+                var lst = from d in db.spare
+                          join m in db.brands on d.brand_id equals m.id
+                          join c in db.spare_categories on d.spare_type_id equals c.id
+                          select d;
+
+                if (index == "Código")
+                {
+                    lst = lst.Where(c => c.code.Contains(cadena));
+                }
+                else if (index == "Nombre")
+                {
+                    lst = lst.Where(c => c.name.Contains(cadena));
+                }
+                else if (index == "Marca")
+                {
+                    lst = lst.Where(c => c.brands.name.Contains(cadena));
+                }
+                else if (index == "Categoría")
+                {
+                    lst = lst.Where(c => c.spare_categories.name.Contains(cadena));
+                }
+
+                if (lst.Count() > 0)
+                {
+                    List<FakeSpareUnit> customL = new List<FakeSpareUnit>();
+                    foreach (var spare in lst)
+                    {
+                        FakeSpareUnit spareF = new FakeSpareUnit();
+                        spareF.Spare_id = spare.id;
+                        spareF.Codigo = spare.code;
+                        spareF.Nombre = spare.name;
+                        spareF.NombreMarca = spare.brands.name;
+                        spareF.NombreCategoria = spare.spare_categories.name;
+
+                        if (!(customL.Exists(c => c.Spare_id == spare.id)))
+                        {
+                            customL.Add(spareF);
+                        }
+                    }
+
+                    for (int i = 0; i < lstSpareUnits.Count(); i++)
+                    {
+                        var itemToRemove = customL.Single(s => s.Spare_id == lstSpareUnits[i]);
+                        if (itemToRemove != null)
+                        {
+                            customL.Remove(itemToRemove);
+                        }
+                    }
+
+                    if (dgv.DataSource != null)
+                    {
+                        dgv.Columns.Clear();
+                    }
+
+                    dgv.DataSource = null;
+                    dgv.DataSource = customL;
+                }
+                else
+                {
+                    List<FakeSpareUnit> newCl = new List<FakeSpareUnit>();
+                    dgv.DataSource = newCl;
+                }
+            }
+        }
+
         public void spareInformation(int spare_id,ref Label lblNotImage, ref BunifuCustomLabel lblName, ref BunifuCustomLabel lblBrand, ref BunifuCustomLabel lblCategory,ref BunifuCustomLabel lblCode, ref  WindowsFormsControlLibrary1.BunifuCustomTextbox txtDescription, ref PictureBox picImage)
         {
             using(TodoBusEntities db = new TodoBusEntities())
@@ -127,7 +197,6 @@ namespace TodoBus.Controllers
         {
             using (TodoBusEntities db = new TodoBusEntities())
             {
-                this.lstSpareUnits.Clear();
 
                 var lst = from d in db.units_spare
                           join s in db.spare on d.spare_id equals s.id
@@ -158,8 +227,6 @@ namespace TodoBus.Controllers
                     List<FakeSpareUnit> customL = new List<FakeSpareUnit>();
                     foreach (var units_spare in lst)
                     {
-                        this.lstSpareUnits.Add(units_spare.spare.id);
-
                         FakeSpareUnit spareF = new FakeSpareUnit();
                         spareF.Spare_id = units_spare.spare.id;
                         spareF.Codigo = units_spare.spare.code;

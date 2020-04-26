@@ -26,7 +26,7 @@ namespace TodoBus.Views.Units
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -165,6 +165,7 @@ namespace TodoBus.Views.Units
                 if (cmbAssignedSpares.selectedIndex > 0)
                 {
                     spareUnitController.buscar(int.Parse(unit_id.ToString()),ref dgvAssignedSpares, txtBuscador.text, cmbAssignedSpares.selectedValue);
+                    formatTable();
                 }
                 else
                 {

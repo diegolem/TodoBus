@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModRepuesto_Unidad));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.header = new System.Windows.Forms.Panel();
             this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnExit = new Bunifu.Framework.UI.BunifuImageButton();
@@ -45,15 +45,19 @@
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.btnAssignedSpares = new Bunifu.Framework.UI.BunifuFlatButton();
             this.txtAssignedSpares = new Bunifu.Framework.UI.BunifuTextbox();
-            this.cmbAssignedSpares = new Bunifu.Framework.UI.BunifuDropdown();
-            this.cmbAvailableSpares = new Bunifu.Framework.UI.BunifuDropdown();
             this.btnAvailableSpares = new Bunifu.Framework.UI.BunifuFlatButton();
             this.txtAvailableSpares = new Bunifu.Framework.UI.BunifuTextbox();
+            this.cmbAvailableSpares = new Bunifu.Framework.UI.BunifuDropdown();
+            this.cmbAssignedSpares = new Bunifu.Framework.UI.BunifuDropdown();
+            this.btnResetSearch = new Bunifu.Framework.UI.BunifuImageButton();
+            this.btnAssignedReset = new Bunifu.Framework.UI.BunifuImageButton();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssignedSpares)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAvailableSpares)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnResetSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAssignedReset)).BeginInit();
             this.SuspendLayout();
             // 
             // header
@@ -98,19 +102,19 @@
             // 
             // dgvAssignedSpares
             // 
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvAssignedSpares.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvAssignedSpares.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvAssignedSpares.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
             this.dgvAssignedSpares.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAssignedSpares.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAssignedSpares.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAssignedSpares.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvAssignedSpares.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAssignedSpares.DoubleBuffered = true;
             this.dgvAssignedSpares.EnableHeadersVisualStyles = false;
@@ -126,19 +130,19 @@
             // 
             // dgvAvailableSpares
             // 
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvAvailableSpares.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvAvailableSpares.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvAvailableSpares.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
             this.dgvAvailableSpares.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAvailableSpares.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAvailableSpares.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAvailableSpares.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvAvailableSpares.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAvailableSpares.DoubleBuffered = true;
             this.dgvAvailableSpares.EnableHeadersVisualStyles = false;
@@ -253,60 +257,23 @@
             this.btnAssignedSpares.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAssignedSpares.Textcolor = System.Drawing.Color.White;
             this.btnAssignedSpares.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAssignedSpares.Click += new System.EventHandler(this.btnAssignedSpares_Click);
             // 
             // txtAssignedSpares
             // 
             this.txtAssignedSpares.BackColor = System.Drawing.Color.White;
+            this.txtAssignedSpares.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtAssignedSpares.BackgroundImage")));
             this.txtAssignedSpares.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.txtAssignedSpares.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtAssignedSpares.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.txtAssignedSpares.Icon = ((System.Drawing.Image)(resources.GetObject("txtAssignedSpares.Icon")));
-            this.txtAssignedSpares.Location = new System.Drawing.Point(644, 127);
+            this.txtAssignedSpares.Location = new System.Drawing.Point(687, 127);
             this.txtAssignedSpares.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAssignedSpares.Name = "txtAssignedSpares";
-            this.txtAssignedSpares.Size = new System.Drawing.Size(231, 35);
+            this.txtAssignedSpares.Size = new System.Drawing.Size(188, 35);
             this.txtAssignedSpares.TabIndex = 45;
             this.txtAssignedSpares.text = "";
-            // 
-            // cmbAssignedSpares
-            // 
-            this.cmbAssignedSpares.BackColor = System.Drawing.Color.Transparent;
-            this.cmbAssignedSpares.BorderRadius = 3;
-            this.cmbAssignedSpares.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cmbAssignedSpares.DisabledColor = System.Drawing.Color.Gray;
-            this.cmbAssignedSpares.ForeColor = System.Drawing.Color.White;
-            this.cmbAssignedSpares.Items = new string[] {
-        "Código",
-        "Nombre",
-        "Marca",
-        "Categoría"};
-            this.cmbAssignedSpares.Location = new System.Drawing.Point(890, 127);
-            this.cmbAssignedSpares.Name = "cmbAssignedSpares";
-            this.cmbAssignedSpares.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
-            this.cmbAssignedSpares.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(73)))), ((int)(((byte)(109)))));
-            this.cmbAssignedSpares.selectedIndex = -1;
-            this.cmbAssignedSpares.Size = new System.Drawing.Size(163, 35);
-            this.cmbAssignedSpares.TabIndex = 47;
-            // 
-            // cmbAvailableSpares
-            // 
-            this.cmbAvailableSpares.BackColor = System.Drawing.Color.Transparent;
-            this.cmbAvailableSpares.BorderRadius = 3;
-            this.cmbAvailableSpares.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cmbAvailableSpares.DisabledColor = System.Drawing.Color.Gray;
-            this.cmbAvailableSpares.ForeColor = System.Drawing.Color.White;
-            this.cmbAvailableSpares.Items = new string[] {
-        "Código",
-        "Nombre",
-        "Marca",
-        "Categoría"};
-            this.cmbAvailableSpares.Location = new System.Drawing.Point(294, 127);
-            this.cmbAvailableSpares.Name = "cmbAvailableSpares";
-            this.cmbAvailableSpares.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
-            this.cmbAvailableSpares.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(73)))), ((int)(((byte)(109)))));
-            this.cmbAvailableSpares.selectedIndex = -1;
-            this.cmbAvailableSpares.Size = new System.Drawing.Size(163, 35);
-            this.cmbAvailableSpares.TabIndex = 50;
+            this.txtAssignedSpares.OnTextChange += new System.EventHandler(this.txtAssignedSpares_OnTextChange);
             // 
             // btnAvailableSpares
             // 
@@ -343,20 +310,93 @@
             this.btnAvailableSpares.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAvailableSpares.Textcolor = System.Drawing.Color.White;
             this.btnAvailableSpares.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAvailableSpares.Click += new System.EventHandler(this.btnAvailableSpares_Click);
             // 
             // txtAvailableSpares
             // 
             this.txtAvailableSpares.BackColor = System.Drawing.Color.White;
+            this.txtAvailableSpares.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtAvailableSpares.BackgroundImage")));
             this.txtAvailableSpares.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.txtAvailableSpares.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtAvailableSpares.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.txtAvailableSpares.Icon = ((System.Drawing.Image)(resources.GetObject("txtAvailableSpares.Icon")));
-            this.txtAvailableSpares.Location = new System.Drawing.Point(48, 127);
+            this.txtAvailableSpares.Location = new System.Drawing.Point(91, 127);
             this.txtAvailableSpares.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAvailableSpares.Name = "txtAvailableSpares";
-            this.txtAvailableSpares.Size = new System.Drawing.Size(231, 35);
+            this.txtAvailableSpares.Size = new System.Drawing.Size(188, 35);
             this.txtAvailableSpares.TabIndex = 48;
             this.txtAvailableSpares.text = "";
+            this.txtAvailableSpares.OnTextChange += new System.EventHandler(this.txtAvailableSpares_OnTextChange);
+            // 
+            // cmbAvailableSpares
+            // 
+            this.cmbAvailableSpares.BackColor = System.Drawing.Color.Transparent;
+            this.cmbAvailableSpares.BorderRadius = 3;
+            this.cmbAvailableSpares.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cmbAvailableSpares.DisabledColor = System.Drawing.Color.Gray;
+            this.cmbAvailableSpares.ForeColor = System.Drawing.Color.White;
+            this.cmbAvailableSpares.Items = new string[] {
+        "Buscar por",
+        "Código",
+        "Nombre",
+        "Marca",
+        "Categoría"};
+            this.cmbAvailableSpares.Location = new System.Drawing.Point(297, 127);
+            this.cmbAvailableSpares.Name = "cmbAvailableSpares";
+            this.cmbAvailableSpares.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
+            this.cmbAvailableSpares.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(73)))), ((int)(((byte)(109)))));
+            this.cmbAvailableSpares.selectedIndex = -1;
+            this.cmbAvailableSpares.Size = new System.Drawing.Size(163, 35);
+            this.cmbAvailableSpares.TabIndex = 52;
+            // 
+            // cmbAssignedSpares
+            // 
+            this.cmbAssignedSpares.BackColor = System.Drawing.Color.Transparent;
+            this.cmbAssignedSpares.BorderRadius = 3;
+            this.cmbAssignedSpares.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cmbAssignedSpares.DisabledColor = System.Drawing.Color.Gray;
+            this.cmbAssignedSpares.ForeColor = System.Drawing.Color.White;
+            this.cmbAssignedSpares.Items = new string[] {
+        "Buscar por",
+        "Código",
+        "Nombre",
+        "Marca",
+        "Categoría"};
+            this.cmbAssignedSpares.Location = new System.Drawing.Point(891, 127);
+            this.cmbAssignedSpares.Name = "cmbAssignedSpares";
+            this.cmbAssignedSpares.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
+            this.cmbAssignedSpares.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(73)))), ((int)(((byte)(109)))));
+            this.cmbAssignedSpares.selectedIndex = -1;
+            this.cmbAssignedSpares.Size = new System.Drawing.Size(163, 35);
+            this.cmbAssignedSpares.TabIndex = 53;
+            // 
+            // btnResetSearch
+            // 
+            this.btnResetSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnResetSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnResetSearch.Image")));
+            this.btnResetSearch.ImageActive = null;
+            this.btnResetSearch.Location = new System.Drawing.Point(48, 127);
+            this.btnResetSearch.Name = "btnResetSearch";
+            this.btnResetSearch.Size = new System.Drawing.Size(37, 35);
+            this.btnResetSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnResetSearch.TabIndex = 79;
+            this.btnResetSearch.TabStop = false;
+            this.btnResetSearch.Zoom = 10;
+            this.btnResetSearch.Click += new System.EventHandler(this.btnResetSearch_Click);
+            // 
+            // btnAssignedReset
+            // 
+            this.btnAssignedReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnAssignedReset.Image = ((System.Drawing.Image)(resources.GetObject("btnAssignedReset.Image")));
+            this.btnAssignedReset.ImageActive = null;
+            this.btnAssignedReset.Location = new System.Drawing.Point(644, 127);
+            this.btnAssignedReset.Name = "btnAssignedReset";
+            this.btnAssignedReset.Size = new System.Drawing.Size(37, 35);
+            this.btnAssignedReset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnAssignedReset.TabIndex = 80;
+            this.btnAssignedReset.TabStop = false;
+            this.btnAssignedReset.Zoom = 10;
+            this.btnAssignedReset.Click += new System.EventHandler(this.btnAssignedReset_Click);
             // 
             // ModRepuesto_Unidad
             // 
@@ -364,10 +404,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.ClientSize = new System.Drawing.Size(1206, 700);
+            this.Controls.Add(this.btnAssignedReset);
+            this.Controls.Add(this.btnResetSearch);
+            this.Controls.Add(this.cmbAssignedSpares);
             this.Controls.Add(this.cmbAvailableSpares);
             this.Controls.Add(this.btnAvailableSpares);
             this.Controls.Add(this.txtAvailableSpares);
-            this.Controls.Add(this.cmbAssignedSpares);
             this.Controls.Add(this.btnAssignedSpares);
             this.Controls.Add(this.txtAssignedSpares);
             this.Controls.Add(this.bunifuCustomLabel3);
@@ -386,6 +428,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssignedSpares)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAvailableSpares)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnResetSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAssignedReset)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -404,9 +448,11 @@
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private Bunifu.Framework.UI.BunifuFlatButton btnAssignedSpares;
         private Bunifu.Framework.UI.BunifuTextbox txtAssignedSpares;
-        private Bunifu.Framework.UI.BunifuDropdown cmbAssignedSpares;
-        private Bunifu.Framework.UI.BunifuDropdown cmbAvailableSpares;
         private Bunifu.Framework.UI.BunifuFlatButton btnAvailableSpares;
         private Bunifu.Framework.UI.BunifuTextbox txtAvailableSpares;
+        private Bunifu.Framework.UI.BunifuDropdown cmbAvailableSpares;
+        private Bunifu.Framework.UI.BunifuDropdown cmbAssignedSpares;
+        private Bunifu.Framework.UI.BunifuImageButton btnResetSearch;
+        private Bunifu.Framework.UI.BunifuImageButton btnAssignedReset;
     }
 }
