@@ -6,6 +6,7 @@ using TodoBus.Views.Brands;
 using TodoBus.Views.SpareCategoriesSubClasses;
 using TodoBus.Views.Units;
 using TodoBus.Views.Users;
+using TodoBus.Views.Login;
 using TodoBus.Models;
 using TodoBus.Controllers;
 
@@ -14,9 +15,9 @@ namespace TodoBus.Views.SpareCategory
     public partial class Category : Form
     {
         CategoryController categoryController = new CategoryController();
-
         users user = new users();
-
+        
+        
         bool search = false;
         public Category(users userS)
         {
@@ -95,7 +96,7 @@ namespace TodoBus.Views.SpareCategory
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Login log = new Login();
+            TodoBus.Login log = new TodoBus.Login();
             log.Show();
         }
 

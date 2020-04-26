@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using TodoBus.Views.Brands;
 using TodoBus.Views.SpareCategory;
 using TodoBus.Views.Units;
+using TodoBus.Views.Login;
 using TodoBus.Views.Users;
 using TodoBus.Controllers;
 using TodoBus.Models;
@@ -104,7 +105,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Login frmLogin = new Login();
+            TodoBus.Login frmLogin = new TodoBus.Login();
             frmLogin.Show();
         }
 

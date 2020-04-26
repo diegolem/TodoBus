@@ -39,7 +39,7 @@ namespace TodoBus.Views.Users
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Login frmLogin = new Login();
+            TodoBus.Login frmLogin = new TodoBus.Login();
             frmLogin.Show();
         }
 

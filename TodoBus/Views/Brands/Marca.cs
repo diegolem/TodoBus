@@ -6,6 +6,7 @@ using TodoBus.Views.SpareCategoriesSubClasses;
 using TodoBus.Views.SpareCategory;
 using TodoBus.Views.Units;
 using TodoBus.Views.Users;
+using TodoBus.Views;
 using TodoBus.Controllers;
 using TodoBus.Models;
 
@@ -120,8 +121,8 @@ namespace TodoBus.Views.Brands
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             this.Hide();
-            //Login log = new Login();
-            //log.Show();
+            TodoBus.Login log = new TodoBus.Login();
+            log.Show();
         }
 
         private void btnSpareTypes_Click(object sender, EventArgs e)

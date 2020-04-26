@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TodoBus.Models;
 
+
 namespace TodoBus.Controllers
 {
     class LoginController
@@ -79,22 +80,27 @@ namespace TodoBus.Controllers
                               where d.email == userRegisting
                               select d;
 
-                    if(lst.Count()>0)
+                    if (lst.Count()>0)
                     {
-                        users Usuarios = new users();
-                        string Nombre = Usuarios.name;
-                        string Apellido = Usuarios.last_name;
-                        string nombreCom = Nombre + " " + Apellido;
-                        var mailService = new SystemSupportMail();
-                        mailService.sendMail(
-                          subject: "SYSTEM: Recuperar Contraseña",
-                          body: "Hola, " + nombreCom + "\nEstas solicitando recuperar tu contraseña.\n" +
-                          "Tu código de recuperación es el siguiente : 1234\n"+
-                          "No compartas tu codigo de recuperación por ningún motivo.",
-                          
-                          recipientMail: new List<string> { userRegisting }
-                          );
-                        return "Hola, " + nombreCom + "\nEstas solicitando recuperar tu contraseña.\n" + "Por favor revisa tu correo electrónico";
+                        foreach (var user in lst)
+                        {
+                            
+                            string Nombre = user.name;
+                            string Apellido = user.last_name;
+                            string nombreCom = Nombre + " " + Apellido;
+                            int codigo = user.token;
+                            var mailService = new SystemSupportMail();
+                            mailService.sendMail(
+                              subject: "SYSTEM: Recuperar Contraseña",
+                              body: "Hola, " + nombreCom + "\nEstas solicitando recuperar tu contraseña.\n" +
+                              "Tu código de recuperación es el siguiente : " + codigo.ToString() + "\n" +
+                              "No compartas tu codigo de recuperación por ningún motivo.",
+
+                              recipientMail: new List<string> { userRegisting }
+                              );
+                            
+                        }
+                        return "Estas solicitando recuperar tu contraseña.\n" + "Por favor revisa tu correo electrónico";
                     }
                     else
                     {
@@ -104,6 +110,63 @@ namespace TodoBus.Controllers
                 catch
                 {
                     return "Ocurrio un error, revisa tu conexión";
+                }
+            }
+        }
+        public bool VerifiCodi(string email,int codigo)
+        {
+            using(TodoBusEntities db=new TodoBusEntities())
+            {
+                try
+                {
+                    var lst = from d in db.users
+                              where d.email == email
+                              select d;
+                    
+                    foreach (var user in lst)
+                    {
+                        if (user.token == codigo)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    return false;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+        public bool nuevaContraseña(string contraseña,string email)
+        {
+            using (TodoBusEntities db=new TodoBusEntities())
+            {
+                try
+                {
+                    var lst = from d in db.users
+                              where d.email == email
+                              select d;
+                    int? id = 0;
+                    foreach (var user in lst)
+                    {
+                        id = user.id;
+                    }
+                    users use = db.users.Find(id);
+                        use.password = contraseña;
+                        db.Entry(use).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                        return true;
+                    
+
+                }
+                catch
+                {
+                    return false;
                 }
             }
         }

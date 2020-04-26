@@ -24,6 +24,8 @@ namespace TodoBus.Controllers
                                   where d.email == email
                                   select d;
 
+                        Random token = new Random();
+                        int tok = token.Next(1000, 9999);
                         if (lst.Count() == 0)
                         {
                             users Usuarios = new users();
@@ -31,6 +33,7 @@ namespace TodoBus.Controllers
                             Usuarios.last_name = last_name;
                             Usuarios.email = email;
                             Usuarios.age = 30;
+                            Usuarios.token = tok;
 
                             byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
                             StringBuilder builder = new StringBuilder();
