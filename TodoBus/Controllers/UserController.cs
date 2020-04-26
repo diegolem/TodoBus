@@ -252,14 +252,26 @@ namespace TodoBus.Controllers
             }
         }
 
-        public void Busqueda(DataGridView data, string dato)
+        public void buscar(ref Bunifu.Framework.UI.BunifuCustomDataGrid dgv, string cadena, string index)
         {
             using (TodoBusEntities db = new TodoBusEntities())
             {
 
                 var lst = from d in db.users
                           select d;
-                lst = lst.Where(d => d.name.Contains(dato));
+
+                if (index == "Nombre")
+                {
+                    lst = lst.Where(c => c.name.Contains(cadena));
+                }
+                else if (index == "Apellido")
+                {
+                    lst = lst.Where(c => c.last_name.Contains(cadena));
+                }
+                else if (index == "Correo")
+                {
+                    lst = lst.Where(c => c.email.Contains(cadena));
+                }
 
                 if (lst.Count() > 0)
                 {
@@ -272,22 +284,21 @@ namespace TodoBus.Controllers
                         UsersF.Apellido = user.last_name;
                         UsersF.Email = user.email;
                         customL.Add(UsersF);
-                        if (data.DataSource != null)
+
+                        if (dgv.DataSource != null)
                         {
-
-                            data.Columns.Clear();
+                            dgv.Columns.Clear();
                         }
-                        data.DataSource = null;
 
-
-                        data.DataSource = customL;
+                        dgv.DataSource = null;
+                        dgv.DataSource = customL;
 
                     }
                 }
                 else
                 {
                     List<FakeUsers> newSC = new List<FakeUsers>();
-                    data.DataSource = newSC;
+                    dgv.DataSource = newSC;
                 }
 
 

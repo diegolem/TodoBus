@@ -268,7 +268,7 @@ namespace TodoBus.Views.SpareCategoriesSubClasses
             if (search)
             {
                 btnResetSearch.Visible = true;
-                txtBuscador.Size = new System.Drawing.Size(330, 35);
+                txtBuscador.Size = new System.Drawing.Size(333, 35);
                 txtBuscador.Location = new System.Drawing.Point(86, 71);
             }
             else

@@ -15,6 +15,9 @@ namespace TodoBus
     public partial class Usuarios : Form
     {
         UserController userController = new UserController();
+
+        bool search = false;
+
         users user = new users();
         public Usuarios(users userS)
         {
@@ -167,7 +170,7 @@ namespace TodoBus
 
             }
         }
-        private void Refresh()
+        private void RefreshData()
         {
             if (dgvUsuarios.DataSource != null)
             {
@@ -198,6 +201,8 @@ namespace TodoBus
         {
             Refresh();
             formatTable();
+            isSearching();
+            cmbOptions.selectedIndex = 0;
         }
 
         private int? getId()
@@ -258,10 +263,63 @@ namespace TodoBus
             repunit.Show();
         }
 
-        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        private void isSearching()
         {
-            userController.Busqueda(dgvUsuarios, txtBuscador.text);
-            formatTable();
+            if (search)
+            {
+                btnResetSearch.Visible = true;
+                txtBuscador.Size = new System.Drawing.Size(317, 35);
+                txtBuscador.Location = new System.Drawing.Point(289, 119);
+            }
+            else
+            {
+                RefreshData();
+                formatTable();
+                btnResetSearch.Visible = false;
+                txtBuscador.Size = new System.Drawing.Size(360, 35);
+                txtBuscador.Location = new System.Drawing.Point(246, 119);
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (txtBuscador.text.Length > 0)
+            {
+                if (cmbOptions.selectedIndex > 0)
+                {
+                    userController.buscar(ref dgvUsuarios, txtBuscador.text, cmbOptions.selectedValue);
+                    formatTable();
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un parametro de búsqueda válido", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingrese una cadena de búsqueda", "TodoBus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnResetSearch_Click(object sender, EventArgs e)
+        {
+            search = false;
+            isSearching();
+            txtBuscador.text = "";
+        }
+
+        private void txtBuscador_OnTextChange(object sender, EventArgs e)
+        {
+            if (txtBuscador.text.Trim().Length > 0)
+            {
+                search = true;
+                isSearching();
+            }
+            else
+            {
+                search = false;
+                isSearching();
+            }
         }
     }
 }
