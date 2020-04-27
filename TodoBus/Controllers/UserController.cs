@@ -255,12 +255,13 @@ namespace TodoBus.Controllers
             }
         }
 
-        public void buscar(ref Bunifu.Framework.UI.BunifuCustomDataGrid dgv, string cadena, string index)
+        public void buscar(ref Bunifu.Framework.UI.BunifuCustomDataGrid dgv, string cadena, string index, int user_id)
         {
             using (TodoBusEntities db = new TodoBusEntities())
             {
 
                 var lst = from d in db.users
+                          where d.id != user_id
                           select d;
 
                 if (index == "Nombre")

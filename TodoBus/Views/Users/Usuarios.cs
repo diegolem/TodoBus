@@ -280,7 +280,7 @@ namespace TodoBus
             {
                 if (cmbOptions.selectedIndex > 0)
                 {
-                    userController.buscar(ref dgvUsuarios, txtBuscador.text, cmbOptions.selectedValue);
+                    userController.buscar(ref dgvUsuarios, txtBuscador.text, cmbOptions.selectedValue, user.id);
                     formatTable();
                 }
                 else
